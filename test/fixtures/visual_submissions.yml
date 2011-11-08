@@ -1,0 +1,53 @@
+one:
+  title: MyString
+  medium: MyString
+  dimension: MyString
+  height: MyString
+  width: MyString
+  depth: MyString
+  h_unit: MyString
+  w_unit: MyString
+  d_unit: MyString
+  year_created: 
+  sale_price: 1
+  notes: MyText
+  received_date: 2011-11-03 01:56:45
+  pickedup_date: 2011-11-03 01:56:45
+  pickedup_by: MyString
+  shipped_date: 2011-11-03 01:56:45
+  shipped_carrier: MyString
+  shipped_tracking: MyString
+  limited_edition: false
+  edition_position: 1
+  edition_total: 1
+  jury_one_vote: MyString
+  jury_two_vote: MyString
+  jury_three_vote: MyString
+  jury_four_vote: MyString
+
+two:
+  title: MyString
+  medium: MyString
+  dimension: MyString
+  height: MyString
+  width: MyString
+  depth: MyString
+  h_unit: MyString
+  w_unit: MyString
+  d_unit: MyString
+  year_created: 
+  sale_price: 1
+  notes: MyText
+  received_date: 2011-11-03 01:56:45
+  pickedup_date: 2011-11-03 01:56:45
+  pickedup_by: MyString
+  shipped_date: 2011-11-03 01:56:45
+  shipped_carrier: MyString
+  shipped_tracking: MyString
+  limited_edition: false
+  edition_position: 1
+  edition_total: 1
+  jury_one_vote: MyString
+  jury_two_vote: MyString
+  jury_three_vote: MyString
+  jury_four_vote: MyString

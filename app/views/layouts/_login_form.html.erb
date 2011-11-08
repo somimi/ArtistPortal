@@ -1,0 +1,11 @@
+<%= form_for("user", :url => user_session_path) do |f| %>
+  <p><%= f.label "Email" %></p>
+  <p><%= f.text_field :email %></p>
+  <p><%= f.label "Password" %><p>
+  <p><%= f.password_field :password %></p>
+  <%= f.check_box :remember_me %>
+  <%= f.label :remember_me %>
+  <p><%= f.submit 'Sign in' %></p>
+  <%= link_to "Forgot your password?", new_password_path('user') %>
+  <p><%= link_to('Register', new_user_registration_path)  %>
+<% end %>

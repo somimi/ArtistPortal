@@ -1,0 +1,129 @@
+<%= form_for @visual_submission do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :medium %><br />
+      <%= f.select(:medium, options_for_select([['Photography', 'Photography'], ['Sculpture', 'Sculpture'], ['Painting'], ['Other', 'Other']], @visual_submission.medium), {:include_blank => true}) %>
+  </p>
+  <p>
+    <%= f.label "Is this submission three dimensional?" %><br />
+    <%= f.check_box :dimension, :id => "dim-check" %>
+  </p><a href="#?w=500" rel="popup_dimension" class="poplight">Learn More</a>
+  <p>
+    <%= f.label :height %><br />
+    <%= f.text_field :height %>
+  </p>
+  <p>
+    <%= f.label :h_unit %><br />
+    <%= f.select :h_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @visual_submission.h_unit) %>
+  </p>
+  <p>
+    <%= f.label :width %><br />
+    <%= f.text_field :width %>
+  </p>
+  <p>
+    <%= f.label :w_unit %><br />
+    <%= f.select :w_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @visual_submission.w_unit) %>
+  </p>
+<div id="three-dee">
+  <p>
+    <%= f.label :depth %><br />
+    <%= f.text_field :depth %>
+  </p>
+  <p>
+    <%= f.label :d_unit %><br />
+    <%= f.select :d_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @visual_submission.d_unit) %>
+  </p>
+</div>
+  <p>
+    <%= f.label :year_created %><br />
+    <%= f.text_field :year_created %>
+  </p>
+  <p>
+    <%= f.label :sale_price %><br />
+    <%= f.number_field :sale_price %>
+  </p>
+  <p>
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </p>
+  <p>
+    <%= f.label :limited_edition %><br />
+    <%= f.check_box :limited_edition, :id => "li-check" %>
+  </p>
+<div id="limited-edition" >
+  <p>
+    <%= f.label :edition_position %><br />
+    <%= f.number_field :edition_position %>
+  </p>
+  <p>
+    <%= f.label :edition_total %><br />
+    <%= f.number_field :edition_total %>
+  </p>
+</div>
+
+<a href="#?w=500" rel="popup_limited" class="poplight">Learn More</a>
+
+ <p>
+      <%= f.label :image, "Image" %>  
+      <%= f.file_field :image %>  
+ </p>
+ 
+  <p><%= f.submit %></p>
+<% end %>
+
+<div id="popup_limited" class="popup_block">
+    <h2>Limited Edition Artwork</h2>
+    <p>This is a lot of stuff that I don't know how to answer but should go in this box.</p>
+</div>
+<div id="popup_dimension" class="popup_block">
+    <h2>Dimension</h2>
+    <p>Is this art in three dimensions?  For instance, like a pillow or a sock puppet.</p>
+</div>
+
+
+<!-- <p>
+  <%#= f.label :received_date %><br />
+  <%#= f.datetime_select :received_date %>
+</p>
+<p>
+  <%#= f.label :pickedup_date %><br />
+  <%#= f.datetime_select :pickedup_date %>
+</p>
+<p>
+  <%#= f.label :pickedup_by %><br />
+  <%#= f.text_field :pickedup_by %>
+</p>
+<p>
+  <%#= f.label :shipped_date %><br />
+  <%#= f.datetime_select :shipped_date %>
+</p>
+<p>
+  <%#= f.label :shipped_carrier %><br />
+  <%#= f.text_field :shipped_carrier %>
+</p>
+<p>
+  <%#= f.label :shipped_tracking %><br />
+  <%#= f.text_field :shipped_tracking %>
+</p>
+
+<p>
+  <%#= f.label :jury_one_vote %><br />
+  <%#= f.text_field :jury_one_vote %>
+</p>
+<p>
+  <%#= f.label :jury_two_vote %><br />
+  <%#= f.text_field :jury_two_vote %>
+</p>
+<p>
+  <%#= f.label :jury_three_vote %><br />
+  <%#= f.text_field :jury_three_vote %>
+</p>
+<p>
+  <%#= f.label :jury_four_vote %><br />
+  <%#= f.text_field :jury_four_vote %>
+</p>
+-->

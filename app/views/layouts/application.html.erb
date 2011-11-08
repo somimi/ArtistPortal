@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+	<div id="left-column">
+		<% if user_signed_in? %>
+		  <% if current_user.is_admin? %>
+		     <%= render 'layouts/admin_menu' %>
+		  <% elsif current_user.is_juror? %>
+			 <%= render 'layouts/juror_menu' %>
+		  <% elsif current_user.is_handler? %>
+			 <%= render 'layouts/handler_menu' %>
+		  <% else %>
+			 <%= render 'layouts/artist_menu' %>
+		  <% end %>
+		<% else %>
+		  <%= render 'layouts/login_form' %>
+		<% end %>
+
+	</div>
+	<div id="user_nav">
+			<% if user_signed_in? %>
+				Signed in as <%= current_user.email %>
+				<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+		 	<% end %>
+	</div>
+    <div id="container">
+	
+	   <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+      
+      <%= content_tag :h1, yield(:title) if show_title? %>
+      <%= yield %>
+
+    </div>
+  </body>
+</html>

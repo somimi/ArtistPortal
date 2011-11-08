@@ -1,0 +1,109 @@
+<% title "Artist" %>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @artist.first_name %>
+</p>
+<p>
+  <strong>Last Name:</strong>
+  <%= @artist.last_name %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @artist.user_id %>
+</p>
+<p>
+  <strong>Visual Paid:</strong>
+  <%= @artist.visual_paid %>
+</p>
+<p>
+  <strong>Literary Paid:</strong>
+  <%= @artist.literary_paid %>
+</p>
+<p>
+  <strong>Professional Name:</strong>
+  <%= @artist.professional_name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @artist.email %>
+</p>
+<p>
+  <strong>Phone:</strong>
+  <%= @artist.phone %>
+</p>
+<p>
+  <strong>Mailing Address Line1:</strong>
+  <%= @artist.mailing_address_line1 %>
+</p>
+<p>
+  <strong>Mailing Address Line2:</strong>
+  <%= @artist.mailing_address_line2 %>
+</p>
+<p>
+  <strong>Mailing City:</strong>
+  <%= @artist.mailing_city %>
+</p>
+<p>
+  <strong>Mailing Zip:</strong>
+  <%= @artist.mailing_zip %>
+</p>
+<p>
+  <strong>Shipping Address Line1:</strong>
+  <%= @artist.shipping_address_line1 %>
+</p>
+<p>
+  <strong>Shipping Address Line2:</strong>
+  <%= @artist.shipping_address_line2 %>
+</p>
+<p>
+  <strong>Shipping City:</strong>
+  <%= @artist.shipping_city %>
+</p>
+<p>
+  <strong>Shipping Zip:</strong>
+  <%= @artist.shipping_zip %>
+</p>
+<p>
+  <strong>Shipping State:</strong>
+  <%= @artist.shipping_state %>
+</p>
+<p>
+  <strong>Mailing State:</strong>
+  <%= @artist.mailing_state %>
+</p>
+<p>
+  <strong>Shipping Country:</strong>
+  <%= @artist.shipping_country %>
+</p>
+<p>
+  <strong>Mailing Country:</strong>
+  <%= @artist.mailing_country %>
+</p>
+<p>
+  <strong>Shipping Same As Mail:</strong>
+  <%= @artist.shipping_same_as_mail %>
+</p>
+<p>
+  <strong>Shipping Account:</strong>
+  <%= @artist.shipping_account %>
+</p>
+<p>
+  <strong>Bio:</strong>
+  <%= @artist.bio %>
+</p>
+<p>
+  <strong>Require Representation:</strong>
+  <%= @artist.require_representation %>
+</p>
+<% if current_user.is_admin? || current_user.is_handler? %>
+	Here is a list of submissions for this artist.
+    <% @artist.visual_submission.each do |i| %>
+		<%= link_to i.title, visual_submission_path(i) %>
+	<% end %>
+<% end %>
+<p>
+  <%= link_to "Edit", edit_artist_path(@artist) %> |
+  <%= link_to "Destroy", @artist, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", artists_path %>
+</p>

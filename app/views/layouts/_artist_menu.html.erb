@@ -1,0 +1,22 @@
+<% if !current_user.artist %>
+	<%= link_to "Add Profile", new_artist_path %>
+<% else %>
+    <%= link_to "Edit Profile", edit_artist_path(current_user.artist) %>
+<% end %>
+
+<% if current_user.artist %>
+	<% if !current_user.paid_visual? %>
+		<%= link_to "Pay for Visual Submission" %>
+	<% else  %>
+		<%= link_to "Visual Art", visual_submissions_path, :var => "something" %>
+	<% end %>
+
+	<% if !current_user.paid_literary? %>
+		<%= link_to "Pay for Literary Submission" %>
+	<% else %>
+		<%= link_to "Literary Art" %>
+	<% end %>
+
+		<%= link_to "Film Art" %>
+		<%= link_to "Installation Art" %>
+<% end %> 

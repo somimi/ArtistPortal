@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Medium</th>
+	<th>Image</th>
+
+  </tr>
+  <% for visual_submission in @visual_submissions %>
+    <tr>
+      <td><%= link_to visual_submission.title, visual_submission_path(visual_submission) %></td>
+      <td><%= visual_submission.medium %></td>
+	  <td><%= image_tag visual_submission.image.url(:thumb)  %></td>
+
+    </tr>
+  <% end %>
+</table>
+
+

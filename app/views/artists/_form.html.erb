@@ -1,0 +1,91 @@
+<%= form_for @artist do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :professional_name %><br />
+    <%= f.text_field :professional_name %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :mailing_address_line1 %><br />
+    <%= f.text_field :mailing_address_line1 %>
+  </p>
+  <p>
+    <%= f.label :mailing_address_line2 %><br />
+    <%= f.text_field :mailing_address_line2 %>
+  </p>
+  <p>
+    <%= f.label :mailing_city %><br />
+    <%= f.text_field :mailing_city %>
+  </p>
+  <p>
+    <%= f.label :mailing_state %><br />
+    <%= f.text_field :mailing_state %>
+  </p>
+  <p>
+    <%= f.label :mailing_zip %><br />
+    <%= f.text_field :mailing_zip %>
+  </p>
+  <p>
+    <%= f.label :mailing_country %><br />
+    <%= f.text_field :mailing_country %>
+  </p>
+  <p>
+    <%= f.label :shipping_same_as_mail %><br />
+    <%= f.check_box :shipping_same_as_mail, :id => "shipping-check" %>
+  </p>
+<div id="shipping-address">
+	  <p>
+	    <%= f.label :shipping_address_line1 %><br />
+	    <%= f.text_field :shipping_address_line1 %>
+	  </p>
+	  <p>
+	    <%= f.label :shipping_address_line2 %><br />
+	    <%= f.text_field :shipping_address_line2 %>
+	  </p>
+	  <p>
+	    <%= f.label :shipping_city %><br />
+	    <%= f.text_field :shipping_city %>
+	  </p>
+	  <p>
+	    <%= f.label :shipping_zip %><br />
+	    <%= f.text_field :shipping_zip %>
+	  </p>
+	  <p>
+	    <%= f.label :shipping_state %><br />
+	    <%= f.text_field :shipping_state %>
+	  </p>
+	  <p>
+	    <%= f.label :shipping_country %><br />
+	    <%= f.text_field :shipping_country %>
+	  </p>
+</div>
+  <p>
+    <%= f.label :shipping_account %><br />
+    <%= f.text_field :shipping_account %>
+  </p>
+  <p>
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio %>
+  </p>
+  <p>
+    <%= f.label :require_representation %><br />
+    <%= f.check_box :require_representation %>
+  </p>
+  <p>
+		<%= f.submit "Save Profile" %></p>
+<% end %>

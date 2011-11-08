@@ -1,0 +1,101 @@
+<% title "Visual Submission" %>
+
+<% if current_user.is_juror? %>
+
+	<%= render "juror_show" %>
+<% else %>
+
+    <p>
+	  <strong>Title:</strong>
+	  <%= @visual_submission.title %>
+	</p>
+	<p>
+	  <strong>Medium:</strong>
+	  <%= @visual_submission.medium %>
+	</p>
+	<p>
+	  <strong>Dimension:</strong>
+	  <%= @visual_submission.dimension %>
+	</p>
+	<p>
+	  <strong>Height:</strong>
+	  <%= @visual_submission.height %>
+	</p>
+	<p>
+	  <strong>Width:</strong>
+	  <%= @visual_submission.width %>
+	</p>
+	<p>
+	  <strong>Depth:</strong>
+	  <%= @visual_submission.depth %>
+	</p>
+	<p>
+	  <strong>H Unit:</strong>
+	  <%= @visual_submission.h_unit %>
+	</p>
+	<p>
+	  <strong>W Unit:</strong>
+	  <%= @visual_submission.w_unit %>
+	</p>
+	<p>
+	  <strong>D Unit:</strong>
+	  <%= @visual_submission.d_unit %>
+	</p>
+	<p>
+	  <strong>Year Created:</strong>
+	  <%= @visual_submission.year_created %>
+	</p>
+	<p>
+	  <strong>Sale Price:</strong>
+	  <%= @visual_submission.sale_price %>
+	</p>
+	<p>
+	  <strong>Notes:</strong>
+	  <%= @visual_submission.notes %>
+	</p>
+	<p>
+	  <strong>Received Date:</strong>
+	  <%= @visual_submission.received_date %>
+	</p>
+	<p>
+	  <strong>Pickedup Date:</strong>
+	  <%= @visual_submission.pickedup_date %>
+	</p>
+	<p>
+	  <strong>Pickedup By:</strong>
+	  <%= @visual_submission.pickedup_by %>
+	</p>
+	<p>
+	  <strong>Shipped Date:</strong>
+	  <%= @visual_submission.shipped_date %>
+	</p>
+	<p>
+	  <strong>Shipped Carrier:</strong>
+	  <%= @visual_submission.shipped_carrier %>
+	</p>
+	<p>
+	  <strong>Shipped Tracking:</strong>
+	  <%= @visual_submission.shipped_tracking %>
+	</p>
+	<p>
+	  <strong>Limited Edition:</strong>
+	  <%= @visual_submission.limited_edition %>
+	</p>
+	<p>
+	  <strong>Edition Position:</strong>
+	  <%= @visual_submission.edition_position %>
+	</p>
+	<p>
+	  <strong>Edition Total:</strong>
+	  <%= @visual_submission.edition_total %>
+	</p>
+
+		<%= link_to (image_tag @visual_submission.image.url(:small)), @visual_submission.image.url %>
+
+
+	<p>
+	  <%= link_to "Edit", edit_visual_submission_path(@visual_submission) %> |
+	  <%= link_to "Delete", @visual_submission, :confirm => 'Are you sure?', :method => :delete %> |
+	  <%= link_to "Back to submissions", visual_submissions_path %>
+	</p>
+<% end %>

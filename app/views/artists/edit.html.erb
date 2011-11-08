@@ -1,0 +1,11 @@
+<% title "Edit Profile" %>
+
+<%= render 'form' %>
+
+<p>
+<% if current_user.is_admin? %>
+  <%= link_to "List Artists", artists_path %>
+<% else %>
+	<%= link_to "Back", root_path %>
+<% end %>
+</p>

@@ -1,0 +1,16 @@
+<%= link_to (image_tag @visual_submission.image.url(:large)), @visual_submission.image.url %>
+<p>
+	<%= form_for @visual_submission do |f| %>
+	    <%= f.select :jury_one_vote, options_for_select([['No','1'],['Maybe','3'],['Yes', '5']]) %>
+		<p>
+			<%=f.submit "Vote" %>
+		</p>
+	<% end %>
+	
+</p>
+<p>
+	<% if @prev_submision || @next_submission %>
+		<%= link_to 'Previous', @prev_submission %>
+		<%= link_to 'Next', @next_submission %>
+	<% end %>
+</p>

@@ -11,11 +11,13 @@
   <tr>
 	<th><%= sortable "artist_id" %></th>
 	<th><%= sortable "user_id" %></th>
-    <th>sortable "First Name"</th>
-    <th>Last Name</th>
-    <th>Professional Name</th>
-    <th>Email</th>
-    <th>Phone</th>
+    <th><%= sortable "first_name" %></th>
+    <th><%= sortable "last_name" %></th>
+    <th><%= sortable "professional_name" %></th>
+    <th><%= sortable "email" %></th>
+    <th><%= sortable "phone" %></th>
+	<th><%= sortable "visual_paid" %></th>
+	<th><%= sortable "literary_pad" %></th>
     <th>Bio</th>
     <th>Visual Art Submissions</th>
   </tr>
@@ -24,11 +26,12 @@
 	  <td><%= link_to artist.id, artist_path(artist) %></th>
 	  <td><%= link_to artist.user_id, user_path(artist.user) %></td>
       <td><%= link_to artist.first_name, artist_path(artist) %></td>
-      <td><%= artist.last_name %></td>
+      <td><%= link_to artist.last_name, artist_path(artist) %></td>
+      <td><%= link_to artist.professional_name %></td>
+      <td><%= mail_to artist.email %></td>
+	  <td><%= artist.phone %></td>
       <td><%= artist.visual_paid %></td>
       <td><%= artist.literary_paid %></td>
-      <td><%= artist.professional_name %></td>
-      <td><%= artist.email %></td>
       <td><%= artist.bio %></td>
       <td>
 	    <% if artist.visual_submission == nil %>

@@ -5,23 +5,59 @@
 	 <%= render "juror_index" %>
  <% else %>
 
+  <% if !current_user.is_artist? %>
+   <%= form_tag visual_submissions_path, :method => 'get' do %>  
+     <p>  
+       <%= text_field_tag :search, params[:search] %> 
+       <%= submit_tag "Search", :name => nil %>  
+     </p>  
+   <% end %>
+  <% end %>
+<% if !current_user.is_artist? %>
+	<%= paginate @visual_submissions %>
+<% end %>
+
 	<table>
 	  <tr>
-	    <th>Title</th>
-	    <th>Medium</th>
+	    <th><%= sortable "title" %><th>
+	    <th><%= sortable "medium" %></th>
+	  <% if current_user.is_admin? || current_user.is_handler? %>
+		<th><%= sortable "first_name" %></th>
+		<th><%= sortable "last_name " %></th>
+		<th><%= sortable "jury_one_vote" %></th>
+		<th><%= sortable "jury_two_vote" %></th>
+		<th><%= sortable "jury_three_vote "%></th>
+		<th><%= sortable "jury_four_vote" %></th>
+		<th><%= sortable "jury_five_vote" %></th>
+		<th><%= sortable "average_vote "%></th>
+		<th><%= sortable "acceptance_status" %></th>
+	 <% end %>
 		<th>Image</th>
 
 	  </tr>
 	  <% for visual_submission in @visual_submissions %>
 	    <tr>
 	      <td><%= link_to visual_submission.title, visual_submission_path(visual_submission) %></td>
-	      <td><%= visual_submission.medium %></td>
+	      <td><%= link_to visual_submission.medium, visual_submission_path(visual_submission) %></td>
+		  <td><%= link_to visual_submission.artist.first_name, artist_path(visual_submission.artist) %></td>
+		  <td><%= link_to visual_submission.artist.last_name, artist_path(visual_submission.artist) %></td>
+		  <% if current_user.is_admin? %>
+		  <td><%= visual_submission.jury_one_vote %></td>
+		  <td><%= visual_submission.jury_two_vote %></td>
+		  <td><%= visual_submission.jury_three_vote %></td>
+		  <td><%= visual_submission.jury_four_vote %></td>
+		  <td><%= visual_submission.jury_five_vote %></td>
+		  <td><%= visual_submission.average_vote %></td>
+		  <td><%= visual_submission.acceptance_status %></td>
+		  <% end %>
+
 		  <td><%= image_tag visual_submission.image.url(:thumb)  %></td>
 
 	    </tr>
 	  <% end %>
 	</table>
-  <% end %>
+ <% end %>
+
 
 
 <p><%= link_to "New Visual Submission", new_visual_submission_path %></p>

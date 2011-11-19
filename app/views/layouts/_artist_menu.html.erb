@@ -5,16 +5,16 @@
 <% end %>
 
 <% if current_user.artist %>
-	<% if !current_user.paid_visual? %>
-		<%= link_to "Pay for Visual Submission" %>
-	<% else  %>
+	<% if current_user.artist.paid_visual? %>
 		<%= link_to "Visual Art", visual_submissions_path, :var => "something" %>
+	<% else  %>
+		<%= link_to "Pay for Visual Submission" %>
 	<% end %>
 
-	<% if !current_user.paid_literary? %>
-		<%= link_to "Pay for Literary Submission" %>
-	<% else %>
+	<% if current_user.artist.paid_literary? %>
 		<%= link_to "Literary Art" %>
+	<% else %>
+		<%= link_to "Pay for Literary Submission" %>
 	<% end %>
 
 		<%= link_to "Film Art" %>

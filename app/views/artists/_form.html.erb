@@ -14,7 +14,7 @@
   </p>
   <p>
     <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :value => @artist.email ||= current_user.email %>
   </p>
   <p>
     <%= f.label :phone %><br />
@@ -87,5 +87,13 @@
     <%= f.check_box :require_representation %>
   </p>
   <p>
+  <p>
+	<%= f.label :paid_literary %><br />
+	<%= f.check_box :paid_literary %>
+  </p>
+  <p>
+	<%= f.label :paid_visual %><br />
+	<%= f.check_box :paid_visual %>
+  </p>
 		<%= f.submit "Save Profile" %></p>
 <% end %>

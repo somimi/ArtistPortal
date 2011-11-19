@@ -21,6 +21,7 @@ gem 'nifty-generators'
 gem 'devise'
 gem 'paperclip'
 gem 'formtastic'
+gem 'kaminari'
 
 
 # Use unicorn as the web server

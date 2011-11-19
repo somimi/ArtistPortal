@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111106024723) do
+ActiveRecord::Schema.define(:version => 20111119025455) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(:version => 20111106024723) do
     t.boolean  "require_representation"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "paid_literary"
+    t.boolean  "paid_visual"
   end
 
   create_table "users", :force => true do |t|
@@ -56,8 +58,6 @@ ActiveRecord::Schema.define(:version => 20111106024723) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role",                                  :default => "artist"
-    t.boolean  "paid_visual"
-    t.boolean  "paid_literary"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -85,10 +85,10 @@ ActiveRecord::Schema.define(:version => 20111106024723) do
     t.boolean  "limited_edition"
     t.integer  "edition_position"
     t.integer  "edition_total"
-    t.string   "jury_one_vote"
-    t.string   "jury_two_vote"
-    t.string   "jury_three_vote"
-    t.string   "jury_four_vote"
+    t.integer  "jury_one_vote"
+    t.integer  "jury_two_vote"
+    t.integer  "jury_three_vote"
+    t.integer  "jury_four_vote"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
@@ -96,6 +96,9 @@ ActiveRecord::Schema.define(:version => 20111106024723) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "artist_id"
+    t.integer  "jury_five_vote"
+    t.integer  "average_vote"
+    t.string   "acceptance_status",  :default => "undecided"
   end
 
 end

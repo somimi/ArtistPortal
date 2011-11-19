@@ -7,15 +7,6 @@
 	<%= f.label :role %>
 	<%= f.select(:role, options_for_select([["admin", "admin"], ["artist", "artist"], ["handler", "handler"], ["juror", "juror"]], @user.role))%>
   </p>
-  <p>
-	<%= f.label :paid_visual %>	
-	<%= f.check_box :paid_visual %>
-  </p>
-  <p>
-    <%= f.label :paid_literary%>
-	<%= f.check_box :paid_literary %>
-  </p>
-  <p>
      <%= f.submit %>
   </p>
 <% end %>

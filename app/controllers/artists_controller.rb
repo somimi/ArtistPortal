@@ -1,7 +1,10 @@
 class ArtistsController < ApplicationController
+  helper_method :sort_column, :sort_direction  
+  before_filter :authenticate_user!
   def index
-    @artists = Artist.all
+    @artists = Artist.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(5)
   end
+
 
   def show
     @artist = Artist.find(params[:id])
@@ -39,4 +42,15 @@ class ArtistsController < ApplicationController
     @artist.destroy
     redirect_to artists_url, :notice => "Successfully destroyed artist."
   end
+  
+  private  
+  def sort_column  
+    Artist.column_names.include?(params[:sort]) ? params[:sort] : "first_name"  
+  end  
+    
+  def sort_direction  
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"    
+  end
+  
+
 end

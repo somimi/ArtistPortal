@@ -1,10 +1,11 @@
 class VisualSubmissionsController < ApplicationController
+  helper_method :sort_column, :sort_direction  
   before_filter :authenticate_user!
   def index
     if current_user.is_artist?
       @visual_submissions = current_user.artist.visual_submission  
     else 
-      @visual_submissions = VisualSubmission.all
+      @visual_submissions = VisualSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(5)
       session[:query] = @visual_submissions.map(&:id)
     end
   end
@@ -50,5 +51,14 @@ class VisualSubmissionsController < ApplicationController
     @visual_submission = VisualSubmission.find(params[:id])
     @visual_submission.destroy
     redirect_to visual_submissions_url, :notice => "Successfully destroyed visual submission."
+  end
+  
+  private  
+  def sort_column  
+    VisualSubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
+  end  
+    
+  def sort_direction  
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"    
   end
 end

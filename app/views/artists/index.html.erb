@@ -1,58 +1,44 @@
 <% title "Artists" %>
 
+<%= form_tag visual_submissions_path, :method => 'get' do %>  
+  <p>  
+    <%= text_field_tag :search, params[:search] %> 
+    <%= submit_tag "Search", :name => nil %>  
+  </p>  
+<% end %>
+
 <table>
   <tr>
-    <th>First Name</th>
+	<th><%= sortable "artist_id" %></th>
+	<th><%= sortable "user_id" %></th>
+    <th>sortable "First Name"</th>
     <th>Last Name</th>
-    <th>User</th>
-    <th>Visual Paid</th>
-    <th>Literary Paid</th>
     <th>Professional Name</th>
     <th>Email</th>
     <th>Phone</th>
-    <th>Mailing Address Line1</th>
-    <th>Mailing Address Line2</th>
-    <th>Mailing City</th>
-    <th>Mailing Zip</th>
-    <th>Shipping Address Line1</th>
-    <th>Shipping Address Line2</th>
-    <th>Shipping City</th>
-    <th>Shipping Zip</th>
-    <th>Shipping State</th>
-    <th>Mailing State</th>
-    <th>Shipping Country</th>
-    <th>Mailing Country</th>
-    <th>Shipping Same As Mail</th>
-    <th>Shipping Account</th>
     <th>Bio</th>
-    <th>Require Representation</th>
+    <th>Visual Art Submissions</th>
   </tr>
   <% for artist in @artists %>
     <tr>
+	  <td><%= link_to artist.id, artist_path(artist) %></th>
+	  <td><%= link_to artist.user_id, user_path(artist.user) %></td>
       <td><%= link_to artist.first_name, artist_path(artist) %></td>
       <td><%= artist.last_name %></td>
-      <td><%= artist.user_id %></td>
       <td><%= artist.visual_paid %></td>
       <td><%= artist.literary_paid %></td>
       <td><%= artist.professional_name %></td>
       <td><%= artist.email %></td>
-      <td><%= artist.phone %></td>
-      <td><%= artist.mailing_address_line1 %></td>
-      <td><%= artist.mailing_address_line2 %></td>
-      <td><%= artist.mailing_city %></td>
-      <td><%= artist.mailing_zip %></td>
-      <td><%= artist.shipping_address_line1 %></td>
-      <td><%= artist.shipping_address_line2 %></td>
-      <td><%= artist.shipping_city %></td>
-      <td><%= artist.shipping_zip %></td>
-      <td><%= artist.shipping_state %></td>
-      <td><%= artist.mailing_state %></td>
-      <td><%= artist.shipping_country %></td>
-      <td><%= artist.mailing_country %></td>
-      <td><%= artist.shipping_same_as_mail %></td>
-      <td><%= artist.shipping_account %></td>
       <td><%= artist.bio %></td>
-      <td><%= artist.require_representation %></td>
+      <td>
+	    <% if artist.visual_submission == nil %>
+			No Submissions
+	    <% else %>
+			<% for submission in artist.visual_submission %>
+			   <%= link_to submission.title, visual_submission_path(submission) %></br>
+			<% end %>
+		<% end %>
+	  </td>
       <td><%= link_to "Show", artist %></td>
       <td><%= link_to "Edit", edit_artist_path(artist) %></td>
       <td><%= link_to "Destroy", artist, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -18,11 +18,16 @@ ArtistPortal::Application.routes.draw do
   # devise_for :users
   devise_for :users, :path_prefeix => 'd' do get '/users/sign_out' => 'devise/sessions#destroy' end
   resources :users
-  
 
   resources :artists
 
   resources :visual_submissions
+  
+  resources :visual_submissions do
+      member do
+       get :images
+     end
+  end
   
   root :to => "pages#home"
 

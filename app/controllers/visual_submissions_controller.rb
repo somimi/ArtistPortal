@@ -1,17 +1,22 @@
 class VisualSubmissionsController < ApplicationController
   helper_method :sort_column, :sort_direction  
   before_filter :authenticate_user!
+  load_and_authorize_resource
   def index
     if current_user.is_artist?
       @visual_submissions = current_user.artist.visual_submission  
-    else 
+    elsif current_user.is_admin? || current_user.is_handler?
       @visual_submissions = VisualSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(5)
       session[:query] = @visual_submissions.map(&:id)
+    else
+      @visual_submission = VisualSubmission.undecided
     end
+    
+    
   end
 
   def show
-    @visual_submission = VisualSubmission.find(params[:id])
+    #@visual_submission = VisualSubmission.find(params[:id])
    if current_user.is_juror?  
      if session[:query]
        @next_submission = @visual_submission.next(session[:query])
@@ -21,11 +26,11 @@ class VisualSubmissionsController < ApplicationController
   end
 
   def new
-    @visual_submission = VisualSubmission.new
+    #@visual_submission = VisualSubmission.new
   end
 
   def create
-    @visual_submission = VisualSubmission.new(params[:visual_submission])
+    #@visual_submission = VisualSubmission.new(params[:visual_submission])
     @visual_submission.artist_id = current_user.artist.id
     if @visual_submission.save
       redirect_to @visual_submission, :notice => "Successfully created visual submission."
@@ -35,11 +40,11 @@ class VisualSubmissionsController < ApplicationController
   end
 
   def edit
-    @visual_submission = VisualSubmission.find(params[:id])
+    #@visual_submission = VisualSubmission.find(params[:id])
   end
 
   def update
-    @visual_submission = VisualSubmission.find(params[:id])
+    #@visual_submission = VisualSubmission.find(params[:id])
     if @visual_submission.update_attributes(params[:visual_submission])
       redirect_to @visual_submission, :notice  => "Successfully updated visual submission."
     else
@@ -51,6 +56,14 @@ class VisualSubmissionsController < ApplicationController
     @visual_submission = VisualSubmission.find(params[:id])
     @visual_submission.destroy
     redirect_to visual_submissions_url, :notice => "Successfully destroyed visual submission."
+  end
+  
+  def images
+    
+    visual_submission = VisualSubmission.find(params[:id])
+    style = params[:style] ? params[:style] : 'original'
+    send_file visual_submission.image.path(style), :type => visual_submission.image_content_type, :disposition => 'inline'
+    
   end
   
   private  

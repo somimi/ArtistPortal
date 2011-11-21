@@ -22,6 +22,7 @@ gem 'devise'
 gem 'paperclip'
 gem 'formtastic'
 gem 'kaminari'
+gem 'cancan'
 
 
 # Use unicorn as the web server

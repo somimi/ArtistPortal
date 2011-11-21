@@ -1,4 +1,5 @@
 <%= form_for @user do |f| %>
+ <%= render "shared/error_messages", :target => @user %>
   <p>	
 	<%= f.label :email %>
 	<%= f.text_field :email %>
@@ -6,6 +7,10 @@
   <p>
 	<%= f.label :role %>
 	<%= f.select(:role, options_for_select([["admin", "admin"], ["artist", "artist"], ["handler", "handler"], ["juror", "juror"]], @user.role))%>
+  </p>
+  <p>
+	<%= f.label :juror%>
+	<%= f.text_field :juror %>
   </p>
      <%= f.submit %>
   </p>

@@ -1,6 +1,7 @@
 class ArtistsController < ApplicationController
   helper_method :sort_column, :sort_direction  
   before_filter :authenticate_user!
+  load_and_authorize_resource
   def index
     @artists = Artist.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(5)
   end

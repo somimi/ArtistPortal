@@ -1,4 +1,7 @@
 ArtistPortal::Application.routes.draw do
+  resources :payment_notifications
+  
+
   get "users/index"
 
   get "users/edit"

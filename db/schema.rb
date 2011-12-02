@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111120054307) do
+ActiveRecord::Schema.define(:version => 20111201084444) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -42,6 +42,26 @@ ActiveRecord::Schema.define(:version => 20111120054307) do
     t.datetime "updated_at"
     t.boolean  "paid_literary"
     t.boolean  "paid_visual"
+  end
+
+  create_table "assets", :force => true do |t|
+    t.integer  "visual_submission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "payment_notifications", :force => true do |t|
+    t.text     "params"
+    t.integer  "user_id"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "product"
   end
 
   create_table "users", :force => true do |t|

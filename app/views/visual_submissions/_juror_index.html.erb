@@ -3,6 +3,7 @@
     <th>Title</th>
     <th>Medium</th>
 	<th>Image</th>
+	<th>Juror 2 Vote</th>
 
   </tr>
   <% for visual_submission in @visual_submissions %>
@@ -10,6 +11,7 @@
       <td><%= link_to visual_submission.title, visual_submission_path(visual_submission) %></td>
       <td><%= visual_submission.medium %></td>
 	  <td><%= image_tag visual_submission.image.url(:thumb)  %></td>
+	  <td><%= visual_submission.jury_two_vote %></td>
 
     </tr>
   <% end %>

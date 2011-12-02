@@ -4,12 +4,18 @@ class VisualSubmissionsController < ApplicationController
   load_and_authorize_resource
   def index
     if current_user.is_artist?
-      @visual_submissions = current_user.artist.visual_submission  
+      @visual_submissions = current_user.artist.visual_submission
+      @paypal = PayPal.new  
     elsif current_user.is_admin? || current_user.is_handler?
       @visual_submissions = VisualSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(5)
       session[:query] = @visual_submissions.map(&:id)
     else
-      @visual_submission = VisualSubmission.undecided
+      if params[:filter] == "voted"
+        @visual_submissions = VisualSubmission.voted(current_user.juror)
+      else
+        @visual
+      end
+      
     end
     
     

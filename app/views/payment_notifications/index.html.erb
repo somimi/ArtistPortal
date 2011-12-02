@@ -1,0 +1,24 @@
+<% title "Paypal Transactions" %>
+
+<table>
+	<tr>
+		<th>Artist ID</th>
+		<th>Status</th>
+		<th>Created At</th>
+		<th>Product</th>
+	</tr>
+	<% for payment_notification in @payment_notifications %>
+	<tr>
+		<td><%= payment_notification.user.artist.id %></td>
+		<td><%= payment_notification.status %></td>
+		<td><%= payment_notification.created_at.strftime("%m/%d/%Y") %></td>
+		<% if payment_notification.product == "1" %>
+			<td>Visual</td>
+		<% else %>
+			<td>Literary</td>
+		<% end %>
+		<td><%= link_to "Show", payment_notification %></td>
+	<% end%>
+	</tr>
+</table>
+	

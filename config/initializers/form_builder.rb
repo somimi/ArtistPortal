@@ -9,12 +9,14 @@ else
 content = content_or_options
 end
 
-required_mark = ''
-required_mark = ' *'.html_safe if object.class.validators_on(method).map(&:class).include? ActiveModel::Validations::PresenceValidator
+if object
+  required_mark = ''
+  required_mark = ' *'.html_safe if object.class.validators_on(method).map(&:class).include? ActiveModel::Validations::PresenceValidator
 
-content ||= method.to_s.humanize
-content = content + required_mark
+  content ||= method.to_s.humanize
+  content = content + required_mark
+end
 
-self.orig_label(method, content, options || {}, &block)
+  self.orig_label(method, content, options || {}, &block)
 end
 end

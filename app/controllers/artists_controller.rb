@@ -1,6 +1,7 @@
 class ArtistsController < ApplicationController
   helper_method :sort_column, :sort_direction  
   before_filter :authenticate_user!
+  before_filter :load_paypal
   load_and_authorize_resource
   def index
     @artists = Artist.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(5)
@@ -43,6 +44,9 @@ class ArtistsController < ApplicationController
     @artist.destroy
     redirect_to artists_url, :notice => "Successfully destroyed artist."
   end
+  
+  def load_paypal
+    @paypal = Paypal.new
   
   private  
   def sort_column  

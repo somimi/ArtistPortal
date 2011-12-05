@@ -47,6 +47,7 @@ class ArtistsController < ApplicationController
   
   def load_paypal
     @paypal = Paypal.new
+  end
   
   private  
   def sort_column  

@@ -1,12 +1,12 @@
 <% if !current_user.artist %>
-	<%= link_to "Add Profile", new_artist_path %>
+	<p><%= link_to "Add Profile", new_artist_path %></p>
 <% else %>
-    <%= link_to "Edit Profile", edit_artist_path(current_user.artist) %>
+    <p><%= link_to "Edit Profile", edit_artist_path(current_user.artist) %></p>
 <% end %>
 
 <% if current_user.artist %>
-	<% if current_user.artist.paid_visual? %>
-		<%= link_to "Visual Art", visual_submissions_path, :var => "something" %>
+	<% if current_user.artist.paid_visual? or !current_user.artist.north_america? %>
+		<p><%= link_to "Visual Art", visual_submissions_path %></p>
 	<% else  %>
 		<%= form_tag APP_CONFIG[:paypal_url] do %>
 		  <%= hidden_field_tag :cmd, "_s-xclick" %>
@@ -15,18 +15,18 @@
 		<% end %>
 	<% end %>
 
-	<% if current_user.artist.paid_literary? %>
-		<%= link_to "Literary Art" %>
+	<% if current_user.artist.paid_literary? or !current_user.artist.north_america? %>
+		<p><%= link_to "Literary Art" %></p>
 	<% else %>
 		<%= form_tag APP_CONFIG[:paypal_url] do %>
 		  <%= hidden_field_tag :cmd, "_s-xclick" %>
 		  <%= hidden_field_tag :encrypted, current_user.paypal_literary_encrypted(visual_submissions_url, payment_notifications_url(:secret => APP_CONFIG[:paypal_secret])) %>
-		  <%= link_to_submit "Pay For Literary Submissions" %>
+		  <p><%= link_to_submit "Pay For Literary Submissions" %></p>
 	<% end %>
 	
 	<% end %>
 
 		<p><%= link_to "Film Art" %></p>
-		<%= link_to "Installation Art" %>
+		<p><%= link_to "Installation Art" %></p>
 <% end %> 
 

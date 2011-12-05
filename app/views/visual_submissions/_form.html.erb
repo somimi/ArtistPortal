@@ -1,76 +1,80 @@
 <%= form_for @visual_submission do |f| %>
   <%= render "shared/error_messages", :target => @visual_submission %>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :medium %><br />
-      <%= f.select(:medium, options_for_select([['Photography', 'Photography'], ['Sculpture', 'Sculpture'], ['Painting'], ['Other', 'Other']], @visual_submission.medium), {:include_blank => true}) %>
-  </p>
-  <p>
-    <%= f.label "Is this submission three dimensional?" %><br />
-    <%= f.check_box :dimension, :id => "dim-check" %>
-  </p><a href="#?w=500" rel="popup_dimension" class="poplight">Learn More</a>
-  <p>
-    <%= f.label :height %><br />
-    <%= f.text_field :height %>
-  </p>
-  <p>
-    <%= f.label :h_unit %><br />
-    <%= f.select :h_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @visual_submission.h_unit) %>
-  </p>
-  <p>
-    <%= f.label :width %><br />
-    <%= f.text_field :width %>
-  </p>
-  <p>
-    <%= f.label :w_unit %><br />
-    <%= f.select :w_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @visual_submission.w_unit) %>
-  </p>
-<div id="three-dee">
-  <p>
-    <%= f.label :depth %><br />
-    <%= f.text_field :depth %>
-  </p>
-  <p>
-    <%= f.label :d_unit %><br />
-    <%= f.select :d_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @visual_submission.d_unit) %>
-  </p>
-</div>
-  <p>
-    <%= f.label :year_created %><br />
-    <%= f.text_field :year_created %>
-  </p>
-  <p>
-    <%= f.label :sale_price %><br />
-    <%= f.number_field :sale_price %>
-  </p>
-  <p>
-    <%= f.label :notes %><br />
-    <%= f.text_area :notes %>
-  </p>
-  <p>
-    <%= f.label :limited_edition %><br />
-    <%= f.check_box :limited_edition, :id => "li-check" %>
-  </p>
-<div id="limited-edition" >
-  <p>
-    <%= f.label :edition_position %><br />
-    <%= f.number_field :edition_position %>
-  </p>
-  <p>
-    <%= f.label :edition_total %><br />
-    <%= f.number_field :edition_total %>
-  </p>
-</div>
+<fieldset>
+	<legend>Submission Overview</legend>
+	  <p>
+	    <%= f.label :title %><br />
+	    <%= f.text_field :title %>
+	  </p>
+	  <p>
+	    <%= f.label :medium %><br />
+	      <%= f.select(:medium, options_for_select([['Photography', 'Photography'], ['Sculpture', 'Sculpture'], ['Painting'], ['Other', 'Other']], @visual_submission.medium), {:include_blank => true}) %>
+	  </p>
+	  <p>
+	    <%= f.label :year_created %><br />
+	    <%= f.text_field :year_created %>
+	  </p>
+	  <p>
+	    <%= f.label :sale_price %><br />
+	    <%= f.number_field :sale_price %>
+	  </p>
+</fieldset>
+<fieldset>
+	<legend>Submission Dimensions</legend>
+	  <p>
+		<%= f.check_box :dimension, :id => "dim-check" %>
+	    <%= f.label "Is this submission three dimensional?" %>
+	  <a href="#?w=500" rel="popup_dimension" class="poplight">Learn More</a>
+	  <p>
+	    <%= f.label :height %><br />
+	    <%= f.text_field :height, :width => "30px" %>
+	    <%= f.select :h_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @visual_submission.h_unit) %>
+	    
+	  </p>
+	  <p>
+	    <%= f.label :width %><br />
+	    <%= f.text_field :width %>
+	    <%= f.select :w_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @visual_submission.w_unit) %>
+	  </p>
+	<div id="three-dee">
+	  <p>
+	    <%= f.label :depth %><br />
+	    <%= f.text_field :depth %>
+	    <%= f.select :d_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @visual_submission.d_unit) %>
+	  </p>
+	</div>
+</fieldset>
+<fieldset>
+	<legend>Additional Information</legend>
+	  <p>
+	    <%= f.label :notes %><br />
+	    <%= f.text_area :notes %>
+	  </p>
+	  <p>
+		<%= f.check_box :limited_edition, :id => "li-check" %>
+	    <%= f.label :limited_edition %>
+		<a href="#?w=500" rel="popup_limited" class="poplight">Learn More</a>
+	  </p>
+	<div id="limited-edition" >
+	  <p>
+	    <%= f.label :edition_position %><br />
+	    <%= f.number_field :edition_position %>
+	  </p>
+	  <p>
+	    <%= f.label :edition_total %><br />
+	    <%= f.number_field :edition_total %>
+	  </p>
+	</div>
+</fieldset>
 
-<a href="#?w=500" rel="popup_limited" class="poplight">Learn More</a>
 
- <p>
-      <%= f.label :image, "Image" %>  
-      <%= f.file_field :image %>  
- </p>
+<fieldset>
+	<legend>Image Upload</legend>
+	 <p>
+	      <%= f.label :image, "Image" %>  
+	      <%= f.file_field :image %>  
+	 </p>
+</fieldset>
  
   <p><%= f.submit %></p>
 <% end %>

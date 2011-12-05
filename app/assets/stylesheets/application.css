@@ -93,3 +93,159 @@ img.btn_close {
   margin: 0;
 }
 
+
+html, body{ 
+ margin:0; 
+ padding:0; 
+ } 
+ 
+#pagewidth{
+	
+	padding-left:20px;
+	
+	
+}
+ 
+#header{
+ position:relative; 
+ height:200px; 
+ background-color:#FFFFFF; 
+ width:100%;
+ display:block;
+ overflow:auto;
+} 
+ 
+#leftcol{
+ padding-top: 30px;
+ width:20%; 
+ float:left; 
+ position:absolute;
+}
+ 
+#content{
+ background-color: #FFFFFF;  
+ position: relative; 
+ width:80%;
+ float:right; 
+ }
+ 
+#footer{
+ height:40px; 
+  background-color:#FFFFFF; 
+ clear:both;
+ display:block;
+ overflow:auto;
+} 
+ 
+
+ 
+ 
+/* ******************************************************************** */ 
+/* Clearfix     													    */
+/* ******************************************************************** */
+.clearfix:after {
+ content: "."; 
+ display: block; 
+height: 0; 
+ clear: both; 
+ visibility: hidden;
+ }
+ 
+.clearfix{display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix{height: 1%;}
+.clearfix{display: block;}
+/* End hide from IE-mac */  
+
+form {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  min-width: 560px;
+  max-width: 620px;
+  width: 590px;
+}
+
+form div {
+  clear: left;
+  display: block;
+  width: 354px;
+  zoom: 1;
+  margin: 5px 0 0 0;
+  padding: 1px 3px;
+}
+
+
+form fieldset {
+  clear: both;
+  font-size: 100%;
+  border-color: #000000;
+  border-width: 1px 0 0 0;
+  border-style: solid none none none;
+  padding: 10px;
+  margin: 0 0 0 0;
+}
+
+form fieldset legend {
+  font-size: 150%;
+  font-weight: normal;
+  color: #000000;
+  margin: 0 0 0 0;
+  padding: 0 5px;
+}
+
+form div input.inputText, form div input.inputPassword {
+  width: 200px;
+  padding: 1px 3px;
+  margin: 0 0 0 0;
+}
+
+/*
+form div select, form div textarea {
+  width: 200px;
+  padding: 1px 3px;
+  margin: 0 0 0 0;
+}
+*/
+
+.index-table th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.index-table th .current {
+    padding-right: 12px;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.index-table th .asc {
+    background-image: url(/images/up_arrow.gif);
+}
+
+.index-table th .desc {
+    background-image: url(/images/down_arrow.gif);
+}
+
+#user_nav {
+	float: left;
+}
+
+#navHolder {
+	float: right;
+	padding-right: 10px;
+	
+	
+}
+
+/*
+#navHolder {
+        position: absolute;
+        top: 118px;
+        left: 222px;
+        height: 16px;
+}
+
+*/
+

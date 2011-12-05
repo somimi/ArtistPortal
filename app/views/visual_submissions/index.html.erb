@@ -17,11 +17,11 @@
 	<%= paginate @visual_submissions %>
 <% end %>
 
-	<table>
+		<table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
 	  <tr>
-	    <th><%= sortable "title" %><th>
+	    <th><%= sortable "title" %></th>
 	    <th><%= sortable "medium" %></th>
-	  <% if current_user.is_admin? || current_user.is_handler? %>
+	  <% if current_user.is_admin?  %>
 		<th><%= sortable "first_name" %></th>
 		<th><%= sortable "last_name " %></th>
 		<th><%= sortable "jury_one_vote" %></th>
@@ -50,8 +50,8 @@
 		  <td><%= visual_submission.average_votes %></td>
 		  <td><%= visual_submission.acceptance_status %></td>
 		  <% end %>
-
 		  <td><%= image_tag visual_submission.image.url(:thumb)  %></td>
+		<td><%= link_to "Delete", visual_submission, :confirm => 'Are you sure?', :method => :delete %></td>
 
 	    </tr>
 	  <% end %>

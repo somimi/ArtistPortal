@@ -1,31 +1,29 @@
 ArtistPortal::Application.routes.draw do
   resources :payment_notifications
   
-
   get "users/index"
-
   get "users/edit"
-
   get "users/update"
-
   get "users/show"
-
   get "users/destroy"
 
   get "pages/home"
-
   get "pages/contact"
-
   get "pages/faq"
+  get "pages/visual"
+  get "pages/film_video"
+  get "pages/literary"
+  get "pages/store"
+  get "pages/installation"
+  get "pages/deadlines"
 
   # devise_for :users
   devise_for :users, :path_prefeix => 'd' do get '/users/sign_out' => 'devise/sessions#destroy' end
   resources :users
 
   resources :artists
-
-  resources :visual_submissions
   
+  resources :visual_submissions
   resources :visual_submissions do
       member do
        get :images

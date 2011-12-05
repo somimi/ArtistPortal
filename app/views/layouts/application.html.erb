@@ -5,39 +5,54 @@
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
-    <%= yield(:head) %>
+    <%#= yield(:head) %>
   </head>
   <body>
-	<div id="left-column">
-		<% if user_signed_in? %>
-		  <% if current_user.is_admin? %>
-		     <%= render 'layouts/admin_menu' %>
-		  <% elsif current_user.is_juror? %>
-			 <%= render 'layouts/juror_menu' %>
-		  <% elsif current_user.is_handler? %>
-			 <%= render 'layouts/handler_menu' %>
-		  <% else %>
-			 <%= render 'layouts/artist_menu' %>
-		  <% end %>
-		<% else %>
-		  <%= render 'layouts/login_form' %>
-		<% end %>
+    <div id="pagewidth">
+		<div id="header"><h2>Head</h2></div>
+		<div id="user_nav">
+				<% if user_signed_in? %>
+					Signed in as <%= current_user.email %>
+					<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+			 	<% end %>
+		</div>
+		<div id="navHolder" class="clearfix">
+		                <%=  link_to image_tag("/assets/visualArt-off.png", :alt => "visual", :name => "visual", :width => "62px", :height => "16px", :hspace => "0", :vspace => "0", :border => "0", :id => "visual"), pages_visual_path %>
+		                <%=  link_to image_tag("/assets/filmVideo-off.png", :alt => "film", :name => "film", :width => "66px", :height => "16px", :hspace => "10px", :vspace => "0", :border => "0", :id => "film"), pages_film_video_path  %>
+		                <%=  link_to image_tag("/assets/literaryArt-off.png", :alt => "literary", :name => "literary", :width => "71px", :height => "16px", :hspace => "0", :vspace => "0", :border => "0", :id => "literary"), pages_literary_path  %>
+		                <%=  link_to image_tag("/assets/store-off.png", :alt => "store", :width => "34px", :height => "16px", :hspace => "10px", :vspace => "0", :border => "0", :id => "store") %>
+		                <%=  link_to image_tag("/assets/installationArt-off.png", :alt => "installation", :name => "installation", :width => "91px", :height => "16px", :hspace => "5px", :vspace => "0", :border => "0", :id => "installation"), pages_installation_path  %>
+		                <%=  link_to(image_tag("/assets/contactUs-off.png", :alt => "contact", :name => "contact", :width => "69px", :height => "16px", :hspace => "0", :vspace => "0", :border => "0", :id => "contact"), pages_contact_path) %>
+		                <%=  link_to image_tag("/assets/deadlines-off.png", :alt => "deadlines", :name => "deadlines", :width => "61px", :height => "16px", :hspace => "19px", :vspace => "0", :border => "0", :id => "deadlines"), pages_deadlines_path %>
+		                <%=  link_to image_tag("/assets/faq-off.png", :alt => "FAQ", :name => "faq", :width => "26px", :height => "16px", :hspace => "0", :vspace => "0", :border => "0", :id => "faq"), pages_faq_path %>
+		</div>
+		<div id="wrapper" class="clearfix">
+			<div id="leftcol">
+				<% if user_signed_in? %>
+				  <% if current_user.is_admin? %>
+				     <%= render 'layouts/admin_menu' %>
+				  <% elsif current_user.is_juror? %>
+					 <%= render 'layouts/juror_menu' %>
+				  <% elsif current_user.is_handler? %>
+					 <%= render 'layouts/handler_menu' %>
+				  <% else %>
+					 <%= render 'layouts/artist_menu' %>
+				  <% end %>
+				<% else %>
+				  <%= render 'layouts/login_form' %>
+				<% end %>
+			</div>
+			<div id="content">
 
-	</div>
-	<div id="user_nav">
-			<% if user_signed_in? %>
-				Signed in as <%= current_user.email %>
-				<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-		 	<% end %>
-	</div>
-    <div id="container">
-	
-	   <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-      
-      <%= content_tag :h1, yield(:title) if show_title? %>
-      <%= yield %>
+			   <p class="notice"><%= notice %></p>
+		       <p class="alert"><%= alert %></p>
 
-    </div>
+		      <%= content_tag :h1, yield(:title) if show_title? %>
+		      <%= yield %>
+
+		    </div>
+	    </div>
+	</div>
+ 
   </body>
 </html>

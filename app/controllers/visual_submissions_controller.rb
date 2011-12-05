@@ -5,7 +5,7 @@ class VisualSubmissionsController < ApplicationController
   def index
     if current_user.is_artist?
       @visual_submissions = current_user.artist.visual_submission
-      @paypal = PayPal.new  
+      #@paypal = PayPal.new  
     elsif current_user.is_admin? || current_user.is_handler?
       @visual_submissions = VisualSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(5)
       session[:query] = @visual_submissions.map(&:id)

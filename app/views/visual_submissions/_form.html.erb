@@ -75,6 +75,11 @@
 	      <%= f.file_field :image %>  
 	 </p>
 </fieldset>
+  <p>
+	<%= f.check_box :store_submit %>
+	<%= f.label "I would like this piece to be considered for the store" %>
+	<a href="#?w=500" rel="popup_store" class="poplight">Learn More</a>
+	
  
   <p><%= f.submit %></p>
 <% end %>
@@ -86,6 +91,10 @@
 <div id="popup_dimension" class="popup_block">
     <h2>Dimension</h2>
     <p>Is this art in three dimensions?  For instance, like a pillow or a sock puppet.</p>
+</div>
+<div id="popup_store" class="popup_block">
+    <h2>SEAF Store</h2>
+    <p>The store is awesome, you should love it!</p>
 </div>
 
 

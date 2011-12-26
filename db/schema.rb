@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204111036) do
+ActiveRecord::Schema.define(:version => 20111205221721) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(:version => 20111204111036) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "product"
+  end
+
+  create_table "store_submissions", :force => true do |t|
+    t.integer  "artist_id"
+    t.string   "title"
+    t.string   "description"
+    t.string   "quantity"
+    t.string   "quantity_accepted"
+    t.boolean  "accepted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -121,6 +132,7 @@ ActiveRecord::Schema.define(:version => 20111204111036) do
     t.integer  "jury_five_vote"
     t.integer  "average_vote"
     t.string   "acceptance_status",  :default => "undecided"
+    t.boolean  "store_submit"
   end
 
 end

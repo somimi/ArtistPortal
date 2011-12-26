@@ -1,0 +1,2 @@
+module StoreSubmissionsHelper
+end

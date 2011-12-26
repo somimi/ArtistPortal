@@ -38,11 +38,23 @@ class VisualSubmissionsController < ApplicationController
   def create
     #@visual_submission = VisualSubmission.new(params[:visual_submission])
     @visual_submission.artist_id = current_user.artist.id
+    
+      
     if @visual_submission.save
+      if @visual_submission.store_submit?
+        @store_submission = StoreSubmission.new
+        @store_submission.artist_id = @visual_submission.artist_id
+        @store_submission.title = @visual_submission.title
+        @store_submission.save
+      end
+      
       redirect_to @visual_submission, :notice => "Successfully created visual submission."
     else
       render :action => 'new'
     end
+
+    
+    
   end
 
   def edit

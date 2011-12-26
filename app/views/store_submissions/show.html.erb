@@ -1,0 +1,32 @@
+<% title "Store Submission" %>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @store_submission.artist_id %>
+</p>
+<p>
+  <strong>Title:</strong>
+  <%= @store_submission.title %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @store_submission.description %>
+</p>
+<p>
+  <strong>Quantity:</strong>
+  <%= @store_submission.quantity %>
+</p>
+<p>
+  <strong>Quantity Accepted:</strong>
+  <%= @store_submission.quantity_accepted %>
+</p>
+<p>
+  <strong>Accepted:</strong>
+  <%= @store_submission.accepted %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_store_submission_path(@store_submission) %> |
+  <%= link_to "Destroy", @store_submission, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", store_submissions_path %>
+</p>

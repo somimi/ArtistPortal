@@ -1,4 +1,6 @@
 ArtistPortal::Application.routes.draw do
+  resources :store_submissions
+
   resources :payment_notifications
   
   get "users/index"

@@ -1,0 +1,27 @@
+<% title "Store Submissions" %>
+
+<table>
+  <tr>
+    <th>Artist</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Quantity</th>
+    <th>Quantity Accepted</th>
+    <th>Accepted</th>
+  </tr>
+  <% for store_submission in @store_submissions %>
+    <tr>
+      <td><%= store_submission.artist_id %></td>
+      <td><%= store_submission.title %></td>
+      <td><%= store_submission.description %></td>
+      <td><%= store_submission.quantity %></td>
+      <td><%= store_submission.quantity_accepted %></td>
+      <td><%= store_submission.accepted %></td>
+      <td><%= link_to "Show", store_submission %></td>
+      <td><%= link_to "Edit", edit_store_submission_path(store_submission) %></td>
+      <td><%= link_to "Destroy", store_submission, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Store Submission", new_store_submission_path %></p>

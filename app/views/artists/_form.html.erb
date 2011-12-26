@@ -2,67 +2,73 @@
   <%= render "shared/error_messages", :target => @artist %>
 <fieldset>
 	<legend>Personal Information</legend>
-	  <p>
-	    <%= f.label :first_name %><br />
+	  <div>
+	    <%= f.label :first_name %>
 	    <%= f.text_field :first_name %>
-	  </p>
-	  <p>
-	    <%= f.label :last_name %><br />
+	  </div>
+	  <div>
+	    <%= f.label :last_name %>
 	    <%= f.text_field :last_name %>
-	  </p>
-	  <p>
-	    <%= f.label :professional_name %><br />
+	  </div>
+	  <div>
+	    <%= f.label :professional_name %>
 	    <%= f.text_field :professional_name %>
-	  </p>
-	  <p>
-	    <%= f.label :bio %><br />
-	    <%= f.text_area :bio, :maxlength => "300" %><br />
-		<small>Maximum length 300 characters</small>
-	  </p>
-	  <p>
+	  </div>
+	  <div>
+	    <%= f.label :bio %>
+	    <%= f.text_area :bio, :maxlength => "300" %>
+	    <p>
+		<small style="float:right;">Maximum length 300 characters</small>
+		</p>
+	  </div><br />
+	  <div>
+        <%= f.label :require_representation %>
 		<%= f.check_box :require_representation %>
-	    <%= f.label :require_representation %>
 	    <a href="#?w=500" rel="popup_represent" class="poplight">Learn More</a>   
-	  </p>
+	  </div>
 </fieldset>
 <fieldset>
 	<legend>Contact Information</legend>
-	<p>
-	  <%= f.label :email %><br />
+	<div class="notes">
+      <h4>Contact Information</h4>
+      <p class="last">This is the address we use for correspondence. This address can be a PO Box</p>
+     </div>
+	<div>
+	  <%= f.label :email %>
 	  <%= f.text_field :email, :value => @artist.email ||= current_user.email %>
-	</p>
-	<p>
-	  <%= f.label :email %><br />
+	</div>
+	<div>
+	  <%= f.label :email %>
 	  <%= f.text_field :email_confirmation %>
-	</p>
-	<p>
-	  <%= f.label :phone %><br />
+	</div>
+	<div>
+	  <%= f.label :phone %>
 	  <%= f.text_field :phone %>
-	</p>
-	  <p>
-	    <%= f.label "Address Line 1" %><br />
-	    <%= f.text_field :mailing_address_line1 %><br />
-	  </p>
-	  <p>
-	    <%= f.label "Address Line 2" %><br />
+	</div>
+	  <div>
+	    <%= f.label "Address Line 1" %>
+	    <%= f.text_field :mailing_address_line1 %>
+	  </div>
+	  <div>
+	    <%= f.label "Address Line 2" %>
 	    <%= f.text_field :mailing_address_line2 %>
-	  </p>
-	  <p>
-	    <%= f.label "City" %><br />
+	  </div>
+	  <div>
+	    <%= f.label "City" %>
 	    <%= f.text_field :mailing_city %>
-	  </p>
-	  <p>
-	    <%= f.label "State/Province" %><br />
+	  </div>
+	  <div>
+	    <%= f.label "State/Province" %>
 	    <%= f.text_field :mailing_state %>
-	  </p>
-	  <p>
-	    <%= f.label "Zip" %><br />
+	  </div>
+	  <div>
+	    <%= f.label "Zip" %>
 	    <%= f.text_field :mailing_zip %>
-	  </p>
-	  <p>
-	    <%= f.label "Country" %><br />
+	  </div>
+	  <div>
+	    <%= f.label "Country" %>
 	    <%= f.country_select :mailing_country, ["United States"] %>
-	  </p>
+	  </div>
 </fieldset>
   <p>
 	<%= f.check_box :shipping_same_as_mail, :id => "shipping-check" %>
@@ -71,42 +77,46 @@
   </p>
 <fieldset>
 	<legend>Shipping Information</legend>
+	<div class="notes">
+      <h4>Shipping Information</h4>
+      <p class="last">This is where we will be returning your art if it needs to be shipped.  This cannot be a PO Box.</p>
+     </div>
 <div id="shipping-address">
 	  <p>
-	    <%= f.label "Address Line 1" %><br />
-	    <%= f.text_field :shipping_address_line1 %><br />
+	    <%= f.label "Address Line 1" %>
+	    <%= f.text_field :shipping_address_line1 %>
 	    <small>Cannot be a PO box</small>
 	  </p>
 	  <p>
-	    <%= f.label "Address Line 2" %><br />
+	    <%= f.label "Address Line 2" %>
 	    <%= f.text_field :shipping_address_line2 %>
 	  </p>
 	  <p>
-	    <%= f.label "City" %><br />
+	    <%= f.label "City" %>
 	    <%= f.text_field :shipping_city %>
 	  </p>
 	  <p>
-	    <%= f.label "Zip" %><br />
+	    <%= f.label "Zip" %>
 	    <%= f.text_field :shipping_zip %>
 	  </p>
 	  <p>
-	    <%= f.label "State/Province" %><br />
+	    <%= f.label "State/Province" %>
 	    <%= f.text_field :shipping_state %>
 	  </p>
 	  <p>
-	    <%= f.label "Country" %><br />
+	    <%= f.label "Country" %>
 	    <%= f.country_select :shipping_country, ["United States"] %>
 	  </p>
 </div>
-  <p>
-	<%= f.label :shipping_company %><br />
+  <div>
+	<%= f.label :shipping_company %>
 	<%= f.select(:shipping_company, options_for_select([['Federal Express', 'Federal Express'], ['UPS', 'UPS'], ['USPS', 'USPS'], ['Fly By Night', 'Fly By Night']], @artist.shipping_company), {:include_blank => true, :width => "200px"}) %>
     <a href="#?w=500" rel="popup_shipping" class="poplight">Learn More</a>
-  </p>
-  <p>
-    <%= f.label "Shipping Account Number" %><br />
+  </div>
+  <div>
+    <%= f.label "Shipping Account Number" %>
     <%= f.text_field :shipping_account %>
-  </p>
+  </div>
 </fieldset>
 
 

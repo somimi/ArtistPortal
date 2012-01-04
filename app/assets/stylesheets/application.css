@@ -45,6 +45,23 @@ img.btn_close {
 	position: absolute;
 }
 
+a:link {
+	color:black;
+}
+
+a:active {
+	color:black;
+	text-decoration:bold;
+}
+
+a:visited {
+	color:black;
+}
+
+a:hover {
+	color:black;
+	background-color:white;
+}
 
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
@@ -96,7 +113,8 @@ img.btn_close {
 
 html, body{ 
  margin:0; 
- padding:0; 
+ padding:0;
+ background-color: #d1d3d4
  } 
  
 #pagewidth{
@@ -108,8 +126,8 @@ html, body{
  
 #header{
  position:relative; 
- height:200px; 
- background-color:#FFFFFF; 
+ height:220px; 
+ background-color:#58595b;
  width:100%;
  display:block;
  overflow:auto;
@@ -118,12 +136,13 @@ html, body{
 #leftcol{
  padding-top: 30px;
  width:20%; 
+ height:100%;
+ background-color:#a7a9ac;
  float:left; 
  position:absolute;
 }
  
-#content{
- background-color: #FFFFFF;  
+#content{  
  position: relative; 
  width:80%;
  float:right; 

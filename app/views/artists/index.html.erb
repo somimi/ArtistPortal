@@ -22,11 +22,11 @@
   </tr>
   <% for artist in @artists %>
     <tr>
-	  <td><%= link_to artist.id, artist_path(artist) %></th>
-	  <td><%= link_to artist.user_id, user_path(artist.user) %></td>
-      <td><%= link_to artist.first_name, artist_path(artist) %></td>
-      <td><%= link_to artist.last_name, artist_path(artist) %></td>
-      <td><%= link_to artist.professional_name %></td>
+	  <td><%= link_to artist.id, edit_artist_path(artist) %></th>
+	  <td><%= link_to artist.user_id, edit_user_path(artist.user) %></td>
+      <td><%= link_to artist.first_name, edit_artist_path(artist) %></td>
+      <td><%= link_to artist.last_name, edit_artist_path(artist) %></td>
+      <td><%= link_to artist.professional_name, edit_artist_path(artist) %></td>
       <td><%= mail_to artist.email %></td>
       <% if artist.visual_paid? %>
       	<td>X</td>
@@ -47,9 +47,7 @@
 			<% end %>
 		<% end %>
 	  </td>
-      <td><%= link_to "Destroy", artist, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Delete", artist, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
-
-<p><%= link_to "New Artist", new_artist_path %></p>

@@ -5,7 +5,7 @@
 <% end %>
 
 <% if current_user.artist %>
-	<% if current_user.artist.paid_visual? or !current_user.artist.north_america? %>
+	<% if current_user.artist.visual_paid? or !current_user.artist.north_america? %>
 		<p><%= link_to "Visual Art", visual_submissions_path %></p>
 	<% else  %>
 		<%= form_tag APP_CONFIG[:paypal_url] do %>
@@ -15,7 +15,7 @@
 		<% end %>
 	<% end %>
 
-	<% if current_user.artist.paid_literary? or !current_user.artist.north_america? %>
+	<% if current_user.artist.literary_paid? or !current_user.artist.north_america? %>
 		<p><%= link_to "Literary Art" %></p>
 	<% else %>
 		<%= form_tag APP_CONFIG[:paypal_url] do %>

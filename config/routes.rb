@@ -1,4 +1,8 @@
 ArtistPortal::Application.routes.draw do
+  #get "asset/images"
+  
+ match 'images/:id/images' => 'images#images'
+  
   resources :store_submissions
 
   resources :payment_notifications
@@ -31,6 +35,8 @@ ArtistPortal::Application.routes.draw do
        get :images
      end
   end
+  
+  
   
   root :to => "pages#home"
 

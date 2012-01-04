@@ -50,7 +50,11 @@
 		  <td><%= visual_submission.average_votes %></td>
 		  <td><%= visual_submission.acceptance_status %></td>
 		  <% end %>
-		  <td><%= image_tag visual_submission.image.url(:thumb)  %></td>
+		  <% if visual_submission.images.count >= 1 %>
+		    <td><%= image_tag visual_submission.images.first.image.url(:thumb) %></td>
+		 <% else %>
+		    <td>No Image</td>
+		<% end %>
 		<td><%= link_to "Delete", visual_submission, :confirm => 'Are you sure?', :method => :delete %></td>
 
 	    </tr>

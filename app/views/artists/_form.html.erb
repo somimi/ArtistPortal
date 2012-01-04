@@ -123,12 +123,12 @@
   <p>
 	<% if current_user.is_admin? %>
 	  <p>
-		<%= f.label :paid_literary %><br />
-		<%= f.check_box :paid_literary %>
+		<%= f.label :literary_paid %><br />
+		<%= f.check_box :literary_paid %>
 	  </p>
 	  <p>
-		<%= f.label :paid_visual %><br />
-		<%= f.check_box :paid_visual %>
+		<%= f.label :visual_paid %><br />
+		<%= f.check_box :visual_paid %>
 	  </p>
 	<% end %>
 		<%= f.submit "Save Profile" %></p>

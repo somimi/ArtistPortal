@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Submit Your Art!" %></title>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
@@ -9,13 +9,7 @@
   </head>
   <body>
     <div id="pagewidth">
-		<div id="header"><h2>Head</h2></div>
-		<div id="user_nav">
-				<% if user_signed_in? %>
-					Signed in as <%= current_user.email %>
-					<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-			 	<% end %>
-		</div>
+		<div id="header"><center><%= image_tag("/assets/top-banner.jpg") %></center></div>
 		<div id="navHolder" class="clearfix">
 		                <%=  link_to image_tag("/assets/visualArt-off.png", :alt => "visual", :name => "visual", :width => "62px", :height => "16px", :hspace => "0", :vspace => "0", :border => "0", :id => "visual"), pages_visual_path %>
 		                <%=  link_to image_tag("/assets/filmVideo-off.png", :alt => "film", :name => "film", :width => "66px", :height => "16px", :hspace => "10px", :vspace => "0", :border => "0", :id => "film"), pages_film_video_path  %>
@@ -25,6 +19,12 @@
 		                <%=  link_to(image_tag("/assets/contactUs-off.png", :alt => "contact", :name => "contact", :width => "69px", :height => "16px", :hspace => "0", :vspace => "0", :border => "0", :id => "contact"), pages_contact_path) %>
 		                <%=  link_to image_tag("/assets/deadlines-off.png", :alt => "deadlines", :name => "deadlines", :width => "61px", :height => "16px", :hspace => "19px", :vspace => "0", :border => "0", :id => "deadlines"), pages_deadlines_path %>
 		                <%=  link_to image_tag("/assets/faq-off.png", :alt => "FAQ", :name => "faq", :width => "26px", :height => "16px", :hspace => "0", :vspace => "0", :border => "0", :id => "faq"), pages_faq_path %>
+		</div>
+		<div id="user_nav">
+				<% if user_signed_in? %>
+					Signed in as <%= current_user.email %>
+					<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+			 	<% end %>
 		</div>
 		<div id="wrapper" class="clearfix">
 			<div id="leftcol">

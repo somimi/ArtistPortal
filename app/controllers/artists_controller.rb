@@ -33,7 +33,11 @@ class ArtistsController < ApplicationController
   def update
     @artist = Artist.find(params[:id])
     if @artist.update_attributes(params[:artist])
-      redirect_to @artist, :notice  => "Successfully updated artist."
+      if @current_user.role == "artist"
+        redirect_to root_path, :notice  => "Successfully updated artist."
+      else
+        redirect_to artists_path
+      end 
     else
       render :action => 'edit'
     end

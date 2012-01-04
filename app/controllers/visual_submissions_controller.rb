@@ -33,7 +33,9 @@ class VisualSubmissionsController < ApplicationController
 
   def new
     #@visual_submission = VisualSubmission.new
+    3.times { @visual_submission.images.build }
   end
+  
 
   def create
     #@visual_submission = VisualSubmission.new(params[:visual_submission])
@@ -41,14 +43,14 @@ class VisualSubmissionsController < ApplicationController
     
       
     if @visual_submission.save
-      if @visual_submission.store_submit?
-        @store_submission = StoreSubmission.new
-        @store_submission.artist_id = @visual_submission.artist_id
-        @store_submission.title = @visual_submission.title
-        @store_submission.save
-      end
+    #  if @visual_submission.store_submit?
+    #    @store_submission = StoreSubmission.new
+    #    @store_submission.artist_id = @visual_submission.artist_id
+    #    @store_submission.title = @visual_submission.title
+    #   @store_submission.save
+    #  end
       
-      redirect_to @visual_submission, :notice => "Successfully created visual submission."
+      redirect_to visual_submissions_path, :notice => "Successfully created visual submission."
     else
       render :action => 'new'
     end
@@ -59,12 +61,15 @@ class VisualSubmissionsController < ApplicationController
 
   def edit
     #@visual_submission = VisualSubmission.find(params[:id])
+      count = (3 - @visual_submission.images.count)
+      count.times { @visual_submission.images.build }
+    
   end
 
   def update
     #@visual_submission = VisualSubmission.find(params[:id])
     if @visual_submission.update_attributes(params[:visual_submission])
-      redirect_to @visual_submission, :notice  => "Successfully updated visual submission."
+      redirect_to visual_submissions_path, :notice  => "Successfully updated visual submission."
     else
       render :action => 'edit'
     end
@@ -76,13 +81,13 @@ class VisualSubmissionsController < ApplicationController
     redirect_to visual_submissions_url, :notice => "Successfully destroyed visual submission."
   end
   
-  def images
-    
-    visual_submission = VisualSubmission.find(params[:id])
-    style = params[:style] ? params[:style] : 'original'
-    send_file visual_submission.image.path(style), :type => visual_submission.image_content_type, :disposition => 'inline'
-    
-  end
+  #def images
+  #  
+  #  visual_submission = VisualSubmission.find(params[:id])
+  #  style = params[:style] ? params[:style] : 'original'
+  #  send_file visual_submission.image.path(style), :type => visual_submission.image_content_type, :disposition => 'inline'
+  #  
+  #end  
   
   private  
   def sort_column  

@@ -1,13 +1,12 @@
 class VisualSubmission < ActiveRecord::Base
 
 	belongs_to :artist
+	has_many   :images
 	after_save :average_votes
-	has_attached_file :image, :styles => { :original => "100%", :large => "600x600>", :small => "150x150>", :thumb => "50x50>"}, :convert_options => {:all => "-auto-orient"},
-	                  :path => ':rails_root/secure/system/:attachment/:id/:style/:basename.:extension',
-                    :url => '/:class/:id/:attachment?style=:style'
+	accepts_nested_attributes_for :images, :allow_destroy => true;
                     
-  attr_accessible :title, :medium, :dimension, :height, :width, :depth, :h_unit, :w_unit, :d_unit, :year_created, :sale_price, :notes, :received_date, :pickedup_date, :pickedup_by, :shipped_date, :shipped_carrier, :shipped_tracking, :limited_edition, :edition_position, :edition_total, :jury_one_vote, :jury_two_vote, :jury_three_vote, :jury_four_vote, :jury_five_vote, :image
-  validates_presence_of :title, :medium, :height, :width, :h_unit, :w_unit, :year_created, :sale_price, :image
+  attr_accessible :title, :medium, :dimension, :height, :width, :depth, :h_unit, :w_unit, :d_unit, :year_created, :sale_price, :notes, :received_date, :pickedup_date, :pickedup_by, :shipped_date, :shipped_carrier, :shipped_tracking, :limited_edition, :edition_position, :edition_total, :jury_one_vote, :jury_two_vote, :jury_three_vote, :jury_four_vote, :jury_five_vote, :images_attributes, :store_submit
+  validates_presence_of :title, :medium, :height, :width, :h_unit, :w_unit, :year_created, :sale_price, :images
   #validates_presence_of :depth, :d_unit, :dimension => true
   
   
@@ -15,7 +14,7 @@ class VisualSubmission < ActiveRecord::Base
     index = query.find_index(self.id)
     prev_id = query[index - 1] unless index.zero?
     self.class.find_by_id(prev_id)
-  end
+  end 
 
   def next(query)
     unless query.nil?

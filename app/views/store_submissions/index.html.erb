@@ -1,6 +1,6 @@
 <% title "Store Submissions" %>
 
-<table>
+<table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
   <tr>
     <th>Artist</th>
     <th>Title</th>
@@ -17,9 +17,7 @@
       <td><%= store_submission.quantity %></td>
       <td><%= store_submission.quantity_accepted %></td>
       <td><%= store_submission.accepted %></td>
-      <td><%= link_to "Show", store_submission %></td>
-      <td><%= link_to "Edit", edit_store_submission_path(store_submission) %></td>
-      <td><%= link_to "Destroy", store_submission, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Delete", store_submission, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>

@@ -1,4 +1,9 @@
 $(document).ready(function(){
+	
+	if ($("#shipping-check").is(":checked"))
+	{
+		$("#shipping-address").hide();
+	}
 
    $("#shipping-check").click(function(){
 

@@ -1,21 +1,18 @@
 <%= form_for @store_submission do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :artist_id %><br />
-    <%= f.number_field :artist_id %>
-  </p>
-  <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
   <p>
     <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
   </p>
   <p>
     <%= f.label :quantity %><br />
     <%= f.text_field :quantity %>
   </p>
+ <% if current_user.role == "store-admin" || current_user.role == "admin" %>
   <p>
     <%= f.label :quantity_accepted %><br />
     <%= f.text_field :quantity_accepted %>
@@ -24,5 +21,6 @@
     <%= f.label :accepted %><br />
     <%= f.text_field :accepted %>
   </p>
+ <% end %>
   <p><%= f.submit %></p>
 <% end %>

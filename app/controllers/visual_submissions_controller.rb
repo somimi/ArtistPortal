@@ -43,12 +43,12 @@ class VisualSubmissionsController < ApplicationController
     
       
     if @visual_submission.save
-    #  if @visual_submission.store_submit?
-    #    @store_submission = StoreSubmission.new
-    #    @store_submission.artist_id = @visual_submission.artist_id
-    #    @store_submission.title = @visual_submission.title
-    #   @store_submission.save
-    #  end
+      if @visual_submission.store_submit?
+        @store_submission = StoreSubmission.new
+        @store_submission.artist_id = @visual_submission.artist_id
+        @store_submission.title = @visual_submission.title
+       @store_submission.save
+      end
       
       redirect_to visual_submissions_path, :notice => "Successfully created visual submission."
     else

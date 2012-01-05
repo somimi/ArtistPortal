@@ -135,7 +135,8 @@ html, body{
  
 #leftcol{
  padding-top: 30px;
- width:20%; 
+ padding-left: 10px;
+ width:150px; 
  height:100%;
  background-color:#a7a9ac;
  float:left; 
@@ -144,7 +145,7 @@ html, body{
  
 #content{  
  position: relative; 
- width:80%;
+ width:85%;
  float:right; 
  }
  

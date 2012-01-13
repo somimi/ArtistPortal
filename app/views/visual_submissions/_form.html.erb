@@ -8,7 +8,7 @@
 	  </p>
 	  <p>
 	    <%= f.label :medium %><br />
-	      <%= f.select(:medium, options_for_select([['Photography', 'Photography'], ['Sculpture', 'Sculpture'], ['Painting'], ['Other', 'Other']], @visual_submission.medium), {:include_blank => true}) %>
+	      <%= f.select(:medium, options_for_select([['Photography'], ['Sculpture'], ['Painting'], ['Digital Art'], ['Drawing'],['Ceramics'], ['Jewelry'], ['Multi-Media'], ['Printmaking'], ['Textile'], ['Other']], @visual_submission.medium), {:include_blank => true}) %>
 	  </p>
 	  <p>
 	    <%= f.label :year_created %><br />
@@ -50,11 +50,16 @@
 	    <%= f.label :notes %><br />
 	    <%= f.text_area :notes %>
 	  </p>
-	  <p>
+<!-- 	  <p>
 		<%= f.check_box :limited_edition, :id => "li-check" %>
 	    <%= f.label :limited_edition %>
 		<a href="#?w=500" rel="popup_limited" class="poplight">Learn More</a>
 	  </p>
+ -->
+	<%= f.label "Something" %><br />
+	<%= f.radio_button :edition, 'Original', :checked => true %> Original<br />
+	<%= f.radio_button :edition, 'Open' %> Open<br />
+	<%= f.radio_button :edition, 'Limited Edition' %> Limited Edition<br />
 	<div id="limited-edition" >
 	  <p>
 	    <%= f.label :edition_position %><br />
@@ -65,17 +70,22 @@
 	    <%= f.number_field :edition_total %>
 	  </p>
 	</div>
+	
+	
 </fieldset>
 
 
 <fieldset>
 	<legend>Image Upload</legend>
+	<% count = 0 %>
 	<%= f.fields_for :images do |image_fields| %>
+	
 	  <% if image_fields.object.new_record? %>
 		<p>
-			<%= image_fields.file_field :image %>
+			<%= image_fields.file_field :image, :id => "file-field-" + count.to_s %>
 		</p>
 	  <% end %>
+	   <% count += 1 %>
 	<% end %>
 	
  	<%= f.fields_for :images do |image_fields| %>
@@ -83,10 +93,11 @@
 		<p>
 			<%= link_to image_tag(image_fields.object.image.url(:small)), image_fields.object.image.url(:original) %>
 			<%= image_fields.check_box :_destroy %>
+			<%= f.label "delete" %>
 			
 	  <% end %>
 	<% end %>
-	<p>Select images to remove.</p>
+	
 
 </fieldset>
   <p>
@@ -107,7 +118,7 @@
     <p>Is this art in three dimensions?  For instance, like a pillow or a sock puppet.</p>
 </div>
 <div id="popup_store" class="popup_block">
-    <h2>SEAF Store</h2>
+    <h2>Festival Store</h2>
     <p>The store is awesome, you should love it!</p>
 </div>
 

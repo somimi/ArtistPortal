@@ -4,6 +4,11 @@ $(document).ready(function(){
 	{
 		$("#shipping-address").hide();
 	}
+	
+	if ($("#represent-check").not("checked"))
+	{
+		$("represent").hide();
+	}
 
    $("#shipping-check").click(function(){
 
@@ -16,6 +21,20 @@ $(document).ready(function(){
 	else
 	{
 		$("#shipping-address").show("slow");
+	}
+  });
+
+   $("#represent-check").click(function(){
+
+	// If checked
+	if ($("#represent-check").is(":checked"))
+	{
+		
+		$("#represent").show("slow");
+	}
+	else
+	{
+		$("#represent").hide("slow");
 	}
   });
 

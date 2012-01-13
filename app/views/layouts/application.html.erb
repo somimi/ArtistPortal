@@ -20,13 +20,15 @@
 		                <%=  link_to image_tag("/assets/deadlines-off.png", :alt => "deadlines", :name => "deadlines", :width => "61px", :height => "16px", :hspace => "19px", :vspace => "0", :border => "0", :id => "deadlines"), pages_deadlines_path %>
 		                <%=  link_to image_tag("/assets/faq-off.png", :alt => "FAQ", :name => "faq", :width => "26px", :height => "16px", :hspace => "0", :vspace => "0", :border => "0", :id => "faq"), pages_faq_path %>
 		</div>
-		<div id="user_nav">
-				<% if user_signed_in? %>
-					Signed in as <%= current_user.email %>
-					<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-			 	<% end %>
-		</div>
+
 		<div id="wrapper" class="clearfix">
+			<div id="user_nav">
+					<% if user_signed_in? %>
+						Signed in as <%= current_user.email %>
+						<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+				 	<% end %>
+			</div>
+
 			<div id="leftcol">
 				<% if user_signed_in? %>
 				  <% if current_user.is_admin? %>
@@ -42,7 +44,9 @@
 				  <%= render 'layouts/login_form' %>
 				<% end %>
 			</div>
+
 			<div id="content">
+
 
 			   <p class="notice"><%= notice %></p>
 		       <p class="alert"><%= alert %></p>

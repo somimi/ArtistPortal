@@ -2,12 +2,16 @@
   <%= render "shared/error_messages", :target => @artist %>
 <fieldset>
 	<legend>Personal Information</legend>
+	  <div class="notes">
+	      <h4>Personal Information</h4>
+	      <p class="last">Professional name is the name that is published on the website, the walls of the exhibition and the festival catalog</p>
+      </div>
 	  <div>
-	    <%= f.label :first_name %>
+	    <%= f.label "Legal First Name" %>
 	    <%= f.text_field :first_name %>
 	  </div>
 	  <div>
-	    <%= f.label :last_name %>
+	    <%= f.label "Legal Last Name" %>
 	    <%= f.text_field :last_name %>
 	  </div>
 	  <div>
@@ -21,11 +25,21 @@
 		<small style="float:right;">Maximum length 300 characters</small>
 		</p>
 	  </div><br />
+	  <div class="notes">
+	      <h4>Require Representation</h4>
+	      <p class="last">By checking this box, you are authorizing your gallery, dealer, or agent to negotiate and share information with the Festival on your behalf. Please only choose this option if you would like the Festival’s staff to interact with this person instead of with you.</p>
+      </div>
 	  <div>
+		<%= f.check_box :require_representation, :id => "represent-check" %>
         <%= f.label :require_representation %>
-		<%= f.check_box :require_representation %>
-	    <a href="#?w=500" rel="popup_represent" class="poplight">Learn More</a>   
+	    <!-- ><a href="#?w=500" rel="popup_represent" class="poplight">Learn More</a>    -->
 	  </div>
+	<br />
+	<div id="represent">
+	  <fieldset>
+		<legend>Representative Information</legend>
+	  </fieldset>
+	</div>
 </fieldset>
 <fieldset>
 	<legend>Contact Information</legend>

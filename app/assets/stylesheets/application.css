@@ -121,14 +121,12 @@ html, body{
 	
 	padding-left:20px;
 	
-	
 }
  
 #header{
  position:relative; 
  height:220px; 
  background-color:#58595b;
- width:100%;
  display:block;
  overflow:auto;
 } 
@@ -136,7 +134,7 @@ html, body{
 #leftcol{
  padding-top: 30px;
  padding-left: 10px;
- width:150px; 
+ width:160px; 
  height:100%;
  background-color:#a7a9ac;
  float:left; 
@@ -156,6 +154,10 @@ html, body{
  display:block;
  overflow:auto;
 } 
+
+#represent{
+	display:none;
+}
  
 
  
@@ -308,7 +310,8 @@ form div select, form div textarea {
 }
 
 #user_nav {
-	float: left;
+	/*float: left;
+	left-padding: 180px; */
 }
 
 #navHolder {
@@ -327,4 +330,21 @@ form div select, form div textarea {
 }
 
 */
+
+#three-dee {
+	display: none;
+}
+
+#limited-edition {
+	display: none;
+}
+
+#file-field-1 {
+	display: none;
+	
+}
+
+#file-field-2 {
+	display: none;
+}
 

@@ -37,8 +37,8 @@
 	  </tr>
 	  <% for visual_submission in @visual_submissions %>
 	    <tr>
-	      <td><%= link_to visual_submission.title, visual_submission_path(visual_submission) %></td>
-	      <td><%= link_to visual_submission.medium, visual_submission_path(visual_submission) %></td>
+	      <td><%= link_to visual_submission.title, edit_visual_submission_path(visual_submission) %></td>
+	      <td><%= link_to visual_submission.medium, edit_visual_submission_path(visual_submission) %></td>
 		 <% if current_user.is_admin? %>
 		  <td><%= link_to visual_submission.artist.first_name, artist_path(visual_submission.artist) %></td>
 		  <td><%= link_to visual_submission.artist.last_name, artist_path(visual_submission.artist) %></td>

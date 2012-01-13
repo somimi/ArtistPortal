@@ -60,9 +60,12 @@ class VisualSubmissionsController < ApplicationController
   end
 
   def edit
-    #@visual_submission = VisualSubmission.find(params[:id])
+      #@visual_submission = VisualSubmission.find(params[:id])
+      #3.times { @visual_submission.images.build }
       count = (3 - @visual_submission.images.count)
       count.times { @visual_submission.images.build }
+      
+      @count = count
     
   end
 

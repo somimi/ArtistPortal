@@ -12,9 +12,12 @@ end
 if object
   required_mark = ''
   required_mark = ' *'.html_safe if object.class.validators_on(method).map(&:class).include? ActiveModel::Validations::PresenceValidator
+  #required_mark = ' <b>'.html_safe if object.class.validators_on(method).map(&:class).include? ActiveModel::Validations::PresenceValidator
+  #required_mark_end = ' </b>'.html_safe if object.class.validators_on(method).map(&:class).include? ActiveModel::Validations::PresenceValidator
+  
 
   content ||= method.to_s.humanize
-  content =  content + required_mark
+  content =  required_mark + content #+ required_mark_end
 end
 
   self.orig_label(method, content, options || {}, &block)

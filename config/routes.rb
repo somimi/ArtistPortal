@@ -16,7 +16,7 @@ ArtistPortal::Application.routes.draw do
   get "pages/home"
   get "pages/contact"
   get "pages/faq"
-  get "pages/visual"
+  get "pages/visual_art"
   get "pages/film_video"
   get "pages/literary"
   get "pages/store"

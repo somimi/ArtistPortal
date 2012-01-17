@@ -7,5 +7,8 @@ class PagesController < ApplicationController
 
   def faq
   end
+  
+  def visual_art
+  end
 
 end

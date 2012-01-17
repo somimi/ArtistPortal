@@ -10,5 +10,14 @@ class PagesController < ApplicationController
   
   def visual_art
   end
+  
+  def film_video
+  end
+  
+  def literary
+  end
+  
+  def installation
+  end
 
 end

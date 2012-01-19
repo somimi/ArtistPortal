@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @literary_submission.title %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @literary_submission.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_literary_submission_path(@literary_submission) %> |
+<%= link_to 'Back', literary_submissions_path %>

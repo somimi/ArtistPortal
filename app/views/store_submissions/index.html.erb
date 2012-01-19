@@ -2,21 +2,20 @@
 
 <table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
   <tr>
-    <th>Artist</th>
     <th>Title</th>
     <th>Description</th>
+	<th>Image</th>
     <th>Quantity</th>
     <th>Quantity Accepted</th>
-    <th>Accepted</th>
   </tr>
   <% for store_submission in @store_submissions %>
     <tr>
-      <td><%= store_submission.artist_id %></td>
-      <td><%= store_submission.title %></td>
-      <td><%= store_submission.description %></td>
+      <td><%= link_to store_submission.title, edit_store_submission_path(store_submission) %></td>
+      <td><%= link_to store_submission.description, edit_store_submission_path(store_submission) %></td>
+	  <td><%= image_tag store_submission.image.url(:thumb) %></td>
       <td><%= store_submission.quantity %></td>
       <td><%= store_submission.quantity_accepted %></td>
-      <td><%= store_submission.accepted %></td>
+	  <td><%= link_to "Duplicate", duplicate_store_submission_path(store_submission) %>
       <td><%= link_to "Delete", store_submission, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>

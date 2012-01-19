@@ -13,9 +13,21 @@ class Ability
     else
        can :create, VisualSubmission
        can :create, Artist
+       can :create, LiterarySubmission
+       can :create, StoreSubmission
+       
        can :manage, VisualSubmission do |visual_submission|
          visual_submission.artist.try(:user) == current_user
        end 
+       
+       can :manage, StoreSubmission do |store_submission|
+         store_submission.artist.try(:user) == current_user
+       end
+       
+       can :manage, LiterarySubmission do |literary_submission|
+         literary_submission.artist.try(:user == current_user)
+       end
+       
        can :read, Artist do |artist|
          artist.try(:user) == current_user
        end

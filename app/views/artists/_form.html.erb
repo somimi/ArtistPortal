@@ -25,14 +25,14 @@
 		<small style="float:right;">Maximum length 300 characters</small>
 		</p>
 	  </div><br />
-	  <div class="notes">
+	  <!-- <div class="notes">
 	      <h4>Require Representation</h4>
 	      <p class="last">By checking this box, you are authorizing your gallery, dealer, or agent to negotiate and share information with the Festival on your behalf. Please only choose this option if you would like the Festival’s staff to interact with this person instead of with you.</p>
-      </div>
+      </div> -->
 	  <div>
 		<%= f.check_box :require_representation, :id => "represent-check" %>
         <%= f.label :require_representation %>
-	    <!-- ><a href="#?w=500" rel="popup_represent" class="poplight">Learn More</a>    -->
+	     <a href="#?w=500" rel="popup_represent" class="poplight">Learn More</a>
 	  </div>
 	<br />
 	<div id="represent">
@@ -89,51 +89,65 @@
     <%= f.label :shipping_same_as_mail %>
     
   </p>
-<fieldset>
-	<legend>Shipping Information</legend>
+<fieldset id="shipping-address">
+	<legend>Shipping Address</legend>
 	<div class="notes">
-      <h4>Shipping Information</h4>
+      <h4>Shipping Address</h4>
       <p class="last">This is where we will be returning your art if it needs to be shipped.  This cannot be a PO Box.</p>
      </div>
-<div id="shipping-address">
-	  <p>
+	  <div>
 	    <%= f.label "Address Line 1" %>
 	    <%= f.text_field :shipping_address_line1 %>
 	    <small>Cannot be a PO box</small>
-	  </p>
-	  <p>
+	  </div>
+	  <div>
 	    <%= f.label "Address Line 2" %>
 	    <%= f.text_field :shipping_address_line2 %>
-	  </p>
-	  <p>
+	  </div>
+	  <div>
 	    <%= f.label "City" %>
 	    <%= f.text_field :shipping_city %>
-	  </p>
-	  <p>
+	  </div>
+	  <div>
 	    <%= f.label "Zip" %>
 	    <%= f.text_field :shipping_zip %>
-	  </p>
-	  <p>
+	  </div>
+	  <div>
 	    <%= f.label "State/Province" %>
 	    <%= f.text_field :shipping_state %>
-	  </p>
-	  <p>
+	  </div>
+	  <div>
 	    <%= f.label "Country" %>
 	    <%= f.country_select :shipping_country, ["United States"] %>
-	  </p>
-</div>
-  <div>
-	<%= f.label :shipping_company %>
-	<%= f.select(:shipping_company, options_for_select([['Federal Express', 'Federal Express'], ['UPS', 'UPS'], ['USPS', 'USPS'], ['Fly By Night', 'Fly By Night']], @artist.shipping_company), {:include_blank => true, :width => "200px"}) %>
-    <a href="#?w=500" rel="popup_shipping" class="poplight">Learn More</a>
-  </div>
-  <div>
-    <%= f.label "Shipping Account Number" %>
-    <%= f.text_field :shipping_account %>
-  </div>
+	  </div>
 </fieldset>
-
-
+<fieldset>
+	<legend>Delivery/Return Arrangements</legend>
+	  <div class="notes">
+	      <h4>Return Information</h4>
+	      <p class="last">Note that if no return shipping label is provided and no one picks up the art, it will be considered a donation to the Foundation for Sex Positive Culture, producer of the Festival.</p>
+	      <br />
+		  <p class="last">Note that shipping labels are not billed until the label is scanned and processed for return shipping, so if your art sells and there is no return, there is no charge.</p>
+    </div>
+	   <div>
+		 <%= f.label "Delivery Arrangements" %>
+		 <%= f.select(:delivery_arrangements, options_for_select([["Drop off work in person (the artist, or an authorized person)"], ['Ship work with carrier of your choice']], @artist.delivery_arrangements), {:include_blank => true, :width => "200px"}) %>
+		 <small><i>Delivery address is NOT at Fremont Studios.</i></small>
+	   </div>
+	   <div>
+		<%= f.label "Return Arrangements" %>
+		<%= f.select(:return_arrangements, options_for_select([["Pick up work in person (the artist, or an authorized person)"], ['Include a return shipping label with the original shipment of art (with the carrier of your choice).'],['Donate any unsold items to the Foundation']], @artist.return_arrangements), {:include_blank => true, :width => "200px"}) %>	
+	   </div>
+	   <div>
+		<%= f.label :shipping_company %>
+		<%= f.select(:shipping_company, options_for_select([['Federal Express', 'Federal Express'], ['UPS', 'UPS'], ['USPS', 'USPS'], ['Fly By Night', 'Fly By Night']], @artist.shipping_company), {:include_blank => true, :width => "200px"}) %>
+		   <a href="#?w=500" rel="popup_shipping" class="poplight">Learn More</a>
+	   </div>
+	   <div>
+	    <%= f.label "Shipping Account Number" %>
+	    <%= f.text_field :shipping_account %>
+	  </div>
+</fieldset>
   <p>
 	<% if current_user.is_admin? %>
 	  <p>
@@ -156,5 +170,5 @@
 
 <div id="popup_represent" class="popup_block">
     <h2>Require Representation</h2>
-    <p>This is a lot of stuff that I don't know how to answer but should go in this box.</p>
+    <p>By checking this box, you are authorizing your gallery, dealer, or agent to negotiate and share information with the Festival on your behalf. Please only choose this option if you would like the Festival’s staff to interact with this person instead of with you.</p>
 </div>

@@ -1,10 +1,17 @@
 ArtistPortal::Application.routes.draw do
+  resources :literary_submissions
+
   #get "asset/images"
   
  match 'images/:id/images' => 'images#images'
+ match 'store_submissions/:id/duplicate' => 'store_submissions#duplicate', :as => :duplicate_store_submission
   
   resources :store_submissions
-
+  resources :store_submissions do
+    member do
+      get :images
+    end
+  end
   resources :payment_notifications
   
   get "users/index"
@@ -21,7 +28,7 @@ ArtistPortal::Application.routes.draw do
   get "pages/literary"
   get "pages/store"
   get "pages/installation"
-  get "pages/deadlines"
+  get "pages/performance"
 
   # devise_for :users
   devise_for :users, :path_prefeix => 'd' do get '/users/sign_out' => 'devise/sessions#destroy' end
@@ -35,6 +42,7 @@ ArtistPortal::Application.routes.draw do
        get :images
      end
   end
+  
   
   
   

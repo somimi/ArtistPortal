@@ -1,0 +1,32 @@
+<%= form_for(@literary_submission) do |f| %>
+  <% if @literary_submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@literary_submission.errors.count, "error") %> prohibited this literary_submission from being saved:</h2>
+
+      <ul>
+      <% @literary_submission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<fieldset>
+	<legend>Submission Overview</legend>
+	<p>
+    	<%= f.label :title %><br />
+    	<%= f.text_field :title %>
+    </p>
+  <p>
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %>
+  </p>
+<fieldset>
+	<legend>Submission Upload</legend>
+	<p>
+		<%= f.file_field :doc %>
+	</p>
+</fieldset>
+
+<p><%= f.submit %></p>
+
+<% end %>

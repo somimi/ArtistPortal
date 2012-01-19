@@ -16,7 +16,7 @@
 	<% end %>
 
 	<% if current_user.artist.literary_paid? or !current_user.artist.north_america? %>
-		<p><%= link_to "Literary Art" %></p>
+		<p><%= link_to "Literary Art", literary_submissions_path %></p>
 	<% else %>
 		<%= form_tag APP_CONFIG[:paypal_url] do %>
 		  <%= hidden_field_tag :cmd, "_s-xclick" %>

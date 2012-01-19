@@ -23,6 +23,7 @@ gem 'paperclip'
 gem 'formtastic'
 gem 'kaminari'
 gem 'cancan'
+gem 'simple-navigation'
 
 
 # Use unicorn as the web server

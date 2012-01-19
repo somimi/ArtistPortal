@@ -19,5 +19,8 @@ class PagesController < ApplicationController
   
   def installation
   end
+  
+  def performance
+  end
 
 end

@@ -20,7 +20,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.new(params[:artist])
     @artist.user_id = current_user.id
     if @artist.save
-      redirect_to @artist, :notice => "Successfully created artist."
+      redirect_to root_path, :notice => "Successfully created artist."
     else
       render :action => 'new'
     end

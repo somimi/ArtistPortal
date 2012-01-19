@@ -2,6 +2,7 @@ class Artist < ActiveRecord::Base
 
   has_many :visual_submission
   has_many :store_submission
+  has_many :literary_submission
   belongs_to :user
   
   validates_presence_of :first_name, :last_name, :email, :phone, :mailing_address_line1, :mailing_city, :mailing_state, :mailing_country, :bio

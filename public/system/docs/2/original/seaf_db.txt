@@ -1,0 +1,15 @@
+festival2011
+username 1clk_wp_W1Ghc7D
+
+password zMpmQSVw
+
+table db124998_festival2011b
+
+
+
+seduction2011
+username 1clk_wp_2EptvWw
+
+password HLYoiXEJ
+
+table db124998_haloween2011

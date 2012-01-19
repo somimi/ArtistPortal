@@ -1,0 +1,2 @@
+module LiterarySubmissionsHelper
+end

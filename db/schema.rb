@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120119094051) do
+ActiveRecord::Schema.define(:version => 20120120045834) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(:version => 20120119094051) do
     t.string   "delivery_arrangements"
     t.string   "return_arrangements"
     t.boolean  "installation_paid"
+    t.boolean  "film_paid"
+  end
+
+  create_table "film_submissions", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "duration"
+    t.string   "delivery_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "url"
   end
 
   create_table "images", :force => true do |t|
@@ -100,6 +111,21 @@ ActiveRecord::Schema.define(:version => 20120119094051) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "product"
+  end
+
+  create_table "performance_submissions", :force => true do |t|
+    t.string   "title"
+    t.integer  "duration"
+    t.text     "description"
+    t.string   "type"
+    t.text     "stage_requirements"
+    t.text     "performance_experience"
+    t.text     "bio"
+    t.string   "url1"
+    t.string   "url2"
+    t.string   "url3"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "store_submissions", :force => true do |t|

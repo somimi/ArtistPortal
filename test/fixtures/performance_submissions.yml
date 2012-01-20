@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  duration: 1
+  description: MyText
+  type: 
+  stage_requirements: MyText
+  performance_experience: MyText
+  bio: MyText
+  url1: MyString
+  url2: MyString
+  url3: MyString
+
+two:
+  title: MyString
+  duration: 1
+  description: MyText
+  type: 
+  stage_requirements: MyText
+  performance_experience: MyText
+  bio: MyText
+  url1: MyString
+  url2: MyString
+  url3: MyString

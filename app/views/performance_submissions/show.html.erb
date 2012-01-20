@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @performance_submission.title %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @performance_submission.duration %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @performance_submission.description %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @performance_submission.type %>
+</p>
+
+<p>
+  <b>Stage requirements:</b>
+  <%= @performance_submission.stage_requirements %>
+</p>
+
+<p>
+  <b>Performance experience:</b>
+  <%= @performance_submission.performance_experience %>
+</p>
+
+<p>
+  <b>Bio:</b>
+  <%= @performance_submission.bio %>
+</p>
+
+<p>
+  <b>Url1:</b>
+  <%= @performance_submission.url1 %>
+</p>
+
+<p>
+  <b>Url2:</b>
+  <%= @performance_submission.url2 %>
+</p>
+
+<p>
+  <b>Url3:</b>
+  <%= @performance_submission.url3 %>
+</p>
+
+
+<%= link_to 'Edit', edit_performance_submission_path(@performance_submission) %> |
+<%= link_to 'Back', performance_submissions_path %>

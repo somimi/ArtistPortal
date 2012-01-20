@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @film_submission.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @film_submission.description %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @film_submission.duration %>
+</p>
+
+<p>
+  <b>Delivery type:</b>
+  <%= @film_submission.delivery_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_film_submission_path(@film_submission) %> |
+<%= link_to 'Back', film_submissions_path %>

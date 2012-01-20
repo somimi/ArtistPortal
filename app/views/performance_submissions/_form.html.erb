@@ -1,0 +1,66 @@
+<%= form_for(@performance_submission) do |f| %>
+  <% if @performance_submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@performance_submission.errors.count, "error") %> prohibited this performance_submission from being saved:</h2>
+
+      <ul>
+      <% @performance_submission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<fieldset>
+	<legend>Performance Submission Overview</legend>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :duration %><br />
+    <%= f.number_field :duration %>
+  </p>
+  <p>
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.label :stage_requirements %><br />
+    <%= f.text_area :stage_requirements %>
+  </p>
+</fieldset>
+<fieldset>
+	<legend>Performer Information</legend>
+  <p>
+    <%= f.label :performance_experience %><br />
+    <%= f.text_area :performance_experience %>
+  </p>
+  <p>
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio %>
+  </p>
+</fieldset>
+<fieldset>
+	<legend>Supporting Information</legend>
+	Please provide any supporting information (e.g. youtube videos, reviews, etc) that you would like.
+  <p>
+    <%= f.label "URL" %><br />
+    <%= f.text_field :url1 %>
+  </p>
+  <p>
+    <%= f.label "URL" %><br />
+    <%= f.text_field :url2 %>
+  </p>
+  <p>
+    <%= f.label "URL" %><br />
+    <%= f.text_field :url3 %>
+  </p>
+</fieldset>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,21 @@
+<h1>Listing performance_submissions</h1>
+
+<table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @performance_submissions.each do |performance_submission| %>
+  <tr>
+    <td><%= performance_submission.title %></td>
+    <td><%= link_to 'Edit', edit_performance_submission_path(performance_submission) %></td>
+    <td><%= link_to 'Destroy', performance_submission, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Performance submission', new_performance_submission_path %>

@@ -6,5 +6,4 @@ class InstallationImagesController < ApplicationController
     
   end
 
-
 end

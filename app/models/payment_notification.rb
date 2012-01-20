@@ -12,8 +12,10 @@ class PaymentNotification < ActiveRecord::Base
         user.artist.update_attributes(:visual_paid => "true")
       elsif product == 2
         user.artist.update_attributes(:literary_paid => "true")
-      else
+      elsif product == 3
         user.artist.update_attributes(:installation_paid => "true")
+      else product == 4
+        user.artist.update_attributes(:film_paid => "true")
       end
     end
   end

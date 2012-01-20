@@ -1,0 +1,52 @@
+<%= form_for(@film_submission) do |f| %>
+  <% if @film_submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@film_submission.errors.count, "error") %> prohibited this film_submission from being saved:</h2>
+
+      <ul>
+      <% @film_submission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<fieldset>
+	<legend>Video/Short Film Overview</legend>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :duration %><br />
+    <%= f.number_field :duration %>
+  </p>
+</fieldset>
+<fieldset>
+	<legend>Video/Short Film Delivery</legend>	
+  <p>
+	<%= f.radio_button :delivery_type, 'URL', :checked => true %> URL<br />
+	<%= f.radio_button :delivery_type, 'Physical Mail' %> Physical Mail<br />
+	<%= f.radio_button :delivery_type, 'Upload' %> Upload<br />
+  </p>
+
+  <p id="delivery-url">
+	<%= f.label :url %><br />
+	<%= f.text_field :url %>
+  </p>
+  <p id="delivery-physical">
+	<b>Please mail your DVD to:</b><br />
+	Foundation for Sex Positive Culture<br />
+	Seattle Erotic Art Festival -- Erotic Short Film Exhibition<br />
+	4714 Ballard Ave. N.W. #M309<br />
+	Seattle, WA 98107<br />
+  </p>
+
+</fieldset>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

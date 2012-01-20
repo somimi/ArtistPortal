@@ -1,9 +1,12 @@
 ArtistPortal::Application.routes.draw do
+  resources :installation_submissions
+
   resources :literary_submissions
 
   #get "asset/images"
   
  match 'images/:id/images' => 'images#images'
+ match 'installation_images/:id/installation_images' => 'installation_images#installation_images'
  match 'store_submissions/:id/duplicate' => 'store_submissions#duplicate', :as => :duplicate_store_submission
   
   resources :store_submissions

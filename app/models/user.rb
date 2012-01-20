@@ -75,6 +75,28 @@ class User < ActiveRecord::Base
  
   end
   
+  def paypal_installation_encrypted(return_url, notify_url)
+    values = {
+      :business => 'ray_1322550661_biz@gmail.com',
+      :cmd => '_cart',
+      :upload => 1,
+      :return => return_url,
+      :invoice => id.to_s.concat("2").to_i,
+      :notify_url => notify_url,
+      :cert_id => APP_CONFIG[:paypal_cert_id]
+    }
+    
+    values.merge!({
+      "amount_1" => "30",
+      "item_name_1" => "Installation Submission Fee",
+      "item_number_1" => "3",
+      "quantity_1" => "1"
+    })
+    
+    encrypt_for_paypal(values)
+ 
+  end
+  
   PAYPAL_CERT_PEM = File.read("#{Rails.root}/certs/paypal_cert.pem")
   APP_CERT_PEM = File.read("#{Rails.root}/certs/app_cert.pem")
   APP_KEY_PEM = File.read("#{Rails.root}/certs/app_key.pem")

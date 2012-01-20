@@ -1,0 +1,69 @@
+<%= form_for(@installation_submission) do |f| %>
+  <% if @installation_submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@installation_submission.errors.count, "error") %> prohibited this installation_submission from being saved:</h2>
+
+      <ul>
+      <% @installation_submission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<fieldset>
+	<legend>Installation Submission Overview</legend>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+</fieldset>
+<fieldset>
+	<legend>Submission Dimensions</legend>
+
+	  <p>
+	    <%= f.label :height %><br />
+	    <%= f.text_field :height, :width => "30px" %>
+	    <%= f.select :h_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @installation_submission.h_unit) %>
+	    
+	  </p>
+	  <p>
+	    <%= f.label :width %><br />
+	    <%= f.text_field :width %>
+	    <%= f.select :w_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @installation_submission.w_unit) %>
+	  </p>
+	  <p>
+	    <%= f.label :depth %><br />
+	    <%= f.text_field :depth %>
+	    <%= f.select :d_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @installation_submission.d_unit) %>
+	  </p>
+</fieldset>
+<fieldset>
+	<legend>Image Upload</legend>
+		<%= f.fields_for :installation_images do |installation_image_fields| %>
+			<% if installation_image_fields.object.new_record? %>
+				<p>
+					<%= installation_image_fields.file_field :installation_image %>
+				</p>
+			<% end %>
+		<% end %>
+		
+		<%= f.fields_for :installation_images do |installation_image_fields| %>
+			<% unless installation_image_fields.object.new_record? %>
+				<p>
+					<%= link_to image_tag(installation_image_fields.object.installation_image.url(:small)), installation_image_fields.object.installation_image.url(:original) %>
+				</p>
+			<% end %>
+		<% end %>
+		
+		
+
+	
+</fieldset>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

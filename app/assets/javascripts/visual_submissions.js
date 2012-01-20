@@ -5,13 +5,16 @@ $(document).ready(function(){
 	if ($("li-check").is(":checked"))
 	{
 		$("#limited-edition").css("display", "block")
+		$("#limited-edition-1").css("display", "block")
 	}
 	
     $("#visual_submission_edition_limited_edition").change(function(){
        if($(this).is(":checked")){
-         $('#limited-edition').show("slow");   
+         $('#limited-edition').show("slow"); 
+		 $('#limited-edition-1').show("slow");    
        }else {
-         $('#limited-edition').hide("slow");   
+         $('#limited-edition').hide("slow");
+   	     $('#limited-edition-1').hide("slow");
        }
 
     });

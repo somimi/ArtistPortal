@@ -33,7 +33,8 @@ class VisualSubmissionsController < ApplicationController
 
   def new
     #@visual_submission = VisualSubmission.new
-    3.times { @visual_submission.images.build }
+     count = (3 - @visual_submission.images.count)
+      count.times { @visual_submission.images.build }
   end
   
 

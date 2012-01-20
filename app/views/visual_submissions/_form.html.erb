@@ -20,7 +20,7 @@
 	  </p>
 </fieldset>
 <fieldset>
-	<legend>Submission Dimensions</legend>
+	<legend>Visual Submission Dimensions</legend>
 	  <p>
 		<%= f.check_box :dimension, :id => "dim-check" %>
 	    <%= f.label "Is this submission three dimensional?" %>
@@ -36,13 +36,11 @@
 	    <%= f.text_field :width %>
 	    <%= f.select :w_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @visual_submission.w_unit) %>
 	  </p>
-	<div id="three-dee">
-	  <p>
+	  <p id="three-dee">
 	    <%= f.label :depth %><br />
 	    <%= f.text_field :depth %>
 	    <%= f.select :d_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @visual_submission.d_unit) %>
 	  </p>
-	</div>
 </fieldset>
 <fieldset>
 	<legend>Additional Information</legend>
@@ -56,20 +54,18 @@
 		<a href="#?w=500" rel="popup_limited" class="poplight">Learn More</a>
 	  </p>
  -->
-	<%= f.label "Something" %><br />
+	<%= f.label "Edition" %><br />
 	<%= f.radio_button :edition, 'Original', :checked => true %> Original<br />
 	<%= f.radio_button :edition, 'Open' %> Open<br />
 	<%= f.radio_button :edition, 'Limited Edition' %> Limited Edition<br />
-	<div id="limited-edition" >
-	  <p>
+	  <p id="limited-edtion-1">
 	    <%= f.label :edition_position %><br />
 	    <%= f.number_field :edition_position %>
 	  </p>
-	  <p>
+	  <p id="limited-edition">
 	    <%= f.label :edition_total %><br />
 	    <%= f.number_field :edition_total %>
 	  </p>
-	</div>
 	
 	
 </fieldset>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120119014032) do
+ActiveRecord::Schema.define(:version => 20120119094051) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20120119014032) do
     t.string   "shipping_company"
     t.string   "delivery_arrangements"
     t.string   "return_arrangements"
+    t.boolean  "installation_paid"
   end
 
   create_table "images", :force => true do |t|
@@ -53,6 +54,30 @@ ActiveRecord::Schema.define(:version => 20120119014032) do
     t.integer  "visual_submission_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "installation_images", :force => true do |t|
+    t.string   "installation_image_file_name"
+    t.string   "installation_image_content_type"
+    t.integer  "installation_image_file_size"
+    t.datetime "installation_image_updated_at"
+    t.integer  "installation_submission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "installation_submissions", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "height"
+    t.string   "h_unit"
+    t.integer  "width"
+    t.string   "w_unit"
+    t.integer  "depth"
+    t.string   "d_unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "artist_id"
   end
 
   create_table "literary_submissions", :force => true do |t|

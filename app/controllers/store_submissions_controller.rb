@@ -13,6 +13,7 @@ class StoreSubmissionsController < ApplicationController
 
   def create
     @store_submission = StoreSubmission.new(params[:store_submission])
+    @store_submission.artist_id = current_user.artist.id
     if @store_submission.save
       redirect_to @store_submission, :notice => "Successfully created store submission."
     else

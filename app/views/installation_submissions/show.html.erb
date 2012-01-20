@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @installation_submission.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @installation_submission.description %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%= @installation_submission.height %>
+</p>
+
+<p>
+  <b>H unit:</b>
+  <%= @installation_submission.h_unit %>
+</p>
+
+<p>
+  <b>Width:</b>
+  <%= @installation_submission.width %>
+</p>
+
+<p>
+  <b>W unit:</b>
+  <%= @installation_submission.w_unit %>
+</p>
+
+<p>
+  <b>Depth:</b>
+  <%= @installation_submission.depth %>
+</p>
+
+<p>
+  <b>D unit:</b>
+  <%= @installation_submission.d_unit %>
+</p>
+
+
+<%= link_to 'Edit', edit_installation_submission_path(@installation_submission) %> |
+<%= link_to 'Back', installation_submissions_path %>

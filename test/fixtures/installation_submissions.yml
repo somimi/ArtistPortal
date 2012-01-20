@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  height: 1
+  h_unit: MyString
+  width: 1
+  w_unit: MyString
+  depth: 1
+  d_unit: MyString
+
+two:
+  title: MyString
+  description: MyText
+  height: 1
+  h_unit: MyString
+  width: 1
+  w_unit: MyString
+  depth: 1
+  d_unit: MyString

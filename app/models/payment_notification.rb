@@ -10,8 +10,10 @@ class PaymentNotification < ActiveRecord::Base
     if status == "Completed" && params[:secret] == APP_CONFIG[:paypal_secret]
       if product == 1
         user.artist.update_attributes(:visual_paid => "true")
-      else
+      elsif product == 2
         user.artist.update_attributes(:literary_paid => "true")
+      else
+        user.artist.update_attributes(:installation_paid => "true")
       end
     end
   end

@@ -2,6 +2,7 @@
   <%= render "shared/error_messages", :target => @visual_submission %>
 <fieldset>
 	<legend>Submission Overview</legend>
+
 	  <p>
 	    <%= f.label :title %><br />
 	    <%= f.text_field :title %>
@@ -12,19 +13,24 @@
 	  </p>
 	  <p>
 	    <%= f.label :year_created %><br />
-	    <%= f.text_field :year_created %>
+	    <%= f.text_field :year_created %><br />
+		<small><i>There are no restrictions on when art work was created.</i></small>
 	  </p>
 	  <p>
-	    <%= f.label :sale_price %><br />
-	    <%= f.number_field :sale_price %>
+	    <%= f.label :sale_price %><a href="#?w=500" rel="popup_saleprice" class="poplight"><%= image_tag("/assets/icon_info.gif") %></a><br />
+	    $<%= f.number_field :sale_price %></a><br />
+		<small><i>Price must be at least $200 and a whole number.</i></small>
 	  </p>
 </fieldset>
 <fieldset>
 	<legend>Visual Submission Dimensions</legend>
+	<small>When providing the dimensions of your artwork, you must list the size of the framed work and provide the closest estimate possible.
+    Your work does not need to be framed in the JPEG images of your pieces. If you include frames in your images, the jury will judge the frame as well as the piece.
+    If you are accepted into the exhibition, you will need to have your work framed (see our FAQs for additional information about framing.)</small>
 	  <p>
 		<%= f.check_box :dimension, :id => "dim-check" %>
 	    <%= f.label "Is this submission three dimensional?" %>
-	  <a href="#?w=500" rel="popup_dimension" class="poplight">Learn More</a>
+	  <a href="#?w=500" rel="popup_dimension" class="poplight"><%= image_tag("/assets/icon_info.gif") %></a>
 	  <p>
 	    <%= f.label :height %><br />
 	    <%= f.text_field :height, :width => "30px" %>
@@ -44,21 +50,12 @@
 </fieldset>
 <fieldset>
 	<legend>Additional Information</legend>
-	  <p>
-	    <%= f.label :notes %><br />
-	    <%= f.text_area :notes %>
-	  </p>
-<!-- 	  <p>
-		<%= f.check_box :limited_edition, :id => "li-check" %>
-	    <%= f.label :limited_edition %>
-		<a href="#?w=500" rel="popup_limited" class="poplight">Learn More</a>
-	  </p>
- -->
-	<%= f.label "Edition" %><br />
+
+	<%= f.label "Edition of Your Piece" %><a href="#?w=500" rel="popup_edition" class="poplight"><%= image_tag("/assets/icon_info.gif") %></a><br />
 	<%= f.radio_button :edition, 'Original', :checked => true %> Original<br />
-	<%= f.radio_button :edition, 'Open' %> Open<br />
+	<%= f.radio_button :edition, 'Open Edition' %> Open Edition<br />
 	<%= f.radio_button :edition, 'Limited Edition' %> Limited Edition<br />
-	  <p id="limited-edtion-1">
+	  <p id="limited-edition-1">
 	    <%= f.label :edition_position %><br />
 	    <%= f.number_field :edition_position %>
 	  </p>
@@ -66,11 +63,15 @@
 	    <%= f.label :edition_total %><br />
 	    <%= f.number_field :edition_total %>
 	  </p>
-	
-	
+	  <div class="notes">
+	      <h4>Notes</h4>
+	      <p class="last">Please notate any information about the piece that cannot be depicted in the image submitted. (Example: A holographic photograph.) This is where you can also include extra information about materials or process used to create this art.</p>
+    </div>
+	  <p>
+	    <%= f.label :notes %><br />
+	    <%= f.text_area :notes, :rows => "20" %>
+	  </p>
 </fieldset>
-
-
 <fieldset>
 	<legend>Image Upload</legend>
 	<% count = 0 %>
@@ -98,24 +99,47 @@
 </fieldset>
   <p>
 	<%= f.check_box :store_submit %>
-	<%= f.label "I would like this piece to be considered for the store" %>
-	<a href="#?w=500" rel="popup_store" class="poplight">Learn More</a>
+	<%= f.label "I would like a similar version of this piece to be considered for the Festival Store." %>
+	<a href="#?w=500" rel="popup_store" class="poplight"><%= image_tag("/assets/icon_info.gif") %></a>
+  </p>
 	
  
   <p><%= f.submit %></p>
 <% end %>
+
+<br />
+
+<b>Submission Guidelines</b>
+<ul>
+	<li>Artists may submit up to five entries.</li>
+	<li>Images must be submitted in JPEG format.</li>
+	<li>Images should be no smaller than 500k and no larger than 5MB in size (in pixels, the optimum resolution would be at least 1000 pixels on the longest side. This is typically about 1MB in size.)</li>
+	<li>Any image with a watermark that obscures the image or identifies the artist will be rejected.</li>
+	<li>Images do NOT need to be of framed art for the submission process. If the frame is included in the image, the jury will judge both the piece and the frame. Note that all accepted work must be framed before the Festival. See the FAQs page for details.</li>
+	<li>The model age certificate form is only required for accepted artists. You do not need to provide it unless you are selected by the jury, in which case we will ask that you include it with the delivery of your artwork.</li>
+</ul>
 
 <div id="popup_limited" class="popup_block">
     <h2>Limited Edition Artwork</h2>
     <p>This is a lot of stuff that I don't know how to answer but should go in this box.</p>
 </div>
 <div id="popup_dimension" class="popup_block">
-    <h2>Dimension</h2>
-    <p>Is this art in three dimensions?  For instance, like a pillow or a sock puppet.</p>
+    <h2>Three Dimensional</h2>
+    <p>We consider any piece of art that is meant to be viewed from more than one angle as a 3-D piece. Usually this is a sculpture or any wall-mounted art with a depth greater than 4 inches.</p>
 </div>
 <div id="popup_store" class="popup_block">
     <h2>Festival Store</h2>
-    <p>The store is awesome, you should love it!</p>
+    <p>By checking this box, a proposal for the Festival Store will automatically be drafted. You will need to add additional information for this Store submission, in order for it to be complete. You can view this under “Art for the Store.”</p>
+</div>
+<div id="popup_saleprice" class="popup_block">
+    <h2>Sale Price</h2>
+    <p>All art in the exhibition is to be offered for sale. Minimum price for exhibition pieces is $200. If you want to price your piece(s) lower, please email <%= mail_to "exhibition@seattleerotic.org" %> to request an exemption. Sale price is what the piece sells for -- the Festival receives 40% commission on this sale price.</p>
+</div>
+<div id="popup_edition" class="popup_block">
+    <h2>Edition</h2>
+    <p>A piece of art designated an <b>original</b> means that there are no other reproductions in existence. (For example, painting, illustration, multi-media assemblage, etc.)</p>
+    <p>A piece of art designated as being a part of a <b>limited edition</b> means that the artist releases only a certain number of reproductions. (This is a common practice in sculpture, photography, printmaking, etc.). Please include both the position in the edition as well as how many total pieces make up the edition. (For example, if the artist is submitting the second sculpture cast from a mold and only intends to make 10 sculptures total, this would be designated as Limited Edition, 2 of 10.)</p>
+    <p>A piece of art designated as being part of an <b>open edition</b> means that the artist does not intend to limit the amount of reproductions made. (For example, there may be only one photograph in existence now, but the artist could print another photograph the same size in the future.)</p>
 </div>
 
 

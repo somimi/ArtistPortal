@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
 	$("#limited-edition").css("display","none");
+	$("#limited-edition-1").css("display", "none")
 	
 	if ($("li-check").is(":checked"))
 	{

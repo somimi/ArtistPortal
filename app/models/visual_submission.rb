@@ -9,6 +9,7 @@ class VisualSubmission < ActiveRecord::Base
   validates_presence_of :title, :medium, :height, :width, :h_unit, :w_unit, :year_created, :sale_price, :images
   #validates_presence_of :depth, :d_unit, :dimension => true
   validates_numericality_of :sale_price, :only_integer => true, :message => "can only be whole number."
+
   
   
   def previous(query)

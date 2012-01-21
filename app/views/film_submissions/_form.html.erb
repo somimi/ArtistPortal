@@ -22,7 +22,8 @@
   </p>
   <p>
     <%= f.label :duration %><br />
-    <%= f.number_field :duration %>
+    <%= f.number_field :duration %><br />
+    <small><i>Duration must be under 30 minutes</i></small>
   </p>
 </fieldset>
 <fieldset>
@@ -44,9 +45,21 @@
 	4714 Ballard Ave. N.W. #M309<br />
 	Seattle, WA 98107<br />
   </p>
+   <p id="delivery-upload">
+	
+	<script src="https://cds.box.com/embed/upload.js?token=foqc138s7f3i0mqqulkeecrxngx9pj6j&folder_id=28364306&w=450&h=400&i=please%20use%20this%20to%20submit%20video%20files%20up%20to%202gb.&d=1&t=submit%20video%20to%20Seattle%20Erotic%20Art%20Festival%202012&r=1" type="text/javascript"></script>
+   
+   </p>
 
 </fieldset>
   <p>
     <%= f.submit %>
   </p>
 <% end %>
+
+<b>Submission Guidelines</b>
+<ul>
+	<li>Up to 3 submissions are allowed.</li>
+	<li>Each one may be up to 30 minutes in length, but will not be considered if it extends beyond 30 minutes.</li>
+	<li>If you plan to mail a DVD, it must be received by the deadline, March 10, 2012.</li>
+</ul>

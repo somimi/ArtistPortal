@@ -2,7 +2,7 @@ class FilmSubmissionsController < ApplicationController
   # GET /film_submissions
   # GET /film_submissions.json
   def index
-    @film_submissions = FilmSubmission.all
+    @film_submissions = current_user.artist.film_submission
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +44,7 @@ class FilmSubmissionsController < ApplicationController
 
     respond_to do |format|
       if @film_submission.save
-        format.html { redirect_to @film_submission, notice: 'Film submission was successfully created.' }
+        format.html { redirect_to film_submissions_path, notice: 'Video Short/Film submission was successfully created.' }
         format.json { render json: @film_submission, status: :created, location: @film_submission }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class FilmSubmissionsController < ApplicationController
 
     respond_to do |format|
       if @film_submission.update_attributes(params[:film_submission])
-        format.html { redirect_to @film_submission, notice: 'Film submission was successfully updated.' }
+        format.html { redirect_to film_submissions_path, notice: 'Video/Short Film submission was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

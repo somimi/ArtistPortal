@@ -1,33 +1,15 @@
-<h1>Listing installation_submissions</h1>
+<h1>Listing Installation Art Submissions</h1>
 
-<table>
+<table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
   <tr>
     <th>Title</th>
-    <th>Description</th>
-    <th>Height</th>
-    <th>H unit</th>
-    <th>Width</th>
-    <th>W unit</th>
-    <th>Depth</th>
-    <th>D unit</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
 <% @installation_submissions.each do |installation_submission| %>
   <tr>
-    <td><%= installation_submission.title %></td>
-    <td><%= installation_submission.description %></td>
-    <td><%= installation_submission.height %></td>
-    <td><%= installation_submission.h_unit %></td>
-    <td><%= installation_submission.width %></td>
-    <td><%= installation_submission.w_unit %></td>
-    <td><%= installation_submission.depth %></td>
-    <td><%= installation_submission.d_unit %></td>
-    <td><%= link_to 'Show', installation_submission %></td>
-    <td><%= link_to 'Edit', edit_installation_submission_path(installation_submission) %></td>
-    <td><%= link_to 'Destroy', installation_submission, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to installation_submission.title, edit_installation_submission_path(installation_submission) %></td>
+    <td><%= link_to 'Delete', installation_submission, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

@@ -1,9 +1,11 @@
-
+<% title 'Literary Submissions' %>
 
 <table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
   <tr>
 	    <th><%= sortable "title" %></th>
 	    <th><%= sortable "comments" %></th>
+		<th>File Uploaded</th>
+		<th></th>
   </tr>
 
 <% @literary_submissions.each do |literary_submission| %>
@@ -19,3 +21,13 @@
 <br />
 
 <%= link_to 'New Literary submission', new_literary_submission_path %>
+
+<ul>
+	<li>Artists may submit up to five entries.</li>
+	<li>All entries must be in .doc or .rtf format only.</li>
+	<li>All entries must follow standard manuscript format including 12 pt. font and 1-inch margins.</li>
+	<li>Each page must have only the title and page number in the top right hand corner (no other identifying information).</li>
+	<li>Poetry must be no more than 2 pages, single-spaced.</li>
+	<li>Short stories must be no more than 1,500 words, 7 pages, double-spaced.</li>
+	<li>Short one-act plays or scripts must be no more than 15 pages, including scene setup.</li>
+</ul>

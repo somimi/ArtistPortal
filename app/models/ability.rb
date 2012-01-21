@@ -15,6 +15,9 @@ class Ability
        can :create, Artist
        can :create, LiterarySubmission
        can :create, StoreSubmission
+       can :create, FilmSubmission
+       can :create, PerformanceSubmission
+       can :create, InstallationSubmission
        
        can :manage, VisualSubmission do |visual_submission|
          visual_submission.artist.try(:user) == current_user
@@ -28,13 +31,20 @@ class Ability
          literary_submission.artist.try(:user == current_user)
        end
        
-       can :read, Artist do |artist|
-         artist.try(:user) == current_user
+       can :manage, PerformanceSubmission do |performance_submission|
+         performance_submission.artist.try(:user == current_user)
        end
-       can :update, Artist do |artist|
-         artist.try(:user) == current_user
+       
+       can :manage, InstallationSubmission do |installation_submission|
+         installation_submission.artist.try(:user == current_user)
        end
-     end 
-
+       
+       can :manage, FilmSubmission do |film_submission|
+         film_submission.artist.try(:user == current_user)
+       end
+       
+       can :manage, Artist do |artist|
+         artist.try(:user) == current_user
+       end 
   end
 end

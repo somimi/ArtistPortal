@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121044056) do
+ActiveRecord::Schema.define(:version => 20120121105243) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20120121044056) do
     t.integer  "doc_file_size"
     t.datetime "doc_updated_at"
     t.integer  "artist_id"
+    t.string   "type"
   end
 
   create_table "payment_notifications", :force => true do |t|

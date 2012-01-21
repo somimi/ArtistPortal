@@ -16,9 +16,13 @@
     	<%= f.label :title %><br />
     	<%= f.text_field :title %>
     </p>
-  <p>
+	<p>
+ 		<%= f.select :type, options_for_select([['Poem'],['Short Story'],['Script/Play']], @literary_submission.type) %>
+  	</p>
+	<p>
     <%= f.label :comments %><br />
-    <%= f.text_area :comments %>
+    <%= f.text_area :comments %><br />
+	<small>Do not paste your submission here; submissions must be uploaded as attachments below.</small>
   </p>
 <fieldset>
 	<legend>Submission Upload</legend>
@@ -30,3 +34,14 @@
 <p><%= f.submit %></p>
 
 <% end %>
+
+<b>Literary Art Submission Guidelines</b>
+<ul>
+	<li>Artists may submit up to five entries.</li>
+	<li>All entries must be in .doc or .rtf format only.</li>
+	<li>All entries must follow standard manuscript format including 12 pt. font and 1-inch margins.</li>
+	<li>Each page must have only the title and page number in the top right hand corner (no other identifying information).</li>
+	<li>Poetry must be no more than 2 pages, single-spaced.</li>
+	<li>Short stories must be no more than 1,500 words, 7 pages, double-spaced.</li>
+	<li>Short one-act plays or scripts must be no more than 15 pages, including scene setup.</li>
+</ul>

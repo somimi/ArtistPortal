@@ -2,7 +2,7 @@ class InstallationSubmissionsController < ApplicationController
   # GET /installation_submissions
   # GET /installation_submissions.json
   def index
-    @installation_submissions = InstallationSubmission.all
+    @installation_submissions = current_user.artist.installation_submission
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +46,7 @@ class InstallationSubmissionsController < ApplicationController
 
     respond_to do |format|
       if @installation_submission.save
-        format.html { redirect_to @installation_submission, notice: 'Installation submission was successfully created.' }
+        format.html { redirect_to installation_submissions_path, notice: 'Installation submission was successfully created.' }
         format.json { render json: @installation_submission, status: :created, location: @installation_submission }
       else
         format.html { render action: "new" }
@@ -62,7 +62,7 @@ class InstallationSubmissionsController < ApplicationController
 
     respond_to do |format|
       if @installation_submission.update_attributes(params[:installation_submission])
-        format.html { redirect_to @installation_submission, notice: 'Installation submission was successfully updated.' }
+        format.html { redirect_to installation_submissions_path, notice: 'Installation submission was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

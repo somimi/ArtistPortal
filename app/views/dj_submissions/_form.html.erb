@@ -1,0 +1,101 @@
+<%= form_for(@dj_submission) do |f| %>
+  <% if @dj_submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dj_submission.errors.count, "error") %> prohibited this dj_submission from being saved:</h2>
+
+      <ul>
+      <% @dj_submission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :musical_style %><br />
+    <%= f.text_field :musical_style %>
+  </div>
+  <div class="field">
+    <%= f.label :other_music %><br />
+    <%= f.text_area :other_music %>
+  </div>
+  <div class="field">
+    <%= f.label :live_links %><br />
+    <%= f.text_area :live_links %>
+  </div>
+  <div class="field">
+    <%= f.label :career %><br />
+    <%= f.text_area :career %>
+  </div>
+  <div class="field">
+    <%= f.label :6-16-day %><br />
+    <%= f.check_box :6-16-day %>
+  </div>
+  <div class="field">
+    <%= f.label :6-17-day %><br />
+    <%= f.check_box :6-17-day %>
+  </div>
+  <div class="field">
+    <%= f.label :6-22-day %><br />
+    <%= f.check_box :6-22-day %>
+  </div>
+  <div class="field">
+    <%= f.label :6-23-day %><br />
+    <%= f.check_box :6-23-day %>
+  </div>
+  <div class="field">
+    <%= f.label :6-24-day %><br />
+    <%= f.check_box :6-24-day %>
+  </div>
+  <div class="field">
+    <%= f.label :6-16-evening %><br />
+    <%= f.check_box :6-16-evening %>
+  </div>
+  <div class="field">
+    <%= f.label :6-17-evening %><br />
+    <%= f.check_box :6-17-evening %>
+  </div>
+  <div class="field">
+    <%= f.label :6-22-evening %><br />
+    <%= f.check_box :6-22-evening %>
+  </div>
+  <div class="field">
+    <%= f.label :6-23-evening %><br />
+    <%= f.check_box :6-23-evening %>
+  </div>
+  <div class="field">
+    <%= f.label :6-24-evening %><br />
+    <%= f.check_box :6-24-evening %>
+  </div>
+  <div class="field">
+    <%= f.label :6-16-night %><br />
+    <%= f.check_box :6-16-night %>
+  </div>
+  <div class="field">
+    <%= f.label :6-22-night %><br />
+    <%= f.check_box :6-22-night %>
+  </div>
+  <div class="field">
+    <%= f.label :6-23-night %><br />
+    <%= f.check_box :6-23-night %>
+  </div>
+  <div class="field">
+    <%= f.label :want_to_play %><br />
+    <%= f.text_area :want_to_play %>
+  </div>
+  <div class="field">
+    <%= f.label :gear_requirements %><br />
+    <%= f.text_area :gear_requirements %>
+  </div>
+  <div class="field">
+    <%= f.label :festival_history %><br />
+    <%= f.text_area :festival_history %>
+  </div>
+  <div class="field">
+    <%= f.label :additional_notes %><br />
+    <%= f.text_area :additional_notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

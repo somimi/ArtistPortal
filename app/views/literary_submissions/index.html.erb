@@ -2,25 +2,24 @@
 
 <table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
   <tr>
-	    <th><%= sortable "title" %></th>
-	    <th><%= sortable "comments" %></th>
-		<th>File Uploaded</th>
+	    <th><%= sortable "Title" %></th>
+	    <th><%= sortable "File Name" %></th>
 		<th></th>
   </tr>
 
 <% @literary_submissions.each do |literary_submission| %>
   <tr>
 	      <td><%= link_to literary_submission.title, edit_literary_submission_path(literary_submission) %></td>
-	      <td><%= link_to literary_submission.comments, edit_literary_submission_path(literary_submission) %></td>
+	      <td><%= link_to literary_submission.doc_file_name, edit_literary_submission_path(literary_submission) %></td>
 
-    <td><%= link_to 'Remove', literary_submission, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Delete', literary_submission, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Literary submission', new_literary_submission_path %>
+<%= link_to 'New Literary Submission', new_literary_submission_path %>
 
 <ul>
 	<li>Artists may submit up to five entries.</li>

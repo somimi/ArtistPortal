@@ -1,18 +1,45 @@
 <%= form_for @store_submission do |f| %>
   <%= f.error_messages %>
 <fieldset>
-	<legend>Submission Overview</legend>
+	<legend>Store Submission Overview</legend>
 	  <p>
 	    <%= f.label :title %><br />
 	    <%= f.text_field :title %>
 	  </p>
 	  <p>
-	    <%= f.label :description %><br />
-	    <%= f.text_area :description %>
+		<%= f.label :type %>
+		<%= f.select(:type, options_for_select([['Gift Card'], ['Postcard'], ['Poster'],['Print'],['Book'],['Sculpture'],['Clothing'],['Jewelry'],['DVD'],['Other']], @store_submission.type), {:include_blank => true, :width => "200px"}) %>
+	  </p>
+	  <p id="store-type-other"><br />
+		<%= f.text_field :type_other %>
 	  </p>
 	  <p>
-	    <%= f.label :quantity %><br />
+		<%= f.label :price %><br />
+		$<%= f.text_field :price %><br />
+		<small>Must be a whole number.</small>
+	  </p>
+	  <p>
+	    <%= f.label "Quantity Proposed" %><br />
 	    <%= f.text_field :quantity, :size => "30px" %>
+	  </p>
+</fieldset>
+<fieldset>
+	<legend>Store Submission Dimensions</legend>
+	  <p>
+	    <%= f.label :height %><br />
+	    <%= f.text_field :height, :width => "30px" %>
+	    <%= f.select :h_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @store_submission.h_unit) %>
+	    
+	  </p>
+	  <p>
+	    <%= f.label :width %><br />
+	    <%= f.text_field :width %>
+	    <%= f.select :w_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @store_submission.w_unit) %>
+	  </p>
+	  <p>
+	    <%= f.label :depth %><br />
+	    <%= f.text_field :depth %>
+	    <%= f.select :d_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @store_submission.d_unit) %>
 	  </p>
 </fieldset>
 <fieldset>

@@ -1,4 +1,6 @@
 ArtistPortal::Application.routes.draw do
+  resources :dj_submissions
+
   resources :performance_submissions
 
   resources :film_submissions

@@ -1,4 +1,7 @@
 class FilmSubmission < ActiveRecord::Base
-  validates_presence_of :title, :description, :duration
+  
+  belongs_to :artist
+  
+  validates_presence_of :title, :duration
   #validates :duration, :film_duration => true
 end

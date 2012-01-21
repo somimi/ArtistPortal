@@ -16,7 +16,14 @@
 
 <br />
 
-<p><%= link_to 'New Film submission', new_film_submission_path %></p>
+<% if @film_submissions.count < 3 %>
+
+	<p><%= link_to 'New Film submission', new_film_submission_path %></p>
+
+<% else %>
+	<p>You have submitted the maximum amount of entries.</p>
+	
+<% end %>
 
 <b>Submission Guidelines</b>
 <ul>

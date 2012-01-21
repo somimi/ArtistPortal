@@ -1,0 +1,2 @@
+module DjSubmissionsHelper
+end

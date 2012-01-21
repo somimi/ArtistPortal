@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121105243) do
+ActiveRecord::Schema.define(:version => 20120121224713) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -50,6 +50,32 @@ ActiveRecord::Schema.define(:version => 20120121105243) do
     t.string   "represent_gallery"
   end
 
+  create_table "dj_submissions", :force => true do |t|
+    t.string   "musical_style"
+    t.text     "other_music"
+    t.text     "live_links"
+    t.text     "career"
+    t.boolean  "six_16_day"
+    t.boolean  "six_17_day"
+    t.boolean  "six_22_day"
+    t.boolean  "six_23_day"
+    t.boolean  "six_24_day"
+    t.boolean  "six_16_evening"
+    t.boolean  "six_17_evening"
+    t.boolean  "six_22_evening"
+    t.boolean  "six_23_evening"
+    t.boolean  "six_24_evening"
+    t.boolean  "six_16_night"
+    t.boolean  "six_22_night"
+    t.boolean  "six_23_night"
+    t.text     "want_to_play"
+    t.text     "gear_requirements"
+    t.text     "festival_history"
+    t.text     "additional_notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "film_submissions", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -58,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20120121105243) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url"
+    t.integer  "artist_id"
   end
 
   create_table "images", :force => true do |t|
@@ -145,6 +172,19 @@ ActiveRecord::Schema.define(:version => 20120121105243) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "type"
+    t.string   "type_other"
+    t.integer  "height"
+    t.integer  "width"
+    t.integer  "depth"
+    t.string   "h_unit"
+    t.string   "w_unit"
+    t.string   "d_unit"
+    t.integer  "price"
+    t.string   "presentation"
+    t.string   "presentation_other"
+    t.boolean  "provide_display"
+    t.text     "notes"
   end
 
   create_table "users", :force => true do |t|

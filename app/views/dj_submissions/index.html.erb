@@ -1,0 +1,63 @@
+<h1>Listing dj_submissions</h1>
+
+<table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
+  <tr>
+    <th>Musical style</th>
+    <th>Other music</th>
+    <th>Live links</th>
+    <th>Career</th>
+    <th>6_16_day</th>
+    <th>6_17_day</th>
+    <th>6_22_day</th>
+    <th>6_23_day</th>
+    <th>6_24_day</th>
+    <th>6_16_evening</th>
+    <th>6_17_evening</th>
+    <th>6_22_evening</th>
+    <th>6_23_evening</th>
+    <th>6_24_evening</th>
+    <th>6_16_night</th>
+    <th>6_22_night</th>
+    <th>6_23_night</th>
+    <th>Want to play</th>
+    <th>Gear requirements</th>
+    <th>Festival history</th>
+    <th>Additional notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dj_submissions.each do |dj_submission| %>
+  <tr>
+    <td><%= dj_submission.musical_style %></td>
+    <td><%= dj_submission.other_music %></td>
+    <td><%= dj_submission.live_links %></td>
+    <td><%= dj_submission.career %></td>
+    <td><%= dj_submission.six_16_day %></td>
+    <td><%= dj_submission.six_17_day %></td>
+    <td><%= dj_submission.six_22_day %></td>
+    <td><%= dj_submission.six_23_day %></td>
+    <td><%= dj_submission.six_24_day %></td>
+    <td><%= dj_submission.six_16_evening %></td>
+    <td><%= dj_submission.six_17_evening %></td>
+    <td><%= dj_submission.six_22_evening %></td>
+    <td><%= dj_submission.six_23_evening %></td>
+    <td><%= dj_submission.six_24_evening %></td>
+    <td><%= dj_submission.six_16_night %></td>
+    <td><%= dj_submission.six_22_night %></td>
+    <td><%= dj_submission.six_23_night %></td>
+    <td><%= dj_submission.want_to_play %></td>
+    <td><%= dj_submission.gear_requirements %></td>
+    <td><%= dj_submission.festival_history %></td>
+    <td><%= dj_submission.additional_notes %></td>
+    <td><%= link_to 'Show', dj_submission %></td>
+    <td><%= link_to 'Edit', edit_dj_submission_path(dj_submission) %></td>
+    <td><%= link_to 'Destroy', dj_submission, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dj submission', new_dj_submission_path %>

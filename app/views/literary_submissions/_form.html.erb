@@ -26,9 +26,19 @@
   </p>
 <fieldset>
 	<legend>Submission Upload</legend>
+	<% if @literary_submission.doc_file_name %>
+	<p>
+		
+		Filename: <%= @literary_submission.doc_file_name %>
+	</p>
+	
+	   <% end %>
+	
 	<p>
 		<%= f.file_field :doc %>
 	</p>
+	
+ 
 </fieldset>
 
 <p><%= f.submit %></p>

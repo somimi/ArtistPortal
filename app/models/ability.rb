@@ -45,6 +45,7 @@ class Ability
        
        can :manage, Artist do |artist|
          artist.try(:user) == current_user
-       end 
+       end
+     end
   end
 end

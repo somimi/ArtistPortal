@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  musical_style: MyString
+  other_music: MyText
+  live_links: MyText
+  career: MyText
+  6-16-day: false
+  6-17-day: false
+  6-22-day: false
+  6-23-day: false
+  6-24-day: false
+  6-16-evening: false
+  6-17-evening: false
+  6-22-evening: false
+  6-23-evening: false
+  6-24-evening: false
+  6-16-night: false
+  6-22-night: false
+  6-23-night: false
+  want_to_play: MyText
+  gear_requirements: MyText
+  festival_history: MyText
+  additional_notes: MyText
+
+two:
+  musical_style: MyString
+  other_music: MyText
+  live_links: MyText
+  career: MyText
+  6-16-day: false
+  6-17-day: false
+  6-22-day: false
+  6-23-day: false
+  6-24-day: false
+  6-16-evening: false
+  6-17-evening: false
+  6-22-evening: false
+  6-23-evening: false
+  6-24-evening: false
+  6-16-night: false
+  6-22-night: false
+  6-23-night: false
+  want_to_play: MyText
+  gear_requirements: MyText
+  festival_history: MyText
+  additional_notes: MyText

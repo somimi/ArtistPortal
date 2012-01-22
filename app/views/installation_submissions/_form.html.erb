@@ -17,12 +17,26 @@
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :description %><br />
+	<%= f.check_box :want_funding %>
+	<%= f.label "Check this box if you want this installation to be considered for grant funding. (If you do, be sure to include a basic budget outline and cost estimate in your attachments below, as well as how much funding you are requesting.)"%><a href="#?w=500" rel="popup_funding" class="poplight"><%= image_tag("/assets/icon_info.gif") %></a><br />
+  </p>
+   <p>
+    <%= f.label "Brief Description (Please include full details as attachment(s) below)" %><br />
     <%= f.text_area :description %>
   </p>
+	<p>
+		<%= f.check_box :for_sale %>
+	   <%= f.label "This piece is for sale" %>
+	</p>
+	<p id="for-sale">
+		<%= f.label :price %><br />
+		<%= f.text_field :price %>
+	</p>
+	
 </fieldset>
 <fieldset>
 	<legend>Submission Dimensions</legend>
+	<small>Provide the approximate size, even if this is not finalized.</small>
 
 	  <p>
 	    <%= f.label :height %><br />
@@ -51,3 +65,17 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<b>Submission Guidelines</b>
+<ul>
+	<li>Artists may submit up to three separate installation proposals.</li>
+	<li>Artists must submit an introductory description of their installation(s) in as much detail as possible.</li>
+	<li>If applying for grant funding, artists must include a basic budget outline and cost estimate, and indicate how much grant funding they are requesting.</li>
+	<li>Artists are encouraged to upload additional supporting materials, like images, videos, drawings, etc.</li>
+</ul>
+
+<div id="popup_funding" class="popup_block">
+    <h2>Funding</h2>
+   The Festival is proud to continue to offer our grant for interactive visual artists. Selected artists will be granted up to $750 to create works of art that feature a participatory element.
+
+</div>

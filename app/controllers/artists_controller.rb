@@ -46,7 +46,7 @@ class ArtistsController < ApplicationController
   def destroy
     @artist = Artist.find(params[:id])
     @artist.destroy
-    redirect_to artists_url, :notice => "Successfully destroyed artist."
+    redirect_to artists_url, :notice => "Successfully deleted artist."
   end
   
   def load_paypal

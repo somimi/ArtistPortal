@@ -41,10 +41,11 @@ class FilmSubmissionsController < ApplicationController
   # POST /film_submissions.json
   def create
     @film_submission = FilmSubmission.new(params[:film_submission])
+    @film_submission.artist_id = current_user.artist.id
 
     respond_to do |format|
       if @film_submission.save
-        format.html { redirect_to film_submissions_path, notice: 'Video Short/Film submission was successfully created.' }
+        format.html { redirect_to film_submissions_path, notice: 'Video/Short Film submission was successfully created.' }
         format.json { render json: @film_submission, status: :created, location: @film_submission }
       else
         format.html { render action: "new" }

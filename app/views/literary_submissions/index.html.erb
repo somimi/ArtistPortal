@@ -3,6 +3,7 @@
 <table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
   <tr>
 	    <th><%= sortable "Title" %></th>
+		<th><%= sortable "Type"%>
 	    <th><%= sortable "File Name" %></th>
 		<th></th>
   </tr>
@@ -10,6 +11,7 @@
 <% @literary_submissions.each do |literary_submission| %>
   <tr>
 	      <td><%= link_to literary_submission.title, edit_literary_submission_path(literary_submission) %></td>
+		  <td><%= link_to literary_submission.type, edit_literary_submission_path(literary_submission)%></td>
 	      <td><%= link_to literary_submission.doc_file_name, edit_literary_submission_path(literary_submission) %></td>
 
     <td><%= link_to 'Delete', literary_submission, confirm: 'Are you sure?', method: :delete %></td>

@@ -13,6 +13,10 @@
 	  <p id="store-type-other"><br />
 		<%= f.text_field :type_other %>
 	  </p>
+	  <div class="notes">
+	      <h4>Notes</h4>
+	      <p class="last">Sale price is what the piece sells for -- the Festival receives 40% commission on this sale price.</p>
+    </div>
 	  <p>
 		<%= f.label :price %><br />
 		$<%= f.text_field :price %><br />
@@ -45,7 +49,7 @@
 <fieldset>
 	<legend>Store Details</legend>
 	<p>
-	  <%= f.label "How is your work presented?" %><br />
+	  <%= f.label "How is your work presented?" %>
 	  <%= f.select :d_unit, options_for_select([['Shrink-wrapped'],['Foam Core'],['Matte'], ['Framed'],['Other']], @store_submission.presentation) %>
     </p>
     <p id="presentation-other">

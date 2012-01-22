@@ -21,9 +21,10 @@
   	</p>
 	<p>
     <%= f.label :comments %><br />
-    <%= f.text_area :comments %><br />
 	<small>Do not paste your submission here; submissions must be uploaded as attachments below.</small>
-  </p>
+  </p><br />
+    <%= f.text_area :comments %><br />
+	
 <fieldset>
 	<legend>Submission Upload</legend>
 	<% if @literary_submission.doc_file_name %>

@@ -82,7 +82,7 @@ class VisualSubmissionsController < ApplicationController
   def destroy
     @visual_submission = VisualSubmission.find(params[:id])
     @visual_submission.destroy
-    redirect_to visual_submissions_url, :notice => "Successfully destroyed visual submission."
+    redirect_to visual_submissions_url, :notice => "Successfully deleted visual submission."
   end
   
   #def images

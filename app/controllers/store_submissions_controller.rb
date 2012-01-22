@@ -15,7 +15,7 @@ class StoreSubmissionsController < ApplicationController
     @store_submission = StoreSubmission.new(params[:store_submission])
     @store_submission.artist_id = current_user.artist.id
     if @store_submission.save
-      redirect_to @store_submission, :notice => "Successfully created store submission."
+      redirect_to store_submissions_path, :notice => "Successfully created store submission."
     else
       render :action => 'new'
     end
@@ -37,7 +37,7 @@ class StoreSubmissionsController < ApplicationController
   def destroy
     @store_submission = StoreSubmission.find(params[:id])
     @store_submission.destroy
-    redirect_to store_submissions_url, :notice => "Successfully destroyed store submission."
+    redirect_to store_submissions_url, :notice => "Successfully deleted store submission."
   end
   
   def duplicate

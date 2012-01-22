@@ -43,6 +43,25 @@
 	  </p>
 </fieldset>
 <fieldset>
+	<legend>Store Details</legend>
+	<p>
+	  <%= f.label "How is your work presented?" %><br />
+	  <%= f.select :d_unit, options_for_select([['Shrink-wrapped'],['Foam Core'],['Matte'], ['Framed'],['Other']], @store_submission.presentation) %>
+    </p>
+    <p id="presentation-other">
+	   <%= f.text_box :presentation_other %>
+	</p>
+	<p>
+		<%= f.check_box :provide_display %><br />
+		<%= f.label "I will be providing a display." %>
+	</p>
+	<p>
+		<%= f.label :notes %><br />
+		<%= f.text_area :notes %>
+	</p>
+
+</fieldset>
+<fieldset>
 	<legend>Image Upload</legend>
 	 <%= f.file_field :image %>
 </fieldset>
@@ -58,3 +77,12 @@
  <% end %>
   <p><%= f.submit %></p>
 <% end %>
+
+<b>Store Submission Requirements</b>
+	<ul>
+    	<li>Artists may submit up to 20 different items to the Store (e.g. postcards, prints, posters, jewelry, statues, etc).</li>
+    	<li>Artists may propose a quantity ranging from 1 to 50 of each item.</li>
+    	<li>Each individual item need not be submitted for approval. Similar items may be grouped together; a representative sampling is acceptable. (For example, if you want the Store to feature three different postcards with a quantity of 10 each, then create one submission entry for a postcard and say the quantity is 30, and then in the notes section say that there are three different images for those postcards).</li>
+	</ul>
+
+

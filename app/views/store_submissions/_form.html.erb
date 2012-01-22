@@ -49,7 +49,7 @@
 	  <%= f.select :d_unit, options_for_select([['Shrink-wrapped'],['Foam Core'],['Matte'], ['Framed'],['Other']], @store_submission.presentation) %>
     </p>
     <p id="presentation-other">
-	   <%= f.text_box :presentation_other %>
+	   <%= f.text_field :presentation_other %>
 	</p>
 	<p>
 		<%= f.check_box :provide_display %><br />

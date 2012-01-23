@@ -11,19 +11,16 @@
     <div id="pagewidth">
 		<div id="header"><center><%= image_tag("/assets/top-banner.jpg") %></center></div>
 		<div id="navHolder" class="clearfix">
-			<div class='example_content' id='example_3'>
-			  <div id='top_navigation'></div>
-			  <div class='clear_float'></div>
-			  <div class='content_wrapper'>
-			    <div id='sub_navigation'></div>
-			    <div class='content'>
-			      <div class='breadcrumbs'>
-			        <div class='title'>breadcrumbs:</div>
-			      </div>
-			    </div>
-			    <div class='clear_float'></div>
-			  </div>
+			<div id="navHolder">
+			                <%=  link_to "Home", root_path  %>
+			                <%=  link_to "Visual Art", pages_visual_art_path  %>
+			                <%=  link_to "Literary Art", pages_literary_path  %>
+			                <%=  link_to "Video/Short Film Art", pages_film_video_path %>
+			                <%=  link_to "Installation Art", pages_installation_path  %>
+			                <%=  link_to "Performance_art", pages_performance_path  %>
+			                <%=  link_to "FAQ"  %>
 			</div>
+
 
 		</div>
 

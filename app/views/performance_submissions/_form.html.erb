@@ -13,11 +13,11 @@
 <fieldset>
 	<legend>Performance Submission Overview</legend>
   <p>
-    <%= f.label :title %><br />
+    <%= f.label "Title of Performance" %><br />
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :description %><br />
+    <%= f.label "Detailed description of your act proposal" %><br />
     <%= f.text_area :description %>
   </p>
   <p>
@@ -25,13 +25,27 @@
     <%= f.number_field :duration %>
   </p>
   <p>
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
+    <%= f.label "Type of performance" %><br />
+    <%= f.text_field :type %><br />
+	<small>for example, burlesque, aerial, circus arts, cabaret, puppetry, etc</small>
   </p>
   <p>
     <%= f.label :stage_requirements %><br />
     <%= f.text_area :stage_requirements %>
   </p>
+</fieldset>
+<fieldset>
+	<legend>Proposal is Intended For</legend>
+	<small>note you can select more than one, if applicable</small><br />
+	  <div class="notes">
+	      <h4>Ambient Performance</h4>
+	      <p class="last">Ambient performances are more geared toward solo or small group interaction and brevity.</p>
+    </div>
+	<%= f.check_box :ambient_performance %>
+	<%= f.label :ambient_performance %>
+	<br />
+	<%= f.check_box :mainstage_performance %>
+	<%= f.label :mainstage_performance %>
 </fieldset>
 <fieldset>
 	<legend>Performer Information</legend>
@@ -40,13 +54,14 @@
     <%= f.text_area :performance_experience %>
   </p>
   <p>
-    <%= f.label :bio %><br />
-    <%= f.text_area :bio %>
+    <%= f.label "Brief biography (approximately one paragraph)" %><br />
+    <%= f.text_area :bio %><br />
+	<small>for use on website if accepted into the Festival.</small>
   </p>
 </fieldset>
 <fieldset>
 	<legend>Supporting Information</legend>
-	Please provide any supporting information (e.g. youtube videos, reviews, etc) that you would like.
+	Provide links to supporting materials like websites, YouTube videos, news reviews, etc.
   <p>
     <%= f.label "URL" %><br />
     <%= f.text_field :url1 %>
@@ -66,3 +81,12 @@
     <%= f.submit %>
   </p>
 <% end %>
+
+<b>Submission Requirements:</b>
+<ul>
+	<li>Performers must apply by the deadline. Incomplete applications will not be considered.</li>
+	<li>Performers must be willing to work with the Performance Director and/or choreographer to adapt their acts for the Festival.</li>
+	<li>Selected performers must be available for conceptual meetings in late-April and for rehearsals, which are scheduled to begin in May.</li>
+	<li>Performers must be at least 18 years old. All body types, ages (over 18), genders, and ethnicities are encouraged to apply.</li>
+	<li>Auditions will be required.</li>
+</ul>

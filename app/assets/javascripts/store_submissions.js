@@ -2,6 +2,7 @@ $(document).ready(function(){
 	
 	$("#store-type-other").hide();
 	$("#presentation-other").hide();
+	$("#store-three-dee").hide();
 	
 	$("#store_submission_type").change(function(){
 		var val = $(this).val();
@@ -36,5 +37,19 @@ $(document).ready(function(){
 
 		 
 	});
+	
+	$("#store-dim-check").change(function(){
+
+	// If checked
+	if ($("#store-dim-check").is(":checked"))
+	{
+
+		$("#store-three-dee").show("slow");
+	}
+	else
+	{
+		$("#store-three-dee").hide("slow");
+	}
+  });
 	
 });

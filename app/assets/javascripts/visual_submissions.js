@@ -8,17 +8,25 @@ $(document).ready(function(){
 		$("#limited-edition").css("display", "block")
 		$("#limited-edition-1").css("display", "block")
 	}
-	
-    $("#visual_submission_edition_limited_edition").change(function(){
-       if($(this).is(":checked")){
-         $('#limited-edition').show("slow"); 
-		 $('#limited-edition-1').show("slow");    
-       }else {
-         $('#limited-edition').hide("slow");
-   	     $('#limited-edition-1').hide("slow");
-       }
 
-    });
+	$("input[name$='visual_submission[edition]']").click(function(){
+
+	var radio_value = $(this).val();
+
+	if (radio_value == 'Original') {
+		$("#limited-edition").hide("slow");
+		$("#limited-edition-1").hide("slow");
+	}
+	else if (radio_value == 'Open Edition') {
+		$("#limited-edition").hide("slow");
+		$("#limited-edition-1").hide("slow");
+	}
+	else if (radio_value == 'Limited Edition') {
+		$("#limited-edition").show("slow");
+		$("#limited-edition-1").show("slow");
+	}
+
+	});
 
 
   $("#visual_submission_medium").change(function(){

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120122052244) do
+ActiveRecord::Schema.define(:version => 20120123101612) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -159,6 +159,8 @@ ActiveRecord::Schema.define(:version => 20120122052244) do
     t.string   "url3"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "mainstage_performance"
+    t.boolean  "ambient_performance"
   end
 
   create_table "store_submissions", :force => true do |t|
@@ -187,6 +189,7 @@ ActiveRecord::Schema.define(:version => 20120122052244) do
     t.string   "presentation_other"
     t.boolean  "provide_display"
     t.text     "notes"
+    t.boolean  "dimension"
   end
 
   create_table "users", :force => true do |t|

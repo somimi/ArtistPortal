@@ -8,7 +8,7 @@
 	  </p>
 	  <p>
 		<%= f.label :type %>
-		<%= f.select(:type, options_for_select([['Gift Card'], ['Postcard'], ['Poster'],['Print'],['Book'],['Sculpture'],['Clothing'],['Jewelry'],['DVD'],['Other']], @store_submission.type), {:include_blank => true, :width => "200px"}) %>
+		<%= f.select(:type, options_for_select([['Art Card'], ['Postcard'], ['Poster'],['Print'],['Book'],['Sculpture'],['Clothing'],['Jewelry'],['DVD'],['Other']], @store_submission.type), {:include_blank => true, :width => "200px"}) %>
 	  </p>
 	  <p id="store-type-other"><br />
 		<%= f.text_field :type_other %>
@@ -29,7 +29,10 @@
 </fieldset>
 <fieldset>
 	<legend>Store Submission Dimensions</legend>
-	  <p>
+
+		<%= f.check_box :dimension, :id => "store-dim-check" %>
+	    <%= f.label "Is this submission three dimensional?" %>
+	 <p>
 	    <%= f.label :height %><br />
 	    <%= f.text_field :height, :width => "30px" %>
 	    <%= f.select :h_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @store_submission.h_unit) %>
@@ -40,7 +43,7 @@
 	    <%= f.text_field :width %>
 	    <%= f.select :w_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @store_submission.w_unit) %>
 	  </p>
-	  <p>
+	  <p id="store-three-dee">
 	    <%= f.label :depth %><br />
 	    <%= f.text_field :depth %>
 	    <%= f.select :d_unit, options_for_select([['Inches', 'Inches'],['Feet', 'Feet'],['Centimeters', 'Centimeters'], ['Meters','Meters']], @store_submission.d_unit) %>
@@ -50,13 +53,13 @@
 	<legend>Store Details</legend>
 	<p>
 	  <%= f.label "How is your work presented?" %>
-	  <%= f.select :d_unit, options_for_select([['Shrink-wrapped'],['Foam Core'],['Matte'], ['Framed'],['Other']], @store_submission.presentation) %>
+	  <%= f.select :presentation, options_for_select([['Shrink-wrapped'],['Foam Core'],['Matte'], ['Framed'],['Other']], @store_submission.presentation) %>
     </p>
     <p id="presentation-other">
 	   <%= f.text_field :presentation_other %>
 	</p>
 	<p>
-		<%= f.check_box :provide_display %><br />
+		<%= f.check_box :provide_display %>
 		<%= f.label "I will be providing a display." %>
 	</p>
 	<p>

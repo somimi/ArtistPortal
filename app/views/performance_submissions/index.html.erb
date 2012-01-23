@@ -4,13 +4,11 @@
   <tr>
     <th>Title</th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @performance_submissions.each do |performance_submission| %>
   <tr>
-    <td><%= performance_submission.title %></td>
-    <td><%= link_to 'Edit', edit_performance_submission_path(performance_submission) %></td>
+    <td><%= link_to performance_submission.title, edit_performance_submission_path(performance_submission) %></td>
     <td><%= link_to 'Delete', performance_submission, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
@@ -18,4 +16,12 @@
 
 <br />
 
-<%= link_to 'New Performance submission', new_performance_submission_path %>
+<p><%= link_to 'New Performance submission', new_performance_submission_path %></p>
+<b>Submission Requirements:</b>
+<ul>
+	<li>Performers must apply by the deadline. Incomplete applications will not be considered.</li>
+	<li>Performers must be willing to work with the Performance Director and/or choreographer to adapt their acts for the Festival.</li>
+	<li>Selected performers must be available for conceptual meetings in late-April and for rehearsals, which are scheduled to begin in May.</li>
+	<li>Performers must be at least 18 years old. All body types, ages (over 18), genders, and ethnicities are encouraged to apply.</li>
+	<li>Auditions will be required.</li>
+</ul>

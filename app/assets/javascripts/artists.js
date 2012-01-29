@@ -1,5 +1,7 @@
 $(document).ready(function(){
 	
+	$("#shipping-co").hide();
+	
 	if ($("#shipping-check").is(":checked"))
 	{
 		$("#shipping-address").hide();
@@ -36,6 +38,27 @@ $(document).ready(function(){
 	{
 		$("#represent").hide("slow");
 	}
+  });
+
+
+  $("#artist_return_arrangements").change(function(){
+	
+	var selectValue;
+	
+	selectValue = $("#artist_return_arrangements").val();
+	
+	if (selectValue == "I would prefer to have my shipping account directly billed")
+	{
+		$("#shipping-co").show("slow");
+	}
+	else
+	{
+		$("#shipping-co").hide("slow");
+	}
+	
+
+
+	
   });
 
 });

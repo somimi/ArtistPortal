@@ -3,15 +3,15 @@
 <table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
   <tr>
     <th>Title</th>
-    <th>Description</th>
+    <th>Type</th>
 	<th>Image</th>
-    <th>Quantity Requested</th>
+    <th>Quantity Proposed</th>
     <th>Quantity Accepted by Store</th>
   </tr>
   <% for store_submission in @store_submissions %>
     <tr>
       <td><%= link_to store_submission.title, edit_store_submission_path(store_submission) %></td>
-      <td><%= link_to store_submission.description, edit_store_submission_path(store_submission) %></td>
+      <td><%= link_to store_submission.type, edit_store_submission_path(store_submission) %></td>
 	  <td><%= image_tag store_submission.image.url(:thumb) %></td>
       <td><%= store_submission.quantity %></td>
       <td><%= store_submission.quantity_accepted %></td>

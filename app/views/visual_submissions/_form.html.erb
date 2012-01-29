@@ -21,6 +21,11 @@
 	    $<%= f.number_field :sale_price %></a><br />
 		<small><i>Price must be at least $200 and a whole number.</i></small>
 	  </p>
+	   <p>
+			<%= f.check_box :donate_proceeds %>
+			<%= f.label :donate_proceeds, "Check this box if you want all the proceeds from your art sales to go the Festival as a donation." %>
+			<a href="#?w=500" rel="popup_donate" class="poplight"><%= image_tag("/assets/icon_info.gif") %></a>
+	 
 </fieldset>
 <fieldset>
 	<legend>Visual Submission Dimensions</legend>
@@ -65,7 +70,7 @@
 	  </p>
 	  <div class="notes">
 	      <h4>Notes</h4>
-	      <p class="last">Please notate any information about the piece that cannot be depicted in the image submitted. (Example: A holographic photograph.) This is where you can also include extra information about materials or process used to create this art.</p>
+	      <p class="last">Please provide additional information about the submission that cannot be depicted in the image, including collaborators, materials used, process of creation, etc.</p>
     </div>
 	  <p>
 	    <%= f.label :notes %><br />
@@ -95,16 +100,22 @@
 	  <% end %>
 	<% end %>
 	
+	<br />
+	<small>Reminder: do not upload images that include a watermark or signature, as this will disqualify you.</small><br />
+	Need to submit detail images?<a href="#?w=500" rel="popup_detail" class="poplight"><%= image_tag("/assets/icon_info.gif") %></a>
+	
 
 </fieldset>
+<fieldset>
+	<legend>To Be Considered for the Store</legend>
   <p>
 	<%= f.check_box :store_submit %>
-	<%= f.label "I would like a similar version of this piece to be considered for the Festival Store." %>
+	<%= f.label :store_submit, "I would like a similar version of this piece (with the same title) to be considered for the Festival Store." %>
 	<a href="#?w=500" rel="popup_store" class="poplight"><%= image_tag("/assets/icon_info.gif") %></a>
   </p>
-	
+</fieldset>
  
-  <p><%= f.submit %></p>
+  <p><%= f.submit "Create Visual Submission" %></p>
 <% end %>
 
 <br />
@@ -129,17 +140,24 @@
 </div>
 <div id="popup_store" class="popup_block">
     <h2>Festival Store</h2>
-    <p>By checking this box, a proposal for the Festival Store will automatically be drafted. You will need to add additional information for this Store submission, in order for it to be complete. You can view this under “Art for the Store.”</p>
+    <p>By checking this box, a proposal for the Festival Store will automatically be drafted. The piece for the Store needs to have the same title and be a different version of the piece you are suggesting for the exhibition (for example, if you have prints of the painting you are suggesting for the exhibition, or mini sculptures of your sculpture, or prints of your framed photography image, etc). You will need to add additional information for this Store submission, in order for it to be complete. You can view this under “Store Submissions.”</p>
 </div>
 <div id="popup_saleprice" class="popup_block">
     <h2>Sale Price</h2>
-    <p>All art in the exhibition is to be offered for sale. Minimum price for exhibition pieces is $200. If you want to price your piece(s) lower, please email <%= mail_to "exhibition@seattleerotic.org" %> to request an exemption. Sale price is what the piece sells for -- the Festival receives 40% commission on this sale price.</p>
+    <p>All art in the exhibition is to be offered for sale. Minimum price for exhibition pieces is $200. If you want to price your piece(s) lower, please email <%= mail_to "exhibition@seattleerotic.org" %> to request an exemption. Sale price is what the piece sells for -- the Festival receives a gallery standard 40% commission on this sale price.</p>
 </div>
 <div id="popup_edition" class="popup_block">
     <h2>Edition</h2>
     <p>A piece of art designated an <b>original</b> means that there are no other reproductions in existence. (For example, painting, illustration, multi-media assemblage, etc.)</p>
     <p>A piece of art designated as being a part of a <b>limited edition</b> means that the artist releases only a certain number of reproductions. (This is a common practice in sculpture, photography, printmaking, etc.). Please include both the position in the edition as well as how many total pieces make up the edition. (For example, if the artist is submitting the second sculpture cast from a mold and only intends to make 10 sculptures total, this would be designated as Limited Edition, 2 of 10.)</p>
     <p>A piece of art designated as being part of an <b>open edition</b> means that the artist does not intend to limit the amount of reproductions made. (For example, there may be only one photograph in existence now, but the artist could print another photograph the same size in the future.)</p>
+</div>
+<div id="popup_donate" class="popup_block">
+    <h2>Donating to the Festival</h2>
+    <p>The Festival is a 501c3 nonprofit; your donations may be tax deductible. We will send a donation receipt and thank you letter for any donations made, for tax purposes. Your support makes a real difference.</p>
+</div>
+<div id="popup_details" class="popup_block">
+    <p>                If you are submitting a collage, drawing, or other piece that requires detail images, please select the check box above in “Dimensions” that says “This is a 3D piece” and you will be allowed to submit up to three images.</p>
 </div>
 
 

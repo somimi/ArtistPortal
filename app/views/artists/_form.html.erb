@@ -7,11 +7,11 @@
 	      <p class="last">We need the artist’s full legal name so that we can send a check if their art sells. If a professional name is provided, that is what will be used publicly (on the website gallery, in the Festival catalog, on the art labels, etc.)</p>
       </div>
 	  <div>
-	    <%= f.label :first_name %>
+	    <%= f.label :first_name, "Legal First Name" %>
 	    <%= f.text_field :first_name %>
 	  </div>
 	  <div>
-	    <%= f.label :last_name %>
+	    <%= f.label :last_name, "Legal Last Name" %>
 	    <%= f.text_field :last_name %>
 	  </div>
 	  <div>
@@ -31,7 +31,7 @@
       </div> -->
 	  <div>
 		<%= f.check_box :require_representation, :id => "represent-check" %>
-        <%= f.label "Check this box if you are submitting on behalf of the artist, as their legal representative." %>
+        <%= f.label :require_representation, "Check this box if you are submitting on behalf of the artist, as their legal representative." %>
 	     <a href="#?w=500" rel="popup_represent" class="poplight"><%= image_tag("/assets/icon_info.gif") %></a>
 	  </div>
 	<br />
@@ -39,19 +39,19 @@
 	  <fieldset>
 		<legend>Representative Information</legend>
 		<div>
-	    <%= f.label "Representative's Name" %>
+	    <%= f.label :representname, "Representative's Name" %>
 	    <%= f.text_field :representname %>
 	  </div>
 	  <div>
-	    <%= f.label "Gallery Name (If Applicable)" %>
-	    <%= f.text_field :professional_name %>
+	    <%= f.label :represent_gallery, "Gallery Name (If Applicable)" %>
+	    <%= f.text_field :represent_gallery %>
 	  </div>
 	  </fieldset>
 	</div>
 </fieldset>
 <fieldset>
 	<legend>Contact Information</legend>
-	<small>Either of artist or artist legal representative</small>
+	<small>Either of artist or artist legal representative.</small>
 	<div class="notes">
       <h4>Contact Information</h4>
       <p class="last">This is the address we use for correspondence. This address can be a PO Box.  If contact address is a PO Box, please provide a different shipping address below.</p>
@@ -61,7 +61,7 @@
 	  <%= f.text_field :email, :value => @artist.email ||= current_user.email %>
 	</div>
 	<div>
-	  <%= f.label :email_confirmation %>
+	  <%= f.label "Re-enter Email" %>
 	  <%= f.text_field :email_confirmation %>
 	</div>
 	<div>
@@ -69,33 +69,33 @@
 	  <%= f.text_field :phone %>
 	</div>
 	  <div>
-	    <%= f.label "Address Line 1" %>
+	    <%= f.label :mailing_address_line1, "Address Line 1" %>
 	    <%= f.text_field :mailing_address_line1 %>
 	  </div>
 	  <div>
-	    <%= f.label "Address Line 2" %>
+	    <%= f.label :mailing_address_line1, "Address Line 2" %>
 	    <%= f.text_field :mailing_address_line2 %>
 	  </div>
 	  <div>
-	    <%= f.label "City" %>
+	    <%= f.label :mailing_city, "City" %>
 	    <%= f.text_field :mailing_city %>
 	  </div>
 	  <div>
-	    <%= f.label "State/Province" %>
+	    <%= f.label :mailing_state, "State/Province" %>
 	    <%= f.text_field :mailing_state %>
 	  </div>
 	  <div>
-	    <%= f.label "Zip Code" %>
+	    <%= f.label :mailing_zip, "Zip Code or Postal Code" %>
 	    <%= f.text_field :mailing_zip %>
 	  </div>
 	  <div>
-	    <%= f.label "Country" %>
+	    <%= f.label :mailing_country, "Country" %>
 	    <%= f.country_select :mailing_country, ["United States"] %>
 	  </div>
 </fieldset>
   <p>
 	<%= f.check_box :shipping_same_as_mail, :id => "shipping-check" %>
-    <%= f.label "Shipping Same As Mail.  (Note that your shipping address cannot be a PO Box.)" %><br />
+    <%= f.label :shipping_same_as_mail, 'Shipping Same As Mail.  (Note that your shipping address cannot be a PO Box.)' %><br />
 
     
     
@@ -120,12 +120,12 @@
 	    <%= f.text_field :shipping_city %>
 	  </div>
 	  <div>
-	    <%= f.label "Zip" %>
-	    <%= f.text_field :shipping_zip %>
-	  </div>
-	  <div>
 	    <%= f.label "State/Province" %>
 	    <%= f.text_field :shipping_state %>
+	  </div>
+	  <div>
+	    <%= f.label "Zip" %>
+	    <%= f.text_field :shipping_zip %>
 	  </div>
 	  <div>
 	    <%= f.label "Country" %>
@@ -134,6 +134,8 @@
 </fieldset>
 <fieldset>
 	<legend>Delivery/Return Arrangements</legend>
+	  <small>Visual artists, installation artists and Festival Store artists must provide the following information.</small><br />
+      <small><i>Note: Delivery address is NOT at Fremont Studios.</i></small>
 	  <div class="notes">
 	      <h4>Return Information</h4>
 	      <p class="last">Note that if no return shipping label is provided and no one picks up the art, it will be considered a donation to the Foundation for Sex Positive Culture, producer of the Festival.</p>
@@ -142,22 +144,23 @@
     </div>
 	   <div>
 		 <%= f.label :delivery_arrangements %>
-		 <%= f.select(:delivery_arrangements, options_for_select([["Drop off work in person (the artist, or an authorized person)"], ['Ship work with carrier of your choice']], @artist.delivery_arrangements), {:include_blank => true, :width => "200px"}) %>
-		 <small><i>Delivery address is NOT at Fremont Studios.</i></small>
+		 <%= f.select(:delivery_arrangements, options_for_select([["I (or my authorized agent) will drop off my work in person"], ['I will ship my work to the Festival with my carrier of choice']], @artist.delivery_arrangements), {:include_blank => true, :width => "200px"}) %>
 	   </div>
 	   <div>
 		<%= f.label :return_arrangements %>
-		<%= f.select(:return_arrangements, options_for_select([["Pick up work in person (the artist, or an authorized person)"], ['Include a return shipping label with the original shipment of art (with the carrier of your choice)'],['Donate any unsold items to the Foundation']], @artist.return_arrangements), {:include_blank => true, :width => "200px"}) %>	
+		<%= f.select(:return_arrangements, options_for_select([["I (or my authorized agent) will pick up my unsold work in person"], ['I will include a return shipping label with the original shipment of art (with the carrier of your choice)'],['I will donate any unsold items to the Foundation'], ['I would prefer to have my shipping account directly billed']], @artist.return_arrangements), {:include_blank => true, :width => "200px"}) %>	
 	   </div>
-	   <div>
+	   <div id="shipping-co">
+		<p>
 		<%= f.label :shipping_company %>
 		<%= f.select(:shipping_company, options_for_select([['Federal Express'], ['UPS'], ['DHL']], @artist.shipping_company), {:include_blank => true, :width => "200px"}) %>
 		   <a href="#?w=500" rel="popup_shipping" class="poplight"><%= image_tag("/assets/icon_info.gif") %></a>
-	   </div>
-	   <div>
+	   </p>
+	   <p>
 	    <%= f.label "Shipping Account Number" %>
 	    <%= f.text_field :shipping_account %>
-	  </div>
+	  </p>
+	 </div>
 </fieldset>
   <p>
 	<% if current_user.is_admin? %>
@@ -184,7 +187,7 @@
 
 <div id="popup_shipping" class="popup_block">
     <h2>Shipping Company</h2>
-    <p>This is the carrier of your choice, which you will be using to ship your work to us if shipment is required. You will also provide a return shipping label with this carrier for us to use when sending back any of your unsold work.</p>
+    <p>This is the carrier of your choice. You will provide an account number for us to bill, or a return shipping label with this carrier, for us to use when sending back any of your unsold work.</p>
 </div>
 
 <div id="popup_represent" class="popup_block">

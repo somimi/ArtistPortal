@@ -21,10 +21,12 @@
   	</p>
 	<p>
     <%= f.label :comments %><br />
-	<small>Do not paste your submission here; submissions must be uploaded as attachments below.</small>
+	<small>Do not paste your submission here; your submission must be uploaded as an attachment or the jury will not consider it.</small>
   </p><br />
     <%= f.text_area :comments %><br />
-	
+	<small>500 character limit.</small><br />
+	<small>Please provide additional information about the submission that you feel the literary jury should know. This is also where you can list collaborators on the piece.</small>
+	</fieldset>
 <fieldset>
 	<legend>Submission Upload</legend>
 	<% if @literary_submission.doc_file_name %>
@@ -36,13 +38,14 @@
 	   <% end %>
 	
 	<p>
-		<%= f.file_field :doc %>
+		<%= f.file_field :doc %><br />
+		<small>Reminder: all entries must be in .doc or .rtf format only.</small>
 	</p>
 	
  
 </fieldset>
 
-<p><%= f.submit %></p>
+<p><%= f.submit, "Create Literary Submission" %></p>
 
 <% end %>
 

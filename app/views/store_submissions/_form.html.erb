@@ -7,8 +7,8 @@
 	    <%= f.text_field :title %>
 	  </p>
 	  <p>
-		<%= f.label :type %>
-		<%= f.select(:type, options_for_select([['Art Card'], ['Postcard'], ['Poster'],['Print'],['Book'],['Sculpture'],['Clothing'],['Jewelry'],['DVD'],['Other']], @store_submission.type), {:include_blank => true, :width => "200px"}) %>
+		<%= f.label :type, "Type of piece" %>
+		<%= f.select(:type, options_for_select([['Greeting Card'], ['Postcard'], ['Poster'],['Print'],['Book'],['Sculpture'],['Clothing'],['Jewelry'],['DVD'],['Toy'], ['Other']], @store_submission.type), {:include_blank => true, :width => "200px"}) %>
 	  </p>
 	  <p id="store-type-other"><br />
 		<%= f.text_field :type_other %>
@@ -18,13 +18,14 @@
 	      <p class="last">Sale price is what the piece sells for -- the Festival receives 40% commission on this sale price.</p>
     </div>
 	  <p>
-		<%= f.label :price %><br />
+		<%= f.label :price, "Price per piece" %><br />
 		$<%= f.text_field :price %><br />
 		<small>Must be a whole number.</small>
 	  </p>
 	  <p>
-	    <%= f.label "Quantity Proposed" %><br />
+	    <%= f.label :quantity, "Quantity Proposed" %><br />
 	    <%= f.text_field :quantity, :size => "30px" %>
+ 		<small>You can propose a quantity of 1-50.</small>
 	  </p>
 </fieldset>
 <fieldset>
@@ -89,7 +90,7 @@
 	<ul>
     	<li>Artists may submit up to 20 different items to the Store (e.g. postcards, prints, posters, jewelry, statues, etc).</li>
     	<li>Artists may propose a quantity ranging from 1 to 50 of each item.</li>
-    	<li>Each individual item need not be submitted for approval. Similar items may be grouped together; a representative sampling is acceptable. (For example, if you want the Store to feature three different postcards with a quantity of 10 each, then create one submission entry for a postcard and say the quantity is 30, and then in the notes section say that there are three different images for those postcards).</li>
+    	<li>Each individual item need not be submitted for approval. Similar items that are the same price may be grouped together; a representative sampling is acceptable. (For example, if you want the Store to feature three different postcards with a quantity of 10 each, then create one submission entry for a postcard and say the quantity is 30, and then in the notes section say that there are three different images for those postcards).</li>
 	</ul>
 
 

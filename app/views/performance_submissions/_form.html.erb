@@ -13,11 +13,11 @@
 <fieldset>
 	<legend>Performance Submission Overview</legend>
   <p>
-    <%= f.label "Title of Performance" %><br />
+    <%= f.label :title, "Title of Performance" %><br />
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label "Detailed description of your act proposal" %><br />
+    <%= f.label :descrption, "Detailed description of your act." %><br />
     <%= f.text_area :description %>
   </p>
   <p>
@@ -25,9 +25,9 @@
     <%= f.number_field :duration %>
   </p>
   <p>
-    <%= f.label "Type of performance" %><br />
+    <%= f.label :type, "Type of performance" %><br />
     <%= f.text_field :type %><br />
-	<small>for example, burlesque, aerial, circus arts, cabaret, puppetry, etc</small>
+	<small>For example, burlesque, aerial, circus arts, cabaret, puppetry, etc.</small>
   </p>
   <p>
     <%= f.label :stage_requirements %><br />
@@ -36,7 +36,7 @@
 </fieldset>
 <fieldset>
 	<legend>Proposal is Intended For</legend>
-	<small>note you can select more than one, if applicable</small><br />
+	<small>Note you can select more than one, if applicable.</small><br />
 	  <div class="notes">
 	      <h4>Ambient Performance</h4>
 	      <p class="last">Ambient performances are more geared toward solo or small group interaction and brevity.</p>
@@ -54,7 +54,7 @@
     <%= f.text_area :performance_experience %>
   </p>
   <p>
-    <%= f.label "Brief biography (approximately one paragraph)" %><br />
+    <%= f.label :bio, "Brief biography (approximately 200 words)" %><br />
     <%= f.text_area :bio %><br />
 	<small>for use on website if accepted into the Festival.</small>
   </p>
@@ -63,18 +63,19 @@
 	<legend>Supporting Information</legend>
 	Provide links to supporting materials like websites, YouTube videos, news reviews, etc.
   <p>
-    <%= f.label "URL" %><br />
+    <%= f.label :url1, "URL" %><br />
     <%= f.text_field :url1 %>
   </p>
   <p>
-    <%= f.label "URL" %><br />
+    <%= f.label :url1, "URL" %><br />
     <%= f.text_field :url2 %>
   </p>
   <p>
-    <%= f.label "URL" %><br />
+    <%= f.label :url1, "URL" %><br />
     <%= f.text_field :url3 %>
   </p>
-	<script src="https://cds.box.com/embed/upload.js?token=foqc138s7f3i0mqqulkeecrxngx9pj6j&folder_id=28364306&w=450&h=400&i=please%20use%20this%20to%20submit%20supporting%20files%20up%20to%202gb.&d=1&t=submit%20supporting%20files%20to%20Seattle%20Erotic%20Art%20Festival%202012&r=1" type="text/javascript"></script>
+	<script src="https://cds.box.com/embed/upload.js?token=foqc138s7f3i0mqqulkeecrxngx9pj6j&folder_id=28364306&w=450&h=400&i=please%20use%20this%20to%20submit%20supporting%20files%20up%20to%202gb.&d=1&t=submit%20supporting%20files%20to%20Seattle%20Erotic%20Art%20Festival%202012&r=1" type="text/javascript"></script><br />
+	<small>You must upload a high resolution, print-ready headshot. You are encouraged to submit additional supporting materials like more photos, videos (up to 2gb), etc.</small>
 
 </fieldset>
   <p>

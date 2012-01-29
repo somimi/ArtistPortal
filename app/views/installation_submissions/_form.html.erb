@@ -18,15 +18,15 @@
   </p>
   <p>
 	<%= f.check_box :want_funding %>
-	<%= f.label "Check this box if you want this installation to be considered for grant funding. (If you do, be sure to include a basic budget outline and cost estimate in your attachments below, as well as how much funding you are requesting.)"%><a href="#?w=500" rel="popup_funding" class="poplight"><%= image_tag("/assets/icon_info.gif") %></a><br />
+	<%= f.label :want_funding, "Check this box if you want this installation to be considered for grant funding. (If you do, be sure to include a basic budget outline and cost estimate in your attachments below, as well as how much funding you are requesting.)"%><a href="#?w=500" rel="popup_funding" class="poplight"><%= image_tag("/assets/icon_info.gif") %></a><br />
   </p>
    <p>
-    <%= f.label "Brief Description (Please include full details as attachment(s) below)"  %><br />
+    <%= f.label :description, "Description. If you wish, you can include additional attachments below."  %><br />
     <%= f.text_area :description %>
   </p>
 	<p>
 		<%= f.check_box :for_sale %>
-	   <%= f.label "This piece is for sale" %>
+	   $<%= f.label :for_sale, "This piece is for sale." %>
 	</p>
 	<p id="for-sale">
 		<%= f.label :price %><br />
@@ -37,6 +37,10 @@
 <fieldset>
 	<legend>Submission Dimensions</legend>
 	<small>Provide the approximate size, even if this is not finalized.</small>
+	  <div class="notes">
+	      <h4>Sale Price</h4>
+	      <p class="last">Sale price is what the piece sells for -- the Festival receives 40% commission on this sale price.</p>
+    </div>
 
 	  <p>
 	    <%= f.label :height %><br />
@@ -57,8 +61,8 @@
 </fieldset>
 <fieldset>
 	<legend>Document/Image Upload</legend>
-	<script src="https://cds.box.com/embed/upload.js?token=foqc138s7f3i0mqqulkeecrxngx9pj6j&folder_id=28364306&w=450&h=400&i=please%20use%20this%20to%20submit%20supporting%20files%20up%20to%202gb.&d=1&t=submit%20supporting%20files%20to%20Seattle%20Erotic%20Art%20Festival%202012&r=1" type="text/javascript"></script>
-
+	<script src="https://cds.box.com/embed/upload.js?token=foqc138s7f3i0mqqulkeecrxngx9pj6j&folder_id=28364306&w=450&h=400&i=please%20use%20this%20to%20submit%20supporting%20files%20up%20to%202gb.&d=1&t=submit%20supporting%20files%20to%20Seattle%20Erotic%20Art%20Festival%202012&r=1" type="text/javascript"></script><br />
+	<small>Submit supporting files for your installation proposal. If you are applying for grant funding, this must include a basic budget outline and cost estimate, as well as the amount of support you are requesting. You are encouraged to submit additional supporting materials like photos, drawings, video (up to 2gb), etc.</small>
 	
 </fieldset>
   <div class="actions">
@@ -75,7 +79,7 @@
 </ul>
 
 <div id="popup_funding" class="popup_block">
-    <h2>Funding</h2>
+    <h2>Grant Funding</h2>
    The Festival is proud to continue to offer our grant for interactive visual artists. Selected artists will be granted up to $750 to create works of art that feature a participatory element.
 
 </div>

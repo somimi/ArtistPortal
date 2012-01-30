@@ -52,11 +52,12 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :home, 'Home', root_path
 
     # Add an item which has a sub navigation (same params, but with block)
-    primary.item :art_types, 'Art Types', root_path  do |sub_nav|
+    primary.item :art_types, 'Details For Each Call', root_path  do |sub_nav|
       # Add an item to the sub navigation (same params again)
       sub_nav.item :visual_art, 'Visual Art', pages_visual_art_path
       sub_nav.item :literary_art, 'Literary Art', pages_literary_path
     end
+    primary.item :faq, 'FAQ', pages_faq_path
 
     # You can also specify a condition-proc that needs to be fullfilled to display an item.
     # Conditions are part of the options. They are evaluated in the context of the views,

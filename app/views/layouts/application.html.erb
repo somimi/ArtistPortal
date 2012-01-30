@@ -11,17 +11,21 @@
     <div id="pagewidth">
 		<div id="header"><center><%= image_tag("/assets/top-banner.jpg") %></center></div>
 		<div id="navHolder" class="clearfix">
-			<div id="navHolder">
-			                <%=  link_to "Home", root_path  %>
-			                <%=  link_to "Visual Art", pages_visual_art_path  %>
-			                <%=  link_to "Literary Art", pages_literary_path  %>
-			                <%=  link_to "Video/Short Film Art", pages_film_video_path %>
-			                <%=  link_to "Installation Art", pages_installation_path  %>
-			                <%=  link_to "Performance_art", pages_performance_path  %>
-			                <%=  link_to "FAQ"  %>
-			</div>
-
-
+			<ul class="topnav">  
+			    <li><a href="#">Home</a></li>  
+			    <li>  
+			        <a href="#">Details For Each Call</a>  
+			        <ul class="subnav">  
+			            <li><a href="#">Visual Art</a></li>  
+			            <li><a href="#">Literary Art</a></li>
+			   			<li><a href="#">Video/Short Film</a></li>  
+						<li><a href="#">Installation Art</a></li>
+						<li><a href="#">Performance Art</a></li>
+						<li><a href="#">DJs</a></li>
+			        </ul>  
+			    </li>   
+			    <li><a href="#">FAQ</a></li>    
+			</ul>
 		</div>
 
 		<div id="wrapper" class="clearfix">

@@ -418,7 +418,7 @@ ul.topnav li ul.subnav {
     background: #333;  
     margin: 0; padding: 0;  
     display: none;  
-    float: left;  
+   /* float: left; */ 
     width: 170px;  
     border: 1px solid #111;  
 }  
@@ -426,14 +426,17 @@ ul.topnav li ul.subnav li{
     margin: 0; padding: 0;  
     border-top: 1px solid #252525; /*--Create bevel effect--*/  
     border-bottom: 1px solid #444; /*--Create bevel effect--*/  
+    display: inline-block;
     clear: both;  
     width: 170px;  
+	z-index: 100px;
 }  
 html ul.topnav li ul.subnav li a {  
-    float: right;  
+    /* float: right;  */
     width: 145px;  
     background: #333 url(/assets/dropdown_linkbg.gif) no-repeat 10px center;  
-    padding-left: 20px;  
+    padding-left: 20px;
+  	display: block;
 }  
 html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/  
     background: #222 url(/assets/dropdown_linkbg.gif) no-repeat 10px center;  

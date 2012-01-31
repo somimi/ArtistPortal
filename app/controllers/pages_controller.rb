@@ -22,5 +22,8 @@ class PagesController < ApplicationController
   
   def performance
   end
+  
+  def dj
+  end
 
 end

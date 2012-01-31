@@ -26,7 +26,8 @@
 	
 <% end %>
 
-		<% if current_user.artist.film_paid? or !current_user.artist.north_america? %>
+		<%# if current_user.artist.film_paid? or !current_user.artist.north_america? %>
+		<% if true %>
 			<p><%= link_to "Video/Short Film", film_submissions_path %></p>
 		<% else %>
 			<%= form_tag APP_CONFIG[:paypal_url] do %>
@@ -44,7 +45,7 @@
 			  <p><%= link_to_submit "Pay To Submit Installations" %></p>
 			<% end %>
 		<% end %>
-		<p><%= link_to "Art for the Store", store_submissions_path %></p>
+		<p><%#= link_to "Art for the Store", store_submissions_path %></p>
 		<p><%= link_to "Performance Submissions", performance_submissions_path %>
 	    <p><%= link_to "DJ Submissions", dj_submissions_path %>
 <% end %> 

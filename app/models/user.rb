@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   def paypal_visual_encrypted(return_url, notify_url)
 
     values = {
-      :business => 'ray_1322550661_biz@gmail.com',
+      :business => 'director@sexpositiveculture.org',
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,
@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
     }
     
     values.merge!({
-      "amount_#{1}" => "30",
+      "amount_#{1}" => "20",
       "item_name_#{1}" => "Visual Submission Fee",
       "item_number_#{1}" => "1",
       "quantity_#{1}" => "1"
@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
   
   def paypal_literary_encrypted(return_url, notify_url)
     values = {
-      :business => 'ray_1322550661_biz@gmail.com',
+      :business => 'director@sexpositiveculture.org',
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,
@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
     }
     
     values.merge!({
-      "amount_1" => "30",
+      "amount_1" => "20",
       "item_name_1" => "Literary Submission Fee",
       "item_number_1" => "2",
       "quantity_1" => "1"
@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
   
   def paypal_installation_encrypted(return_url, notify_url)
     values = {
-      :business => 'ray_1322550661_biz@gmail.com',
+      :business => 'director@sexpositiveculture.org',
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,
@@ -87,7 +87,7 @@ class User < ActiveRecord::Base
     }
     
     values.merge!({
-      "amount_1" => "30",
+      "amount_1" => "20",
       "item_name_1" => "Installation Submission Fee",
       "item_number_1" => "3",
       "quantity_1" => "1"
@@ -99,7 +99,7 @@ class User < ActiveRecord::Base
   
   def paypal_film_encrypted(return_url, notify_url)
     values = {
-      :business => 'ray_1322550661_biz@gmail.com',
+      :business => 'director@sexpositiveculture.org',
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,

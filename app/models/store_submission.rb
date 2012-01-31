@@ -1,6 +1,7 @@
 class StoreSubmission < ActiveRecord::Base
   
   belongs_to :artist
+  belongs_to :visual_submission
   
   validates_presence_of :title
   

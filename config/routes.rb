@@ -38,6 +38,7 @@ ArtistPortal::Application.routes.draw do
   get "pages/store"
   get "pages/installation"
   get "pages/performance"
+  get "pages/dj"
 
   # devise_for :users
   devise_for :users, :path_prefeix => 'd' do get '/users/sign_out' => 'devise/sessions#destroy' end

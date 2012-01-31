@@ -2,6 +2,8 @@ class VisualSubmission < ActiveRecord::Base
 
 	belongs_to :artist
 	has_many   :images
+	has_many   :store_submissions
+	
 	after_save :average_votes
 	accepts_nested_attributes_for :images, :allow_destroy => true;
                     

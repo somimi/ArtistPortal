@@ -13,7 +13,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
 
       t.timestamps
+     
     end
+    
+     execute("ALTER TABLE users AUTO_INCREMENT = 1000")
 
     add_index :users, :email,                :unique => true
     add_index :users, :reset_password_token, :unique => true

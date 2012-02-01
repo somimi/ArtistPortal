@@ -2,7 +2,7 @@ class InstallationSubmissionsController < ApplicationController
   # GET /installation_submissions
   # GET /installation_submissions.json
   def index
-    @installation_submissions = current_user.artist.installation_submission
+    @installation_submissions = current_user.artist.installation_submissions
 
     respond_to do |format|
       format.html # index.html.erb

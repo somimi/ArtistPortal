@@ -98,7 +98,7 @@
 </p>
 <% if current_user.is_admin? || current_user.is_handler? %>
 	Here is a list of submissions for this artist.
-    <% @artist.visual_submission.each do |i| %>
+    <% @artist.visual_submissions.each do |i| %>
 		<%= link_to i.title, visual_submission_path(i) %>
 	<% end %>
 <% end %>

@@ -2,7 +2,7 @@ class FilmSubmissionsController < ApplicationController
   # GET /film_submissions
   # GET /film_submissions.json
   def index
-    @film_submissions = current_user.artist.film_submission
+    @film_submissions = current_user.artist.film_submissions
 
     respond_to do |format|
       format.html # index.html.erb

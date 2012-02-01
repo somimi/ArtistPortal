@@ -6,7 +6,7 @@ class LiterarySubmissionsController < ApplicationController
   # GET /literary_submissions
   # GET /literary_submissions.json
   def index
-    @literary_submissions = current_user.artist.literary_submission
+    @literary_submissions = current_user.artist.literary_submissions
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,7 +2,7 @@ class DjSubmissionsController < ApplicationController
   # GET /dj_submissions
   # GET /dj_submissions.json
   def index
-    @dj_submissions = DjSubmission.all
+    @dj_submissions = current_user.artist.dj_submissions
 
     respond_to do |format|
       format.html # index.html.erb

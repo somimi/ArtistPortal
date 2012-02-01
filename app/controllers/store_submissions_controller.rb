@@ -1,6 +1,6 @@
 class StoreSubmissionsController < ApplicationController
   def index
-    @store_submissions = current_user.artist.store_submission
+    @store_submissions = current_user.artist.store_submissions
   end
 
   def show

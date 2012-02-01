@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120131070609) do
+ActiveRecord::Schema.define(:version => 20120201061003) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(:version => 20120131070609) do
     t.integer  "doc_file_size"
     t.datetime "doc_updated_at"
     t.integer  "artist_id"
-    t.string   "type"
+    t.string   "lit_type"
   end
 
   create_table "payment_notifications", :force => true do |t|
@@ -190,7 +190,7 @@ ActiveRecord::Schema.define(:version => 20120131070609) do
     t.boolean  "provide_display"
     t.text     "notes"
     t.boolean  "dimension"
-    t.integer  "visual_submissions_id"
+    t.integer  "visual_submission_id"
   end
 
   create_table "users", :force => true do |t|

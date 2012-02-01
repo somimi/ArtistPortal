@@ -39,10 +39,10 @@
          <td></td>
       <% end %>
       <td>
-	    <% if artist.visual_submission == nil %>
+	    <% if artist.visual_submissions == nil %>
 			No Submissions
 	    <% else %>
-			<% for submission in artist.visual_submission %>
+			<% for submission in artist.visual_submissions %>
 			   <%= link_to submission.title, visual_submission_path(submission) %></br>
 			<% end %>
 		<% end %>

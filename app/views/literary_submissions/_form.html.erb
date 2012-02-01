@@ -17,7 +17,7 @@
     	<%= f.text_field :title %>
     </p>
 	<p>
- 		<%= f.select :type, options_for_select([['Poem'],['Short Story'],['Script/Play']], @literary_submission.type) %>
+ 		<%= f.select :lit_type, options_for_select([['Poem'],['Short Story'],['Script/Play']], @literary_submission.type) %>
   	</p>
 	<p>
     <%= f.label :comments %><br />
@@ -45,7 +45,7 @@
  
 </fieldset>
 
-<p><%= f.submit, "Create Literary Submission" %></p>
+<p><%= f.submit "Create Literary Submission" %></p>
 
 <% end %>
 

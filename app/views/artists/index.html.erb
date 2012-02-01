@@ -19,7 +19,9 @@
     <th><%= sortable "professional_name" %></th>
     <th><%= sortable "email" %></th>
 	<th><%= sortable "visual_paid" %></th>
-	<th><%= sortable "literary_pad" %></th>
+	<th><%= sortable "literary_paid" %></th>
+	<th><%= sortable "installation_paid" %></th>
+	<th><%= sortable "film paid"%></th>
     <th>Visual Submissions</th>
   </tr>
   <% for artist in @artists %>
@@ -40,6 +42,17 @@
       <% else %>
          <td></td>
       <% end %>
+      <% if artist.installation_paid? %>
+      	<td>X</td>
+      <% else %>
+         <td></td>
+      <% end %>
+      <% if artist.film_paid? %>
+      	<td>X</td>
+      <% else %>
+         <td></td>
+      <% end %>
+	
       <td>
 	    <% if artist.visual_submissions == nil %>
 			No Submissions

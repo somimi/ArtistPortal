@@ -2,7 +2,7 @@ class PerformanceSubmissionsController < ApplicationController
   # GET /performance_submissions
   # GET /performance_submissions.json
   def index
-    @performance_submissions = PerformanceSubmission.all
+    @performance_submissions = current_user.artist.performance_submissions
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +24,7 @@ class PerformanceSubmissionsController < ApplicationController
   # GET /performance_submissions/new
   # GET /performance_submissions/new.json
   def new
-    @performance_submission = current_user.artist.performance_submissions
+    @performance_submission = PerformanceSubmission.new
 
     respond_to do |format|
       format.html # new.html.erb

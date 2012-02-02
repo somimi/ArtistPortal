@@ -62,15 +62,17 @@
 	</table>
  <% end %>
 
-<% if @visual_submissions.count < 5 %>
+  <% if current_user.is_artist? %>
 
-	<p><%= link_to "New Visual Submission", new_visual_submission_path %></p>
-
-<% else %>
-
-	<p>You have submitted the maximum number of entries</p>
-
-<% end %>
+	<% if @visual_submissions.count < 5 %>
+		<p><%= link_to "New Visual Submission", new_visual_submission_path %></p>
+	<% else %>
+		<p>You have submitted the maximum number of entries</p>
+	<% end %>
+ 	
+   <% else %>
+		<p>Total: <%= @visual_submissions.count %>
+   <% end %>
 
 <b>Submission Guidelines</b>
 <ul>

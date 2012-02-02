@@ -3,6 +3,7 @@ class PerformanceSubmissionsController < ApplicationController
   # GET /performance_submissions.json
   def index
     @performance_submissions = current_user.artist.performance_submissions
+    
 
     respond_to do |format|
       format.html # index.html.erb

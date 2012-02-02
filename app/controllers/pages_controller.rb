@@ -25,5 +25,8 @@ class PagesController < ApplicationController
   
   def dj
   end
+  
+  def store
+  end
 
 end

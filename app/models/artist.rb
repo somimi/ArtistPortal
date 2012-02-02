@@ -5,6 +5,7 @@ class Artist < ActiveRecord::Base
   has_many :literary_submissions
   has_many :installation_submissions
   has_many :film_submissions
+  has_many :performance_submissions
   belongs_to :user
   
   validates_presence_of :first_name, :last_name, :email, :phone, :mailing_address_line1, :mailing_city, :mailing_state, :mailing_country, :bio, :email_confirmation, :mailing_zip

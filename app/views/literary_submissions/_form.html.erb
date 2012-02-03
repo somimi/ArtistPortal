@@ -17,7 +17,7 @@
     	<%= f.text_field :title %>
     </p>
 	<p>
- 		<%= f.select :lit_type, options_for_select([['Poem'],['Short Story'],['Script/Play']], @literary_submission.lit_type) %>
+ 		<%= f.select :lit_type, options_for_select([['Poem'],['Short Story'],['Script/Play']], @literary_submission.type) %>
   	</p>
 	<p>
     <%= f.label :comments %><br />

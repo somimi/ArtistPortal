@@ -1,6 +1,6 @@
 <% title "Artists" %>
 
-<%= form_tag visual_submissions_path, :method => 'get' do %>  
+<%= form_tag artists_path, :method => 'get' do %>  
   <p>  
     <%= text_field_tag :search, params[:search] %> 
     <%= submit_tag "Search", :name => nil %>  

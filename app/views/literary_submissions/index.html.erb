@@ -1,5 +1,17 @@
 <% title 'Literary Submissions' %>
 
+  <% if !current_user.is_artist? %>
+   <%= form_tag literary_submissions_path, :method => 'get' do %>  
+     <p>  
+       <%= text_field_tag :search, params[:search] %> 
+       <%= submit_tag "Search", :name => nil %>  
+     </p>  
+   <% end %>
+  <% end %>
+<% if !current_user.is_artist? %>
+	<%= paginate @literary_submissions %>
+<% end %>
+
 <table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
   <tr>
 	    <th><%= sortable "Title" %></th>

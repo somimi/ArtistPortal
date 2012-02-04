@@ -13,7 +13,6 @@ class VisualSubmissionsController < ApplicationController
       if params[:filter] == "voted"
         @visual_submissions = VisualSubmission.voted(current_user.juror)
       else
-        @visual
       end
       
     end

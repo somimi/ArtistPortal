@@ -1,8 +1,18 @@
 class FilmSubmissionsController < ApplicationController
+  helper_method :sort_column, :sort_direction  
+  before_filter :authenticate_user!
   # GET /film_submissions
   # GET /film_submissions.json
   def index
-    @film_submissions = current_user.artist.film_submissions
+    if current_user.is_artist?
+      @film_submissions = current_user.artist.film_submissions
+    elsif current_user.is_admin? 
+      @film_submissions = FilmSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+      session[:query] = @film_submissions.map(&:id)
+      @count = FilmSubmission.search(params[:search]).count
+    else
+      
+    end 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,5 +90,14 @@ class FilmSubmissionsController < ApplicationController
       format.html { redirect_to film_submissions_url }
       format.json { head :ok }
     end
+  end
+  
+  private  
+  def sort_column  
+    FilmSubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
+  end  
+    
+  def sort_direction  
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"    
   end
 end

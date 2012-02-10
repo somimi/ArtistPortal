@@ -47,12 +47,12 @@
 		<% end %>
 		
 		<% if current_user.artist.visual_paid? or current_user.artist.store_paid %>
-			<p><%= link_to "Store Art", store_submissions_path %></p>
+			<p><%#= link_to "Store Art", store_submissions_path %></p>
 		<% else  %>
 			<%= form_tag APP_CONFIG[:paypal_url] do %>
 			  <%= hidden_field_tag :cmd, "_s-xclick" %>
 			  <%= hidden_field_tag :encrypted, current_user.paypal_visual_encrypted(store_submissions_url, payment_notifications_url(:secret => APP_CONFIG[:paypal_secret])) %>
-			  <p><%= link_to_submit 'Pay To Submit Store Art' %></p>
+			  <p><%#= link_to_submit 'Pay To Submit Store Art' %></p>
 			<% end %>
 		<% end %>
 		<p><%= link_to "Performance Submissions", performance_submissions_path %></p>

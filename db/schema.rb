@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20120208014627) do
     t.string   "represent_gallery"
     t.string   "representname"
     t.boolean  "store_paid"
+    t.boolean  "test"
   end
 
   create_table "dj_submissions", :force => true do |t|

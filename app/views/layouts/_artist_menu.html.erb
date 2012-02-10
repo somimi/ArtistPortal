@@ -46,7 +46,7 @@
 			<% end %>
 		<% end %>
 		
-		<% if current_user.artist.visual_paid? or current_user.store_paid %>
+		<% if current_user.artist.visual_paid? or current_user.artist.store_paid %>
 			<p><%= link_to "Store Art", store_submissions_path %></p>
 		<% else  %>
 			<%= form_tag APP_CONFIG[:paypal_url] do %>

@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	
+	$('.best_in_place').best_in_place()
 
 	$("#limited-edition").css("display","none");
 	$("#limited-edition-1").css("display", "none")

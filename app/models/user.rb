@@ -49,8 +49,6 @@ class User < ActiveRecord::Base
     })
     
     encrypt_for_paypal(values)
-    
-
   end
   
   def paypal_literary_encrypted(return_url, notify_url)
@@ -72,7 +70,6 @@ class User < ActiveRecord::Base
     })
     
     encrypt_for_paypal(values)
- 
   end
   
   def paypal_installation_encrypted(return_url, notify_url)
@@ -94,7 +91,6 @@ class User < ActiveRecord::Base
     })
     
     encrypt_for_paypal(values)
- 
   end
   
   def paypal_film_encrypted(return_url, notify_url)
@@ -116,7 +112,28 @@ class User < ActiveRecord::Base
     })
     
     encrypt_for_paypal(values)
- 
+  end
+  
+  def paypal_store_encrypted(return_url, notify_url)
+
+    values = {
+      :business => 'director@sexpositiveculture.org',
+      :cmd => '_cart',
+      :upload => 1,
+      :return => return_url,
+      :invoice => id.to_s.concat("1").to_i,
+      :notify_url => notify_url,
+      :cert_id => APP_CONFIG[:paypal_cert_id]
+    }
+    
+    values.merge!({
+      "amount_#{1}" => "20",
+      "item_name_#{1}" => "Store Submission Fee",
+      "item_number_#{1}" => "5",
+      "quantity_#{1}" => "1"
+    })
+    
+    encrypt_for_paypal(values)
   end
   
   

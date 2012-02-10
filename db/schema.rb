@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120202101245) do
+ActiveRecord::Schema.define(:version => 20120208014627) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120202101245) do
     t.boolean  "film_paid"
     t.string   "represent_gallery"
     t.string   "representname"
+    t.boolean  "store_paid"
   end
 
   create_table "dj_submissions", :force => true do |t|

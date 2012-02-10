@@ -11,8 +11,22 @@
   <% for store_submission in @store_submissions %>
     <tr>
       <td><%= link_to store_submission.title, edit_store_submission_path(store_submission) %></td>
-      <td><%= link_to store_submission.type, edit_store_submission_path(store_submission) %></td>
-	  <td><%= image_tag store_submission.image.url(:thumb) %></td>
+	  <% if store_submission.type %>
+      	<td><%= link_to store_submission.type, edit_store_submission_path(store_submission) %></td>
+      <% else %>
+		<td></td>
+	  <% end %>
+	  <td>
+		<% if store_submission.visual_submission_id %>
+			<%= link_to image_tag(store_submission.visual_submission.images.first.image.url(:thumb)), store_submission.visual_submission.images.first.image.url(:original), :target => "_blank" %>
+	  	<% else %>
+			<% if store_submission.image %>
+	     		<%= link_to image_tag(store_submission.image.url(:thumb)), store_submission.image.url(:original), :target => "_blank" %>
+			<% else %>
+				No Image
+			<% end %>
+	  	<% end %>
+	   </td>
       <td><%= store_submission.quantity %></td>
       <td><%= store_submission.quantity_accepted %></td>
 	  <td><%= link_to "Duplicate", duplicate_store_submission_path(store_submission) %>

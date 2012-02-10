@@ -1,6 +1,22 @@
 class StoreSubmissionsController < ApplicationController
+  helper_method :sort_column, :sort_direction  
+  before_filter :authenticate_user!
+  
   def index
-    @store_submissions = current_user.artist.store_submissions
+    if current_user.is_artist?
+      @store_submissions = current_user.artist.store_submissions
+    elsif current_user.is_admin? 
+      @store_submissions = StoreSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+      session[:query] = @store_submissions.map(&:id)
+      @count = StoreSubmission.search(params[:search]).count
+    else
+      
+    end 
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @literary_submissions }
+    end
   end
 
   def show
@@ -28,7 +44,7 @@ class StoreSubmissionsController < ApplicationController
   def update
     @store_submission = StoreSubmission.find(params[:id])
     if @store_submission.update_attributes(params[:store_submission])
-      redirect_to store_submissions_path, :notice  => "Successfully updated store submission."
+      redirect_to store_submissions_path, :notice => "Successfully updated store submission."
     else
       render :action => 'edit'
     end
@@ -52,4 +68,14 @@ class StoreSubmissionsController < ApplicationController
     style = params[:style] ? params[:style] : 'original'
     send_file store_submission.image.path(style), :type => store_submission.image_content_type, :disposition => 'inline'
   end
+  
+  private  
+  def sort_column  
+    LiterarySubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
+  end  
+    
+  def sort_direction  
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"    
+  end
+  
 end

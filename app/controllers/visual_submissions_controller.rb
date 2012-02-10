@@ -2,6 +2,9 @@ class VisualSubmissionsController < ApplicationController
   helper_method :sort_column, :sort_direction  
   before_filter :authenticate_user!
   load_and_authorize_resource
+  
+  respond_to :html, :json
+  
   def index
     if current_user.is_artist?
       @visual_submissions = current_user.artist.visual_submissions
@@ -72,18 +75,16 @@ class VisualSubmissionsController < ApplicationController
 
   def update
     #@visual_submission = VisualSubmission.find(params[:id])
-    if @visual_submission.update_attributes(params[:visual_submission])
-      if @visual_submission.store_submit?
-        @store_submission = StoreSubmission.new
-        @store_submission.artist_id = @visual_submission.artist_id
-        @store_submission.title = @visual_submission.title
-        @store_submission.visual_submission_id = @visual_submission.id
-       @store_submission.save
+    @visual_submission.update_attributes(params[:visual_submission])
+     if @visual_submission.store_submit?
+      @store_submission = StoreSubmission.new
+      @store_submission.artist_id = @visual_submission.artist_id
+      @store_submission.title = @visual_submission.title
+      @store_submission.visual_submission_id = @visual_submission.id
+      @store_submission.save
       end
-      redirect_to visual_submissions_path, :notice  => "Successfully updated visual submission."
-    else
-      render :action => 'edit'
-    end
+      respond_with @visual_submission
+
   end
 
   def destroy

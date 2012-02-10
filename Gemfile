@@ -23,6 +23,7 @@ gem 'formtastic'
 gem 'kaminari'
 gem 'cancan'
 gem 'simple-navigation'
+gem 'best_in_place'
 
 
 # Use unicorn as the web server

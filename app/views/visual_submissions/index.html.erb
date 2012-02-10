@@ -17,18 +17,13 @@
 	<%= paginate @visual_submissions %>
 <% end %>
 
-		<table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
+		<table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" cellpadding="3" cellspacing="3">
 	  <tr>
 	    <th><%= sortable "title" %></th>
 	    <th><%= sortable "medium" %></th>
 	  <% if current_user.is_admin?  %>
 		<th><%= sortable "first_name" %></th>
 		<th><%= sortable "last_name " %></th>
-		<th><%= sortable "jury_one_vote" %></th>
-		<th><%= sortable "jury_two_vote" %></th>
-		<th><%= sortable "jury_three_vote "%></th>
-		<th><%= sortable "jury_four_vote" %></th>
-		<th><%= sortable "jury_five_vote" %></th>
 		<th><%= sortable "average_vote "%></th>
 		<th><%= sortable "acceptance_status" %></th>
 	 <% end %>
@@ -42,21 +37,15 @@
 		 <% if current_user.is_admin? %>
 		  <td><%= link_to visual_submission.artist.first_name, artist_path(visual_submission.artist) %></td>
 		  <td><%= link_to visual_submission.artist.last_name, artist_path(visual_submission.artist) %></td>
-		  <td><%= visual_submission.jury_one_vote %></td>
-		  <td><%= visual_submission.jury_two_vote %></td>
-		  <td><%= visual_submission.jury_three_vote %></td>
-		  <td><%= visual_submission.jury_four_vote %></td>
-		  <td><%= visual_submission.jury_five_vote %></td>
 		  <td><%= visual_submission.average_votes %></td>
-		  <td><%= visual_submission.acceptance_status %></td>
+		  <td><%= best_in_place visual_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Denied", "Denied"],["Accepted", "Accepted"]], :nil => visual_submission.acceptance_status %></td>
 		  <% end %>
 		  <% if visual_submission.images.count >= 1 %>
-		    <td><%= image_tag visual_submission.images.first.image.url(:thumb) %></td>
+		    <td><%= link_to image_tag(visual_submission.images.first.image.url(:thumb)), visual_submission.images.first.image.url(:original), :target => "_blank" %></td>
 		 <% else %>
 		    <td>No Image</td>
-		<% end %>
+		<% end %>		
 		<td><%= link_to "Delete", visual_submission, :confirm => 'Are you sure?', :method => :delete %></td>
-
 	    </tr>
 	  <% end %>
 	</table>
@@ -73,6 +62,11 @@
    <% else %>
 		<p>Total: <%= @count %></p>
    <% end %>
+
+<br />
+<p>You have until the official deadline to make any changes to your submission(s). Once the deadline hits, your submission(s) will be complete. Once decisions have been made, the site will be updated to indicate if any of your pieces were accepted, and you will also receive an email announcing the jury notifications.</p>
+
+
 
 <b>Submission Guidelines</b>
 <ul>

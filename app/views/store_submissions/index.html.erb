@@ -18,10 +18,10 @@
 	  <% end %>
 	  <td>
 		<% if store_submission.visual_submission_id %>
-			<%= image_tag(store_submission.visual_submission.images.first.image.url(:thumb)) %>
+			<%#= image_tag(store_submission.visual_submission.images.first.image.url(:thumb)) %>
 	  	<% else %>
 			<% if store_submission.image %>
-	     		<%#= link_to image_tag(store_submission.image.url(:thumb)), store_submission.image.url(:original), :target => "_blank" %>
+	     		<%= link_to image_tag(store_submission.image.url(:thumb)), store_submission.image.url(:original), :target => "_blank" %>
 			<% else %>
 				No Image!
 			<% end %>

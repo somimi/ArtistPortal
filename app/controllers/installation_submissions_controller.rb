@@ -1,12 +1,22 @@
 class InstallationSubmissionsController < ApplicationController
+  helper_method :sort_column, :sort_direction  
+  before_filter :authenticate_user!
   # GET /installation_submissions
   # GET /installation_submissions.json
   def index
-    @installation_submissions = current_user.artist.installation_submissions
+    if current_user.is_artist?
+      @installation_submissions = current_user.artist.installation_submissions
+    elsif current_user.is_admin? 
+      @installation_submissions = InstallationSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+      session[:query] = @installation_submissions.map(&:id)
+      @count = InstallationSubmission.search(params[:search]).count
+    else
+      
+    end 
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @installation_submissions }
+      format.json { render json: @literary_submissions }
     end
   end
 
@@ -82,4 +92,15 @@ class InstallationSubmissionsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  private  
+  def sort_column  
+    LiterarySubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
+  end  
+    
+  def sort_direction  
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"    
+  end
+  
+  
 end

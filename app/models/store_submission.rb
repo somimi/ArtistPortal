@@ -5,10 +5,8 @@ class StoreSubmission < ActiveRecord::Base
   
   validates_presence_of :title, :price, :quantity 
   
-  set_inheritance_column 'something_you_will_not_use'
+  set_inheritance_column 'not_type'
   
-  
-  #validates_presence_of  :title, :description, :quantity
   has_attached_file :image, :styles => {:large => "600x600>", :small => "150x150>", :thumb => "50x50>"},
                     :path => ':rails_root/store-secure/system/:attachment/:id/:style/:basename.:extension',
                     :url => '/:class/:id/:attachment?style=:style'

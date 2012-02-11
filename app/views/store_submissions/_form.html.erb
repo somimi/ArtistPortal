@@ -72,7 +72,7 @@
 <fieldset>
 	<legend>Store Association</legend>
 	<%= f.label :visual_submission_id %><br />
-	<%#= f.select(:visual_submission_id, @store_submission.artist.visual_submissions.map {|p| [p.title, p.id]}, {:include_blank => 'Not Applicable'}) %>
+	<%= f.select(:visual_submission_id, @store_submission.artist.visual_submissions.map {|p| [p.title, p.id]}, {:include_blank => 'Not Applicable'}) %>
 </fieldset>
 <fieldset>
 	<legend>Image Upload</legend>

@@ -78,15 +78,17 @@ class VisualSubmissionsController < ApplicationController
   def update
     #@visual_submission = VisualSubmission.find(params[:id])
     @visual_submission.update_attributes(params[:visual_submission])
+    @store_submission = StoreSubmission.where("visual_submission_id", @visual_submission.id)
      if @visual_submission.store_submit?
-       if !@visual_submission.artist_id
+       if @store_submission.nil?
+         logger.debug "we aleady have a submission"
+       else  
          @store_submission = StoreSubmission.new
          @store_submission.artist_id = @visual_submission.artist_id
          @store_submission.title = @visual_submission.title
          @store_submission.visual_submission_id = @visual_submission.id
          @store_submission.save
        end
-       logger.debug "we aleady have a submission"
       end
       respond_with @visual_submission
 

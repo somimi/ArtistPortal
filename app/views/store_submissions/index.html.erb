@@ -1,5 +1,9 @@
 <% title "Store Submissions" %>
 
+<% if !current_user.is_artist? %>
+	<%= paginate @store_submissions %>
+<% end %>
+
 <table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
   <tr>
     <th>Title</th>

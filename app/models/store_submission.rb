@@ -3,7 +3,7 @@ class StoreSubmission < ActiveRecord::Base
   belongs_to :artist
   belongs_to :visual_submission
   
-  validates_presence_of :title, :price, :quantity 
+  validates_presence_of :title
   
   set_inheritance_column 'not_type'
   

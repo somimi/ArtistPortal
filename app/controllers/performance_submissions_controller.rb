@@ -93,7 +93,7 @@ class PerformanceSubmissionsController < ApplicationController
   
   private  
   def sort_column  
-    LiterarySubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
+    PerformanceSubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
   end  
     
   def sort_direction  

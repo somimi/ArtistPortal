@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208014627) do
+ActiveRecord::Schema.define(:version => 20120212071746) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20120208014627) do
     t.text     "additional_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "artist_id"
   end
 
   create_table "film_submissions", :force => true do |t|

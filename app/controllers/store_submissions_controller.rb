@@ -71,7 +71,7 @@ class StoreSubmissionsController < ApplicationController
   
   private  
   def sort_column  
-    LiterarySubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
+    StoreSubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
   end  
     
   def sort_direction  

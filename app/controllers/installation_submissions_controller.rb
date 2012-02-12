@@ -95,7 +95,7 @@ class InstallationSubmissionsController < ApplicationController
   
   private  
   def sort_column  
-    LiterarySubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
+    InstallationSubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
   end  
     
   def sort_direction  

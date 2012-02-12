@@ -1,16 +1,25 @@
 class PerformanceSubmissionsController < ApplicationController
+  helper_method :sort_column, :sort_direction  
+  before_filter :authenticate_user!
+  
   # GET /performance_submissions
   # GET /performance_submissions.json
   def index
-    @performance_submissions = current_user.artist.performance_submissions
-    
+    if current_user.is_artist?
+      @performance_submissions = current_user.artist.performance_submissions
+    elsif current_user.is_admin? 
+      @performance_submissions = PerformanceSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+      session[:query] = @performance_submissions.map(&:id)
+      @count = PerformanceSubmission.search(params[:search]).count
+    else
+      
+    end 
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @performance_submissions }
+      format.json { render json: @literary_submissions }
     end
   end
-
   # GET /performance_submissions/1
   # GET /performance_submissions/1.json
   def show
@@ -81,4 +90,14 @@ class PerformanceSubmissionsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  private  
+  def sort_column  
+    LiterarySubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
+  end  
+    
+  def sort_direction  
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"    
+  end
+  
 end

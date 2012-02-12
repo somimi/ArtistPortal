@@ -13,15 +13,11 @@ class StoreSubmission < ActiveRecord::Base
   
   attr_accessible :artist_id, :title, :description, :quantity, :quantity_accepted, :accepted, :image, :type, :type_other, :price, :height, :width, :depth, :h_unit, :w_unit, :d_unit, :presentation, :presentation_other, :provide_display, :notes, :dimension, :visual_submission_id
   
-  def self.search(search)  
-       
+  def self.search(search)        
     if search
       joins(:artist).where('title LIKE ? OR first_name LIKE ?', "%#{search}%", "%#{search}%")
     else  
       scoped  
     end  
-    
   end
-  
-  
 end

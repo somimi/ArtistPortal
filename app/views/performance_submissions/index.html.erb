@@ -13,10 +13,13 @@
   </tr>
 <% end %>
 </table>
-
 <br />
+<% if current_user.is_artist? %>
+	<p><%= link_to 'New Performance submission', new_performance_submission_path %></p>
+<% else %>
+	<%= @performance_submission.count %>
+<% end %>
 
-<p><%= link_to 'New Performance submission', new_performance_submission_path %></p>
 <b>Submission Requirements:</b>
 <ul>
 	<li>Performers must apply by the deadline. Incomplete applications will not be considered.</li>

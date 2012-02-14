@@ -19,7 +19,7 @@
 <% if current_user.is_artist? %>
 	<p><%= link_to 'New Installation submission', new_installation_submission_path %></p>
 <% else %>
-	<%= @installation_submission.count %>
+	count: <%= @count %>
 <% end %>
 
 <br />

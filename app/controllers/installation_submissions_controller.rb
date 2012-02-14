@@ -53,6 +53,7 @@ class InstallationSubmissionsController < ApplicationController
   # POST /installation_submissions.json
   def create
     @installation_submission = InstallationSubmission.new(params[:installation_submission])
+    @installation_submission.artist_id = current_user.artist.id
 
     respond_to do |format|
       if @installation_submission.save

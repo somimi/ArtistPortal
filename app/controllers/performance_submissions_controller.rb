@@ -8,7 +8,7 @@ class PerformanceSubmissionsController < ApplicationController
     if current_user.is_artist?
       @performance_submissions = current_user.artist.performance_submissions
     elsif current_user.is_admin? 
-      @performance_submissions = PerformanceSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+      @performance_submissions = PerformanceSubmission.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
       session[:query] = @performance_submissions.map(&:id)
       @count = PerformanceSubmission.search(params[:search]).count
     else
@@ -51,6 +51,7 @@ class PerformanceSubmissionsController < ApplicationController
   # POST /performance_submissions.json
   def create
     @performance_submission = PerformanceSubmission.new(params[:performance_submission])
+    @performance_submission.artist_id = current_user.artist.id
 
     respond_to do |format|
       if @performance_submission.save

@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
     }
     
     values.merge!({
-      "amount_#{1}" => "20",
+      "amount_#{1}" => "30",
       "item_name_#{1}" => "Visual Submission Fee",
       "item_number_#{1}" => "1",
       "quantity_#{1}" => "1"
@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
     }
     
     values.merge!({
-      "amount_1" => "20",
+      "amount_1" => "30",
       "item_name_1" => "Literary Submission Fee",
       "item_number_1" => "2",
       "quantity_1" => "1"
@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
     }
     
     values.merge!({
-      "amount_1" => "20",
+      "amount_1" => "30",
       "item_name_1" => "Installation Submission Fee",
       "item_number_1" => "3",
       "quantity_1" => "1"
@@ -105,7 +105,7 @@ class User < ActiveRecord::Base
     }
     
     values.merge!({
-      "amount_1" => "30",
+      "amount_1" => "10",
       "item_name_1" => "Video/Short Film Submission Fee",
       "item_number_1" => "4",
       "quantity_1" => "1"
@@ -127,7 +127,7 @@ class User < ActiveRecord::Base
     }
     
     values.merge!({
-      "amount_#{1}" => "20",
+      "amount_#{1}" => "30",
       "item_name_#{1}" => "Store Submission Fee",
       "item_number_#{1}" => "5",
       "quantity_#{1}" => "1"

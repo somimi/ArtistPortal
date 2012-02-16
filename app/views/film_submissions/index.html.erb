@@ -28,14 +28,19 @@
 
 <br />
 
-<% if @film_submissions.count < 3 %>
+  <% if current_user.is_artist? %>
 
-	<p><%= link_to 'New Film submission', new_film_submission_path %></p>
+	<% if @film_submissions.count < 3 %>
+		<p><%= link_to "New Visual Submission", new_film_submission_path %></p>
+	<% else %>
+		<p>You have submitted the maximum number of entries</p>
+	<% end %>
+ 	
+   <% else %>
+		<p>Total: <%= @count %></p>
+   <% end %>
 
-<% else %>
-	<p>You have submitted the maximum amount of entries.</p>
-	
-<% end %>
+<br />
 
 <br />
 <p>You have until the official deadline to make any changes to your submission(s). Once the deadline hits, your submission(s) will be complete. Once decisions have been made, the site will be updated to indicate if any of your pieces were accepted, and you will also receive an email announcing the jury notifications.</p>

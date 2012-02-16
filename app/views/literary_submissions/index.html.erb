@@ -36,7 +36,19 @@
 
 <br />
 
-<%= link_to 'New Literary Submission', new_literary_submission_path %>
+  <% if current_user.is_artist? %>
+
+	<% if @literary_submissions.count < 5 %>
+		<p><%= link_to "New Literary Submission", new_literary_submission_path %></p>
+	<% else %>
+		<p>You have submitted the maximum number of entries</p>
+	<% end %>
+ 	
+   <% else %>
+		<p>Total: <%= @count %></p>
+   <% end %>
+
+<br />
 
 <br />
 <p>You have until the official deadline to make any changes to your submission(s). Once the deadline hits, your submission(s) will be complete. Once decisions have been made, the site will be updated to indicate if any of your pieces were accepted, and you will also receive an email announcing the jury notifications.</p>

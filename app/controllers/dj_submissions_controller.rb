@@ -52,6 +52,7 @@ class DjSubmissionsController < ApplicationController
   # POST /dj_submissions.json
   def create
     @dj_submission = DjSubmission.new(params[:dj_submission])
+    @dj_submission.artist_id = current_user.artist.id
 
     respond_to do |format|
       if @dj_submission.save

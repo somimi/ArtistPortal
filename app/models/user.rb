@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,
-      :invoice => id.to_s.concat("2").to_i,
+      :invoice => id.to_s.concat("3").to_i,
       :notify_url => notify_url,
       :cert_id => APP_CONFIG[:paypal_cert_id]
     }
@@ -99,7 +99,7 @@ class User < ActiveRecord::Base
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,
-      :invoice => id.to_s.concat("2").to_i,
+      :invoice => id.to_s.concat("4").to_i,
       :notify_url => notify_url,
       :cert_id => APP_CONFIG[:paypal_cert_id]
     }
@@ -121,7 +121,7 @@ class User < ActiveRecord::Base
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,
-      :invoice => id.to_s.concat("1").to_i,
+      :invoice => id.to_s.concat("5").to_i,
       :notify_url => notify_url,
       :cert_id => APP_CONFIG[:paypal_cert_id]
     }

@@ -29,13 +29,11 @@ class VisualSubmission < ActiveRecord::Base
   end
   
   def self.search(search)  
-       
     if search
-      joins(:artist).where('title LIKE ? OR first_name LIKE ?', "%#{search}%", "%#{search}%")
+      joins(:artist).where('title LIKE ? OR first_name LIKE ? OR medium LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     else  
       scoped  
-    end  
-    
+    end     
   end
   
   def self.not_voted(juror)

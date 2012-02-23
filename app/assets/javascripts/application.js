@@ -11,6 +11,8 @@
 //= require_tree .
 
 jQuery(document).ready(function($) {
+	
+	$('.best_in_place').best_in_place();
  
 	$('a.poplight[href^=#]').click(function() {
 	    var popID = $(this).attr('rel'); 

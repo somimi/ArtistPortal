@@ -26,11 +26,11 @@
   </p>
 	<p>
 		<%= f.check_box :for_sale %>
-	   $<%= f.label :for_sale, "This piece is for sale." %>
+	   <%= f.label :for_sale, "This piece is for sale." %>
 	</p>
 	<p id="for-sale">
 		<%= f.label :price %><br />
-		<%= f.text_field :price %>
+		$<%= f.text_field :price %>
 	</p>
 	
 </fieldset>

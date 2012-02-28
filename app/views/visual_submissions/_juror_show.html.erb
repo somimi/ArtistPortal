@@ -2,7 +2,7 @@
 <p>
 	<%= form_for @visual_submission do |f| %>
 		<% juror = "jury_" + current_user.juror + "_vote" %>
-	    <%= f.select juror , options_for_select([[1],[2],[3], [4], [5]]) %>
+	    <%= f.select juror , options_for_select([[1],[2],[3], [4], [5]], @visual_submission.send(juror)) %>
 		<p>
 			<%=f.submit "Vote" %>
 		</p>
@@ -15,4 +15,4 @@
 		<%= link_to 'Next', @next_submission %>
 	<% end %>
 </p>
-<%= link_to (image_tag @visual_submission.image.url(:large)), @visual_submission.image.url(:original) %>
+<%= link_to image_tag(@visual_submission.images.first.image.url(:large)), @visual_submission.images.first.image.url(:original), :target => "_blank" %>

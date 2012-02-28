@@ -10,7 +10,7 @@
     <tr>
       <td><%= link_to visual_submission.title, visual_submission_path(visual_submission) %></td>
       <td><%= visual_submission.medium %></td>
-	  <td><%= image_tag visual_submission.image.url(:thumb)  %></td>
+	  <td><%= link_to image_tag(visual_submission.images.first.image.url(:thumb)), visual_submission.images.first.image.url(:original), :target => "_blank"  %></td>
 	  <td><%= visual_submission.jury_two_vote %></td>
 
     </tr>

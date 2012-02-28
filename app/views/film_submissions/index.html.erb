@@ -14,12 +14,16 @@
 
 <table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
   <tr>
+	<th>First Name</th>
+	<th>Last Name</th>
     <th>Title</th>
     <th></th>
   </tr>
 
 <% @film_submissions.each do |film_submission| %>
   <tr>
+	<td><%= link_to film_submission.artist.first_name, artist_path(film_submission.artist) %></td>
+	<td><%= link_to film_submission.artist.last_name, artist_path(film_submission.artist) %></td>
     <td><%= link_to film_submission.title, edit_film_submission_path(film_submission)  %></td>
     <td><%= link_to 'Delete', film_submission, confirm: 'Are you sure?', method: :delete %></td>
   </tr>

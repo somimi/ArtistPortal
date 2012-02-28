@@ -45,7 +45,6 @@ class VisualSubmissionsController < ApplicationController
     #@visual_submission = VisualSubmission.new(params[:visual_submission])
     @visual_submission.artist_id = current_user.artist.id
     
-      
     if @visual_submission.save
       if @visual_submission.store_submit?
         logger.debug "store_submit was true"
@@ -54,16 +53,11 @@ class VisualSubmissionsController < ApplicationController
         @store_submission.title = @visual_submission.title
         @store_submission.visual_submission_id = @visual_submission.id
         @store_submission.save
-        
-        logger.debug "visual submission id = #{@store_submission.visual_submission_id}"
       end
       redirect_to visual_submissions_path, :notice => "Successfully created visual submission."
     else
       render :action => 'new'
     end
-
-    
-    
   end
 
   def edit
@@ -78,7 +72,13 @@ class VisualSubmissionsController < ApplicationController
 
   def update
     #@visual_submission = VisualSubmission.find(params[:id])
-    @visual_submission.update_attributes(params[:visual_submission])
+    if current_user.is_artist?
+      @visual_submission.update_attributes(params[:visual_submission])
+    else
+      @visual_submission.attributes = (params[:visual_submission])
+      @visual_submission.save(:validate => :false)
+    end 
+    
     @store_submission = StoreSubmission.where("visual_submission_id", @visual_submission.id)
      if @visual_submission.store_submit?
        if @store_submission.nil?

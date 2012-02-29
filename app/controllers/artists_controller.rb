@@ -45,6 +45,7 @@ class ArtistsController < ApplicationController
       else
         render :action => 'edit'
       end
+    end
   end
 
   def destroy

@@ -21,7 +21,8 @@
 	<th><%= sortable "visual_paid" %></th>
 	<th><%= sortable "literary_paid" %></th>
 	<th><%= sortable "installation_paid" %></th>
-	<th><%= sortable "film paid"%></th>
+	<th><%= sortable "film paid" %></th>
+	<th><%= sortable "store paid" %>
     <th>Visual Submissions</th>
   </tr>
   <% for artist in @artists %>
@@ -52,6 +53,12 @@
       <% else %>
          <td></td>
       <% end %>
+      <% if artist.store_paid? %>
+      	<td>X</td>
+      <% else %>
+         <td></td>
+      <% end %>
+	
 	
       <td>
 	    <% if artist.visual_submissions == nil %>

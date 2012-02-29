@@ -40,7 +40,7 @@ class ArtistsController < ApplicationController
       end
     else
       if @artist.attributes = (params[:artist])
-          @artist.save(:validate => :false)
+          @artist.save(:validate => false)
           redirect_to artists_path
       else
         render :action => 'edit'

@@ -32,15 +32,19 @@ class ArtistsController < ApplicationController
 
   def update
     @artist = Artist.find(params[:id])
-    if @artist.update_attributes(params[:artist])
-      if @current_user.role == "artist"
-        redirect_to root_path, :notice  => "Successfully updated artist profile."
+    if current_user.is_artist?
+      if @artist.update_attributes(params[:artist])
+          redirect_to root_path, :notice  => "Successfully updated artist profile."
       else
-        redirect_to artists_path
-      end 
+        render :action => 'edit'
+      end
     else
-      render :action => 'edit'
-    end
+      if @artist.attributes = (params[:artist])
+          @artist.save(:validate => :false)
+          redirect_to artists_path
+      else
+        render :action => 'edit'
+      end
   end
 
   def destroy

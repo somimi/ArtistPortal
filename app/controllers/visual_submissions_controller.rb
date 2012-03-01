@@ -16,6 +16,7 @@ class VisualSubmissionsController < ApplicationController
     else
       if params[:filter] == "voted"
         @visual_submissions = VisualSubmission.voted(current_user.juror)
+        session[:query] = @visual_submissions.map(&:id)
       else
       end
       

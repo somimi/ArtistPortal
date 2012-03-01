@@ -1,13 +1,14 @@
 
 <p>
-		<% juror = "jury_" + current_user.juror + "_vote" %>
-	    <%= best_in_place @visual_submission, juror, :type => :select, :collection => [["1", 1],["2", 2]], :nil => @visual_submission.send(juror) %>
-
-</p>
-<p>
 	<% if @prev_submision || @next_submission %>
 		<%= link_to 'Previous', @prev_submission %>
 		<%= link_to 'Next', @next_submission %>
 	<% end %>
 </p>
 <%= link_to image_tag(@visual_submission.images.first.image.url(:large)), @visual_submission.images.first.image.url(:original), :target => "_blank" %>
+
+<p>
+		<% juror = "jury_" + current_user.juror + "_vote" %>
+	    <%= best_in_place @visual_submission, juror, :type => :select, :collection => [["1", 1],["2", 2]], :nil => @visual_submission.send(juror) %>
+
+</p>

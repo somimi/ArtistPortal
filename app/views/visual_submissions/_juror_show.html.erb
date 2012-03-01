@@ -1,13 +1,8 @@
 
 <p>
-	<%= form_for @visual_submission do |f| %>
 		<% juror = "jury_" + current_user.juror + "_vote" %>
-	    <%= f.select juror , options_for_select([[1],[2],[3], [4], [5]], @visual_submission.send(juror)) %>
-		<p>
-			<%=f.submit "Vote" %>
-		</p>
-	<% end %>
-	
+	    <%= best_in_place @visual_submission, juror, :type => :select, :collection => [["1", 1],["2", 2]], :nil => @visual_submission.send(juror) %>
+
 </p>
 <p>
 	<% if @prev_submision || @next_submission %>

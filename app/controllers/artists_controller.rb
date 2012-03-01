@@ -39,8 +39,8 @@ class ArtistsController < ApplicationController
         render :action => 'edit'
       end
     else
-      if @artist.attributes = (params[:artist])
-          @artist.save(:validate => false)
+        @artist.attributes = (params[:artist])
+        if  @artist.save(:validate => false)
           redirect_to artists_path
       else
         render :action => 'edit'

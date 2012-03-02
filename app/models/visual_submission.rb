@@ -38,11 +38,11 @@ class VisualSubmission < ActiveRecord::Base
   
   def self.not_voted(juror)
      #where("jury_#{juror}_vote" => false, "acceptance_status" => "declined")
-     where("jury_#{juror}_vote is null")
+     where("jury_#{juror}_vote IS NULL")
    end
    
   def self.voted(juror)
-    where("jury_#{juror}_vote is not null and acceptance_status != 'declined'")
+    where("jury_#{juror}_vote IS NOT NULL")
   end
   
   def average_votes

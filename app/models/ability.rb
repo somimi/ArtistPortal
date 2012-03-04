@@ -6,16 +6,16 @@ class Ability
      if current_user.is_admin?
        can :manage, :all
      elsif current_user.is_juror?
-       can :manage, :visual_submission
+       can :manage, VisualSubmission
      elsif current_user.is_handler?
-        can :manage, :Artist
-        can :manage, :VisualSubmission
+        can :manage, Artist
+        can :manage, VisualSubmission
      elsif current_user.is_film_admin?
-        can :manage, :FilmSubmission
+        can :manage, FilmSubmission
      elsif current_user.is_performance_admin?
-        can :manage, :PerformanceSubmission
+        can :manage, PerformanceSubmission
      elsif current_user.is_literary_admin?
-        can :manage, :LiterarySubmission
+        can :manage, LiterarySubmission
     else
        can :create, VisualSubmission
        can :create, Artist

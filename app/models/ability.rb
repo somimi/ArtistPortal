@@ -6,7 +6,7 @@ class Ability
      if current_user.is_admin?
        can :manage, :all
      elsif current_user.is_juror?
-       can :manage, :VisualSubmission
+       can :manage, :visual_submission
      elsif current_user.is_handler?
         can :manage, :Artist
         can :manage, :VisualSubmission

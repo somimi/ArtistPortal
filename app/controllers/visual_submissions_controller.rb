@@ -21,6 +21,7 @@ class VisualSubmissionsController < ApplicationController
         @visual_submissions = VisualSubmission.not_voted(current_user.juror)
         session[:query] = @visual_submissions.map(&:id)
       else
+        @visual_submissions = VisualSubmission.full
         session[:query] = @visual_submissions.map(&:id)
       end
       

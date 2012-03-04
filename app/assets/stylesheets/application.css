@@ -442,3 +442,13 @@ html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
     background: #222 url(/assets/dropdown_linkbg.gif) no-repeat 10px center;  
 }
 
+#jury_main_image {
+	float: left;
+	height: 600px;
+	width: 400px;
+}
+
+#jury_info {
+
+clear: both;
+}

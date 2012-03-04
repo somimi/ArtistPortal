@@ -3,7 +3,7 @@
     <th>Title</th>
     <th>Medium</th>
 	<th>Image</th>
-	<th>Juror 2 Vote</th>
+	<th>Current Vote</th>
 
   </tr>
   <% for visual_submission in @visual_submissions %>
@@ -15,7 +15,7 @@
 		 <% else %>
 		    <td>No Image</td>
 		<% end %>
-	  <td><%= visual_submission.jury_one_vote %></td>
+	  <td><%= visual_submission.send("jury_#{current_user.juror}_vote") %></td>
 
     </tr>
   <% end %>

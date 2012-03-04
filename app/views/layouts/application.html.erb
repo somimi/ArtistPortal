@@ -32,14 +32,14 @@
 
 			<div id="leftcol">
 				<% if user_signed_in? %>
-				  <% if current_user.is_admin? %>
-				     <%= render 'layouts/admin_menu' %>
+				  <% if current_user.is_artist? %>
+				     <%= render 'layouts/artist_menu' %>
 				  <% elsif current_user.is_juror? %>
 					 <%= render 'layouts/juror_menu' %>
 				  <% elsif current_user.is_handler? %>
 					 <%= render 'layouts/handler_menu' %>
 				  <% else %>
-					 <%= render 'layouts/artist_menu' %>
+					 <%= render 'layouts/admin_menu' %>
 				  <% end %>
 				<% else %>
 				  <%= render 'layouts/login_form' %>

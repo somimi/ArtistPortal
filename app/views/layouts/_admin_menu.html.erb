@@ -1,9 +1,21 @@
-<%= link_to "Users", users_path %><br />
-<%= link_to "Artists", artists_path %><br />
-<%= link_to "Transactions", payment_notifications_path %><br />
-<%= link_to "Visual Submissions", visual_submissions_path %><br />
-<%= link_to "Literary Submissions", literary_submissions_path %><br />
-<%= link_to "Film Submissions", film_submissions_path %><br />
-<%= link_to "Performance Submissions", performance_submissions_path %><br />
-<%= link_to "Installation Submissions", installation_submissions_path %><br />
-<%= link_to "Store Submissions", store_submissions_path %>
+<% if current_user.is_admin? %>
+	<%= link_to "Users", users_path %><br />
+	<%= link_to "Artists", artists_path %><br />
+	<%= link_to "Transactions", payment_notifications_path %><br />
+	<%= link_to "Visual Submissions", visual_submissions_path %><br />
+<% end %>
+<% if current_user.is_admin? || current_user.is_literary_admin? %>
+	<%= link_to "Literary Submissions", literary_submissions_path %><br />
+<% end %>
+<% if current_user.is_admin? || current_user.is_film_admin? %>
+	<%= link_to "Film Submissions", film_submissions_path %><br />
+<% end %>
+<% if current_user.is_admin? || current_user.is_performance_admin? %>
+	<%= link_to "Performance Submissions", performance_submissions_path %><br />
+<% end %>
+<% if current_user.is_admin? %>
+	<%= link_to "Installation Submissions", installation_submissions_path %><br />
+<% end %>
+<% if current_user.is_admin? %>
+	<%= link_to "Store Submissions", store_submissions_path %>
+<% end %>

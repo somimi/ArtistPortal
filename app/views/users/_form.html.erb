@@ -6,7 +6,7 @@
   </p>
   <p>
 	<%= f.label :role %>
-	<%= f.select(:role, options_for_select([["admin", "admin"], ["artist", "artist"], ["handler", "handler"], ["juror", "juror"]], @user.role))%>
+	<%= f.select(:role, options_for_select([["admin", "admin"], ["artist", "artist"], ["handler", "handler"], ["juror", "juror"], ["film admin", "film admin"], ["literary admin", "literary admin"], ["performance admin"]], @user.role))%>
   </p>
   <p>
 	<%= f.label :juror%>

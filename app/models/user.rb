@@ -28,6 +28,19 @@ class User < ActiveRecord::Base
   def is_artist?
     role == "artist"
   end
+  
+  def is_film_admin?
+    role == "film admin"
+  end
+  
+  def is_literary_admin?
+    role == "literary admin"
+  end
+  
+  def is_performance_admin?
+    role == "performance admin"
+  end
+  
 
   def paypal_visual_encrypted(return_url, notify_url)
 

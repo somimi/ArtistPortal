@@ -44,11 +44,13 @@
 		    <td><%= link_to image_tag(visual_submission.images.first.image.url(:thumb)), visual_submission.images.first.image.url(:original), :target => "_blank" %></td>
 		 <% else %>
 		    <td>No Image</td>
-		<% end %>		
+		<% end %>
+		<% if current_user.is_admin? %>
 		<td><%= link_to "Delete", visual_submission, :confirm => 'Are you sure?', :method => :delete %></td>
 		 <td><%= form_for visual_submission do |f| %>
 		    <%= f.select :acceptance_status, options_for_select(["Undecided", "Declined", "Accepted", "Invited"], visual_submission.acceptance_status) %>
 		  	<%= f.submit %>
+		 <% end %>
 		<% end %></td>
 		
 	    </tr>

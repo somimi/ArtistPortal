@@ -17,15 +17,15 @@ class Ability
      elsif current_user.is_literary_admin?
         can :manage, LiterarySubmission
     else
-       can :create, VisualSubmission
+       #can :create, VisualSubmission
        can :create, Artist
-       can :create, LiterarySubmission
+       #can :create, LiterarySubmission
        can :create, StoreSubmission
        can :create, FilmSubmission
        can :create, PerformanceSubmission
-       can :create, InstallationSubmission
+       #can :create, InstallationSubmission
        
-       can :manage, VisualSubmission do |visual_submission|
+       can :read, VisualSubmission do |visual_submission|
          visual_submission.artist.try(:user) == current_user
        end 
        
@@ -33,7 +33,7 @@ class Ability
          store_submission.artist.try(:user) == current_user
        end
        
-       can :manage, LiterarySubmission do |literary_submission|
+       can :read, LiterarySubmission do |literary_submission|
          literary_submission.artist.try(:user == current_user)
        end
        
@@ -41,7 +41,7 @@ class Ability
          performance_submission.artist.try(:user == current_user)
        end
        
-       can :manage, InstallationSubmission do |installation_submission|
+       can :read, InstallationSubmission do |installation_submission|
          installation_submission.artist.try(:user == current_user)
        end
        

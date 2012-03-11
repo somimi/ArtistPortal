@@ -46,6 +46,11 @@
 		    <td>No Image</td>
 		<% end %>		
 		<td><%= link_to "Delete", visual_submission, :confirm => 'Are you sure?', :method => :delete %></td>
+		 <td><%= form_for visual_submission do |f| %>
+		    <%= f.select :acceptance_status, options_for_select(["Undecided", "Declined", "Accepted", "Invited"], visual_submission.acceptance_status) %>
+		  	<%= f.submit %>
+		<% end %></td>
+		
 	    </tr>
 	  <% end %>
 	</table>
@@ -54,7 +59,7 @@
   <% if current_user.is_artist? %>
 
 	<% if @visual_submissions.count < 5 %>
-		<p><%= link_to "New Visual Submission", new_visual_submission_path %></p>
+		<p><%#= link_to "New Visual Submission", new_visual_submission_path %></p>
 	<% else %>
 		<p>You have submitted the maximum number of entries</p>
 	<% end %>

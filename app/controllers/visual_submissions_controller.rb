@@ -83,6 +83,13 @@ class VisualSubmissionsController < ApplicationController
     else
       @visual_submission.attributes = (params[:visual_submission])
       @visual_submission.save(:validate => :false)
+      if @visual_submission.acceptance_status == "Accepted"
+        @visual_submission.artist.update_attribute(:acceptance_status, @visual_submission.artist.acceptance_status + 1)
+      elsif @visual_submission.acceptance_status == "Declined"
+        if @visual_submission.artist.acceptance_status > 0
+          @visual_submission.artist.update_attribute(:acceptance_status, @visual_submission.artist.acceptance_status - 1)
+        end
+      end
     end 
     
     @store_submission = StoreSubmission.where("visual_submission_id", @visual_submission.id)
@@ -97,8 +104,12 @@ class VisualSubmissionsController < ApplicationController
          @store_submission.save
        end
       end
-      respond_with @visual_submission
-
+      #respond_with @visual_submission
+      if current_user.is_admin?
+        redirect_to visual_submissions_path
+      else
+        respond_with @visual_submission
+      end
   end
 
   def destroy

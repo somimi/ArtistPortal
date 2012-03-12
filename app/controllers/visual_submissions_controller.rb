@@ -128,7 +128,7 @@ class VisualSubmissionsController < ApplicationController
   
   private  
   def sort_column  
-    VisualSubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
+    VisualSubmission.column_names.include?(params[:sort]) ? params[:sort] : "ID"  
   end  
     
   def sort_direction  

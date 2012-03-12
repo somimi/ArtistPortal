@@ -38,7 +38,7 @@
 		  <td><%= link_to visual_submission.artist.first_name, artist_path(visual_submission.artist) %></td>
 		  <td><%= link_to visual_submission.artist.last_name, artist_path(visual_submission.artist) %></td>
 		  <td><%= visual_submission.average_votes %></td>
-		  <td><%= best_in_place visual_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Denied", "Denied"],["Accepted", "Accepted"]], :nil => visual_submission.acceptance_status %></td>
+		  <td><%= best_in_place visual_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Denied", "Denied"],["Accepted", "Accepted"], ["Invited", "Invited"]], :nil => visual_submission.acceptance_status %></td>
 		  <% end %>
 		  <% if visual_submission.images.count >= 1 %>
 		    <td><%= link_to image_tag(visual_submission.images.first.image.url(:thumb)), visual_submission.images.first.image.url(:original), :target => "_blank" %></td>

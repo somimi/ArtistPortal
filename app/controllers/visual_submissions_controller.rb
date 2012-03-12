@@ -14,10 +14,10 @@ class VisualSubmissionsController < ApplicationController
       
     else
       if params[:filter] == "voted"
-        @visual_submissions = VisualSubmission.voted(current_user.juror).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+        @visual_submissions = VisualSubmission.voted(current_user.juror).page(params[:page]).per(30)
         session[:query] = @visual_submissions.map(&:id)
       elsif params[:filter] == "not_voted"
-        @visual_submissions = VisualSubmission.not_voted(current_user.juror).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+        @visual_submissions = VisualSubmission.not_voted(current_user.juror).page(params[:page]).per(30)
         session[:query] = @visual_submissions.map(&:id)
       else
         @visual_submissions = VisualSubmission.full

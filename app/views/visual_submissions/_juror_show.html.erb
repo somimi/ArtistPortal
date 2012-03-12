@@ -1,10 +1,5 @@
 
-<div>
-	<% if @prev_submision || @next_submission %>
-		<%= link_to 'Previous', @prev_submission %>
-		<%= link_to 'Next', @next_submission %>
-	<% end %>
-</div>
+
 <div id="jury_main_image">
 	<%= link_to image_tag(@visual_submission.images.first.image.url(:large)), @visual_submission.images.first.image.url(:original), :target => "_blank" %>
 </div>
@@ -24,5 +19,11 @@
 	
 </div>
 <div>
-	<b>vote: </b><%= best_in_place @visual_submission, juror, :type => :select, :collection => [["1", 1],["2", 2], ["3", 3],["4", 4]], :nil => @visual_submission.send(juror) %>
+	<b>vote: </b><%= best_in_place @visual_submission, juror, :type => :select, :collection => [["One", 1],["Two", 2], ["Three", 3],["Four", 4]], :nil => @visual_submission.send(juror) %>
+</div>
+<div>
+	<% if @prev_submision || @next_submission %>
+		<%= link_to 'Previous', @prev_submission %>
+		<%= link_to 'Next', @next_submission %>
+	<% end %>
 </div>

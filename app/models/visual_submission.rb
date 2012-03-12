@@ -30,7 +30,7 @@ class VisualSubmission < ActiveRecord::Base
   
   def self.search(search)  
     if search
-      joins(:artist).where('title LIKE ? OR first_name LIKE ? OR medium LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+      where('title LIKE ? OR medium LIKE ? OR acceptance_status LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     else  
       scoped  
     end     

@@ -9,7 +9,7 @@ class VisualSubmissionsController < ApplicationController
     if current_user.is_artist?
       @visual_submissions = current_user.artist.visual_submissions
     elsif current_user.is_admin? || current_user.is_handler?
-      @visual_submissions = VisualSubmission.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+      @visual_submissions = VisualSubmission.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(5)
       session[:query] = @visual_submissions.map(&:id)
       
     else

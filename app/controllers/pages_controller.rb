@@ -1,8 +1,6 @@
 class PagesController < ApplicationController
   def home
-    if current_user.is_juror?
-      render 'juror_home'
-    end
+
   end
 
   def contact

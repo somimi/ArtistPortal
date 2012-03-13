@@ -17,7 +17,7 @@ class Ability
      elsif current_user.is_literary_admin?
         can :manage, LiterarySubmission
     else
-       #can :create, VisualSubmission
+       can :create, VisualSubmission
        can :create, Artist
        #can :create, LiterarySubmission
        can :create, StoreSubmission
@@ -25,7 +25,7 @@ class Ability
        can :create, PerformanceSubmission
        #can :create, InstallationSubmission
        
-       can :manage, VisualSubmission do |visual_submission|
+       can :read, VisualSubmission do |visual_submission|
          visual_submission.artist.try(:user) == current_user
        end 
        

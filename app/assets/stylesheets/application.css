@@ -452,7 +452,8 @@ html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 
 clear: both;
 }
-
+#voting {
+	cursor: pointer;
 }
 .best_in_place {
   padding: .1m;

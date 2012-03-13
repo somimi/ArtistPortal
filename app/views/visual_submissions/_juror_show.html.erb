@@ -18,8 +18,8 @@
 	<b>Height: </b><%= @visual_submission.height %> <%= @visual_submission.h_unit%> <b>Width: </b><%= @visual_submission.width %> <%= @visual_submission.w_unit%> <b>Depth: </b><%= @visual_submission.depth %> <%= @visual_submission.d_unit%>
 	
 </div>
-<div>
-	<b>vote: </b><%= best_in_place @visual_submission, juror, :type => :select, :collection => [["1", 1],["2", 2], ["3", 3],["4", 4]], :nil => @visual_submission.send(juror) %>
+<div id="voting">
+	<b>vote: </b><%= best_in_place @visual_submission, juror, :type => :select, :collection => [["1", 1],["2", 2], ["3", 3],["4", 4], "5", 5], :nil => @visual_submission.send(juror) %>
 </div>
 <div>
 	<% if @prev_submision || @next_submission %>

@@ -19,7 +19,7 @@
 	
 </div>
 <div id="voting">
-	<b>vote: </b><%= best_in_place @visual_submission, juror, :type => :select, :collection => [["1", 1],["2", 2], ["3", 3],["4", 4], "5", 5], :nil => @visual_submission.send(juror) %>
+	<b>Click Here To Vote: </b><%= best_in_place @visual_submission, juror, :type => :select, :collection => [["1", 1],["2", 2], ["3", 3],["4", 4], ["5", 5]], :nil => @visual_submission.send(juror) %>
 </div>
 <div>
 	<% if @prev_submision || @next_submission %>

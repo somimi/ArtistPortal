@@ -8,6 +8,9 @@
 
 <% @performance_submissions.each do |performance_submission| %>
   <tr>
+	<td><%= link_to performance_submission.artist.first_name, artist_path(performance_submission.artist) %></td>
+	<td><%= link_to performance_submission.artist.last_name, artist_path(performance_submission.artist) %></td>
+	<td><%= link_to performance_submission.artist.email, artist_path(performance_submission.artist) %></td>
     <td><%= link_to performance_submission.title, edit_performance_submission_path(performance_submission) %></td>
     <td><%= link_to 'Delete', performance_submission, confirm: 'Are you sure?', method: :delete %></td>
   </tr>

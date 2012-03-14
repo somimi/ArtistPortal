@@ -10,7 +10,6 @@ class VisualSubmissionsController < ApplicationController
       @visual_submissions = current_user.artist.visual_submissions
     elsif current_user.is_admin? || current_user.is_handler?
       @visual_submissions = VisualSubmission.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
-      @visual_submissions = VisualSubmission.search(params[:search]).select(["jury_one_vote", "jury_two_vote", ])
       
       session[:query] = @visual_submissions.map(&:id)
       @count = @visual_submissions.search(params[:search]).count

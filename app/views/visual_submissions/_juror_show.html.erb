@@ -8,7 +8,7 @@
 <% if @visual_submission.images.count > 1 %>
      <% c = 1 %>
 	<% for image in @visual_submission.images %>
-		<div id="jury_image_<%= c %>"><%= image_tag image.image.url(:small) %></div>
+		<div id="jury_image_<%= c %>"><%= link_to image_tag(image.image.url(:small)), image.image.url(:large) %></div>
 		<% c = c + 1 %>
 	<% end %>
 <% end %>
@@ -27,3 +27,6 @@
 		<%= link_to 'Next', @next_submission %>
 	<% end %>
 </div>
+
+
+link_to image_tag(image.image.url(:large)), image.image.url(:large)

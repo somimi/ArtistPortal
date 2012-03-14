@@ -49,7 +49,6 @@
 		  <td><%= visual_submission.jury_three_vote %></td>
 		  <td><%= visual_submission.jury_four_vote %></td>
 		  <td><%= visual_submission.jury_five_vote %></td>
-		
 		  <td><%= visual_submission.average_vote %></td>
 		  <td><%= best_in_place visual_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Denied", "Denied"],["Accepted", "Accepted"], ["Invited", "Invited"]], :nil => visual_submission.acceptance_status %></td>
 		  <% end %>

@@ -25,6 +25,11 @@
 	  <% if current_user.is_admin?  %>
 		<th><%= sortable "first_name" %></th>
 		<th><%= sortable "last_name" %></th>
+		<th><%= sortable "jury_one_vote" %></th>
+		<th><%= sortable "jury_two_vote" %></th>
+		<th><%= sortable "jury_three_vote" %></th>
+		<th><%= sortable "jury_four_vote" %></th>
+		<th><%= sortable "jury_five_vote" %></th>
 		<th><%= sortable "average_vote" %></th>
 		<th><%= sortable "acceptance_status" %></th>
 	 <% end %>
@@ -39,7 +44,13 @@
 		 <% if current_user.is_admin? %>
 		  <td><%= link_to visual_submission.artist.first_name, artist_path(visual_submission.artist) %></td>
 		  <td><%= link_to visual_submission.artist.last_name, artist_path(visual_submission.artist) %></td>
-		  <td><%= visual_submission.average_votes %></td>
+		  <td><%= visual_submission.jury_one_vote %></td>
+		  <td><%= visual_submission.jury_two_vote %></td>
+		  <td><%= visual_submission.jury_three_vote %></td>
+		  <td><%= visual_submission.jury_four_vote %></td>
+		  <td><%= visual_submission.jury_five_vote %></td>
+		
+		  <td><%= visual_submission.average_vote %></td>
 		  <td><%= best_in_place visual_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Denied", "Denied"],["Accepted", "Accepted"], ["Invited", "Invited"]], :nil => visual_submission.acceptance_status %></td>
 		  <% end %>
 		  <% if visual_submission.images.count >= 1 %>

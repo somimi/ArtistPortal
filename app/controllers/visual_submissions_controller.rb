@@ -13,6 +13,8 @@ class VisualSubmissionsController < ApplicationController
       
       session[:query] = @visual_submissions.map(&:id)
       @count = @visual_submissions.search(params[:search]).count
+    elsif current_user.is_juror?
+      @visual_submissions = VisualSubmission.juror_all
     else
       if params[:filter] == "voted"
         @visual_submissions = VisualSubmission.voted(current_user.juror)

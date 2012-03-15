@@ -37,7 +37,7 @@ class VisualSubmission < ActiveRecord::Base
   end
   
   def self.juror_all
-    where("acceptance_status != ? OR acceptance_status != ?", "Denied", "Invited").order("RAND()")
+    where("acceptance_status != ?", "Denied").order("RAND()")
   end
   
   
@@ -51,7 +51,7 @@ class VisualSubmission < ActiveRecord::Base
   end
   
   def average_votes
-    
+
     sum = 0
     count = 0
     sum += jury_one_vote unless jury_one_vote.nil?

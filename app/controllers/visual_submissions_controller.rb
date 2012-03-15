@@ -14,19 +14,19 @@ class VisualSubmissionsController < ApplicationController
       session[:query] = @visual_submissions.map(&:id)
       @count = @visual_submissions.search(params[:search]).count
     elsif current_user.is_juror?
-      @visual_submissions = VisualSubmission.juror_all
-    else
       if params[:filter] == "voted"
         @visual_submissions = VisualSubmission.voted(current_user.juror)
         session[:query] = @visual_submissions.map(&:id)
       elsif params[:filter] == "not_voted"
-        logger.info "somebody clicked on not voted"
         @visual_submissions = VisualSubmission.not_voted(current_user.juror)
         session[:query] = @visual_submissions.map(&:id)
       else
         @visual_submissions = VisualSubmission.full
         session[:query] = @visual_submissions.map(&:id)
       end
+    else
+      @visual_submissions = VisualSubmission.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+    end
       
     end
     

@@ -3,6 +3,8 @@
 <% if current_user.is_juror? %>
 
 	<%= render "juror_show" %>
+<% elsif current_user.is_admin? %>
+	<%= render "admin_show" %>
 <% else %>
 
     <p>

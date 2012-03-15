@@ -1,9 +1,7 @@
 
-
 <div id="jury_main_image">
 	<%= link_to image_tag(@visual_submission.images.first.image.url(:large)), @visual_submission.images.first.image.url(:original), :target => "_blank" %>
 </div>
-<% juror = "jury_" + current_user.juror + "_vote" %>
 
 <% if @visual_submission.images.count > 1 %>
      <% c = 1 %>
@@ -18,8 +16,18 @@
 	<b>Height: </b><%= @visual_submission.height %> <%= @visual_submission.h_unit%> <b>Width: </b><%= @visual_submission.width %> <%= @visual_submission.w_unit%> <b>Depth: </b><%= @visual_submission.depth %> <%= @visual_submission.d_unit%>
 	
 </div>
+<br />
+<div>
+	<b>Dan:</b>  <%= @visual_submission.jury_one_vote %><br />
+	<b>Daniel:</b>  <%= @visual_submission.jury_two_vote %><br />
+	<b>Ellen:</b>  <%= @visual_submission.jury_three_vote %><br />
+	<b>Jim:</b>  <%= @visual_submission.jury_four_vote %><br />
+	<b>Mistress Matisse</b>  <%= @visual_submission.jury_five_vote %><br />
+	<b>Average Vote:</b>  <%= @visual_submission.average_vote %></br>
+	
 <div id="voting">
-	<b>Click Here To Vote: </b><%= best_in_place @visual_submission, juror, :type => :select, :collection => [["1", 1],["2", 2], ["3", 3],["4", 4], ["5", 5]], :nil => @visual_submission.send(juror) %>
+	  <td><b>Final Vote:</b><%= best_in_place @visual_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Denied", "Denied"],["Accepted", "Accepted"]], :nil => @visual_submission.acceptance_status %></td>
+	
 </div>
 <div>
 	<% if @prev_submision || @next_submission %>

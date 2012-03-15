@@ -30,7 +30,7 @@ class VisualSubmission < ActiveRecord::Base
   
   def self.search(search)  
     if search
-      where('id= ? OR title LIKE ? OR medium LIKE ? OR acceptance_status LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+      where('id= ? OR title LIKE ? OR medium LIKE ? OR acceptance_status LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").order("RAND()")
     else  
       scoped  
     end     

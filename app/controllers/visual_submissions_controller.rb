@@ -11,21 +11,25 @@ class VisualSubmissionsController < ApplicationController
     elsif current_user.is_admin? || current_user.is_handler?
       @visual_submissions = VisualSubmission.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
       session[:query] = @visual_submissions.map(&:id)
-      @count = @visual_submissions.map(&:id).count
+      VisualSubmission.search(params[:search]).count
     elsif current_user.is_juror?
       if params[:filter] == "voted"
         @visual_submissions = VisualSubmission.voted(current_user.juror)
         session[:query] = @visual_submissions.map(&:id)
+        @count = @visual_submission.count
       elsif params[:filter] == "not_voted"
         @visual_submissions = VisualSubmission.not_voted(current_user.juror)
         session[:query] = @visual_submissions.map(&:id)
+        @count = @visual_submission.count
       else
         @visual_submissions = VisualSubmission.juror_all
         session[:query] = @visual_submissions.map(&:id)
+        @count = @visual_submission.count
       end
     else
       @visual_submissions = VisualSubmission.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
     end
+     @count = @visual_submissions.map(&:id).count
   end
 
   def show

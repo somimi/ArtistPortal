@@ -20,6 +20,7 @@ class VisualSubmissionsController < ApplicationController
         @visual_submissions = VisualSubmission.voted(current_user.juror)
         session[:query] = @visual_submissions.map(&:id)
       elsif params[:filter] == "not_voted"
+        logger.info "somebody clicked on not voted"
         @visual_submissions = VisualSubmission.not_voted(current_user.juror)
         session[:query] = @visual_submissions.map(&:id)
       else

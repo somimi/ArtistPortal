@@ -24,6 +24,11 @@
 	<b>Jim:</b>  <%= @visual_submission.jury_four_vote %><br />
 	<b>Mistress Matisse</b>  <%= @visual_submission.jury_five_vote %><br />
 	<b>Average Vote:</b>  <%= @visual_submission.average_vote %></br>
+</div>
+	<b>show notes </b> <input type="checkbox" name="notes-box" id="notes-box" />
+	<div id="notes-show">
+		<%= @visual_submission.notes %>
+	</div>
 	
 <div id="voting">
 	  <td><b>Final Vote:</b><%= best_in_place @visual_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Denied", "Denied"],["Accepted", "Accepted"]], :nil => @visual_submission.acceptance_status %></td>

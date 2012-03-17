@@ -4,6 +4,7 @@ $(document).ready(function(){
 
 	$("#limited-edition").css("display","none");
 	$("#limited-edition-1").css("display", "none")
+	$("#notes-show").css("display", "none")
 	
 	if ($("li-check").is(":checked"))
 	{
@@ -29,6 +30,20 @@ $(document).ready(function(){
 	}
 
 	});
+	
+   $("#notes-box").click(function(){
+
+	// If checked
+	if ($("#notes-box").is(":checked"))
+	{
+
+		$("#notes-show").show("slow");
+	}
+	else
+	{
+		$("#notes-show").hide("slow");
+	}
+  });
 
 
   $("#visual_submission_medium").change(function(){

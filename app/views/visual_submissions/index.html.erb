@@ -13,6 +13,9 @@
      </p>  
    <% end %>
   <% end %>
+<% if !current_user.is_artist? %>
+	<%= paginate @visual_submissions %>
+<% end %>
 
 		<table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" cellpadding="3" cellspacing="3">
 	  <tr>
@@ -20,8 +23,6 @@
 	    <th><%= sortable "title" %></th>
 	    <th><%= sortable "medium" %></th>
 	  <% if current_user.is_admin?  %>
-		<th><%= sortable "first_name" %></th>
-		<th><%= sortable "last_name" %></th>
 		<th><%= sortable "jury_one_vote" %></th>
 		<th><%= sortable "jury_two_vote" %></th>
 		<th><%= sortable "jury_three_vote" %></th>
@@ -39,8 +40,6 @@
 	      <td><%= link_to visual_submission.title, visual_submission_path(visual_submission) %></td>
 	      <td><%= link_to visual_submission.medium, visual_submission_path(visual_submission) %></td>
 		 <% if current_user.is_admin? %>
-		  <td><%= link_to visual_submission.artist.first_name, artist_path(visual_submission.artist) %></td>
-		  <td><%= link_to visual_submission.artist.last_name, artist_path(visual_submission.artist) %></td>
 		  <td><%= visual_submission.jury_one_vote %></td>
 		  <td><%= visual_submission.jury_two_vote %></td>
 		  <td><%= visual_submission.jury_three_vote %></td>

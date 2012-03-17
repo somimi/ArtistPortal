@@ -43,11 +43,11 @@ class VisualSubmission < ActiveRecord::Base
   
   def self.not_voted(juror)
      #where("jury_#{juror}_vote" => false, "acceptance_status" => "declined")
-     where("jury_#{juror}_vote IS NULL").order("RAND()")
+     where("jury_#{juror}_vote IS NULL").order
    end
    
   def self.voted(juror)
-    where("jury_#{juror}_vote IS NOT NULL").order("RAND()")
+    where("jury_#{juror}_vote IS NOT NULL").order
   end
   
   def average_votes

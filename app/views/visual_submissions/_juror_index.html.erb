@@ -7,8 +7,8 @@
     <th><%= sortable "medium" %></th>
 	<th>Image</th>
 	<th><%= sortable "jury_#{current_user.juror}_vote" %></th>
-	<th><%= sortable "average vote" %></th>
-	<th><%= sortable "status" %></th>
+	<th><%= sortable :average_vote, "average vote" %></th>
+	<th><%= sortable :acceptance_status, "status" %></th>
 
   </tr>
   <% for visual_submission in @visual_submissions %>

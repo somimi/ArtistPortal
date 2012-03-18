@@ -1,8 +1,6 @@
 <%= link_to "Visual Submissions", visual_submissions_path %><br />
-<% if @juror_count < 1 %>
 	<%= link_to "Visual Submissions I have not voted for", visual_submissions_path(:filter => 'not_voted') %><br />
-<% end %>
 
-<% if @juror_count > 1 %>
 	<%= link_to "Visual Submission I have voted for", visual_submissions_path(:filter => 'voted' ) %>
-<% end %>
+	
+	voted_count: <%= @juror_count %>

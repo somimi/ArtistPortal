@@ -29,7 +29,7 @@ class VisualSubmissionsController < ApplicationController
     else
       @visual_submissions = VisualSubmission.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
     end
-     @count = @visual_submissions.map(&:id).count
+     @count = VisualSubmission.search(params[:search])
      @juror_count = VisualSubmission.unvoted_count(current_user.juror)
   end
 

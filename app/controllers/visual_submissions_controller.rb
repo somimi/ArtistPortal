@@ -18,8 +18,8 @@ class VisualSubmissionsController < ApplicationController
         session[:query] = @visual_submissions.map(&:id)
         @count = @visual_submissions.count
       elsif params[:filter] == "not_voted"
-        @visual_submissions = VisualSubmission.not_voted(current_user.juror)
-        session[:query] = @visual_submissions.map(&:id).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+        @visual_submissions = VisualSubmission.not_voted(current_user.juror).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+        session[:query] = @visual_submissions.map(&:id)
         @count = @visual_submissions.count
       else
         @visual_submissions = VisualSubmission.juror_all.order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)

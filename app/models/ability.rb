@@ -16,6 +16,8 @@ class Ability
         can :manage, PerformanceSubmission
      elsif current_user.is_literary_admin?
         can :manage, LiterarySubmission
+        elsif current_user.is_installation_admin?
+           can :manage, InstallationSubmission
     else
        can :create, VisualSubmission
        can :create, Artist

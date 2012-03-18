@@ -41,6 +41,10 @@ class User < ActiveRecord::Base
     role == "performance admin"
   end
   
+  def is_installation_admin?
+    role == "installation admin"
+  end
+  
 
   def paypal_visual_encrypted(return_url, notify_url)
 

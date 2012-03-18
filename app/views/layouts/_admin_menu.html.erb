@@ -13,7 +13,7 @@
 <% if current_user.is_admin? || current_user.is_performance_admin? %>
 	<%= link_to "Performance Submissions", performance_submissions_path %><br />
 <% end %>
-<% if current_user.is_admin? %>
+<% if current_user.is_admin? || current_user.is_installation_admin? %>
 	<%= link_to "Installation Submissions", installation_submissions_path %><br />
 <% end %>
 <% if current_user.is_admin? %>

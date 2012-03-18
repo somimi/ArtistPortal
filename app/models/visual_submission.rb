@@ -37,17 +37,17 @@ class VisualSubmission < ActiveRecord::Base
   end
   
   def self.juror_all
-    where("acceptance_status != ? OR acceptance_status != ?", "Denied", "Invited").order("RAND()")
+    where("acceptance_status != ? OR acceptance_status != ?", "Denied", "Invited")
   end
   
   
   def self.not_voted(juror)
      #where("jury_#{juror}_vote" => false, "acceptance_status" => "declined")
-     where("jury_#{juror}_vote IS NULL").order
+     where("jury_#{juror}_vote IS NULL")
    end
    
   def self.voted(juror)
-    where("jury_#{juror}_vote IS NOT NULL").order
+    where("jury_#{juror}_vote IS NOT NULL")
   end
   
   def average_votes
@@ -67,6 +67,10 @@ class VisualSubmission < ActiveRecord::Base
     count += 1 unless jury_five_vote.nil?
     
     return (sum.to_f/count.to_f).round(1) if count > 0 
+  end
+  
+  def self.unvoted_count(juror)
+    where("jury_#{juror}_vote IS NULL").count
   end
     
   

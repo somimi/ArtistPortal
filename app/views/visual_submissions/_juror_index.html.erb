@@ -1,7 +1,14 @@
 <table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" cellpadding="3" cellspacing="3">
-	
+	You can search on Title, Medium, and Status<br />
+	<%= form_tag visual_submissions_path, :method => 'get' do %>  
+     <p>  
+       <%= text_field_tag :search, params[:search] %> 
+       <%= submit_tag "Search", :name => nil %>  
+     </p>  
+   <% end %>
+	click on the column header to sort by that column.<br />
 	<%= paginate @visual_submissions %>
-	
+   
   <tr>
     <th><%= sortable "title" %></th>
     <th><%= sortable "medium" %></th>

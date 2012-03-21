@@ -100,7 +100,7 @@ class VisualSubmissionsController < ApplicationController
     
     @store_submission = StoreSubmission.where("visual_submission_id", @visual_submission.id)
      if @visual_submission.store_submit?
-       if @store_submission.nil?
+       if !@store_submission.nil?
          logger.debug "we aleady have a submission"
        else  
          @store_submission = StoreSubmission.new

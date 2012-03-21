@@ -22,7 +22,9 @@
 	  <% end %>
 	  <td>
 		<% if store_submission.visual_submission_id %>
-			<%= link_to image_tag(store_submission.visual_submission.images.first.image.url(:thumb)), store_submission.visual_submission.images.first.image.url(:original), :target => "_blank" %>
+			<%= if store_submission.visual_submission.images %>
+				<%= link_to image_tag(store_submission.visual_submission.images.first.image.url(:thumb)), store_submission.visual_submission.images.first.image.url(:original), :target => "_blank" %>
+			<%= end %>
 	  	<% else %>
 			<% if store_submission.image %>
 	     		<%= link_to image_tag(store_submission.image.url(:thumb)), store_submission.image.url(:original), :target => "_blank" %>

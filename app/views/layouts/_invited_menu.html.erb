@@ -1,0 +1,7 @@
+<% if !current_user.artist %>
+	<p><%= link_to "Add Profile", new_artist_path %></p>
+<% else %>
+    <p><%= link_to "Edit Profile", edit_artist_path(current_user.artist) %></p>
+	<p><%= link_to "Visual Art", visual_submissions_path %></p>
+<% end %>
+

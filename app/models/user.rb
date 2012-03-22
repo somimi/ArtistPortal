@@ -45,6 +45,10 @@ class User < ActiveRecord::Base
     role == "installation admin"
   end
   
+  def is_invited?
+    role == "invited artist"
+  end
+  
 
   def paypal_visual_encrypted(return_url, notify_url)
 

@@ -19,6 +19,10 @@ class ArtistsController < ApplicationController
   def create
     @artist = Artist.new(params[:artist])
     @artist.user_id = current_user.id
+    if current_user.is_invited?
+      @artist.acceptance_status = 10;
+    end
+    
     if @artist.save
       redirect_to root_path, :notice => "Successfully created artist profile."
     else

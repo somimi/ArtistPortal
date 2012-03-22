@@ -38,6 +38,8 @@
 					 <%= render 'layouts/juror_menu' %>
 				  <% elsif current_user.is_handler? %>
 					 <%= render 'layouts/handler_menu' %>
+				  <% elsif current_user.is_invited? %>
+					 <%= render 'layouts/invited_menu'%>
 				  <% else %>
 					 <%= render 'layouts/admin_menu' %>
 				  <% end %>

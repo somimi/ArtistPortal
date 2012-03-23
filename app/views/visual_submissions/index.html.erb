@@ -5,7 +5,7 @@
 	 <%= render "juror_index" %>
  <% else %>
 
-  <% if !current_user.is_artist? %>
+  <% if !(current_user.is_invited? or current_user.is_artist?) %>
    <%= form_tag visual_submissions_path, :method => 'get' do %>  
      <p>  
        <%= text_field_tag :search, params[:search] %> 
@@ -13,7 +13,7 @@
      </p>  
    <% end %>
   <% end %>
-<% if !current_user.is_artist? %>
+<% if !(current_user.is_invited? or current_user.is_artist?) %>
 	<%= paginate @visual_submissions %>
 <% end %>
 
@@ -59,22 +59,16 @@
 		<% end %>
 		<% if current_user.is_admin? %>
 		<td><%= link_to "Delete", visual_submission, :confirm => 'Are you sure?', :method => :delete %></td>
-		 <td><%#= form_for visual_submission do |f| %>
-		    <%#= f.select :acceptance_status, options_for_select(["Undecided", "Declined", "Accepted", "Invited"], visual_submission.acceptance_status) %>
-		  	<%#= f.submit %>
-		 <%# end %>
-		 </td>
-		<% end %>
-		
+		<% end %>		
 	    </tr>
 	  <% end %>
 	</table>
  <% end %>
 
-  <% if current_user.is_artist? %>
+  <% if current_user.is_invited? %>
 
 	<% if @visual_submissions.count < 5 %>
-		<p><%#= link_to "New Visual Submission", new_visual_submission_path %></p>
+		<p><%= link_to "New Visual Submission", new_visual_submission_path %></p>
 	<% else %>
 		<p>You have submitted the maximum number of entries</p>
 	<% end %>

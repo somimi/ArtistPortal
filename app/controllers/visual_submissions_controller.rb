@@ -6,7 +6,7 @@ class VisualSubmissionsController < ApplicationController
   respond_to :html, :json
   
   def index
-    if current_user.is_artist?
+    if current_user.is_artist? || current_user.is_invited?
       @visual_submissions = current_user.artist.visual_submissions
     elsif current_user.is_admin? || current_user.is_handler?
       @visual_submissions = VisualSubmission.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)

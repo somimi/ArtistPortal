@@ -1,6 +1,6 @@
 <% title "Store Submissions" %>
 
-<% if !current_user.is_artist? %>
+<% if !(current_user.is_invited? or current_user.is_artist?) %>
 	<%= paginate @store_submissions %>
 <% end %>
 

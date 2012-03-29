@@ -24,11 +24,11 @@
 
 <% @literary_submissions.each do |literary_submission| %>
   <tr>
-		  <td><%= link_to literary_submission.artist.first_name %>
-		  <td><%= link_to literary_submission.artist.last_name %>
-	      <td><%= link_to literary_submission.title, edit_literary_submission_path(literary_submission) %></td>
-		  <td><%= link_to literary_submission.lit_type, edit_literary_submission_path(literary_submission)%></td>
-	      <td><%= link_to literary_submission.doc_file_name, literary_submission.doc.url %></td>
+		  <td><%= literary_submission.artist.first_name %>
+		  <td><%= literary_submission.artist.last_name %>
+	      <td><%= literary_submission.title, edit_literary_submission_path(literary_submission) %></td>
+		  <td><%= literary_submission.lit_type, edit_literary_submission_path(literary_submission)%></td>
+	      <td><%= literary_submission.doc_file_name, literary_submission.doc.url %></td>
 
     <td><%= link_to 'Delete', literary_submission, confirm: 'Are you sure?', method: :delete %></td>
   </tr>

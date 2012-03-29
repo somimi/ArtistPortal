@@ -12,12 +12,19 @@ class Ability
         can :manage, VisualSubmission
      elsif current_user.is_film_admin?
         can :manage, FilmSubmission
+        can :manage, Artist
      elsif current_user.is_performance_admin?
         can :manage, PerformanceSubmission
+        can :manage, Artist
      elsif current_user.is_literary_admin?
+        can :manage, Artist
         can :manage, LiterarySubmission
-        elsif current_user.is_installation_admin?
-           can :manage, InstallationSubmission
+     elsif current_user.is_installation_admin?
+        can :manage, InstallationSubmission
+        can :manage, Artist
+     elsif current_user.is_store_admin?
+        can :manage, StoreSubmission
+        can :manage, Artist
     else
        can :create, VisualSubmission
        can :create, Artist

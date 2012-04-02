@@ -42,6 +42,7 @@
 		  <td><%= link_to visual_submission.id, visual_submission_path(visual_submission) %></td>
 	      <td><%= link_to visual_submission.title, visual_submission_path(visual_submission) %></td>
 	      <td><%= link_to visual_submission.medium, visual_submission_path(visual_submission) %></td>
+	      <td><%= visual_submission.acceptance_status %>
 		 <% if current_user.is_admin? %>
 		  <td><%= visual_submission.artist.first_name %></td>
 		  <td><%= visual_submission.artist.last_name %></td>

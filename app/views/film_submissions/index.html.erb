@@ -35,7 +35,7 @@
   <% if current_user.is_artist? %>
 
 	<% if @film_submissions.count < 3 %>
-		<p><%= link_to "New Visual Submission", new_film_submission_path %></p>
+		<p><%#= link_to "New Film Submission", new_film_submission_path %></p>
 	<% else %>
 		<p>You have submitted the maximum number of entries</p>
 	<% end %>

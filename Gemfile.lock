@@ -99,6 +99,9 @@ GEM
       activesupport (= 3.1.0)
       bundler (~> 1.0)
       railties (= 3.1.0)
+    rails-dev-tweaks (0.6.1)
+      actionpack (~> 3.1)
+      railties (~> 3.1)
     railties (3.1.0)
       actionpack (= 3.1.0)
       activesupport (= 3.1.0)
@@ -151,6 +154,7 @@ DEPENDENCIES
   mysql2
   paperclip
   rails (= 3.1.0)
+  rails-dev-tweaks (~> 0.6.1)
   sass-rails (~> 3.1.0)
   simple-navigation
   turn

@@ -24,6 +24,7 @@ gem 'kaminari'
 gem 'cancan'
 gem 'simple-navigation'
 gem 'best_in_place'
+gem 'rails-dev-tweaks', '~> 0.6.1'
 
 
 # Use unicorn as the web server

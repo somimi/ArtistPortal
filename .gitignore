@@ -5,3 +5,4 @@ tmp/
 .sass-cache/
 *.jpg
 app_config.yml
+secure/*

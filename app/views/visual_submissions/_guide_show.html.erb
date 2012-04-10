@@ -1,0 +1,27 @@
+
+
+<div id="jury_main_image">
+	<%= link_to image_tag(@visual_submission.images.first.image.url(:large)), @visual_submission.images.first.image.url(:original), :target => "_blank" %>
+</div>
+<% juror = "jury_" + current_user.juror + "_vote" %>
+
+<% if @visual_submission.images.count > 1 %>
+     <% c = 1 %>
+	<% for image in @visual_submission.images %>
+		<div id="jury_image_<%= c %>"><%= link_to image_tag(image.image.url(:small)), image.image.url(:large) %></div>
+		<% c = c + 1 %>
+	<% end %>
+<% end %>
+<div id="jury_info">
+	<b>Title: </b><%= @visual_submission.title %><br />
+	<b>Medium: </b><%= @visual_submission.medium %><br />
+	<b>Height: </b><%= @visual_submission.height %> <%= @visual_submission.h_unit%> <b>Width: </b><%= @visual_submission.width %> <%= @visual_submission.w_unit%> <b>Depth: </b><%= @visual_submission.depth %> <%= @visual_submission.d_unit%>
+	
+</div>
+
+<div>
+	<% if @prev_submision || @next_submission %>
+		<%= link_to 'Previous', @prev_submission %>
+		<%= link_to 'Next', @next_submission %>
+	<% end %>
+</div>

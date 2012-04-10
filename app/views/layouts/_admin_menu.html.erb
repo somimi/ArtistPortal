@@ -19,3 +19,7 @@
 <% if current_user.is_admin? %>
 	<%= link_to "Store Submissions", store_submissions_path %>
 <% end %>
+
+<% if current_user.is_art_guide? %>
+	<%= link_to "View Art", visual_submissions_path %>
+<% end %>

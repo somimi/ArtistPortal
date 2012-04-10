@@ -5,7 +5,9 @@
 	<%= render "juror_show" %>
 <% elsif current_user.is_admin? %>
 	<%= render "admin_show" %>
-<% else %>
+<% elsif current_user.is_art_guide? %>
+	<%= render guide_show %>
+<% end %>
 
     <p>
 	  <strong>Title:</strong>

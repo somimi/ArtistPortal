@@ -12,6 +12,8 @@ class VisualSubmissionsController < ApplicationController
       @visual_submissions = VisualSubmission.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
       session[:query] = @visual_submissions.map(&:id)
       VisualSubmission.search(params[:search]).count
+    elsif current_user.is_art_guide?
+      @visual_submissions = VisualSubmission.accepted.order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
     elsif current_user.is_juror?
       if params[:filter] == "voted"
         @visual_submissions = VisualSubmission.voted(current_user.juror).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)

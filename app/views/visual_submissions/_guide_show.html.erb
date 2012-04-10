@@ -15,7 +15,10 @@
 <div id="jury_info">
 	<b>Title: </b><%= @visual_submission.title %><br />
 	<b>Medium: </b><%= @visual_submission.medium %><br />
-	<b>Height: </b><%= @visual_submission.height %> <%= @visual_submission.h_unit%> <b>Width: </b><%= @visual_submission.width %> <%= @visual_submission.w_unit%> <b>Depth: </b><%= @visual_submission.depth %> <%= @visual_submission.d_unit%>
+	<b>Height: </b><%= @visual_submission.height %> <%= @visual_submission.h_unit%> <b>Width: </b><%= @visual_submission.width %> <%= @visual_submission.w_unit%> <b>Depth: </b><%= @visual_submission.depth %> <%= @visual_submission.d_unit%><br />
+	<p>
+		notes: <%= @visual_submission.notes  %>
+	</p>
 	
 </div>
 

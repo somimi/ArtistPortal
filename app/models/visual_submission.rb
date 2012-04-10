@@ -40,6 +40,10 @@ class VisualSubmission < ActiveRecord::Base
     where("acceptance_status != ? OR acceptance_status != ?", "Denied", "Invited")
   end
   
+  def self.accepted
+    where("acceptance_status = 'Accepted' OR acceptance_status = 'Invited'")
+  end
+  
   
   def self.not_voted(juror)
      #where("jury_#{juror}_vote" => false, "acceptance_status" => "declined")

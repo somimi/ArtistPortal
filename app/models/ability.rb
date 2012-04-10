@@ -25,6 +25,8 @@ class Ability
      elsif current_user.is_store_admin?
         can :manage, StoreSubmission
         can :manage, Artist
+      elsif current_user.is_art_guide?
+        can :manage, :all
     else
        can :create, VisualSubmission
        can :create, Artist

@@ -1,13 +1,12 @@
 <% title "Visual Submission" %>
 
 <% if current_user.is_juror? %>
-
 	<%= render "juror_show" %>
 <% elsif current_user.is_admin? %>
 	<%= render "admin_show" %>
 <% elsif current_user.is_art_guide? %>
-	<%= render guide_show %>
-<% end %>
+	<%= render "guide_show" %>
+<% else %>
 
     <p>
 	  <strong>Title:</strong>

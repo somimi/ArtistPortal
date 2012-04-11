@@ -16,7 +16,7 @@
 <% if current_user.is_admin? || current_user.is_installation_admin? %>
 	<%= link_to "Installation Submissions", installation_submissions_path %><br />
 <% end %>
-<% if current_user.is_admin? %>
+<% if current_user.is_admin? || current_user.is_store_admin? %>
 	<%= link_to "Store Submissions", store_submissions_path %>
 <% end %>
 

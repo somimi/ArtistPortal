@@ -23,9 +23,10 @@
 	    <th><%= sortable "title" %></th>
 	    <th><%= sortable "medium" %></th>
 	    <th><%= sortable "acceptance_status" %></th>
-	  <% if current_user.is_admin?  %>
+	  <% if !current_user.is_artist?  %>
 	    <th><%= sortable "first name" %></th>
 		<th><%= sortable "last name "%></th>
+        <th><%= sortable "email" %></th>
 		<th><%= sortable "jury_one_vote" %></th>
 		<th><%= sortable "jury_two_vote" %></th>
 		<th><%= sortable "jury_three_vote" %></th>
@@ -43,9 +44,10 @@
 	      <td><%= link_to visual_submission.title, visual_submission_path(visual_submission) %></td>
 	      <td><%= link_to visual_submission.medium, visual_submission_path(visual_submission) %></td>
 	      <td><%= visual_submission.acceptance_status %>
-		 <% if current_user.is_admin? %>
+		 <% if !current_user.is_artist? %>
 		  <td><%= visual_submission.artist.first_name %></td>
 		  <td><%= visual_submission.artist.last_name %></td>
+		  <td><%= visual_submission.artist.email %></td>
 		  <td><%= visual_submission.jury_one_vote %></td>
 		  <td><%= visual_submission.jury_two_vote %></td>
 		  <td><%= visual_submission.jury_three_vote %></td>

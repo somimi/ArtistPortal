@@ -22,7 +22,7 @@
 </table>
 <br />
 <% if current_user.is_artist? %>
-	<p><%= link_to 'New Performance submission', new_performance_submission_path %></p>
+	<p><%#= link_to 'New Performance submission', new_performance_submission_path %></p>
 <% else %>
 	count: <%= @count %>
 <% end %>

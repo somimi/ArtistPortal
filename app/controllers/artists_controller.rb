@@ -10,6 +10,8 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
+    @visual_submissions = @artist.visual_submissions
+    @store_submissions = @artist.store_submissions
   end
 
   def new

@@ -10,6 +10,7 @@
     <th>Type</th>
 	<th>Image</th>
 	<th>Exhibition Status</th>
+	<th>Artist Email</th>
 	<th>Height</th>
 	<th>Width</th>
 	<th>Depth</th>
@@ -50,6 +51,7 @@
 		Not Submitted
 		<% end %>
 	  </td>
+	  <td><%= store_submission.artist.email %></td>
 	  <td><%= store_submission.height %> <%= store_submission.h_unit %></td>
 	  <td><%= store_submission.width %> <%= store_submission.w_unit %></td>
 	  <td><%= store_submission.depth %> <%= store_submission.d_unit %></td>

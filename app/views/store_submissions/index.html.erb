@@ -38,9 +38,9 @@
 		<% if store_submission.visual_submission_id %>
 			<% if store_submission.visual_submission %>
 				<% if store_submission.visual_submission.acceptance_status == "Accepted"%>
-				<%= link_to "Accepted", visual_submission_path(store_submission.visual_submision) %>
+				<%= link_to "Accepted", visual_submission_path(store_submission.visual_submission) %>
 				<% else %>
-				<%= link_to "Declined", visual_submission_path(store_submission.visual_submision) %>
+				<%= link_to "Declined", visual_submission_path(store_submission.visual_submission) %>
 				<% end %>
 			<% end %>
 		<% else %>

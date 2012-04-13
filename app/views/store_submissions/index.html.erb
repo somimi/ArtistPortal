@@ -9,6 +9,7 @@
     <th>Title</th>
     <th>Type</th>
 	<th>Image</th>
+	<th>Exhibition Status</th>
     <th>Quantity Proposed</th>
     <th>Quantity Accepted by Store</th>
   </tr>
@@ -33,6 +34,19 @@
 			<% end %>
 	  	<% end %>
 	   </td>
+	  <td>
+		<% if store_submission.visual_submission_id %>
+			<% if store_submission.visual_submission %>
+				<% if store_submission.visual_submission.acceptance_status == "Accepted"%>
+				Accepted
+				<% else %>
+				Declined
+				<% end %>
+			<% end %>
+		<% else %>
+		Not Submitted
+		<% end %>
+	</td>
       <td><%= store_submission.quantity %></td>
       <td><%= store_submission.quantity_accepted %></td>
 	  <td><%= link_to "Duplicate", duplicate_store_submission_path(store_submission) %>

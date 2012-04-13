@@ -10,6 +10,9 @@
     <th>Type</th>
 	<th>Image</th>
 	<th>Exhibition Status</th>
+	<th>Height</th>
+	<th>Width</th>
+	<th>Depth</th>
     <th>Quantity Proposed</th>
     <th>Quantity Accepted by Store</th>
   </tr>
@@ -34,7 +37,7 @@
 			<% end %>
 	  	<% end %>
 	   </td>
-	  <td>
+	   <td>
 		<% if store_submission.visual_submission_id %>
 			<% if store_submission.visual_submission %>
 				<% if store_submission.visual_submission.acceptance_status == "Accepted"%>
@@ -46,7 +49,10 @@
 		<% else %>
 		Not Submitted
 		<% end %>
-	</td>
+	  </td>
+	  <td><%= store_submission.height %> <%= store_submission.h_unit %></td>
+	  <td><%= store_submission.width %> <%= store_submission.w_unit %></td>
+	  <td><%= store_submission.depth %> <%= store_submission.d_unit %></td>
       <td><%= store_submission.quantity %></td>
       <td><%= store_submission.quantity_accepted %></td>
 	  <td><%= link_to "Duplicate", duplicate_store_submission_path(store_submission) %>

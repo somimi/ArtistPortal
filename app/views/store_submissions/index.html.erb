@@ -51,7 +51,7 @@
 		Not Submitted
 		<% end %>
 	  </td>
-	  <td><%= store_submission.artist.email %></td>
+	  <td><%= mail_to store_submission.artist.email %></td>
 	  <td><%= store_submission.height %> <%= store_submission.h_unit %></td>
 	  <td><%= store_submission.width %> <%= store_submission.w_unit %></td>
 	  <td><%= store_submission.depth %> <%= store_submission.d_unit %></td>

@@ -13,7 +13,6 @@
 	<table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
   <tr>
 	<th><%= sortable "artist_id" %></th>
-	<th><%= sortable "user_id" %></th>
     <th><%= sortable "first_name" %></th>
     <th><%= sortable "last_name" %></th>
     <th><%= sortable "professional_name" %></th>
@@ -28,7 +27,6 @@
   <% for artist in @artists %>
     <tr>
 	  <td><%= link_to artist.id, artist_path(artist) %></th>
-	  <td><%= link_to artist.user_id, user_path(artist.user) %></td>
       <td><%= link_to artist.first_name, artist_path(artist) %></td>
       <td><%= link_to artist.last_name, artist_path(artist) %></td>
       <td><%= link_to artist.professional_name, artist_path(artist) %></td>

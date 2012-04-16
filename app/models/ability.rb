@@ -28,6 +28,18 @@ class Ability
         can :read, VisualSubmission
       elsif current_user.is_art_guide?
         can :manage, :all
+      elsif current_user.is_invited?
+        can :create, VisualSubmission
+        can :create, Artist
+        
+        can :manage, VisualSubmission do |visual_submission|
+          visual_submission.artist.try(:user) == current_user
+        end 
+
+        can :manage, StoreSubmission do |store_submission|
+          store_submission.artist.try(:user) == current_user
+        end
+        
     else
        can :create, VisualSubmission
        can :create, Artist
@@ -37,11 +49,11 @@ class Ability
        can :create, PerformanceSubmission
        #can :create, InstallationSubmission
        
-       can :maange, VisualSubmission do |visual_submission|
+       can :read, VisualSubmission do |visual_submission|
          visual_submission.artist.try(:user) == current_user
        end 
        
-       can :manage, StoreSubmission do |store_submission|
+       can :read, StoreSubmission do |store_submission|
          store_submission.artist.try(:user) == current_user
        end
        

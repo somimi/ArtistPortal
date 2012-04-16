@@ -62,8 +62,9 @@
     </tr>
   <% end %>
 </table>
-
-<p><%#= link_to "New Store Submission", new_store_submission_path %></p>
+<% if current_user.is_invited? %>
+	<p><%#= link_to "New Store Submission", new_store_submission_path %></p>
+<% end %>
 
 <b>Store Submission Requirements</b>
 	<ul>

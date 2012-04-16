@@ -72,7 +72,7 @@
   <% if current_user.is_invited? %>
 
 	<%# if @visual_submissions.count < 5 %>
-	<% if current_usr.is_invited? %>
+	<% if current_user.is_invited? %>
 		<p><%= link_to "New Visual Submission", new_visual_submission_path %></p>
 	<% else %>
 		<p>You have submitted the maximum number of entries</p>

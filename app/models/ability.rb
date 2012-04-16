@@ -37,11 +37,11 @@ class Ability
        can :create, PerformanceSubmission
        #can :create, InstallationSubmission
        
-       can :read, VisualSubmission do |visual_submission|
+       can :maange, VisualSubmission do |visual_submission|
          visual_submission.artist.try(:user) == current_user
        end 
        
-       can :read, StoreSubmission do |store_submission|
+       can :manage, StoreSubmission do |store_submission|
          store_submission.artist.try(:user) == current_user
        end
        

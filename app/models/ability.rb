@@ -53,7 +53,7 @@ class Ability
          visual_submission.artist.try(:user) == current_user
        end 
        
-       can :read, StoreSubmission do |store_submission|
+       can :manage, StoreSubmission do |store_submission|
          store_submission.artist.try(:user) == current_user
        end
        
@@ -73,7 +73,7 @@ class Ability
          film_submission.artist.try(:user == current_user)
        end
        
-       can :manage, Artist do |artist|
+       can :read, Artist do |artist|
          artist.try(:user) == current_user
        end
      end

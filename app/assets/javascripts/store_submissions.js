@@ -1,5 +1,8 @@
 $(document).ready(function(){
 	
+	$('#store-index').dataTable()
+		bJQueryUI: true
+	
 	$("#store-type-other").hide();
 	$("#presentation-other").hide();
 	$("#store-three-dee").hide();

@@ -1,66 +1,66 @@
 <% title "Store Submissions" %>
 
-<% if !(current_user.is_invited? or current_user.is_artist?) %>
-	<%= paginate @store_submissions %>
-<% end %>
-
-<table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
-  <tr>
-    <th>Title</th>
-    <th>Type</th>
-	<th>Image</th>
-	<th>Exhibition Status</th>
-	<th>Artist Email</th>
-	<th>Height</th>
-	<th>Width</th>
-	<th>Depth</th>
-    <th>Quantity Proposed</th>
-    <th>Quantity Accepted by Store</th>
-  </tr>
-  <% for store_submission in @store_submissions %>
-    <tr>
-      <td><%= link_to store_submission.title, edit_store_submission_path(store_submission) %></td>
-	  <% if store_submission.type %>
-      	<td><%= link_to store_submission.type, edit_store_submission_path(store_submission) %></td>
-      <% else %>
-		<td></td>
-	  <% end %>
-	  <td>
-		<% if store_submission.visual_submission_id %>
-			<% if store_submission.visual_submission  %>
-				<%= link_to image_tag(store_submission.visual_submission.images.first.image.url(:thumb)), store_submission.visual_submission.images.first.image.url(:original), :target => "_blank" %>
-			<% end %>
-	  	<% else %>
-			<% if store_submission.image %>
-	     		<%= link_to image_tag(store_submission.image.url(:thumb)), store_submission.image.url(:original), :target => "_blank" %>
-			<% else %>
-				No Image!
-			<% end %>
-	  	<% end %>
-	   </td>
-	   <td>
-		<% if store_submission.visual_submission_id %>
-			<% if store_submission.visual_submission %>
-				<% if store_submission.visual_submission.acceptance_status == "Accepted"%>
-				<%= link_to "Accepted", visual_submission_path(store_submission.visual_submission) %>
-				<% else %>
-				<%= link_to "Declined", visual_submission_path(store_submission.visual_submission) %>
+<table id="store-index" class="display">
+  <thead>
+	  <tr>
+	    <th>Title</th>
+	    <th>Type</th>
+		<th>Image</th>
+		<th>Exhibition Status</th>
+		<th>Artist Email</th>
+		<th>Height</th>
+		<th>Width</th>
+		<th>Depth</th>
+	    <th>Quantity Proposed</th>
+	    <th>Quantity Accepted by Store</th>
+	  </tr>
+  </thead>
+  <tbody>
+	  <% for store_submission in @store_submissions %>
+	    <tr>
+	      <td><%= link_to store_submission.title, edit_store_submission_path(store_submission) %></td>
+		  <% if store_submission.type %>
+	      	<td><%= link_to store_submission.type, edit_store_submission_path(store_submission) %></td>
+	      <% else %>
+			<td></td>
+		  <% end %>
+		  <td>
+			<% if store_submission.visual_submission_id %>
+				<% if store_submission.visual_submission  %>
+					<%= link_to image_tag(store_submission.visual_submission.images.first.image.url(:thumb)), store_submission.visual_submission.images.first.image.url(:original), :target => "_blank" %>
 				<% end %>
+		  	<% else %>
+				<% if store_submission.image %>
+		     		<%= link_to image_tag(store_submission.image.url(:thumb)), store_submission.image.url(:original), :target => "_blank" %>
+				<% else %>
+					No Image!
+				<% end %>
+		  	<% end %>
+		   </td>
+		   <td>
+			<% if store_submission.visual_submission_id %>
+				<% if store_submission.visual_submission %>
+					<% if store_submission.visual_submission.acceptance_status == "Accepted"%>
+					<%= link_to "Accepted", visual_submission_path(store_submission.visual_submission) %>
+					<% else %>
+					<%= link_to "Declined", visual_submission_path(store_submission.visual_submission) %>
+					<% end %>
+				<% end %>
+			<% else %>
+			Not Submitted
 			<% end %>
-		<% else %>
-		Not Submitted
-		<% end %>
-	  </td>
-	  <td><%= mail_to store_submission.artist.email %></td>
-	  <td><%= store_submission.height %> <%= store_submission.h_unit %></td>
-	  <td><%= store_submission.width %> <%= store_submission.w_unit %></td>
-	  <td><%= store_submission.depth %> <%= store_submission.d_unit %></td>
-      <td><%= store_submission.quantity %></td>
-      <td><%= store_submission.quantity_accepted %></td>
-	  <td><%= link_to "Duplicate", duplicate_store_submission_path(store_submission) %>
-      <td><%= link_to "Delete", store_submission, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
+		  </td>
+		  <td><%= mail_to store_submission.artist.email %></td>
+		  <td><%= store_submission.height %> <%= store_submission.h_unit %></td>
+		  <td><%= store_submission.width %> <%= store_submission.w_unit %></td>
+		  <td><%= store_submission.depth %> <%= store_submission.d_unit %></td>
+	      <td><%= store_submission.quantity %></td>
+	      <td><%= store_submission.quantity_accepted %></td>
+		  <td><%= link_to "Duplicate", duplicate_store_submission_path(store_submission) %>
+	      <td><%= link_to "Delete", store_submission, :confirm => 'Are you sure?', :method => :delete %></td>
+	    </tr>
+	  <% end %>
+</tbody>
 </table>
 <% if current_user.is_invited? %>
 	<p><%= link_to "New Store Submission", new_store_submission_path %></p>

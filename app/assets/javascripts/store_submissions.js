@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	
-	$('#store-index').dataTable()
-		bJQueryUI: true
+	$('#store-index').dataTable();
 	
 	$("#store-type-other").hide();
 	$("#presentation-other").hide();

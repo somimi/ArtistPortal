@@ -17,7 +17,8 @@ jQuery(document).ready(function($) {
 		
 	$('#store-index').dataTable({
 		sPaginationType: "full_numbers",
-		bJQueryUI: true
+		bJQueryUI: true,
+		"bStateSave": true
 	});
 		
  

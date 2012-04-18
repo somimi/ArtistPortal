@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
 	$('.best_in_place').best_in_place();
 		
 	$('#store-index').dataTable({
-		sPaginationsType: "full_numbers",
+		sPaginationType: "full_numbers",
 		bJQueryUI: true
 	});
 		

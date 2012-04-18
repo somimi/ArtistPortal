@@ -14,6 +14,8 @@
 jQuery(document).ready(function($) {
 	
 	$('.best_in_place').best_in_place();
+		
+	$('#store-index').dataTable();
  
 	$('a.poplight[href^=#]').click(function() {
 	    var popID = $(this).attr('rel'); 

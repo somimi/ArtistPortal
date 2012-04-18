@@ -1,7 +1,5 @@
 $(document).ready(function(){
 	
-	$('#store-index').dataTable();
-	
 	$("#store-type-other").hide();
 	$("#presentation-other").hide();
 	$("#store-three-dee").hide();

@@ -117,14 +117,14 @@ a:hover {
 html, body{ 
  margin:0; 
  padding:0;
- background-color: #d1d3d4;
+ /* background-color: #d1d3d4; */
  font: helvetica;
  } 
  
 #pagewidth{
 	
 	padding-left:20px;
-	background-color: #d1d3d4
+	/* background-color: #d1d3d4 */
 	
 }
  
@@ -150,7 +150,7 @@ html, body{
  position: relative; 
  width:70%;
  float:right; 
- background-color: #d1d3d4
+ /* background-color: #d1d3d4 */
  }
  
 #footer{

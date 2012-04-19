@@ -10,6 +10,7 @@
 	    <th>Professional Name</th>
 	    <th>Email</th>
 		<th>Acceptance Status</th>
+		<th>Store Submit?</th>
 	    <th>Visual Submissions</th>
 	  </tr>
 	</thead>
@@ -28,6 +29,13 @@
 				Accepted
 			<% else %>
 			    Invited
+			<% end %>
+		  </td>
+		  <td>
+			<% if artist.store_submissions %>
+				Yes
+			<% else %>
+			    No
 			<% end %>
 		  </td>
 	      <td>

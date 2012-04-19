@@ -4,6 +4,10 @@
 	 <%= render "juror_index" %>
  <% else %>
 
+	<% if current_user.is_artist? || current_user.is_invited? %>
+		Your Artist ID: <%= current_user.artist.id %><br />
+	<% end %>
+
 
 	  <table id="visual-index" class="display">
 		  <thead>

@@ -1,14 +1,5 @@
 <% title "Artists" %>
 
-<%= form_tag artists_path, :method => 'get' do %>  
-  <p>  
-    <%= text_field_tag :search, params[:search] %> 
-    <%= submit_tag "Search", :name => nil %>  
-  </p>  
-<% end %>
-
-<%= paginate @artists %>
-
 <!-- ><table class="index-table"> -->
 <table id="artist-index" class="display">
 	<thead>

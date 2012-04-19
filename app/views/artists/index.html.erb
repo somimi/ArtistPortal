@@ -9,6 +9,7 @@
 	    <th>Last Name</th>
 	    <th>Professional Name</th>
 	    <th>Email</th>
+		<th>Acceptance Status</th>
 	    <th>Visual Submissions</th>
 	  </tr>
 	</thead>
@@ -20,6 +21,15 @@
 	      <td><%= link_to artist.last_name, artist_path(artist) %></td>
 	      <td><%= link_to artist.professional_name, artist_path(artist) %></td>
 	      <td><%= mail_to artist.email %></td>
+		  <td>
+			<% if artist.acceptance_status == 0 %>
+				Declined
+			<% elsif artist.acceptance_status > 0 && artist_acceptance_status < 10 %>
+				Accepted
+			<% else %>
+			    Invited
+			<% end %>
+		  </td>
 	      <td>
 		    <% if artist.visual_submissions == nil %>
 				No Submissions

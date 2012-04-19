@@ -1,0 +1,73 @@
+<% title "Artists" %>
+
+<%= form_tag artists_path, :method => 'get' do %>  
+  <p>  
+    <%= text_field_tag :search, params[:search] %> 
+    <%= submit_tag "Search", :name => nil %>  
+  </p>  
+<% end %>
+
+<%= paginate @artists %>
+
+<!-- ><table class="index-table"> -->
+	<table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
+  <tr>
+	<th><%= sortable "artist_id" %></th>
+    <th><%= sortable "first_name" %></th>
+    <th><%= sortable "last_name" %></th>
+    <th><%= sortable "professional_name" %></th>
+    <th><%= sortable "email" %></th>
+	<th><%= sortable "visual_paid" %></th>
+	<th><%= sortable "literary_paid" %></th>
+	<th><%= sortable "installation_paid" %></th>
+	<th><%= sortable "film paid" %></th>
+	<th><%= sortable "store paid" %>
+    <th>Visual Submissions</th>
+  </tr>
+  <% for artist in @artists %>
+    <tr>
+	  <td><%= link_to artist.id, artist_path(artist) %></th>
+      <td><%= link_to artist.first_name, artist_path(artist) %></td>
+      <td><%= link_to artist.last_name, artist_path(artist) %></td>
+      <td><%= link_to artist.professional_name, artist_path(artist) %></td>
+      <td><%= mail_to artist.email %></td>
+      <% if artist.visual_paid? %>
+      	<td>X</td>
+      <% else %>
+         <td></td>
+      <% end %>
+      <% if artist.literary_paid? %>
+      	<td>X</td>
+      <% else %>
+         <td></td>
+      <% end %>
+      <% if artist.installation_paid? %>
+      	<td>X</td>
+      <% else %>
+         <td></td>
+      <% end %>
+      <% if artist.film_paid? %>
+      	<td>X</td>
+      <% else %>
+         <td></td>
+      <% end %>
+      <% if artist.store_paid? %>
+      	<td>X</td>
+      <% else %>
+         <td></td>
+      <% end %>
+	
+	
+      <td>
+	    <% if artist.visual_submissions == nil %>
+			No Submissions
+	    <% else %>
+			<% for submission in artist.visual_submissions %>
+			   <%= link_to submission.title, visual_submission_path(submission) %></br>
+			<% end %>
+		<% end %>
+	  </td>
+      <td><%#= link_to "Delete", artist, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>

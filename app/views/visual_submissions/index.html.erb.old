@@ -1,0 +1,99 @@
+<% title "Visual Art Submissions" %>
+
+
+  <% if current_user.is_juror? %>
+	 <%= render "juror_index" %>
+ <% else %>
+
+  <% if !(current_user.is_invited? or current_user.is_artist?) %>
+   <%= form_tag visual_submissions_path, :method => 'get' do %>  
+     <p>  
+       <%= text_field_tag :search, params[:search] %> 
+       <%= submit_tag "Search", :name => nil %>  
+     </p>  
+   <% end %>
+  <% end %>
+<% if !(current_user.is_invited? or current_user.is_artist?) %>
+	<%= paginate @visual_submissions %>
+<% end %>
+
+		<table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" cellpadding="3" cellspacing="3">
+	  <tr>
+		<th><%= sortable "ID" %></th>
+	    <th><%= sortable "title" %></th>
+	    <th><%= sortable "medium" %></th>
+	    <th><%= sortable "acceptance_status" %></th>
+	  <% if !current_user.is_artist?  %>
+	    <th><%= sortable "first name" %></th>
+		<th><%= sortable "last name "%></th>
+        <th><%= sortable "email" %></th>
+		<th><%= sortable "jury_one_vote" %></th>
+		<th><%= sortable "jury_two_vote" %></th>
+		<th><%= sortable "jury_three_vote" %></th>
+		<th><%= sortable "jury_four_vote" %></th>
+		<th><%= sortable "jury_five_vote" %></th>
+		<th><%= sortable "average_vote" %></th>
+		<th><%= sortable "acceptance_status" %></th>
+	 <% end %>
+		<th>Image</th>
+
+	  </tr>
+	  <% for visual_submission in @visual_submissions %>
+	    <tr>
+		  <td><%= link_to visual_submission.id, visual_submission_path(visual_submission) %></td>
+	      <td><%= link_to visual_submission.title, visual_submission_path(visual_submission) %></td>
+	      <td><%= link_to visual_submission.medium, visual_submission_path(visual_submission) %></td>
+	      <td><%= visual_submission.acceptance_status %>
+		 <% if !current_user.is_artist? %>
+		  <td><%= visual_submission.artist.first_name %></td>
+		  <td><%= visual_submission.artist.last_name %></td>
+		  <td><%= visual_submission.artist.email %></td>
+		  <td><%= visual_submission.jury_one_vote %></td>
+		  <td><%= visual_submission.jury_two_vote %></td>
+		  <td><%= visual_submission.jury_three_vote %></td>
+		  <td><%= visual_submission.jury_four_vote %></td>
+		  <td><%= visual_submission.jury_five_vote %></td>
+		  <td><%= visual_submission.average_vote %></td>
+		  <td><%= best_in_place visual_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Denied", "Denied"],["Accepted", "Accepted"], ["Invited", "Invited"]], :nil => visual_submission.acceptance_status %></td>
+		  <% end %>
+		  <% if visual_submission.images.count >= 1 %>
+		    <td><%= link_to image_tag(visual_submission.images.first.image.url(:thumb)), visual_submission.images.first.image.url(:original), :target => "_blank" %></td>
+		 <% else %>
+		    <td>No Image</td>
+		<% end %>
+		<% if current_user.is_admin? %>
+		<td><%= link_to "Delete", visual_submission, :confirm => 'Are you sure?', :method => :delete %></td>
+		<% end %>		
+	    </tr>
+	  <% end %>
+	</table>
+ <% end %>
+
+  <% if current_user.is_invited? %>
+
+	<%# if @visual_submissions.count < 5 %>
+	<% if current_user.is_invited? %>
+		<p><%= link_to "New Visual Submission", new_visual_submission_path %></p>
+	<% else %>
+		<p>You have submitted the maximum number of entries</p>
+	<% end %>
+ 	
+   <% else %>
+		<p>Total: <%= @count %></p>
+		<p>Photo Count: <%= @photo_total %></p>
+   <% end %>
+
+<br />
+<p>You have until the official deadline to make any changes to your submission(s). Once the deadline hits, your submission(s) will be complete. Once decisions have been made, the site will be updated to indicate if any of your pieces were accepted, and you will also receive an email announcing the jury notifications.</p>
+
+
+
+<b>Submission Guidelines</b>
+<ul>
+	<li>Artists may submit up to five entries.</li>
+	<li>Images must be submitted in JPEG format.</li>
+	<li>Images should be no smaller than 500k and no larger than 5MB in size (in pixels, the optimum resolution would be at least 1000 pixels on the longest side. This is typically about 1MB in size.)</li>
+	<li>Any image with a watermark that obscures the image or identifies the artist will be rejected.</li>
+	<li>Images do NOT need to be of framed art for the submission process. If the frame is included in the image, the jury will judge both the piece and the frame. Note that all accepted work must be framed before the Festival. See the FAQs page for details.</li>
+	<li>The model age certificate form is only required for accepted artists. You do not need to provide it unless you are selected by the jury, in which case we will ask that you include it with the delivery of your artwork.</li>
+</ul>

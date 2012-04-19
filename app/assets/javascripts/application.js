@@ -26,6 +26,12 @@ jQuery(document).ready(function($) {
 		bJQueryUI: true,
 		"bStateSave": true
 	});
+	
+	$('#visual-index').dataTable({
+		sPaginationType: "full_numbers",
+		bJQueryUI: true,
+		"bStateSave": true
+	});
 		
  
 	$('a.poplight[href^=#]').click(function() {

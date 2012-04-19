@@ -34,9 +34,9 @@
 	  <td><b>Final Vote:</b><%= best_in_place @visual_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Denied", "Denied"],["Accepted", "Accepted"]], :nil => @visual_submission.acceptance_status %></td>
 	
 </div>
-<div>
+<!-- <div>
 	<% if @prev_submision || @next_submission %>
 		<%= link_to 'Previous', @prev_submission %>
 		<%= link_to 'Next', @next_submission %>
 	<% end %>
-</div>
+</div> -->

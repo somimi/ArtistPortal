@@ -24,7 +24,7 @@
 		  <td>
 			<% if artist.acceptance_status == 0 %>
 				Declined
-			<% elsif artist.acceptance_status > 0 && artist_acceptance_status < 10 %>
+			<% elsif artist.acceptance_status > 0 && artist.acceptance_status < 10 %>
 				Accepted
 			<% else %>
 			    Invited

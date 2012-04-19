@@ -4,7 +4,8 @@ class ArtistsController < ApplicationController
   before_filter :load_paypal
   load_and_authorize_resource
   def index
-    @artists = Artist.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+    #@artists = Artist.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+    @artists = Artist.all
   end
 
 

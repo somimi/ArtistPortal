@@ -11,7 +11,7 @@ class StoreSubmission < ActiveRecord::Base
                     :path => ':rails_root/store-secure/system/:attachment/:id/:style/:basename.:extension',
                     :url => '/:class/:id/:attachment?style=:style'
   
-  attr_accessible :artist_id, :title, :description, :quantity, :quantity_accepted, :accepted, :image, :type, :type_other, :price, :height, :width, :depth, :h_unit, :w_unit, :d_unit, :presentation, :presentation_other, :provide_display, :notes, :dimension, :visual_submission_id
+  attr_accessible :artist_id, :title, :description, :quantity, :quantity_accepted, :accepted, :image, :type, :type_other, :price, :height, :width, :depth, :h_unit, :w_unit, :d_unit, :presentation, :presentation_other, :provide_display, :notes, :dimension, :visual_submission_id, :admin_notes
   
   def self.search(search)        
     if search

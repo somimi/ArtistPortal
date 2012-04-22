@@ -15,6 +15,9 @@
 		<th>Depth</th>
 	    <th>Qty Prop</th>
 	    <th>Qty Accept</th>
+	    <% if current_user.is_admin? || current_user.is_store_admin? %>
+		<th>Notes</th>
+		<% end %>
 	  </tr>
   </thead>
   <tbody>
@@ -59,9 +62,19 @@
 		  <td><%= store_submission.width %> <%= store_submission.w_unit %></td>
 		  <td><%= store_submission.depth %> <%= store_submission.d_unit %></td>
 	      <td><%= store_submission.quantity %></td>
-	      <td><%= store_submission.quantity_accepted %></td>
+		  <% if current_user.is_admin? || current_user.is_store_admin? %>
+			<td><%= best_in_place store_submission, :quantity_accepted, :nil => store_submission.quantity_accepted %></td>
+		  
+		  <% else %>
+	      	<td><%= store_submission.quantity_accepted %></td>
+	 	  <% end %>
+	      <% if current_user.is_admin? || current_user.is_store_admin? %>
+		  <td>
+			<a href="#?w=500" rel="popup_notes" class="poplight"><%= image_tag("/assets/icon_info.gif") %><% @art=store_submission %></a>
+		  </td>
+		  <% end %>
 		  <!-- <td><%= link_to "Duplicate", duplicate_store_submission_path(store_submission) %> -->
-	    </tr>
+	      </tr>
 	  <% end %>
 </tbody>
 </table>
@@ -75,3 +88,17 @@
     	<li>Artists may propose a quantity ranging from 1 to 50 of each item.</li>
     	<li>Each individual item need not be submitted for approval. Similar items may be grouped together; a representative sampling is acceptable. (For example, if you want the Store to feature three different postcards with a quantity of 10 each, then create one submission entry for a postcard and say the quantity is 30, and then in the notes section say that there are three different images for those postcards).</li>
 	</ul>
+
+	<div id="popup_notes" class="popup_block">
+	    <h2>Notes</h2>
+	<% if current_user.is_admin? || current_user.is_store_admin? %>
+	 <%= form_for(@art) do |f| %>  
+	   <p>  
+	     <%= f.text_area :admin_notes %> 
+	     <%= f.submit %>  
+	   </p>  
+	 <% end %>
+	current record: <%= @art.id %>
+	<% end %>
+	    <p></p>
+	</div>

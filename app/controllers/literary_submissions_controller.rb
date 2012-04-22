@@ -9,7 +9,8 @@ class LiterarySubmissionsController < ApplicationController
     if current_user.is_artist?
       @literary_submissions = current_user.artist.literary_submissions
     elsif current_user.is_admin? || current_user.is_literary_admin?
-      @literary_submissions = LiterarySubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+      #@literary_submissions = LiterarySubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+       @literary_submissions = LiterarySubmission.all
       session[:query] = @literary_submissions.map(&:id)
       @count = LiterarySubmission.search(params[:search]).count
     else

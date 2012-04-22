@@ -31,6 +31,7 @@ class Ability
       elsif current_user.is_invited?
         can :create, VisualSubmission
         can :create, Artist
+        can :manage, Artist
         
         can :manage, VisualSubmission do |visual_submission|
           visual_submission.artist.try(:user) == current_user

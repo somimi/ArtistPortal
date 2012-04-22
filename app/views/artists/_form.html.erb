@@ -90,7 +90,7 @@
 	  </div>
 	  <div>
 	    <%= f.label :mailing_country, "Country" %>
-	    <%= f.country_select :mailing_country, ["United States"] %>
+	    <%= f.text_field :mailing_country %>
 	  </div>
 </fieldset>
   <p>
@@ -129,7 +129,7 @@
 	  </div>
 	  <div>
 	    <%= f.label "Country" %>
-	    <%= f.country_select :shipping_country, ["United States"] %>
+	    <%= f.text_field :shipping_country %>
 	  </div>
 </fieldset>
 <fieldset>

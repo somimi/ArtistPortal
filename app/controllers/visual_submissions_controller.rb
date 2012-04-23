@@ -114,12 +114,12 @@ class VisualSubmissionsController < ApplicationController
          @store_submission.save
        end
       end
-      #respond_with @visual_submission
-      if current_user.is_admin?
-        redirect_to visual_submissions_path
-      else
-        respond_with @visual_submission
-      end
+      respond_with @visual_submission
+      #if current_user.is_admin?
+      #  redirect_to visual_submissions_path
+      #else
+      #  respond_with @visual_submission
+      #end
   end
 
   def destroy

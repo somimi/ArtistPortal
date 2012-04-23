@@ -51,6 +51,11 @@ jQuery(document).ready(function($) {
 		"bStateSave": true
 	});
 	
+	$('#film-index').dataTable({
+		sPaginationType: "full_numbers",
+		bJQueryUI: true,
+		"bStateSave": true
+	});
 		
  
 	$('a.poplight[href^=#]').click(function() {

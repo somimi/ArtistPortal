@@ -7,9 +7,10 @@ class FilmSubmissionsController < ApplicationController
     if current_user.is_artist?
       @film_submissions = current_user.artist.film_submissions
     elsif current_user.is_admin? || current_user.is_film_admin? 
-      @film_submissions = FilmSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
-      session[:query] = @film_submissions.map(&:id)
-      @count = FilmSubmission.search(params[:search]).count
+      #@film_submissions = FilmSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+      @film_submissions = FilmSubmission.all
+      #session[:query] = @film_submissions.map(&:id)
+      #@count = FilmSubmission.search(params[:search]).count
     else
       
     end 

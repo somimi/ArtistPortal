@@ -70,10 +70,10 @@
 	 	  <% end %>
 	      <% if current_user.is_admin? || current_user.is_store_admin? %>
 		  <td>
-			<a href="#?w=500" rel="popup_notes" class="poplight"><%= image_tag("/assets/icon_info.gif") %><% @art=store_submission %></a>
+			<% @art=store_submission %></a>
+			<%= link_to(image_tag("/assets/icon_info.gif"), "#?w=500", :rel => "popup_notes", :class => "poplight", :id => store_submission.id)  %>
 		  </td>
 		  <% end %>
-		  <!-- <td><%= link_to "Duplicate", duplicate_store_submission_path(store_submission) %> -->
 	      </tr>
 	  <% end %>
 </tbody>

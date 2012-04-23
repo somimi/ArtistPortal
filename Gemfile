@@ -23,7 +23,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'paperclip'
 gem 'formtastic'
-gem 'kaminari'
+#gem 'kaminari'
 gem 'cancan'
 gem 'simple-navigation'
 gem 'best_in_place'
@@ -31,6 +31,7 @@ gem 'rails-dev-tweaks', '~> 0.6.1'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-ui-rails'
 gem 'therubyracer'
+gem 'will_paginate'
 
 
 # Use unicorn as the web server

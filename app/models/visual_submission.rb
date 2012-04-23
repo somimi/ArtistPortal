@@ -7,7 +7,7 @@ class VisualSubmission < ActiveRecord::Base
 	after_save :average_votes
 	accepts_nested_attributes_for :images, :allow_destroy => true;
                     
-  attr_accessible :title, :medium, :dimension, :height, :width, :depth, :h_unit, :w_unit, :d_unit, :year_created, :sale_price, :notes, :received_date, :pickedup_date, :pickedup_by, :shipped_date, :shipped_carrier, :shipped_tracking, :limited_edition, :edition_position, :edition_total, :jury_one_vote, :jury_two_vote, :jury_three_vote, :jury_four_vote, :jury_five_vote, :images, :images_attributes, :store_submit, :edition, :acceptance_status, :donate_proceeds, :art_received
+  attr_accessible :title, :medium, :dimension, :height, :width, :depth, :h_unit, :w_unit, :d_unit, :year_created, :sale_price, :notes, :received_date, :pickedup_date, :pickedup_by, :shipped_date, :shipped_carrier, :shipped_tracking, :limited_edition, :edition_position, :edition_total, :jury_one_vote, :jury_two_vote, :jury_three_vote, :jury_four_vote, :jury_five_vote, :images, :images_attributes, :store_submit, :edition, :acceptance_status, :donate_proceeds,  :art_received
   validates_presence_of :title, :medium, :height, :width, :h_unit, :w_unit, :year_created, :sale_price, :images
   validates_numericality_of :sale_price, :only_integer => true, :message => "can only be whole number."
   validates :sale_price, :visual_price => true

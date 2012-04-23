@@ -1,0 +1,13 @@
+<div id="popup_notes" class="popup_block">
+    <h2>Notes</h2>
+<% if current_user.is_admin? || current_user.is_store_admin? %>
+ <%= form_for(@art) do |f| %>  
+   <p>  
+     <%= f.text_area :admin_notes %> 
+     <%= f.submit %>  
+   </p>  
+ <% end %>
+current record: <%= @art.id %>
+<% end %>
+    <p></p>
+</div>

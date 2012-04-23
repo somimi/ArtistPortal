@@ -43,10 +43,10 @@ class Ability
         
     else
        can :create, VisualSubmission
-       can :create, Artist
+       can :manage, Artist
        #can :create, LiterarySubmission
        can :create, StoreSubmission
-       can :create, FilmSubmission
+       #can :create, FilmSubmission
        can :create, PerformanceSubmission
        #can :create, InstallationSubmission
        

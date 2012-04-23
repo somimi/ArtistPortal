@@ -16,7 +16,7 @@
 	<td><%= link_to film_submission.artist.first_name, artist_path(film_submission.artist) %></td>
 	<td><%= link_to film_submission.artist.last_name, artist_path(film_submission.artist) %></td>
     <td><%= link_to film_submission.title, edit_film_submission_path(film_submission)  %></td>
-    <td><%= film_submission.acceptance_status %></td>
+	<td><%= best_in_place film_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Denied", "Denied"],["Accepted", "Accepted"]], :nil => film_submission.acceptance_status %></td>	
   </tr>
 <% end %>
 </tbody>

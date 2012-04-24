@@ -13,6 +13,7 @@
 		<th>Height</th>
 		<th>Width</th>
 		<th>Depth</th>
+		<th>Price</th>
 	    <th>Qty Prop</th>
 	    <th>Qty Accept</th>
 	    <% if current_user.is_admin? || current_user.is_store_admin? %>
@@ -61,6 +62,7 @@
 		  <td><%= store_submission.height %> <%= store_submission.h_unit %></td>
 		  <td><%= store_submission.width %> <%= store_submission.w_unit %></td>
 		  <td><%= store_submission.depth %> <%= store_submission.d_unit %></td>
+		  <td><%= store_submission.price %></td>
 	      <td><%= store_submission.quantity %></td>
 		  <% if current_user.is_admin? || current_user.is_store_admin? %>
 			<td><%= best_in_place store_submission, :quantity_accepted, :nil => store_submission.quantity_accepted %></td>

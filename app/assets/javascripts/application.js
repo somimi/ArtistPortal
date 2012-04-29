@@ -12,6 +12,14 @@
 //= require_tree .
 
 jQuery(document).ready(function($) {
+
+	var popup_notes = $("<div/>");
+	$('Body').append(popup_notes);
+	
+	$(popup_notes).attr('id', 'popup_notes');
+	$(popup_notes).attr('class', 'popup_block');
+	
+	$(popup_notes).append('<form accept-charset="UTF-8" action="/store_submissions/4" class="edit_store_submission" id="edit_store_submission_4" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" />');
 	
 	$('.best_in_place').best_in_place();
 		

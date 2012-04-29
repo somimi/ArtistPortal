@@ -21,6 +21,9 @@
 				<th>Last Name</th>
 		        <th>Email</th>
 			 <% end %>
+			 <% if current_user.is_admin? %>
+				<th>Acceptance Status</th>
+			 <% end %>
 				<th>Image</th>
 			  </tr>
 		  </thead>
@@ -36,6 +39,9 @@
 				  <td><%= visual_submission.artist.last_name %></td>
 				  <td><%= visual_submission.artist.email %></td>
 			 <% end %>
+			 <% if current_user.is_admin? %>
+			     <td><%= best_in_place visual_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Declined", "Declined"],["Accepted", "Accepted"], ["Invited", "Invited"]], :nil => visual_submission.acceptance_status %></td>
+			  <% end %>
 			  <% if visual_submission.images.count >= 1 %>
 			    <td><%= link_to image_tag(visual_submission.images.first.image.url(:thumb)), visual_submission.images.first.image.url(:original), :target => "_blank" %></td>
 			 <% else %>

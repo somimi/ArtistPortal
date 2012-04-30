@@ -25,6 +25,7 @@
 				<th>Acceptance Status</th>
 			 <% end %>
 				<th>Image</th>
+				<th>Bio</th>
 			  </tr>
 		  </thead>
 		  <tbody>
@@ -46,7 +47,8 @@
 			    <td><%= link_to image_tag(visual_submission.images.first.image.url(:thumb)), visual_submission.images.first.image.url(:original), :target => "_blank" %></td>
 			 <% else %>
 			    <td>No Image</td>
-			<% end %>	
+			<% end %>
+			<% %>	
 		    </tr>
 		  <% end %>
 		</tbody>

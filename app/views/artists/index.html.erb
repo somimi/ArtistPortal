@@ -11,7 +11,7 @@
 	    <th>Email</th>
 		<th>Acceptance Status</th>
 		<th>Store Submit?</th>
-	    <th>Visual Submissions</th>
+	    <th>Bio</th>
 	  </tr>
 	</thead>
 	<tbody>
@@ -39,13 +39,7 @@
 			<% end %>
 		  </td>
 	      <td>
-		    <% if artist.visual_submissions == nil %>
-				No Submissions
-		    <% else %>
-				<% for submission in artist.visual_submissions %>
-				   <%= link_to submission.title, visual_submission_path(submission) %></br>
-				<% end %>
-			<% end %>
+			<%= artist.bio %>
 		  </td>
 	    </tr>
 	  <% end %>

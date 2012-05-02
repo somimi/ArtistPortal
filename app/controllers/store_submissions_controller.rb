@@ -64,6 +64,15 @@ class StoreSubmissionsController < ApplicationController
     redirect_to store_submissions_url, :notice => "Succesfully duplicated store submission."
   end
   
+  def edit_notes
+      @store_submission = StoreSubmission.find(params[:id])
+      if @store_submission.update_attributes(params[:store_submission])
+        redirect_to store_submissions_path, :notice => "Successfully updated store submission."
+      else
+        render :action => 'edit_notes'
+      end
+  end
+  
   def images
     store_submission = StoreSubmission.find(params[:id])
     style = params[:style] ? params[:style] : 'original'

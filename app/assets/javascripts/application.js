@@ -9,6 +9,7 @@
 //= require jquery.purr
 //= require best_in_place
 //= require dataTables/jquery.dataTables
+//= require TableTools-2.0.3/media/js/TableTools
 //= require_tree .
 
 jQuery(document).ready(function($) {
@@ -30,6 +31,10 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('#artist-index').dataTable({
+		"sDom": 'T<"clear">lfrtip',
+		"oTableTools": {
+            "sSwfPath": "/assets/TableTools-2.0.3/media/swf/copy_csv_xls_pdf.swf"
+        },
 		sPaginationType: "full_numbers",
 		bJQueryUI: true,
 		"bStateSave": true
@@ -59,6 +64,8 @@ jQuery(document).ready(function($) {
 		"bStateSave": true
 	});
 	
+	
+	
 	$('#film-index').dataTable({
 		sPaginationType: "full_numbers",
 		bJQueryUI: true,
@@ -72,9 +79,13 @@ jQuery(document).ready(function($) {
 	});
 		
  
-	$('a.poplight[href^=#]').click(function() {
+	$('a.poplight[href^=#]').click(function(e) {
 	    var popID = $(this).attr('rel'); 
 	    var popURL = $(this).attr('href');
+		
+		
+		console.log($(e.currentTarget).parents('tr').data('id'));
+	
 
 	    //Pull Query & Variables from href URL
 	    var query= popURL.split('?');

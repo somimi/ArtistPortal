@@ -1,0 +1,11 @@
+<%= form_for @store_submission do |f| %>
+  <%= f.error_messages %>
+<fieldset>
+	<legend>Notes</legend>
+	<p>
+		<%= f.label :admin_notes %>
+		<%= f.text_area :admin_notes %>
+	</p>
+</fieldset>
+  <p><%= f.submit %></p>
+<% end %>

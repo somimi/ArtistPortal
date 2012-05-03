@@ -45,6 +45,10 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('#visual-index').dataTable({
+		"sDom": 'T<"clear">lfrtip',
+		"oTableTools": {
+            "sSwfPath": "/assets/TableTools-2.0.3/media/swf/copy_csv_xls_pdf.swf"
+        },
 		sPaginationType: "full_numbers",
 		bJQueryUI: true,
 		"bStateSave": true

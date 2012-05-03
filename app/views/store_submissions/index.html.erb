@@ -6,7 +6,6 @@
 	    <th>Title</th>
 	    <th>Type</th>
 		<th>Image</th>
-		<th>Exhibition Status</th>
 		<th>Artist Email</th>
 		<th>First Name</th>
 		<th>Last Name</th>
@@ -43,19 +42,6 @@
 				<% end %>
 		  	<% end %>
 		   </td>
-		   <td>
-			<% if store_submission.visual_submission_id %>
-				<% if store_submission.visual_submission %>
-					<% if store_submission.visual_submission.acceptance_status == "Accepted"%>
-					<%= link_to "Accepted", visual_submission_path(store_submission.visual_submission) %>
-					<% else %>
-					<%= link_to "Declined", visual_submission_path(store_submission.visual_submission) %>
-					<% end %>
-				<% end %>
-			<% else %>
-			Not Submitted
-			<% end %>
-		  </td>
 		  <td><%= mail_to store_submission.artist.email %></td>
 		  <td><%= link_to store_submission.artist.first_name, artist_path(store_submission.artist) %></td>
 		  <td><%= link_to store_submission.artist.last_name, artist_path(store_submission.artist) %></td>

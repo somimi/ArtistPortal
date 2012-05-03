@@ -81,3 +81,19 @@
     	<li>Artists may propose a quantity ranging from 1 to 50 of each item.</li>
     	<li>Each individual item need not be submitted for approval. Similar items may be grouped together; a representative sampling is acceptable. (For example, if you want the Store to feature three different postcards with a quantity of 10 each, then create one submission entry for a postcard and say the quantity is 30, and then in the notes section say that there are three different images for those postcards).</li>
 	</ul>
+	
+	
+	
+	  <td>
+		<% if store_submission.visual_submission_id %>
+			<% if store_submission.visual_submission  %>
+				<%= link_to image_tag(store_submission.visual_submission.images.first.image.url(:thumb)), store_submission.visual_submission.images.first.image.url(:original), :target => "_blank" %>
+			<% end %>
+	  	<% else %>
+			<% if store_submission.image %>
+	     		<%= link_to image_tag(store_submission.image.url(:thumb)), store_submission.image.url(:original), :target => "_blank" %>
+			<% else %>
+				No Image!
+			<% end %>
+	  	<% end %>
+	   </td>

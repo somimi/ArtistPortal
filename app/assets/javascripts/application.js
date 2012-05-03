@@ -25,6 +25,10 @@ jQuery(document).ready(function($) {
 	$('.best_in_place').best_in_place();
 		
 	$('#store-index').dataTable({
+		"sDom": 'T<"clear">lfrtip',
+		"oTableTools": {
+            "sSwfPath": "/assets/TableTools-2.0.3/media/swf/copy_csv_xls_pdf.swf"
+        },
 		sPaginationType: "full_numbers",
 		bJQueryUI: true,
 		"bStateSave": true

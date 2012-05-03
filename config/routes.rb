@@ -14,12 +14,16 @@ ArtistPortal::Application.routes.draw do
  match 'images/:id/images' => 'images#images'
  match 'installation_images/:id/installation_images' => 'installation_images#installation_images'
  match 'store_submissions/:id/duplicate' => 'store_submissions#duplicate', :as => :duplicate_store_submission
- match 'store_submissions/:id/edit_notes' => 'store_submissions#edit_notes', :as => :edit_notes
+ #match 'store_submissions/:id/edit_notes' => 'store_submissions#edit_notes', :as => :edit_notes
   
   resources :store_submissions
   resources :store_submissions do
     member do
       get :images
+    end
+    
+    member do
+      get :edit_notes
     end
   end
   resources :payment_notifications

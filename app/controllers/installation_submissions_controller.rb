@@ -7,9 +7,8 @@ class InstallationSubmissionsController < ApplicationController
     if current_user.is_artist?
       @installation_submissions = current_user.artist.installation_submissions
     elsif current_user.is_admin? 
-      @installation_submissions = InstallationSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
-      session[:query] = @installation_submissions.map(&:id)
-      @count = InstallationSubmission.search(params[:search]).count
+      #@installation_submissions = InstallationSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
+      @installation_submissions = InstallationSubmission.all
     else
       
     end 

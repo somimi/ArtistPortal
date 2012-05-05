@@ -9,8 +9,8 @@
 	    <th>Last Name</th>
 	    <th>Professional Name</th>
 	    <th>Email</th>
-		<th>Acceptance Status</th>
-		<th>Store Submit?</th>
+		<th>Visual Acceptance Status</th>
+		<th>Accepted into the Store</th>
 	    <th>Bio</th>
 	  </tr>
 	</thead>
@@ -23,6 +23,7 @@
 	      <td><%= link_to artist.professional_name, artist_path(artist) %></td>
 	      <td><%= mail_to artist.email %></td>
 		  <td>
+			<% for %>
 			<% if artist.acceptance_status == 0 %>
 				Declined
 			<% elsif artist.acceptance_status > 0 && artist.acceptance_status < 10 %>

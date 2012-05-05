@@ -1,14 +1,16 @@
 <h1>Installation Art Submissions</h1>
 
-<table border="1" bordercolor="FFCC00" style="background-color:FFFFCC" width="600" cellpadding="3" cellspacing="3">
-  <tr>
+<table id="installation-index" class="display">
+ <thead>
+	<tr>
 	<th>First Name</th>
 	<th>Last Name</th>
 	<th>Email</th>
     <th>Title</th>
     <th></th>
   </tr>
-
+ </thead>
+ <tbody>
 <% @installation_submissions.each do |installation_submission| %>
   <tr>
 	<td><%= link_to installation_submission.artist.first_name, artist_path(installation_submission.artist) %></td>
@@ -18,6 +20,7 @@
     <td><%= link_to 'Delete', installation_submission, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+ </tbody>
 </table>
 
 <br />

@@ -80,6 +80,12 @@ jQuery(document).ready(function($) {
 		"bStateSave": true
 	});
 	
+	$('#installation-index').dataTable({
+		sPaginationType: "full_numbers",
+		bJQueryUI: true,
+		"bStateSave": true
+	});
+	
 	$('#performance-index').dataTable({
 		sPaginationType: "full_numbers",
 		bJQueryUI: true,

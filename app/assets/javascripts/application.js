@@ -10,6 +10,7 @@
 //= require best_in_place
 //= require dataTables/jquery.dataTables
 //= require TableTools-2.0.3/media/js/TableTools
+//=require jquery.colorbox
 //= require_tree .
 
 jQuery(document).ready(function($) {
@@ -92,13 +93,11 @@ jQuery(document).ready(function($) {
 		"bStateSave": true
 	});
 		
+    $(".admin_notes").colorbox();
  
 	$('a.poplight[href^=#]').click(function(e) {
 	    var popID = $(this).attr('rel'); 
 	    var popURL = $(this).attr('href');
-		
-		
-		console.log($(e.currentTarget).parents('tr').data('id'));
 	
 
 	    //Pull Query & Variables from href URL

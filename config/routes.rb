@@ -49,7 +49,11 @@ ArtistPortal::Application.routes.draw do
   devise_for :users, :path_prefeix => 'd' do get '/users/sign_out' => 'devise/sessions#destroy' end
   resources :users
 
-  resources :artists
+  resources :artists do
+    member do
+      get :edit_notes
+    end
+  end
   
   resources :visual_submissions
   resources :visual_submissions do

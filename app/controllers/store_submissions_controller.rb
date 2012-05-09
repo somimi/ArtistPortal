@@ -65,12 +65,9 @@ class StoreSubmissionsController < ApplicationController
   end
   
   def edit_notes
-      @store_submission = StoreSubmission.find(params[:id])
-      if @store_submission.update_attributes(params[:store_submission])
-        redirect_to store_submissions_path, :notice => "Successfully updated store submission."
-      else
-        render :action => 'edit_notes'
-      end
+    @store_submission = StoreSubmission.find(params[:id])  
+    render :edit_notes, :layout => false
+    
   end
   
   def images

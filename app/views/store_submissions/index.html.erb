@@ -58,7 +58,7 @@
 	 	  <% end %>
 	      <% if current_user.is_admin? || current_user.is_store_admin? %>
 		  <td>
-			<%= link_to "Notes", edit_notes_store_submission_path(store_submission)%>
+			<%= link_to "Notes", edit_notes_store_submission_path(store_submission), :class => "admin_notes"%>
 		  </td>
 		  <% end %>
 	      </tr>

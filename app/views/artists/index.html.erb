@@ -12,6 +12,7 @@
 		<th>Visual Acceptance Status</th>
 		<th>Accepted into the Store</th>
 	    <th>Bio</th>
+		<th>Notes</th>
 	  </tr>
 	</thead>
 	<tbody>
@@ -41,6 +42,7 @@
 	      <td>
 			<%= best_in_place artist, :bio %>
 		  </td>
+		  <td><%= link_to "Notes", edit_notes_artist_path(artist), :class => "admin_notes"%></td>
 	    </tr>
 	  <% end %>
 	</tbody>

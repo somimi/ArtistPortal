@@ -54,6 +54,12 @@ class ArtistsController < ApplicationController
       end
     end
   end
+  
+  def edit_notes
+    @artist = Artist.find(params[:id])  
+    render :edit_notes, :layout => false
+    
+  end
 
   def destroy
     @artist = Artist.find(params[:id])

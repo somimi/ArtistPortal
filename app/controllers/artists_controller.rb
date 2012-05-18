@@ -3,6 +3,10 @@ class ArtistsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :load_paypal
   load_and_authorize_resource
+  
+  respond_to :html, :json
+  
+  
   def index
     #@artists = Artist.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
     @artists = Artist.all
@@ -13,6 +17,10 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
     @visual_submissions = @artist.visual_submissions
     @store_submissions = @artist.store_submissions
+    
+    if current_user.is_handler?
+      render "handler_show"
+    end
   end
 
   def new
@@ -36,24 +44,30 @@ class ArtistsController < ApplicationController
   def edit
     @artist = Artist.find(params[:id])
   end
-
+  
   def update
     @artist = Artist.find(params[:id])
-    if current_user.is_artist?
-      if @artist.update_attributes(params[:artist])
-          redirect_to root_path, :notice  => "Successfully updated artist profile."
-      else
-        render :action => 'edit'
-      end
-    else
-        @artist.attributes = (params[:artist])
-        if  @artist.save(:validate => false)
-          redirect_to artists_path
-      else
-        render :action => 'edit'
-      end
-    end
+    @artist.update_attributes(params[:artist])
+    respond_with @artist
   end
+
+  #def update
+  #  @artist = Artist.find(params[:id])
+  #  if current_user.is_artist?
+  #    if @artist.update_attributes(params[:artist])
+  #        redirect_to root_path, :notice  => "Successfully updated artist profile."
+  #    else
+  #      render :action => 'edit'
+  #    end
+  #  else
+  #      @artist.attributes = (params[:artist])
+  #      if  @artist.save(:validate => false)
+  #        redirect_to artists_path
+  #    else
+  #      render :action => 'edit'
+  #    end
+  #  end
+  #end
   
   def edit_notes
     @artist = Artist.find(params[:id])  

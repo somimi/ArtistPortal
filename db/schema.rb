@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509043320) do
+ActiveRecord::Schema.define(:version => 20120518194745) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20120509043320) do
     t.boolean  "test"
     t.integer  "acceptance_status",      :default => 0
     t.text     "admin_notes"
+    t.boolean  "shipping_label"
   end
 
   create_table "dj_submissions", :force => true do |t|
@@ -236,7 +237,7 @@ ActiveRecord::Schema.define(:version => 20120509043320) do
   create_table "visual_submissions", :force => true do |t|
     t.string   "title"
     t.string   "medium"
-    t.boolean  "dimension",          :default => false
+    t.boolean  "dimension",              :default => false
     t.string   "height"
     t.string   "width"
     t.string   "depth"
@@ -267,12 +268,19 @@ ActiveRecord::Schema.define(:version => 20120509043320) do
     t.datetime "image_updated_at"
     t.integer  "artist_id"
     t.integer  "jury_five_vote"
-    t.float    "average_vote",       :default => 0.0
-    t.string   "acceptance_status",  :default => "undecided"
+    t.float    "average_vote",           :default => 0.0
+    t.string   "acceptance_status",      :default => "undecided"
     t.boolean  "store_submit"
     t.string   "edition"
     t.boolean  "donate_proceeds"
     t.boolean  "art_received"
+    t.boolean  "display_included"
+    t.boolean  "received"
+    t.text     "display_notes"
+    t.string   "quality"
+    t.text     "quality_notes"
+    t.boolean  "packing_material"
+    t.text     "packing_material_notes"
   end
 
 end

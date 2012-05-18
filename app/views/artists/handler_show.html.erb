@@ -62,17 +62,21 @@
 	</p>
    <% end %>
 	<p>
-	  <strong>Shipping Account:</strong>
-	  <%= @artist.shipping_account %>
+	  <strong>Shipping Company:</strong>
+	  <%= best_in_place @artist, :shipping_company %>
 	</p>
-<p>
-  <strong>Bio:</strong>
-  <%= @artist.bio %>
-</p>
-<p>
-  <strong>Require Representation:</strong>
-  <%= @artist.require_representation %>
-</p>
+	<p>
+	  <strong>Shipping Account:</strong>
+	  <%= best_in_place @artist, :shipping_account %>
+	</p>
+	<p>
+	  <strong>Shipping Label:</strong>
+	  <%= best_in_place @artist, :shipping_label, :type => :checkbox %>
+	</p>
+	<p>
+	  <strong>Require Representation:</strong>
+	  <%= @artist.require_representation %>
+	</p>
 <% if @visual_submissions.count > 0 %>
 	Visual Submissions<br />
 	<table id="artist-visual-index" class="display">
@@ -86,8 +90,8 @@
 		<tbody>
 		<% for visual_submission in @visual_submissions %>
 		<tr>
-			<td><%= link_to visual_submission.title, visual_submission_path(visual_submission) %></td>
-			<td><%= link_to visual_submission.acceptance_status, visual_submission_path(visual_submission) %></td>
+			<td><%= link_to visual_submission.title, edit_visual_submission_path(visual_submission) %></td>
+			<td><%= link_to visual_submission.acceptance_status, edit_visual_submission_path(visual_submission) %></td>
 			<td><%= best_in_place visual_submission, :art_received, :type => :checkbox, :nil => visual_submission.art_received %></td>
 		  
 		</tr>

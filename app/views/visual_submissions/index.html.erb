@@ -20,8 +20,6 @@
 				<th>Width</th>
 				<th>Depth</th>
 			  <% if !current_user.is_artist?  %>
-			    <th>First Name</th>
-				<th>Last Name</th>
 				<th>pro name</th>
 		        <th>Email</th>
 				<th>State</th>
@@ -44,8 +42,6 @@
 			  <td><%= visual_submission.width %> <%= visual_submission.w_unit %></td>
 			  <td><%= visual_submission.depth %> <%= visual_submission.d_unit %></td>
 			 <% if !current_user.is_artist? %>
-				  <td><%= visual_submission.artist.first_name %></td>
-				  <td><%= visual_submission.artist.last_name %></td>
 				  <td><%= visual_submission.artist.professional_name %></td>
 				  <td><%= visual_submission.artist.email %></td>
 				  <td><%= visual_submission.artist.mailing_state %></td>

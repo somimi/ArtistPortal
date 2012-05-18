@@ -20,6 +20,13 @@
 	<%= link_to "Store Submissions", store_submissions_path %><br />
 	<%= link_to "Artists", artists_path %><br />
 <% end %>
+<% if current_user.is_handler? %>
+	<%= link_to "Visual Submissions", visual_submissions_path %><br />
+	<%= link_to "Store Submissions", store_submissions_path %><br />
+	<%= link_to "Artists", artists_path %><br />
+<% end %>
+	
+	
 
 <% if current_user.is_art_guide? %>
 	<%= link_to "View Art", visual_submissions_path %>

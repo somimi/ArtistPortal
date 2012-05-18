@@ -79,6 +79,10 @@ class VisualSubmissionsController < ApplicationController
       count.times { @visual_submission.images.build }
       
       @count = count
+      
+      if current_user.is_handler?
+        render "handler_edit"
+      end
     
   end
 

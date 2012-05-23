@@ -103,6 +103,7 @@
 	<table id="artist-visual-index" class="display">
 		<thead>
 			<tr>
+				<th>ID</th>
 				<th>Title</th>
 				<th>Acceptance Status</th>
 				<th>Art Recvd</th>
@@ -111,9 +112,10 @@
 		<tbody>
 		<% for visual_submission in @visual_submissions %>
 		<tr>
-			<td><%= link_to visual_submission.title, edit_visual_submission_path(visual_submission) %></td>
-			<td><%= link_to visual_submission.acceptance_status, edit_visual_submission_path(visual_submission) %></td>
-			<td><%= best_in_place visual_submission, :art_received, :type => :checkbox, :nil => visual_submission.art_received %></td>
+			<td><%= link_to visual_submission.id, visual_submission_path(visual_submission) %></td>
+			<td><%= link_to visual_submission.title, visual_submission_path(visual_submission) %></td>
+			<td><%= link_to visual_submission.acceptance_status, visual_submission_path(visual_submission) %></td>
+			<td><%= visual_submission.received</td>
 		  
 		</tr>
 		<% end %>

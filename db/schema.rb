@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120523054811) do
+ActiveRecord::Schema.define(:version => 20120523180117) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -240,7 +240,7 @@ ActiveRecord::Schema.define(:version => 20120523054811) do
   create_table "visual_submissions", :force => true do |t|
     t.string   "title"
     t.string   "medium"
-    t.boolean  "dimension",              :default => false
+    t.boolean  "dimension",                 :default => false
     t.string   "height"
     t.string   "width"
     t.string   "depth"
@@ -271,8 +271,8 @@ ActiveRecord::Schema.define(:version => 20120523054811) do
     t.datetime "image_updated_at"
     t.integer  "artist_id"
     t.integer  "jury_five_vote"
-    t.float    "average_vote",           :default => 0.0
-    t.string   "acceptance_status",      :default => "undecided"
+    t.float    "average_vote",              :default => 0.0
+    t.string   "acceptance_status",         :default => "undecided"
     t.boolean  "store_submit"
     t.string   "edition"
     t.boolean  "donate_proceeds"
@@ -284,6 +284,7 @@ ActiveRecord::Schema.define(:version => 20120523054811) do
     t.text     "quality_notes"
     t.boolean  "packing_material"
     t.text     "packing_material_notes"
+    t.boolean  "packing_material_included"
   end
 
 end

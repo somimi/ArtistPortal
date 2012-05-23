@@ -1,82 +1,103 @@
 <h3><%= @artist.first_name %> <%= @artist.last_name %><br /></h3>
-<p>
-  <strong>Professional Name:</strong>
-  <%= @artist.professional_name %>
-</p>
-<p>
-  <strong>Email:</strong>
-  <%= @artist.email %>
-</p>
-<p>
-  <strong>Phone:</strong>
-  <%= @artist.phone %>
-</p>
-<p>
-  <strong>Mailing Address Line1:</strong>
-  <%= @artist.mailing_address_line1 %>
-</p>
-<p>
-  <strong>Mailing Address Line2:</strong>
-  <%= @artist.mailing_address_line2 %>
-</p>
-<p>
-  <strong>Mailing City:</strong>
-  <%= @artist.mailing_city %>
-</p>
-<p>
-  <strong>Mailing State:</strong>
-  <%= @artist.mailing_state %>
-</p>
-<p>
-  <strong>Mailing Zip:</strong>
-  <%= @artist.mailing_zip %>
-</p>
-<p>
-  <strong>Mailing Country:</strong>
-  <%= @artist.mailing_country %>
-</p>
-<% if !@artist.shipping_same_as_mail?%>
-	<p>
-	  <strong>Shipping Address Line1:</strong>
-	  <%= @artist.shipping_address_line1 %>
-	</p>
-	<p>
-	  <strong>Shipping Address Line2:</strong>
-	  <%= @artist.shipping_address_line2 %>
-	</p>
-	<p>
-	  <strong>Shipping City:</strong>
-	  <%= @artist.shipping_city %>
-	</p>
-	<p>
-	  <strong>Shipping State:</strong>
-	  <%= @artist.shipping_state %>
-	</p>
-	<p>
-	  <strong>Shipping Zip:</strong>
-	  <%= @artist.shipping_zip %>
-	</p>
-	<p>
-	  <strong>Shipping Country:</strong>
-	  <%= @artist.shipping_country %>
-	</p>
-   <% end %>
-	<p>
-	  <strong>Shipping Company:</strong>
-	  <%= best_in_place @artist, :shipping_company %>
-	</p>
-	<p>
-	  <strong>Shipping Account:</strong>
-	  <%= best_in_place @artist, :shipping_account %>
-	</p>
-	<p>
-	  <strong>Shipping Label:</strong>
-	  <%= best_in_place @artist, :shipping_label, :type => :checkbox %>
-	</p>
-	<p>
-	  <strong>Require Representation:</strong>
-	  <%= @artist.require_representation %>
-	</p>
+<fieldset>
+	<legend>Personal Information</legend>
+		<p>
+		  <strong>Professional Name:</strong>
+		  <%= @artist.professional_name %>
+		</p>
+</fieldset>
+<fieldset>
+	<legend>Contact Information</legend>
+		<p>
+		  <strong>Email:</strong>
+		  <%= @artist.email %>
+		</p>
+		<p>
+		  <strong>Phone:</strong>
+		  <%= @artist.phone %>
+		</p>
+		<p>
+		  <strong>Mailing Address Line1:</strong>
+		  <%= @artist.mailing_address_line1 %>
+		</p>
+		<p>
+		  <strong>Mailing Address Line2:</strong>
+		  <%= @artist.mailing_address_line2 %>
+		</p>
+		<p>
+		  <strong>Mailing City:</strong>
+		  <%= @artist.mailing_city %>
+		</p>
+		<p>
+		  <strong>Mailing State:</strong>
+		  <%= @artist.mailing_state %>
+		</p>
+		<p>
+		  <strong>Mailing Zip:</strong>
+		  <%= @artist.mailing_zip %>
+		</p>
+		<p>
+		  <strong>Mailing Country:</strong>
+		  <%= @artist.mailing_country %>
+		</p>
+</fieldset>
+<fieldset>
+	<legend>Shipping Information</legend>
+		<% if !@artist.shipping_same_as_mail?%>
+			<p>
+			  <strong>Shipping Address Line1:</strong>
+			  <%= @artist.shipping_address_line1 %>
+			</p>
+			<p>
+			  <strong>Shipping Address Line2:</strong>
+			  <%= @artist.shipping_address_line2 %>
+			</p>
+			<p>
+			  <strong>Shipping City:</strong>
+			  <%= @artist.shipping_city %>
+			</p>
+			<p>
+			  <strong>Shipping State:</strong>
+			  <%= @artist.shipping_state %>
+			</p>
+			<p>
+			  <strong>Shipping Zip:</strong>
+			  <%= @artist.shipping_zip %>
+			</p>
+			<p>
+			  <strong>Shipping Country:</strong>
+			  <%= @artist.shipping_country %>
+			</p>
+		   <% end %>
+		<p>
+		  <strong>Shipping Company:</strong>
+		  <%= best_in_place @artist, :shipping_company %>
+		</p>
+		<p>
+		  <strong>Shipping Account:</strong>
+		  <%= best_in_place @artist, :shipping_account %>
+		</p>
+		<p>
+		  <strong>Shipping Label:</strong>
+		  <%= best_in_place @artist, :shipping_label, :type => :checkbox %>
+		</p>
+</fieldset>
+<fieldset>
+	<legend>Additional Information</legend>
+		<p>
+			<strong>Store and Visual Art Shipped Together</strong>
+			<%= best_in_place @artist, :store_shipped_with_visual, :type => :checkbox %>
+		<p>
+			<strong>Paperwork Complete</strong>
+			<%= best_in_place @artist, :paperwork_complete, :type => :checkbox %>
+		</p>
+		<p>
+			<strong>Paperwork Notes</strong>
+			<%= best_in_place @artist, :paperwork_notes, :type => :textarea %>
+		</p>
+</fieldset>
+		
+<br />
 <% if @visual_submissions.count > 0 %>
 	Visual Submissions<br />
 	<table id="artist-visual-index" class="display">

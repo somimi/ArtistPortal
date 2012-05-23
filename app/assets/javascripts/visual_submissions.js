@@ -5,6 +5,8 @@ $(document).ready(function(){
 	$("#limited-edition").css("display","none");
 	$("#limited-edition-1").css("display", "none")
 	$("#notes-show").css("display", "none")
+	$("#quality-notes").css("display", "none")
+	$("#display-notes").css("display", "none")
 	
 	if ($("li-check").is(":checked"))
 	{
@@ -45,6 +47,55 @@ $(document).ready(function(){
 	}
   });
 
+   $("#display-check").click(function(){
+
+	// If checked
+	if ($("#display-check").is(":checked"))
+	{
+
+		$("#display-notes").show("slow");
+	}
+	else
+	{
+		$("#display-notes").hide("slow");
+	}
+  });
+
+	$("#visual_submission_quality").change(function(){
+
+	var selectValue;
+
+	selectValue = $("#visual_submission_quality").val();
+	
+	if (selectValue == "Damaged"){
+		$("#quality-notes").show("slow");
+	}
+	else if(selectValue == "Perfect"){
+		$("#quality-notes").hide("slow");
+	}
+
+	switch (selectValue)
+	{
+		case "Sculpture":
+				$("#dim-check").prop("checked", true).trigger("change");
+				break;
+		case "Jewelry":
+		        $("#dim-check").prop("checked", true).trigger("change");
+				break;
+		case "Ceramics":
+				$("#dim-check").prop("checked", true).trigger("change");
+				break;
+		case "Textile":
+				$("#dim-check").prop("checked", true).trigger("change");
+				break;
+	    default:
+				$("#dim-check").prop("checked", false).trigger("change");
+
+
+	}
+
+
+  });
 
   $("#visual_submission_medium").change(function(){
 	

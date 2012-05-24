@@ -35,10 +35,10 @@
 		<%= f.text_area :display_notes %>
 	</p>
 	<p>
-		<%= f.label :packing_material %>
-		<%= f.check_box :packing_material %>
+		<%= f.label :packing_material %><br />
+		<%= f.check_box :packing_material, :id => "packing-check" %>
 	</p>
-	 <p>
+	 <p id="packing-show">
 		<%= f.label :packing_material %><br />
 		<%= f.text_area :packing_material_notes %>
 	</p>

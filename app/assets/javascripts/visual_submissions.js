@@ -7,6 +7,7 @@ $(document).ready(function(){
 	$("#notes-show").css("display", "none")
 	$("#quality-notes").css("display", "none")
 	$("#display-notes").css("display", "none")
+	$("#packing-show").css("display", "none")
 	
 	if ($("li-check").is(":checked"))
 	{
@@ -58,6 +59,20 @@ $(document).ready(function(){
 	else
 	{
 		$("#display-notes").hide("slow");
+	}
+  });
+
+   $("#packing-check").click(function(){
+
+	// If checked
+	if ($("#packing-check").is(":checked"))
+	{
+
+		$("#packing-show").show("slow");
+	}
+	else
+	{
+		$("#packing-show").hide("slow");
 	}
   });
 

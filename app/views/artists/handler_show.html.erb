@@ -42,6 +42,24 @@
 		</p>
 </fieldset>
 <fieldset>
+	<legend>Additional Information</legend>
+		<p>
+			<strong>Store and Visual Art Shipped Together</strong>
+			<%= best_in_place @artist, :store_shipped_with_visual, :type => :checkbox %>
+		<p>
+			<strong>Paperwork Complete</strong>
+			<%= best_in_place @artist, :paperwork_complete, :type => :checkbox %>
+		</p>
+		<p>
+			<strong>Paperwork Notes</strong>
+			<%= best_in_place @artist, :paperwork_notes, :type => :textarea %>
+		</p>
+		<p>
+			<strong>Return Arrangements</strong>
+			<%= best_in_place @artist, :return_arrangements, :nil => @artist.return_arrangements, :id => "ship-check" %>
+		</p>
+</fieldset>
+<fieldset>
 	<legend>Shipping Information</legend>
 		<% if !@artist.shipping_same_as_mail?%>
 			<p>
@@ -82,20 +100,7 @@
 		  <%= best_in_place @artist, :shipping_label, :type => :checkbox %>
 		</p>
 </fieldset>
-<fieldset>
-	<legend>Additional Information</legend>
-		<p>
-			<strong>Store and Visual Art Shipped Together</strong>
-			<%= best_in_place @artist, :store_shipped_with_visual, :type => :checkbox %>
-		<p>
-			<strong>Paperwork Complete</strong>
-			<%= best_in_place @artist, :paperwork_complete, :type => :checkbox %>
-		</p>
-		<p>
-			<strong>Paperwork Notes</strong>
-			<%= best_in_place @artist, :paperwork_notes, :type => :textarea %>
-		</p>
-</fieldset>
+
 		
 <br />
 <% if @visual_submissions.count > 0 %>

@@ -3,6 +3,7 @@ $(document).ready(function(){
 	$("#store-type-other").hide();
 	$("#presentation-other").hide();
 	$("#store-three-dee").hide();
+	$("#store-display-notes").css("display", "none")
 	
 	$("#store_submission_type").change(function(){
 		var val = $(this).val();
@@ -20,6 +21,21 @@ $(document).ready(function(){
 
 		 
 	});
+	
+	$("#store_submission_quality").change(function(){
+
+	var selectValue;
+
+	selectValue = $("#store_submission_quality").val();
+
+	if (selectValue == "Damaged"){
+		$("#store-quality-notes").show("slow");
+	}
+	else if(selectValue == "Perfect"){
+		$("#store-quality-notes").hide("slow");
+	}
+
+  });
 	
 	$("#store_submission_presentation").change(function(){
 		var val = $(this).val();

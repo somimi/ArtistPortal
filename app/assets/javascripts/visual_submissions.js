@@ -89,27 +89,6 @@ $(document).ready(function(){
 		$("#quality-notes").hide("slow");
 	}
 
-	switch (selectValue)
-	{
-		case "Sculpture":
-				$("#dim-check").prop("checked", true).trigger("change");
-				break;
-		case "Jewelry":
-		        $("#dim-check").prop("checked", true).trigger("change");
-				break;
-		case "Ceramics":
-				$("#dim-check").prop("checked", true).trigger("change");
-				break;
-		case "Textile":
-				$("#dim-check").prop("checked", true).trigger("change");
-				break;
-	    default:
-				$("#dim-check").prop("checked", false).trigger("change");
-
-
-	}
-
-
   });
 
   $("#visual_submission_medium").change(function(){

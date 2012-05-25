@@ -40,6 +40,10 @@ class StoreSubmissionsController < ApplicationController
 
   def edit
     @store_submission = StoreSubmission.find(params[:id])
+    
+    if current_user.is_handler?
+      render "handler_edit"
+    end
   end
 
   def update

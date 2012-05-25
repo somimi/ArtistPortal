@@ -1,0 +1,60 @@
+<%= form_for @store_submission do |f| %>
+  <%= render "shared/error_messages", :target => @store_submission %>
+<fieldset>
+	<legend>Submission Overview</legend>
+
+	  <p>
+	    <%= f.label :title %><br />
+	    <%= f.text_field :title %>
+	  </p>
+	  <p>
+		<%= f.label :type, "Type of piece" %>
+		<%= f.select(:type, options_for_select([['Greeting Card'], ['Postcard'], ['Poster'],['Print'],['Book'],['Sculpture'],['Clothing'],['Jewelry'],['DVD'],['Toy'], ['Other']], @store_submission.type), {:include_blank => true, :width => "200px"}) %>
+	  </p>
+	  <p>
+	    <%= f.label :quantity_accepted %><br />
+	    <%= f.text_field :quantity_accepted %>
+	  </p>
+ 
+</fieldset>
+<fieldset>
+	<legend>Receiving</legend>
+	 <p>
+		<%= f.label :received %><br />
+		<%= f.check_box :received %>
+	</p>
+	  <p>
+	    <%= f.label :quantity_received %><br />
+	    <%= f.text_field :quantity_received %>
+	  </p>
+	 <p>
+		<%= f.label :quality %><br />
+		<%= f.select(:quality, options_for_select([['Perfect','Perfect'],['Damaged', 'Damaged']]), :id => "quality-check")  %>
+	</p>
+	 <p id="store-quality-notes">
+		<%= f.label :quality_notes %><br />
+		<%= f.text_area :quality_notes %>
+	</p>
+	 <p>
+		<%= f.label :display_included %><br />
+		<%= f.check_box :display_included, :id => "display-check" %>
+	</p>
+	 <p id="display-notes" >
+		<%= f.label :display_notes %><br />
+		<%= f.text_area :display_notes %>
+	</p>
+	<p>
+		<%= f.label :packing_material %><br />
+		<%= f.check_box :packing_material, :id => "packing-check" %>
+	</p>
+	 <p id="packing-show">
+		<%= f.label :packing_material_notes %><br />
+		<%= f.text_area :packing_material_notes %>
+	</p>
+	
+ 
+  <p><%= f.submit %></p>
+<% end %>
+
+<br />
+

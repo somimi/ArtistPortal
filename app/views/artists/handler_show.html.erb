@@ -137,13 +137,21 @@
 	<table id="artist-store-index" class="display">
 		<thead>
 			<tr>
+				<th>ID</th>
 				<th>Title</th>
+				<th>Type</th>
+				<th>Quantity Accepted</th>
+				<th>Quantity Received</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% for store_submission in @store_submissions %>
 			<tr>
+				<td><%= link_to store_submission.id, store_submission_path(store_submission) %></td>
 				<td><%= link_to store_submission.title, store_submission_path(store_submission) %></td>
+				<td><%= link_to store_submission.type, store_submission_path(store_submission) %></td>
+				<td><%= store_submission.quantity_accepted %></td>
+				<td><%= store_submission.quantity_received %></td>
 			</tr>
 		</tbody>
 		<% end %>

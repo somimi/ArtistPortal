@@ -149,7 +149,7 @@
 			<tr>
 				<td><%= link_to store_submission.id, store_submission_path(store_submission) %></td>
 				<td><%= link_to store_submission.title, store_submission_path(store_submission) %></td>
-				<td><%= link_to store_submission.type, store_submission_path(store_submission) %></td>
+				<td><%= store_submission.type %></td>
 				<td><%= store_submission.quantity_accepted %></td>
 				<td><%= store_submission.quantity_received %></td>
 			</tr>

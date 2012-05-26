@@ -5,7 +5,7 @@ class StoreSubmissionsController < ApplicationController
   def index
     if current_user.is_artist? || current_user.is_invited?
       @store_submissions = current_user.artist.store_submissions
-    elsif current_user.is_admin? || current_user.is_store_admin?
+    elsif current_user.is_admin? || current_user.is_store_admin? || current_user.is_handler?
       #@store_submissions = StoreSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
       @store_submissions = StoreSubmission.all
       session[:query] = @store_submissions.map(&:id)

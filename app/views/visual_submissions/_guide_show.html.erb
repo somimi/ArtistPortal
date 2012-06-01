@@ -13,9 +13,12 @@
 	<% end %>
 <% end %>
 <div id="jury_info">
+	<b>Artist: </b><%= @visual_submission.artist.professional_name %><br />
 	<b>Title: </b><%= @visual_submission.title %><br />
 	<b>Medium: </b><%= @visual_submission.medium %><br />
 	<b>Height: </b><%= @visual_submission.height %> <%= @visual_submission.h_unit%> <b>Width: </b><%= @visual_submission.width %> <%= @visual_submission.w_unit%> <b>Depth: </b><%= @visual_submission.depth %> <%= @visual_submission.d_unit%><br />
+	<b>Price: </b><%= @visual_submission.sale_price %><br />
+	</p>
 	<p>
 		notes: <%= @visual_submission.notes  %>
 	</p>

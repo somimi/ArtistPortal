@@ -43,7 +43,9 @@
 			  <td><%= visual_submission.depth %> <%= visual_submission.d_unit %></td>
 			 <% if !current_user.is_artist? %>
 				  <td><%= visual_submission.artist.professional_name %></td>
-				  <td><%= visual_submission.artist.email %></td>
+				  <% if current_user.is_admin? || current_user.is_handler? %>
+				  	<td><%= visual_submission.artist.email %></td>
+			      <% end %>
 				  <td><%= visual_submission.artist.mailing_state %></td>
 				  <td><%= visual_submission.artist.mailing_country %></td>
 			 <% end %>

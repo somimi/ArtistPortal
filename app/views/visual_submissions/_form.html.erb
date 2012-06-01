@@ -11,6 +11,10 @@
 	    <%= f.label :medium %><br />
 	      <%= f.select(:medium, options_for_select([['Photography'], ['Sculpture'], ['Painting'], ['Digital Art'], ['Mixed Media'], ['Drawing'], ['Ceramics'], ['Jewelry'], ['Multi-Media'], ['Printmaking'], ['Textile'], ['Other']], @visual_submission.medium), {:include_blank => true}) %>
 	  </p>
+		<p>
+			<%= f.label :wall_card_description %><br />
+			<%= f.text_field :wall_card_description %>
+		</p>
 	  <p>
 	    <%= f.label :year_created %><br />
 	    <%= f.text_field :year_created %><br />
@@ -25,6 +29,7 @@
 			<%= f.check_box :donate_proceeds %>
 			<%= f.label :donate_proceeds, "Check this box if you want all the proceeds from your art sales to go the Festival as a donation." %>
 			<a href="#?w=500" rel="popup_donate" class="poplight"><%= image_tag("/assets/icon_info.gif") %></a>
+		</p>
 	 
 </fieldset>
 <fieldset>

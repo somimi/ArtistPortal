@@ -6,8 +6,12 @@
 	<th>First Name</th>
 	<th>Last Name</th>
 	<th>Email</th>
+	<th>State</th>
+	<th>Country</th>
     <th>Title</th>
-    <th></th>
+	<th>For Sale</th>
+	<th>Price</th>
+    <th>Acceptance Status</th>
   </tr>
  </thead>
  <tbody>
@@ -16,8 +20,12 @@
 	<td><%= link_to installation_submission.artist.first_name, artist_path(installation_submission.artist) %></td>
 	<td><%= link_to installation_submission.artist.last_name, artist_path(installation_submission.artist) %></td>
 	<td><%= link_to installation_submission.artist.email, artist_path(installation_submission.artist) %></td>
+	<td><%= link_to installation_submission.artist.mailing_state, artist_path(installation_submission.artist) %>
+	<td><%= link_to installation_submission.artist.mailing_country, artist_path(installation_submission.artist) %>
     <td><%= link_to installation_submission.title, edit_installation_submission_path(installation_submission) %></td>
-    <td><%= link_to 'Delete', installation_submission, confirm: 'Are you sure?', method: :delete %></td>
+	<td><%= installation_submission.for_sale %>
+	<td><%= installation_submission.price %>
+    <td><%= best_in_place installation_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Declined", "Declined"],["Accepted", "Accepted"], ["Invited", "Invited"]], :nil => installation.acceptance_status %> %></td>
   </tr>
 <% end %>
  </tbody>

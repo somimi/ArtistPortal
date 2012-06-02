@@ -3,6 +3,9 @@ class InstallationSubmissionsController < ApplicationController
   before_filter :authenticate_user!
   # GET /installation_submissions
   # GET /installation_submissions.json
+  
+  respond_to :html, :json
+  
   def index
     if current_user.is_artist?
       @installation_submissions = current_user.artist.installation_submissions

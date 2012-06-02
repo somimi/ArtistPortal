@@ -25,7 +25,7 @@
     <td><%= link_to installation_submission.title, edit_installation_submission_path(installation_submission) %></td>
 	<td><%= installation_submission.for_sale %>
 	<td><%= installation_submission.price %>
-    <td><%= best_in_place installation_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Declined", "Declined"],["Accepted", "Accepted"], ["Invited", "Invited"]], :nil => installation.acceptance_status %> %></td>
+    <td><%= best_in_place installation_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Declined", "Declined"],["Accepted", "Accepted"], ["Invited", "Invited"]], :nil => installation_submission.acceptance_status %> %></td>
   </tr>
 <% end %>
  </tbody>

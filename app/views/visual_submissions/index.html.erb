@@ -19,6 +19,7 @@
 				<th>Height</th>
 				<th>Width</th>
 				<th>Depth</th>
+				<th>Wall Card</th>
 			  <% if !current_user.is_artist?  %>
 				<th>pro name</th>
 		        <th>Email</th>
@@ -41,6 +42,7 @@
 			  <td><%= visual_submission.height %> <%= visual_submission.h_unit %></td>
 			  <td><%= visual_submission.width %> <%= visual_submission.w_unit %></td>
 			  <td><%= visual_submission.depth %> <%= visual_submission.d_unit %></td>
+			  <td><%= visual_submission.wall_card_descrption %></td>
 			 <% if !current_user.is_artist? %>
 				  <td><%= visual_submission.artist.professional_name %></td>
 				  <% if current_user.is_admin? || current_user.is_handler? %>

@@ -27,6 +27,9 @@
 			    <% end %>
 				<th>State</th>
 				<th>Country</th>
+				<th>Received</th>
+				<th>Drop Off</th>
+				<th>Ship</th>
 				<th>Acceptance Status</th>
 			 <% end %>
 			 <% if current_user.is_admin? %>
@@ -57,7 +60,18 @@
 			     <td><%= best_in_place visual_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Declined", "Declined"],["Accepted", "Accepted"], ["Invited", "Invited"]], :nil => visual_submission.acceptance_status %></td>
 			 <% else %>
 				<td><%= visual_submission.acceptance_status %>
-			  <% end %>
+			 <% end %>
+			    <% visual_submission.received %>
+				<% if visual_submission.artist.delivery_arrangements == "I (or my authorized agent) will drop off my work in person"%>
+					<td>X</td>
+				<% else %>
+					<td></td>
+				<% end %>
+				<% if visual_submission.artist.delivery_arrangements == "I will ship my work to the Festival with my carrier of choice"%>
+					<td>X</td>
+				<% else %>
+					<td></td>
+				<% end %>
 			  <% if visual_submission.images.count >= 1 %>
 			    <td><%= link_to image_tag(visual_submission.images.first.image.url(:thumb)), visual_submission.images.first.image.url(:original), :target => "_blank" %></td>
 			 <% else %>

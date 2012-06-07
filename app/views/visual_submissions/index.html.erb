@@ -22,7 +22,9 @@
 				<th>Wall Card</th>
 			  <% if !current_user.is_artist?  %>
 				<th>pro name</th>
-		        <th>Email</th>
+				<% if current_user.is_admin? || current_user.is_handler? %>
+		        	<th>Email</th>
+			    <% end %>
 				<th>State</th>
 				<th>Country</th>
 				<th>Acceptance Status</th>

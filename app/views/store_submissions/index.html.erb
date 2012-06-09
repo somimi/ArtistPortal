@@ -3,6 +3,7 @@
 <table id="store-index" class="display">
   <thead>
 	  <tr>
+		<th>Art ID</th>
 	    <th>Title</th>
 	    <th>Type</th>
 		<th>Image</th>
@@ -15,6 +16,9 @@
 		<th>Price</th>
 	    <th>Qty Prop</th>
 	    <th>Qty Accept</th>
+		<th>Received</th>
+		<th>Drop Off</th>
+		<th>Ship</th>
 	    <% if current_user.is_admin? || current_user.is_store_admin? %>
 		<th>Notes</th>
 		<% end %>
@@ -23,6 +27,7 @@
   <tbody>
 	  <% for store_submission in @store_submissions %>
 	    <tr data-id = "<%= dom_id store_submission %>" >
+		  <td><%= store_submission.id %></td>
 	      <td><%= link_to store_submission.title, edit_store_submission_path(store_submission) %></td>
 		  <% if store_submission.type %>
 	      	<td><%= link_to store_submission.type, edit_store_submission_path(store_submission) %></td>
@@ -52,11 +57,21 @@
 	      <td><%= store_submission.quantity %></td>
 		  <% if current_user.is_admin? || current_user.is_store_admin? %>
 			<td><%= best_in_place store_submission, :quantity_accepted, :nil => store_submission.quantity_accepted %></td>
-		  
 		  <% else %>
 	      	<td><%= store_submission.quantity_accepted %></td>
 	 	  <% end %>
+		  <td><%= store_submission.quantity_received %></td>
 	      <% if current_user.is_admin? || current_user.is_store_admin? %>
+	      	<% if store_submission.artist.delivery_arrangements == "I (or my authorized agent) will drop off my work in person"%>
+				<td>X</td>
+			<% else %>
+				<td></td>
+			<% end %>
+			<% if store_submission.artist.delivery_arrangements == "I will ship my work to the Festival with my carrier of choice"%>
+				<td>X</td>
+			<% else %>
+				<td></td>
+			<% end %>
 		  <td>
 			<%= link_to "Notes", edit_notes_store_submission_path(store_submission), :class => "admin_notes"%>
 		  </td>

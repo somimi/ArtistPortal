@@ -113,6 +113,7 @@
 			<tr>
 				<th>ID</th>
 				<th>Title</th>
+				<th>Price</th>
 				<th>Acceptance Status</th>
 				<th>Art Recvd</th>
 			</tr>
@@ -122,6 +123,7 @@
 		<tr>
 			<td><%= link_to visual_submission.id, edit_visual_submission_path(visual_submission) %></td>
 			<td><%= link_to visual_submission.title, edit_visual_submission_path(visual_submission) %></td>
+			<td><%= visual_submission.sale_price %></td>
 			<td><%= link_to visual_submission.acceptance_status, edit_visual_submission_path(visual_submission) %></td>
 			<td><%= visual_submission.received %></td>
 		  
@@ -140,6 +142,7 @@
 				<th>ID</th>
 				<th>Title</th>
 				<th>Type</th>
+				<th>Price</th>
 				<th>Quantity Accepted</th>
 				<th>Quantity Received</th>
 			</tr>
@@ -150,6 +153,7 @@
 				<td><%= link_to store_submission.id, edit_store_submission_path(store_submission) %></td>
 				<td><%= link_to store_submission.title, edit_store_submission_path(store_submission) %></td>
 				<td><%= store_submission.type %></td>
+				<td><%= store_submission.price %></td>
 				<td><%= store_submission.quantity_accepted %></td>
 				<td><%= store_submission.quantity_received %></td>
 			</tr>

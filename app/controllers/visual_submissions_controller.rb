@@ -40,10 +40,10 @@ class VisualSubmissionsController < ApplicationController
 
   def show    
     #@visual_submission = VisualSubmission.find(params[:id])
-     if session[:query]
-       @next_submission = @visual_submission.next(session[:query])
-       @prev_submission = @visual_submission.previous(session[:query])
-     end 
+     #if session[:query]
+    #   @next_submission = @visual_submission.next(session[:query])
+     #  @prev_submission = @visual_submission.previous(session[:query])
+    # end 
   end
 
   def new

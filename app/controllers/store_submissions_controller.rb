@@ -49,7 +49,8 @@ class StoreSubmissionsController < ApplicationController
   def update
     @store_submission = StoreSubmission.find(params[:id])
     if @store_submission.update_attributes(params[:store_submission])
-      redirect_to store_submissions_path, :notice => "Successfully updated store submission."
+      #redirect_to store_submissions_path, :notice => "Successfully updated store submission."
+      respond_with @store_submission
     else
       render :action => 'edit'
     end

@@ -25,8 +25,15 @@
   <%= @store_submission.accepted %>
 </p>
 
+<% if current_user.is_handler? %>
+	<%= link_to "Back To This Artist", artist_path(@store_submission.artist) %><br />
+	<%= link_to "Return To Artist List", artists_path %>
+<% else %>
+
 <p>
   <%= link_to "Edit", edit_store_submission_path(@store_submission) %> |
   <%= link_to "Delete", @store_submission, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", store_submissions_path %>
 </p>
+
+<% end %>

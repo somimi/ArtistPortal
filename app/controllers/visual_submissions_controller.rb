@@ -38,7 +38,7 @@ class VisualSubmissionsController < ApplicationController
      
   end
 
-  def show
+  def show    
     #@visual_submission = VisualSubmission.find(params[:id])
      if session[:query]
        @next_submission = @visual_submission.next(session[:query])

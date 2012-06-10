@@ -94,11 +94,15 @@
 	</p>
 
 		<%#= link_to (image_tag @visual_submission.image.url(:small)), @visual_submission.image.url(:fullsize) %>
-
+	<% if current_user.is_handler? %>
+		<%= link_to "Return To Artist", artist_path(@visual_submission.artist) %>
+		<%= link_to "Return To Artist List", artists_path %>
+	<% else %>
 
 	<p>
 	  <%= link_to "Edit", edit_visual_submission_path(@visual_submission) %> |
 	  <%= link_to "Delete", @visual_submission, :confirm => 'Are you sure?', :method => :delete %> |
 	  <%= link_to "Back to submissions", visual_submissions_path %>
 	</p>
+	<% end %>
 <% end %>

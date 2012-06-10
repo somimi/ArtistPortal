@@ -11,7 +11,9 @@
 	    <th>Email</th>
 		<th>Visual Acceptance Status</th>
 		<th>Accepted into the Store</th>
-	    <th>Bio</th>
+		<% if current_user.is_admin? %>
+	    	<th>Bio</th>
+        <% end %>
 		<th>Notes</th>
 	  </tr>
 	</thead>
@@ -39,9 +41,11 @@
 			    No
 			<% end %>
 		  </td>
+		  <% if current_user.is_admin? %>
 	      <td>
 			<%= best_in_place artist, :bio %>
 		  </td>
+	      <% end %>
 		  <td><%= link_to "Notes", edit_notes_artist_path(artist), :class => "admin_notes"%></td>
 	    </tr>
 	  <% end %>

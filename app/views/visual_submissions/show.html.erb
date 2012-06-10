@@ -95,7 +95,7 @@
 
 		<%#= link_to (image_tag @visual_submission.image.url(:small)), @visual_submission.image.url(:fullsize) %>
 	<% if current_user.is_handler? %>
-		<%= link_to "Back To This Artist", artist_path(@visual_submission.artist) %>
+		<%= link_to "Back To This Artist", artist_path(@visual_submission.artist) %><br />
 		<%= link_to "Return To Artist List", artists_path %>
 	<% else %>
 

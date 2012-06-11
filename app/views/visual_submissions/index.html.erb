@@ -56,8 +56,10 @@
 				  <td><%= visual_submission.artist.mailing_state %></td>
 				  <td><%= visual_submission.artist.mailing_country %></td>
 			 <% end %>
-
-			    <td><% visual_submission.received %></td>
+			    <% if visual_submission.received? %>
+					<td>X</td>
+				<% else %>
+					<td></td>
 				<% if visual_submission.artist.delivery_arrangements == "I (or my authorized agent) will drop off my work in person"%>
 					<td>X</td>
 				<% else %>

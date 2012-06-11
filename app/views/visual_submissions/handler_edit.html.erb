@@ -20,7 +20,7 @@
 	</p>
 	 <p>
 		<%= f.label :quality %><br />
-		<%= f.select(:quality, options_for_select([['Perfect','Perfect'],['Damaged', 'Damaged']]), :id => "quality-check")  %>
+		<%= f.select(:quality, options_for_select([['Perfect','Perfect'],['Damaged', 'Damaged']], @visual_submission.quality),  :id => "quality-check")  %>
 	</p>
 	 <p id="quality-notes">
 		<%= f.label :quality_notes %><br />

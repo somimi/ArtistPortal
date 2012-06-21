@@ -115,8 +115,9 @@
 				<th>Title</th>
 				<th>Price</th>
 				<th>Acceptance Status</th>
-				<th>Art Recvd</th>
+				<th>Art Recvd</th>	
 				<th>Return Status</th>
+				<th>Test</th>
 			</tr>
 	    </thead>
 		<tbody>
@@ -128,6 +129,7 @@
 			<td><%= link_to visual_submission.acceptance_status, edit_visual_submission_path(visual_submission) %></td>
 			<td><%= visual_submission.received %></td>
 			<td><%= best_in_place visual_submission, :return_status, :type => :select, :collection => [["Sold", "Sold"],["Shipped", "Shipped"],["Donated", "Donated"]] %>
+			<td>Test</td>
 		</tr>
 		<% end %>
 		</tbody>

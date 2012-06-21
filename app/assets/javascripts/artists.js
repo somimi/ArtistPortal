@@ -54,11 +54,17 @@ $(document).ready(function(){
 	else
 	{
 		$("#shipping-co").hide("slow");
-	}
-	
-
-
-	
+	}	
   });
+
+  $("#best_in_place_visual_submission_2_return_status").change(function(){
+	
+  	selectVal = $("#best_in_place_visual_submission_2_return_status").val();
+
+	alert(selectVal);
+
+  
+ });
+
 
 });

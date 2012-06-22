@@ -168,7 +168,7 @@
 				<td><%= store_submission.price %></td>
 				<td><%= store_submission.quantity_accepted %></td>
 				<td><%= store_submission.quantity_received %></td>
-				<%= best_in_place store_submission, :quantity_returned, :nil => store_submission.quantity_returned %>
+				<td><%= best_in_place store_submission, :quantity_returned, :nil => store_submission.quantity_returned %></td>
 			</tr>
 		</tbody>
 		<% end %>
@@ -176,6 +176,5 @@
 <% end %>
 <p>
   <%= link_to "Edit", edit_artist_path(@artist) %> |
-  <%= link_to "Delete", @artist, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", artists_path %>
 </p>

@@ -16,7 +16,8 @@
 		<th>Ship</th>
 		<th>In Person</th>
 		<th>Donate</th>
-	    <% if current_user.is_admin? || current_user.is_store_admin? %>
+	    <th>Quantity Returned</th>
+	    <% if current_user.is_admin? || current_user.is_store_admin? || current_user.is_handler? %>
 		<th>Notes</th>
 		<% end %>
 	  </tr>
@@ -71,10 +72,10 @@
 			<% end %>
 			<% if current_user.is_store_admin? || current_user.is_admin? || current_user.is_handler? %>
 				<td><%= best_in_place store_submission, :quantity_returned, :nil => store_submission.quantity_returned %></td>
+				<td><%= link_to "Notes", edit_notes_store_submission_path(store_submission), :class => "admin_notes"%></td>
 			<% else %>
 				<td><%= store_submission.quantity_returned %></td>
 			<% end %>		
-		  <td><%= link_to "Notes", edit_notes_store_submission_path(store_submission), :class => "admin_notes"%></td>
 	      </tr>
 	  <% end %>
 </tbody>

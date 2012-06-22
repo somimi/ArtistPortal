@@ -54,7 +54,6 @@
 	      	<td><%= store_submission.quantity_accepted %></td>
 	 	  <% end %>
 		  <td><%= store_submission.quantity_received %></td>
-	      <% if current_user.is_admin? || current_user.is_store_admin? %>
 		    <% if visual_submission.artist.return_arrangements == "I will include a return shipping label with the original shipment of art (with the carrier of your choice)" %>
 				<td>X</td>
 			<% else %>
@@ -74,12 +73,8 @@
 				<td><%= best_in_place store_submission, :quantity_returned, :nil => store_submission.quantity_returned %></td>
 			<% else %>
 				<td><%= store_submission.quantity_returned %></td>
-			<% end %>
-			
-		  <td>
-			<%= link_to "Notes", edit_notes_store_submission_path(store_submission), :class => "admin_notes"%>
-		  </td>
-		  <% end %>
+			<% end %>		
+		  <td><%= link_to "Notes", edit_notes_store_submission_path(store_submission), :class => "admin_notes"%></td>
 	      </tr>
 	  <% end %>
 </tbody>

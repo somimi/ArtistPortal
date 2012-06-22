@@ -16,20 +16,16 @@
 			    <th>Title</th>
 			    <th>Medium</th>
 				<th>Price</th>
-				<th>Height</th>
-				<th>Width</th>
-				<th>Depth</th>
-				<th>Wall Card</th>
 			  <% if !current_user.is_artist?  %>
-				<th>pro name</th>
+				<th>First Name</th>
+				<th>Last Name</th>
 				<% if current_user.is_admin? || current_user.is_handler? %>
 		        	<th>Email</th>
 			    <% end %>
-				<th>State</th>
-				<th>Country</th>
-				<th>Received</th>
-				<th>Drop Off</th>
 				<th>Ship</th>
+				<th>In Person</th>
+				<th>Donate</th>
+				<th>Return Status</th>
 				<th>Acceptance Status</th>
 			 <% end %>
 			 <% if current_user.is_admin? %>
@@ -44,33 +40,29 @@
 		      <td><%= link_to visual_submission.title, visual_submission_path(visual_submission) %></td>
 		      <td><%= link_to visual_submission.medium, visual_submission_path(visual_submission) %></td>
 			  <td><%= visual_submission.sale_price %>
-			  <td><%= visual_submission.height %> <%= visual_submission.h_unit %></td>
-			  <td><%= visual_submission.width %> <%= visual_submission.w_unit %></td>
-			  <td><%= visual_submission.depth %> <%= visual_submission.d_unit %></td>
-			  <td><%= visual_submission.wall_card_description %></td>
 			 <% if !current_user.is_artist? %>
-				  <td><%= visual_submission.artist.professional_name %></td>
+				  <td><%= visual_submission.artist.first_name %></td>
+				  <td><%= visual_submission.artist.last_name %></td>
 				  <% if current_user.is_admin? || current_user.is_handler? %>
 				  	<td><%= visual_submission.artist.email %></td>
 			      <% end %>
-				  <td><%= visual_submission.artist.mailing_state %></td>
-				  <td><%= visual_submission.artist.mailing_country %></td>
 			 <% end %>
-			    <% if visual_submission.received? %>
+			    <% if visual_submission.artist.return_arrangements == "I will include a return shipping label with the original shipment of art (with the carrier of your choice)" %>
 					<td>X</td>
 				<% else %>
 					<td></td>
 				<% end %>
-				<% if visual_submission.artist.delivery_arrangements == "I (or my authorized agent) will drop off my work in person"%>
+				<% if visual_submission.artist.return_arrangements == "I (or my authorized agent) will pick up my unsold work in person" %>
 					<td>X</td>
 				<% else %>
 					<td></td>
 				<% end %>
-				<% if visual_submission.artist.delivery_arrangements == "I will ship my work to the Festival with my carrier of choice"%>
+				<% if visual_submission.artist.return_arrangements == "I will donate any unsold items to the Foundation" %>
 					<td>X</td>
 				<% else %>
 					<td></td>
 				<% end %>
+				<td><%= visual_submission.return_status %></td>
 				<% if current_user.is_admin? %>
 			     <td><%= best_in_place visual_submission, :acceptance_status, :type => :select, :collection => [["Undecided", "Undecided"],["Declined", "Declined"],["Accepted", "Accepted"], ["Invited", "Invited"]], :nil => visual_submission.acceptance_status %></td>
 			 <% else %>

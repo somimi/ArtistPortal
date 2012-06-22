@@ -9,15 +9,12 @@
 		<th>Image</th>
 		<th>Artist Email</th>
 		<th>Professional Name</th>
-		<th>Height</th>
-		<th>Width</th>
-		<th>Depth</th>
-		<th>Price</th>
 	    <th>Qty Prop</th>
 	    <th>Qty Accept</th>
 		<th>Received</th>
-		<th>Drop Off</th>
 		<th>Ship</th>
+		<th>In Person</th>
+		<th>Donate</th>
 	    <% if current_user.is_admin? || current_user.is_store_admin? %>
 		<th>Notes</th>
 		<% end %>
@@ -48,9 +45,6 @@
 		   </td>
 		  <td><%= mail_to store_submission.artist.email %></td>
 		  <td><%= link_to store_submission.artist.professional_name, artist_path(store_submission.artist) %></td>
-		  <td><%= store_submission.height %> <%= store_submission.h_unit %></td>
-		  <td><%= store_submission.width %> <%= store_submission.w_unit %></td>
-		  <td><%= store_submission.depth %> <%= store_submission.d_unit %></td>
 		  <td><%= store_submission.price %></td>
 	      <td><%= store_submission.quantity %></td>
 		  <% if current_user.is_admin? || current_user.is_store_admin? %>
@@ -60,16 +54,27 @@
 	 	  <% end %>
 		  <td><%= store_submission.quantity_received %></td>
 	      <% if current_user.is_admin? || current_user.is_store_admin? %>
-	      	<% if store_submission.artist.delivery_arrangements == "I (or my authorized agent) will drop off my work in person"%>
+		    <% if visual_submission.artist.return_arrangements == "I will include a return shipping label with the original shipment of art (with the carrier of your choice)" %>
 				<td>X</td>
 			<% else %>
 				<td></td>
 			<% end %>
-			<% if store_submission.artist.delivery_arrangements == "I will ship my work to the Festival with my carrier of choice"%>
+			<% if visual_submission.artist.return_arrangements == "I (or my authorized agent) will pick up my unsold work in person" %>
 				<td>X</td>
 			<% else %>
 				<td></td>
 			<% end %>
+			<% if visual_submission.artist.return_arrangements == "I will donate any unsold items to the Foundation" %>
+				<td>X</td>
+			<% else %>
+				<td></td>
+			<% end %>
+			<% if current_user.is_store_admin? || current_user.is_admin? || current_user.is_handler? %>
+				<td><%= best_in_place store_submission, :quantity_returned, :nil => store_submission.quantity_returned %></td>
+			<% else %>
+				<td><%= store_submission.quantity_returned %></td>
+			<% end %>
+			
 		  <td>
 			<%= link_to "Notes", edit_notes_store_submission_path(store_submission), :class => "admin_notes"%>
 		  </td>

@@ -10,5 +10,10 @@ module ApplicationHelper
     link_to_function text, "$(this).closest('form').submit()"
   end
   
+  def set_css_class(object, css_class)
+    " #{css_class}" if !object.blank?
+  end
+  
+  
   
 end

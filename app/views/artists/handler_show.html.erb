@@ -59,7 +59,11 @@
 			<%= best_in_place @artist, :return_arrangements, :type => :select, :collection => [["I (or my authorized agent) will pick up my unsold work in person", "I (or my authorized agent) will pick up my unsold work in person"], ["I will include a return shipping label with the original shipment of art (with the carrier of your choice)", "I will include a return shipping label with the original shipment of art (with the carrier of your choice)"],["I will donate any unsold items to the Foundation", "I will donate any unsold items to the Foundation"], ["I would prefer to have my shipping account directly billed", "I would prefer to have my shipping account directly billed"],["See Notes", "See Notes"]], :nil => @artist.return_arrangements, :id => "ship-check" %>
 		</p>
 		<p>
-			<%= link_to "Notes", edit_notes_artist_path(@artist), :class => "admin_notes"%>
+			<% if @artist.admin_notes.blank? %>
+				<%= link_to "Notes", edit_notes_artist_path(@artist), :class =>  "admin_notes" %>
+			<% else %>
+				<%= link_to "Notes", edit_notes_artist_path(@artist), :class =>  "admin_notes notes-exist" %>
+			<% end %>
 		</p>
 </fieldset>
 <fieldset>

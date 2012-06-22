@@ -473,3 +473,6 @@ clear: both;
   background: url(/assets/red_pen.png) no-repeat right;
   background-color: #CCC;
 }
+
+.notes-exist { font-weight:bold; }
+

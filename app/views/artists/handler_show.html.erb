@@ -156,6 +156,7 @@
 				<th>Price</th>
 				<th>Quantity Accepted</th>
 				<th>Quantity Received</th>
+				<th>Quantity Returned</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -167,6 +168,7 @@
 				<td><%= store_submission.price %></td>
 				<td><%= store_submission.quantity_accepted %></td>
 				<td><%= store_submission.quantity_received %></td>
+				<%= best_in_place store_submission, :quantity_returned, :nil => store_submission.quantity_returned %>
 			</tr>
 		</tbody>
 		<% end %>

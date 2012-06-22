@@ -54,17 +54,17 @@
 	      	<td><%= store_submission.quantity_accepted %></td>
 	 	  <% end %>
 		  <td><%= store_submission.quantity_received %></td>
-		    <% if visual_submission.artist.return_arrangements == "I will include a return shipping label with the original shipment of art (with the carrier of your choice)" %>
+		    <% if store_submission.artist.return_arrangements == "I will include a return shipping label with the original shipment of art (with the carrier of your choice)" %>
 				<td>X</td>
 			<% else %>
 				<td></td>
 			<% end %>
-			<% if visual_submission.artist.return_arrangements == "I (or my authorized agent) will pick up my unsold work in person" %>
+			<% if store_submission.artist.return_arrangements == "I (or my authorized agent) will pick up my unsold work in person" %>
 				<td>X</td>
 			<% else %>
 				<td></td>
 			<% end %>
-			<% if visual_submission.artist.return_arrangements == "I will donate any unsold items to the Foundation" %>
+			<% if store_submission.artist.return_arrangements == "I will donate any unsold items to the Foundation" %>
 				<td>X</td>
 			<% else %>
 				<td></td>

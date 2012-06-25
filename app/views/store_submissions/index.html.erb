@@ -12,12 +12,13 @@
 		<th>Price</th>
 	    <th>Qty Prop</th>
 	    <th>Qty Accept</th>
-		<th>Received</th>
 		<th>Ship</th>
 		<th>In Person</th>
 		<th>Donate</th>
+		<th>Quantity Received</th>
 		<th>Quantity Sold</th>
 	    <th>Quantity Returned</th>
+		<th>Discrepancy</th>
 	    <% if current_user.is_admin? || current_user.is_store_admin? || current_user.is_handler? %>
 		<th>Notes</th>
 		<% end %>
@@ -55,7 +56,7 @@
 		  <% else %>
 	      	<td><%= store_submission.quantity_accepted %></td>
 	 	  <% end %>
-		  <td><%= store_submission.quantity_received %></td>
+
 		    <% if store_submission.artist.return_arrangements == "I will include a return shipping label with the original shipment of art (with the carrier of your choice)" %>
 				<td>X</td>
 			<% else %>
@@ -72,8 +73,10 @@
 				<td></td>
 			<% end %>
 			<% if current_user.is_store_admin? || current_user.is_admin? || current_user.is_handler? %>
+				<td><%= store_submission.quantity_received %></td>
 				<td><%= best_in_place store_submission, :quantity_sold, :nil => store_submission.quantity_sold %></td>
 				<td><%= best_in_place store_submission, :quantity_returned, :nil => store_submission.quantity_returned %></td>
+				<td><%= store_submission.discrepancy %></td>
 				<td><%= link_to "Notes", edit_notes_store_submission_path(store_submission), :class => "admin_notes"%></td>
 			<% else %>
 				<td><%= store_submission.quantity_returned %></td>

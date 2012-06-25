@@ -140,7 +140,7 @@
 			<td><%= visual_submission.sale_price %></td>
 			<td><%= link_to visual_submission.acceptance_status, edit_visual_submission_path(visual_submission) %></td>
 			<td><%= visual_submission.received %></td>
-			<td><%= best_in_place visual_submission, :return_status, :type => :select, :collection => [["Sold", "Sold"],["Shipped", "Shipped"],["Donated", "Donated"]] %>
+			<td><%= best_in_place visual_submission, :return_status, :type => :select, :collection => [["Sold", "Sold"],["Shipped", "Shipped"],["Donated", "Donated"], ["Picked Up", "Picked Up"]], :nil => visual_submission.return_status %>
 			<td>Test</td>
 		</tr>
 		<% end %>

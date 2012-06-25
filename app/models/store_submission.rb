@@ -23,7 +23,7 @@ class StoreSubmission < ActiveRecord::Base
   
   def discrepancy  
     if !quantity_returned.nil? and !quantity_sold.nil? and !quantity_received.nil?
-      difference = quantity_recieved - (quantity_returned + quantity_sold) 
+      difference = quantity_received - (quantity_returned + quantity_sold) 
       return difference
     end
   end

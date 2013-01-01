@@ -11,6 +11,7 @@ class Artist < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name, :email, :phone, :mailing_address_line1, :mailing_city, :mailing_state, :mailing_country, :bio, :email_confirmation, :mailing_zip
   validates_confirmation_of :email
+
   attr_accessible :first_name, :last_name, :user_id, :professional_name, :email, :phone, :mailing_address_line1, :mailing_address_line2, :mailing_city, :mailing_zip, :shipping_address_line1, :shipping_address_line2, :shipping_city, :shipping_zip, :shipping_state, :mailing_state, :shipping_country, :mailing_country, :shipping_same_as_mail, :shipping_account, :bio, :require_representation, :literary_paid, :visual_paid, :film_paid, :installation_paid, :shipping_company, :store_paid, :email_confirmation, :delivery_arrangements, :return_arrangements, :representname, :represent_gallery, :acceptance_status, :admin_notes, :shipping_label, :paperwork_complete, :paperwork_notes, :store_shipped_with_with_visual, :pickedup_by, :tracking_number
   attr_accessor :email_confirmation
 

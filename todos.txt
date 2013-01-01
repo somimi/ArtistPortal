@@ -1,0 +1,3 @@
+- Convert dev and test dbs to sql lite
+- Add autotest and switch to minitest
+- Clean up Gemfile

@@ -1,0 +1,5 @@
+Can't run rake because I'm missing app_config.yml. Need an example file.
+- Removed it and things still ran consider deleting. 
+
+Validations that actual exist don't match what's in the database. 
+

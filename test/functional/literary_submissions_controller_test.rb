@@ -2,6 +2,7 @@ require 'test_helper'
 
 class LiterarySubmissionsControllerTest < ActionController::TestCase
   setup do
+    sign_in :user, users(:admin)
     @literary_submission = literary_submissions(:one)
   end
 
@@ -21,7 +22,7 @@ class LiterarySubmissionsControllerTest < ActionController::TestCase
       post :create, literary_submission: @literary_submission.attributes
     end
 
-    assert_redirected_to literary_submission_path(assigns(:literary_submission))
+    assert_redirected_to literary_submissions_path
   end
 
   test "should show literary_submission" do
@@ -36,7 +37,7 @@ class LiterarySubmissionsControllerTest < ActionController::TestCase
 
   test "should update literary_submission" do
     put :update, id: @literary_submission.to_param, literary_submission: @literary_submission.attributes
-    assert_redirected_to literary_submission_path(assigns(:literary_submission))
+    assert_redirected_to literary_submissions_path
   end
 
   test "should destroy literary_submission" do

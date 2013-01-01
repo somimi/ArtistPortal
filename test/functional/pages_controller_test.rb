@@ -15,5 +15,4 @@ class PagesControllerTest < ActionController::TestCase
     get :faq
     assert_response :success
   end
-
 end

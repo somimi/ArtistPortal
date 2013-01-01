@@ -2,6 +2,7 @@ require 'test_helper'
 
 class InstallationSubmissionsControllerTest < ActionController::TestCase
   setup do
+    sign_in :user, users(:admin)
     @installation_submission = installation_submissions(:one)
   end
 
@@ -21,7 +22,7 @@ class InstallationSubmissionsControllerTest < ActionController::TestCase
       post :create, installation_submission: @installation_submission.attributes
     end
 
-    assert_redirected_to installation_submission_path(assigns(:installation_submission))
+    assert_redirected_to installation_submissions_path
   end
 
   test "should show installation_submission" do
@@ -36,7 +37,7 @@ class InstallationSubmissionsControllerTest < ActionController::TestCase
 
   test "should update installation_submission" do
     put :update, id: @installation_submission.to_param, installation_submission: @installation_submission.attributes
-    assert_redirected_to installation_submission_path(assigns(:installation_submission))
+    assert_redirected_to installation_submissions_path
   end
 
   test "should destroy installation_submission" do

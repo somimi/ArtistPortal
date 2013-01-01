@@ -22,6 +22,7 @@ one:
   gear_requirements: MyText
   festival_history: MyText
   additional_notes: MyText
+  artist: one
 
 two:
   musical_style: MyString
@@ -45,3 +46,4 @@ two:
   gear_requirements: MyText
   festival_history: MyText
   additional_notes: MyText
+  artist: two

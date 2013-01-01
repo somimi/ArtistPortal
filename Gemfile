@@ -13,6 +13,7 @@ group :assets do
   gem 'uglifier'
 end
 
+gem 'kaminari'
 gem 'jquery-rails'
 gem 'devise', '1.5.3'
 gem 'paperclip'

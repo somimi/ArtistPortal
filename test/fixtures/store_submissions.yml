@@ -1,15 +1,13 @@
 one:
-  artist_id: 1
   title: MyString
   description: MyString
   quantity: MyString
   quantity_accepted: MyString
-  accepted: 
+  artist: one
 
 two:
-  artist_id: 1
   title: MyString
   description: MyString
   quantity: MyString
   quantity_accepted: MyString
-  accepted: 
+  artist: 2

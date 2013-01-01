@@ -1,8 +1,8 @@
 class LiterarySubmissionsController < ApplicationController
-  helper_method :sort_column, :sort_direction  
+  helper_method :sort_column, :sort_direction
   before_filter :authenticate_user!
   #load_and_authorize_resource
-  
+
   # GET /literary_submissions
   # GET /literary_submissions.json
   def index
@@ -10,12 +10,12 @@ class LiterarySubmissionsController < ApplicationController
       @literary_submissions = current_user.artist.literary_submissions
     elsif current_user.is_admin? || current_user.is_literary_admin?
       #@literary_submissions = LiterarySubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
-       @literary_submissions = LiterarySubmission.all
+      @literary_submissions = LiterarySubmission.all
       session[:query] = @literary_submissions.map(&:id)
       @count = LiterarySubmission.search(params[:search]).count
     else
-      
-    end 
+
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -54,7 +54,7 @@ class LiterarySubmissionsController < ApplicationController
   # POST /literary_submissions.json
   def create
     @literary_submission = LiterarySubmission.new(params[:literary_submission])
-     @literary_submission.artist_id = current_user.artist.id
+    @literary_submission.artist_id = current_user.artist.id
 
     respond_to do |format|
       if @literary_submission.save
@@ -94,15 +94,15 @@ class LiterarySubmissionsController < ApplicationController
       format.json { head :ok }
     end
   end
-  
-  private  
-  def sort_column  
-    LiterarySubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
-  end  
-    
-  def sort_direction  
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"    
+
+  private
+  def sort_column
+    LiterarySubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"
   end
-  
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  end
+
 
 end

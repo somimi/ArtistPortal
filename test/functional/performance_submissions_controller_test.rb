@@ -2,6 +2,7 @@ require 'test_helper'
 
 class PerformanceSubmissionsControllerTest < ActionController::TestCase
   setup do
+    sign_in :user, users(:admin)
     @performance_submission = performance_submissions(:one)
   end
 
@@ -21,7 +22,7 @@ class PerformanceSubmissionsControllerTest < ActionController::TestCase
       post :create, performance_submission: @performance_submission.attributes
     end
 
-    assert_redirected_to performance_submission_path(assigns(:performance_submission))
+    assert_redirected_to performance_submissions_path
   end
 
   test "should show performance_submission" do
@@ -36,7 +37,7 @@ class PerformanceSubmissionsControllerTest < ActionController::TestCase
 
   test "should update performance_submission" do
     put :update, id: @performance_submission.to_param, performance_submission: @performance_submission.attributes
-    assert_redirected_to performance_submission_path(assigns(:performance_submission))
+    assert_redirected_to performance_submissions_path
   end
 
   test "should destroy performance_submission" do

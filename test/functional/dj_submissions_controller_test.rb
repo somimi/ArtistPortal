@@ -2,6 +2,7 @@ require 'test_helper'
 
 class DjSubmissionsControllerTest < ActionController::TestCase
   setup do
+    sign_in :user, users(:admin)
     @dj_submission = dj_submissions(:one)
   end
 

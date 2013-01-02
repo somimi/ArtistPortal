@@ -1,19 +1,19 @@
 class DjSubmissionsController < ApplicationController
-  helper_method :sort_column, :sort_direction  
+  helper_method :sort_column, :sort_direction
   before_filter :authenticate_user!
-  
+
   # GET /dj_submissions
   # GET /dj_submissions.json
   def index
     if current_user.is_artist?
       @dj_submissions = current_user.artist.dj_submissions
-    elsif current_user.is_admin? 
+    elsif current_user.is_admin?
       @dj_submissions = DjSubmission.joins(:artist).search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(30)
       session[:query] = @dj_submissions.map(&:id)
       @count = DjSubmission.search(params[:search]).count
     else
-      
-    end 
+
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -92,13 +92,13 @@ class DjSubmissionsController < ApplicationController
       format.json { head :ok }
     end
   end
-  
-  private  
-  def sort_column  
-    DjSubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
-  end  
-    
-  def sort_direction  
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"    
+
+  private
+  def sort_column
+    DjSubmission.column_names.include?(params[:sort]) ? params[:sort] : "musical_style"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
 end

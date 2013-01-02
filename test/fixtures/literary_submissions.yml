@@ -3,7 +3,10 @@
 one:
   title: MyString
   comments: MyText
+  lit_type: Prose
+  artist: one
 
 two:
   title: MyString
   comments: MyText
+  artist: two

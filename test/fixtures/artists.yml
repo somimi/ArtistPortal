@@ -1,7 +1,7 @@
 one:
   first_name: MyString
   last_name: MyString
-  user_id: 1
+  user: one
   visual_paid: false
   literary_paid: false
   professional_name: MyString
@@ -27,7 +27,33 @@ one:
 two:
   first_name: MyString
   last_name: MyString
-  user_id: 1
+  user: two
+  visual_paid: false
+  literary_paid: false
+  professional_name: MyString
+  email: MyString
+  phone: MyString
+  mailing_address_line1: MyString
+  mailing_address_line2: MyString
+  mailing_city: MyString
+  mailing_zip: MyString
+  shipping_address_line1: MyString
+  shipping_address_line2: MyString
+  shipping_city: MyString
+  shipping_zip: MyString
+  shipping_state: MyString
+  mailing_state: MyString
+  shipping_country: MyString
+  mailing_country: MyString
+  shipping_same_as_mail: false
+  shipping_account: MyString
+  bio: MyText
+  require_representation: false
+
+admin:
+  first_name: Admin
+  last_name: Administrator
+  user: admin
   visual_paid: false
   literary_paid: false
   professional_name: MyString

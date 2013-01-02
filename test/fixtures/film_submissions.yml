@@ -5,9 +5,11 @@ one:
   description: MyText
   duration: 1
   delivery_type: MyString
+  artist: one
 
 two:
   title: MyString
   description: MyText
   duration: 1
   delivery_type: MyString
+  artist: two

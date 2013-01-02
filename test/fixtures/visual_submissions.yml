@@ -24,6 +24,7 @@ one:
   jury_two_vote: MyString
   jury_three_vote: MyString
   jury_four_vote: MyString
+  artist: one
 
 two:
   title: MyString
@@ -51,3 +52,4 @@ two:
   jury_two_vote: MyString
   jury_three_vote: MyString
   jury_four_vote: MyString
+  artist: two

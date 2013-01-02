@@ -2,6 +2,7 @@ require 'test_helper'
 
 class FilmSubmissionsControllerTest < ActionController::TestCase
   setup do
+    sign_in :user, users(:admin)
     @film_submission = film_submissions(:one)
   end
 
@@ -21,7 +22,7 @@ class FilmSubmissionsControllerTest < ActionController::TestCase
       post :create, film_submission: @film_submission.attributes
     end
 
-    assert_redirected_to film_submission_path(assigns(:film_submission))
+    assert_redirected_to film_submissions_path
   end
 
   test "should show film_submission" do
@@ -36,7 +37,7 @@ class FilmSubmissionsControllerTest < ActionController::TestCase
 
   test "should update film_submission" do
     put :update, id: @film_submission.to_param, film_submission: @film_submission.attributes
-    assert_redirected_to film_submission_path(assigns(:film_submission))
+    assert_redirected_to film_submissions_path
   end
 
   test "should destroy film_submission" do

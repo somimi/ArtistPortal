@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
     t.string   "shipping_account"
     t.text     "bio"
     t.boolean  "require_representation"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "shipping_company"
     t.string   "delivery_arrangements"
     t.string   "return_arrangements"
@@ -81,8 +81,8 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
     t.text     "gear_requirements"
     t.text     "festival_history"
     t.text     "additional_notes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.integer  "artist_id"
   end
 
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
     t.text     "description"
     t.string   "duration"
     t.string   "delivery_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "url"
     t.integer  "artist_id"
     t.string   "acceptance_status"
@@ -104,8 +104,8 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "visual_submission_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "installation_images", :force => true do |t|
@@ -114,8 +114,8 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
     t.integer  "installation_image_file_size"
     t.datetime "installation_image_updated_at"
     t.integer  "installation_submission_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "installation_submissions", :force => true do |t|
@@ -127,8 +127,8 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
     t.string   "w_unit"
     t.integer  "depth"
     t.string   "d_unit"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.integer  "artist_id"
     t.boolean  "want_funding"
     t.boolean  "for_sale"
@@ -139,8 +139,8 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
   create_table "literary_submissions", :force => true do |t|
     t.string   "title"
     t.text     "comments"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "doc_file_name"
     t.string   "doc_content_type"
     t.integer  "doc_file_size"
@@ -155,8 +155,8 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
     t.integer  "user_id"
     t.string   "status"
     t.string   "transaction_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "product"
   end
 
@@ -171,8 +171,8 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
     t.string   "url1"
     t.string   "url2"
     t.string   "url3"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.boolean  "mainstage_performance"
     t.boolean  "ambient_performance"
     t.integer  "artist_id"
@@ -182,8 +182,8 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
@@ -196,8 +196,8 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
     t.string   "quantity"
     t.string   "quantity_accepted"
     t.boolean  "accepted"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -241,8 +241,8 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                  :null => false
+    t.datetime "updated_at",                                                  :null => false
     t.string   "role",                                  :default => "artist"
     t.string   "juror"
   end
@@ -276,8 +276,8 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
     t.integer  "jury_two_vote"
     t.integer  "jury_three_vote"
     t.integer  "jury_four_vote"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

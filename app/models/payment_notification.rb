@@ -3,9 +3,9 @@ class PaymentNotification < ActiveRecord::Base
   serialize :params
   after_create :payment_accepted
   attr_accessible :params, :user_id, :status, :transaction_id, :product
-  
+
   private
-  
+
   def payment_accepted
     if status == "Completed"
       if product == "1"

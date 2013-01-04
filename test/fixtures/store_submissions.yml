@@ -1,13 +1,18 @@
 one:
-  title: MyString
-  description: MyString
-  quantity: MyString
-  quantity_accepted: MyString
+  title: One
+  description: Store Submission One
+  quantity: 1
+  quantity_accepted: 1
+  accepted: true
+  visual_submission: one
   artist: one
 
 two:
-  title: MyString
-  description: MyString
-  quantity: MyString
-  quantity_accepted: MyString
-  artist: 2
+  title: Two
+  description: Store Submission Two
+  quantity: 1
+  quantity_accepted: 1
+  accepted: true
+  visual_submission: two
+  artist: two
+

@@ -1,0 +1,9 @@
+test:
+  paypal_url: "http://www.example.com"
+  paypal_secret: "secret"
+  paypal_cert_id: 1
+
+development:
+  paypal_url: "http://www.example.com"
+  paypal_secret: "secret"
+  paypal_cert_id: 1

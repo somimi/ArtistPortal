@@ -55,7 +55,6 @@ class User < ActiveRecord::Base
     role == "art guide"
   end
 
-
   def paypal_visual_encrypted(return_url, notify_url)
 
     values = {

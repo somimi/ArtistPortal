@@ -1,1 +1,2 @@
 - Convert dev and test dbs to sql lite
+- Refactor search function in models into mixin since its common across most models

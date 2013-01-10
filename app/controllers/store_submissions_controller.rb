@@ -1,9 +1,9 @@
 class StoreSubmissionsController < ApplicationController
-  helper_method :sort_column, :sort_direction  
+  helper_method :sort_column, :sort_direction
   before_filter :authenticate_user!
-  
+
   respond_to :html, :json
-  
+
   def index
     if current_user.is_artist? || current_user.is_invited?
       @store_submissions = current_user.artist.store_submissions
@@ -13,8 +13,8 @@ class StoreSubmissionsController < ApplicationController
       session[:query] = @store_submissions.map(&:id)
       @count = StoreSubmission.search(params[:search]).count
     else
-      
-    end 
+
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,7 +42,7 @@ class StoreSubmissionsController < ApplicationController
 
   def edit
     @store_submission = StoreSubmission.find(params[:id])
-    
+
     if current_user.is_handler?
       render "handler_edit"
     end
@@ -63,33 +63,33 @@ class StoreSubmissionsController < ApplicationController
     @store_submission.destroy
     redirect_to store_submissions_url, :notice => "Successfully deleted store submission."
   end
-  
+
   def duplicate
     @original_submission = StoreSubmission.find(params[:id])
     @store_submission = @original_submission.dup
     @store_submission.save
     redirect_to store_submissions_url, :notice => "Succesfully duplicated store submission."
   end
-  
+
   def edit_notes
-    @store_submission = StoreSubmission.find(params[:id])  
+    @store_submission = StoreSubmission.find(params[:id])
     render :edit_notes, :layout => false
-    
+
   end
-  
+
   def images
     store_submission = StoreSubmission.find(params[:id])
     style = params[:style] ? params[:style] : 'original'
     send_file store_submission.image.path(style), :type => store_submission.image_content_type, :disposition => 'inline'
   end
-  
-  private  
-  def sort_column  
-    StoreSubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"  
-  end  
-    
-  def sort_direction  
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"    
+
+  private
+  def sort_column
+    StoreSubmission.column_names.include?(params[:sort]) ? params[:sort] : "title"
   end
-  
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  end
+
 end

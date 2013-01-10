@@ -16,4 +16,20 @@ class ArtistTest < ActiveSupport::TestCase
 
     assert new_artist.valid?
   end
+
+  def test_north_america_true
+    mexico = Artist.new(:mailing_country => "Mexico")
+    canada = Artist.new(:mailing_country => "Canada")
+    usa = Artist.new(:mailing_country => "United States")
+
+    assert mexico.north_america?
+    assert canada.north_america?
+    assert usa.north_america?
+  end
+
+  def test_north_america_false
+    germany = Artist.new(:mailing_country => "Germany")
+
+    assert !germany.north_america?
+  end
 end

@@ -1,5 +1,5 @@
 one:
-  first_name: MyString
+  first_name: ArtistOne
   last_name: MyString
   user: one
   visual_paid: false
@@ -25,7 +25,7 @@ one:
   require_representation: false
 
 two:
-  first_name: MyString
+  first_name: ArtistTwo
   last_name: MyString
   user: two
   visual_paid: false

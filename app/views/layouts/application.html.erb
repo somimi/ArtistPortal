@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Submit Your Art!" %></title>
+    <title>
+      <%= content_for?(:title) ? yield(:title) : "Submit Your Art!" %>
+    </title>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
@@ -9,54 +11,54 @@
   </head>
   <body>
     <div id="pagewidth">
-	<div id="header"><center><%= link_to image_tag("/assets/top-banner.jpg"), "http://www.seattleerotic.org" %></center></div>
-		<div id="navHolder" class="clearfix">
-			<%= link_to "Home", root_path %>
-			<%= link_to "Visual Art Call", pages_visual_art_path %>
-			<%= link_to "Store Art Call", pages_store_path %>
-			<%= link_to "Literary Art Call", pages_literary_path %>
-			<%= link_to "Video/Short Film Call", pages_film_video_path %>
-			<%= link_to "Installation Art Call", pages_installation_path %>
-			<%= link_to "Performance Call", pages_performance_path %>
-			<%= link_to "DJ Call", pages_dj_path %>
-			<%= link_to "FAQ", pages_faq_path %>
-		</div>
+      <div id="header"><center><%= link_to image_tag("/assets/top-banner.jpg"), "http://www.seattleerotic.org" %></center></div>
+      <div id="navHolder" class="clearfix">
+	<%= link_to "Home", root_path %>
+	<%= link_to "Visual Art Call", pages_visual_art_path %>
+	<%= link_to "Store Art Call", pages_store_path %>
+	<%= link_to "Literary Art Call", pages_literary_path %>
+	<%= link_to "Video/Short Film Call", pages_film_video_path %>
+	<%= link_to "Installation Art Call", pages_installation_path %>
+	<%= link_to "Performance Call", pages_performance_path %>
+	<%= link_to "DJ Call", pages_dj_path %>
+	<%= link_to "FAQ", pages_faq_path %>
+      </div>
 
-		<div id="wrapper" class="clearfix">
-			<div id="user_nav">
-					<% if user_signed_in? %>
-						Signed in as <%= current_user.email %>
-						<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-				 	<% end %>
-			</div>
-
-			<div id="leftcol">
-				<% if user_signed_in? %>
-				  <% if current_user.is_artist? %>
-				     <%= render 'layouts/artist_menu' %>
-				  <% elsif current_user.is_juror? %>
-					 <%= render 'layouts/juror_menu' %>
-				  <% elsif current_user.is_invited? %>
-					 <%= render 'layouts/invited_menu'%>
-				  <% else %>
-					 <%= render 'layouts/admin_menu' %>
-				  <% end %>
-				<% else %>
-				  <%= render 'layouts/login_form' %>
-				<% end %>
-			</div>
-
-			<div id="content">
-			   <p class="notice"><%= notice %></p>
-		       <p class="alert"><%= alert %></p>
-
-		      <%= content_tag :h1, yield(:title) if show_title? %>
-		      <%= yield %>
-
-		    </div>
-	    </div>
+      <div id="wrapper" class="clearfix">
+	<div id="user_nav">
+	  <% if user_signed_in? %>
+	    Signed in as <%= current_user.email %>
+	    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+	  <% end %>
 	</div>
- 
+
+	<div id="leftcol">
+	  <% if user_signed_in? %>
+	    <% if current_user.is_artist? %>
+	      <%= render 'layouts/artist_menu' %>
+	    <% elsif current_user.is_juror? %>
+	      <%= render 'layouts/juror_menu' %>
+ 	    <% elsif current_user.is_invited? %>
+	      <%= render 'layouts/invited_menu'%>
+	    <% else %>
+	      <%= render 'layouts/admin_menu' %>
+	    <% end %>
+	  <% else %>
+            <%= render 'layouts/login_form' %>
+	  <% end %>
+	</div>
+
+	<div id="content">
+	  <p class="notice"><%= notice %></p>
+	  <p class="alert"><%= alert %></p>
+
+	  <%= content_tag :h1, yield(:title) if show_title? %>
+	  <%= yield %>
+
+	</div>
+      </div>
+    </div>
+    
   </body>
 </html>
 

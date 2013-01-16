@@ -2,57 +2,54 @@
 
 <table id="literary-index" class="display">
   <thead>
-	  <tr>
-			<th>First Name</th>
-			<th>Last Name</th>
-		    <th>Title</th>
-			<th>Type</th>
-		    <th>File Name</th>
-			<th>Acceptance Status</th>
-	  </tr>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Title</th>
+      <th>Type</th>
+      <th>File Name</th>
+      <th>Acceptance Status</th>
+    </tr>
   </thead>
   <tbody>
-	<% @literary_submissions.each do |literary_submission| %>
-	  <tr>
-			  <td><%= link_to literary_submission.artist.first_name, edit_artist_path(literary_submission.artist_id) %>
-			  <td><%= link_to literary_submission.artist.last_name, edit_artist_path(literary_submission.artist_id) %>
-		      <td><%= link_to literary_submission.title, edit_literary_submission_path(literary_submission) %></td>
-			  <td><%= link_to literary_submission.lit_type, edit_literary_submission_path(literary_submission)%></td>
-		      <td><%= link_to literary_submission.doc_file_name, literary_submission.doc.url %></td>
-			  <td><%= link_to literary_submission.acceptance_status, edit_literary_submission_path(literary_submission)%>
-	  </tr>
-
-<% end %>
+    <% @literary_submissions.each do |literary_submission| %>
+      <tr>
+        <td><%= link_to literary_submission.artist.first_name, edit_artist_path(literary_submission.artist_id) %>
+        <td><%= link_to literary_submission.artist.last_name, edit_artist_path(literary_submission.artist_id) %>
+        <td><%= link_to literary_submission.title, edit_literary_submission_path(literary_submission) %></td>
+        <td><%= link_to literary_submission.lit_type, edit_literary_submission_path(literary_submission)%></td>
+        <td><%= link_to literary_submission.doc_file_name, literary_submission.doc.url %></td>
+        <td><%= link_to literary_submission.acceptance_status, edit_literary_submission_path(literary_submission)%>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
 <br />
 
-  <% if current_user.is_artist? %>
+<% if current_user.is_artist? %>
+  <% if @literary_submissions.count < 5 %>
+    <p><%= link_to "New Literary Submission", new_literary_submission_path %></p>
+  <% else %>
+    <p>You have submitted the maximum number of entries</p>
+  <% end %>
+<% else %>
+  <p>Total: <%= @count %></p>
+<% end %>
 
-	<% if @literary_submissions.count < 5 %>
-		<p><%#= link_to "New Literary Submission", new_literary_submission_path %></p>
-	<% else %>
-		<p>You have submitted the maximum number of entries</p>
-	<% end %>
- 	
-   <% else %>
-		<p>Total: <%= @count %></p>
-   <% end %>
+<br/>
 
-<br />
-
-<br />
+<br/>
 <p>You have until the official deadline to make any changes to your submission(s). Once the deadline hits, your submission(s) will be complete. Once decisions have been made, the site will be updated to indicate if any of your pieces were accepted, and you will also receive an email announcing the jury notifications.</p>
 
 
 
 <ul>
-	<li>Artists may submit up to five entries.</li>
-	<li>All entries must be in .doc or .rtf format only.</li>
-	<li>All entries must follow standard manuscript format including 12 pt. font and 1-inch margins.</li>
-	<li>Each page must have only the title and page number in the top right hand corner (no other identifying information).</li>
-	<li>Poetry must be no more than 2 pages, single-spaced.</li>
-	<li>Short stories must be no more than 1,500 words, 7 pages, double-spaced.</li>
-	<li>Short one-act plays or scripts must be no more than 15 pages, including scene setup.</li>
+  <li>Artists may submit up to five entries.</li>
+  <li>All entries must be in .doc or .rtf format only.</li>
+  <li>All entries must follow standard manuscript format including 12 pt. font and 1-inch margins.</li>
+  <li>Each page must have only the title and page number in the top right hand corner (no other identifying information).</li>
+  <li>Poetry must be no more than 2 pages, single-spaced.</li>
+  <li>Short stories must be no more than 1,500 words, 7 pages, double-spaced.</li>
+  <li>Short one-act plays or scripts must be no more than 15 pages, including scene setup.</li>
 </ul>

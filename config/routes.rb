@@ -10,24 +10,24 @@ ArtistPortal::Application.routes.draw do
   resources :literary_submissions
 
   #get "asset/images"
-  
+
  match 'images/:id/images' => 'images#images'
  match 'installation_images/:id/installation_images' => 'installation_images#installation_images'
  match 'store_submissions/:id/duplicate' => 'store_submissions#duplicate', :as => :duplicate_store_submission
  #match 'store_submissions/:id/edit_notes' => 'store_submissions#edit_notes', :as => :edit_notes
-  
+
   resources :store_submissions
   resources :store_submissions do
     member do
       get :images
     end
-    
+
     member do
       get :edit_notes
     end
   end
   resources :payment_notifications
-  
+
   get "users/index"
   get "users/edit"
   get "users/update"
@@ -54,17 +54,17 @@ ArtistPortal::Application.routes.draw do
       get :edit_notes
     end
   end
-  
+
   resources :visual_submissions
   resources :visual_submissions do
       member do
        get :images
      end
   end
-  
-  
-  
-  
+
+
+
+
   root :to => "pages#home"
 
   # The priority is based upon order of creation:

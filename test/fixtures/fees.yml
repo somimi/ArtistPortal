@@ -1,0 +1,9 @@
+visual:
+  name: VisualFee
+  amount: 10
+  active: true
+
+literary:
+  name: LiteraryFee
+  amount: 15
+  active: true

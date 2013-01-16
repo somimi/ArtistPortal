@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+visual_fee = Fee.find_or_initialize_by_name("2013_VISUAL")
+visual_fee.amount = 32
+visual_fee.save!

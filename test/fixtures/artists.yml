@@ -1,11 +1,11 @@
 one:
-  first_name: ArtistOne
-  last_name: MyString
+  first_name: ArtistOneFirst
+  last_name: ArtistOneLast
   user: one
   visual_paid: false
   literary_paid: false
-  professional_name: MyString
-  email: MyString
+  professional_name: ArtistOneProfessional
+  email: artist_one@example.com
   phone: MyString
   mailing_address_line1: MyString
   mailing_address_line2: MyString

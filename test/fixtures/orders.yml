@@ -1,0 +1,7 @@
+paid:
+  artist: one
+  status: <%= Order::PAID %>
+
+unpaid:
+  artist: two
+  status: <%= Order::UNPAID %>

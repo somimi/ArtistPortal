@@ -17,4 +17,49 @@ admin:
   encrypted_password: "$2a$10$YEuWvKbjkaxSXo7nTS.NR.bJbHSLwAvHRj5Igs1YBnjPQ6h8u6B7."
   role: "admin"
 
+juror:
+  email: "juror@example.com"
+  encrypted_password: "$2a$10$YEuWvKbjkaxSXo7nTS.NR.bJbHSLwAvHRj5Igs1YBnjPQ6h8u6B7."
+  role: "juror"
+
+handler:
+  email: "handler@example.com"
+  encrypted_password: "$2a$10$YEuWvKbjkaxSXo7nTS.NR.bJbHSLwAvHRj5Igs1YBnjPQ6h8u6B7."
+  role: "handler"
+
+film_admin:
+  email: "film_admin@example.com"
+  encrypted_password: "$2a$10$YEuWvKbjkaxSXo7nTS.NR.bJbHSLwAvHRj5Igs1YBnjPQ6h8u6B7."
+  role: "film_admin"
+
+literary_admin:
+  email: "literary_admin@example.com"
+  encrypted_password: "$2a$10$YEuWvKbjkaxSXo7nTS.NR.bJbHSLwAvHRj5Igs1YBnjPQ6h8u6B7."
+  role: "literary_admin"
+
+installation_admin:
+  email: "installation_admin@example.com"
+  encrypted_password: "$2a$10$YEuWvKbjkaxSXo7nTS.NR.bJbHSLwAvHRj5Igs1YBnjPQ6h8u6B7."
+  role: "installation_admin"
+
+store_admin:
+  email: "store_admin@example.com"
+  encrypted_password: "$2a$10$YEuWvKbjkaxSXo7nTS.NR.bJbHSLwAvHRj5Igs1YBnjPQ6h8u6B7."
+  role: "store_admin"
+
+performance_admin:
+  email: "performance_admin@example.com"
+  encrypted_password: "$2a$10$YEuWvKbjkaxSXo7nTS.NR.bJbHSLwAvHRj5Igs1YBnjPQ6h8u6B7."
+  role: "performance_admin"
+
+art_guide:
+  email: "art_guide@example.com"
+  encrypted_password: "$2a$10$YEuWvKbjkaxSXo7nTS.NR.bJbHSLwAvHRj5Igs1YBnjPQ6h8u6B7."
+  role: "art_guide"
+
+invited:
+  email: "invited@example.com"
+  encrypted_password: "$2a$10$YEuWvKbjkaxSXo7nTS.NR.bJbHSLwAvHRj5Igs1YBnjPQ6h8u6B7."
+  role: "invited"
+
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120625050631) do
+ActiveRecord::Schema.define(:version => 20130123034257) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -86,6 +86,15 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
     t.integer  "artist_id"
   end
 
+  create_table "fees", :force => true do |t|
+    t.string   "name"
+    t.integer  "amount"
+    t.boolean  "active",      :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "description"
+  end
+
   create_table "film_submissions", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -148,6 +157,20 @@ ActiveRecord::Schema.define(:version => 20120625050631) do
     t.integer  "artist_id"
     t.string   "lit_type"
     t.string   "acceptance_status"
+  end
+
+  create_table "order_items", :force => true do |t|
+    t.integer  "fee_id",     :null => false
+    t.integer  "order_id",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "artist_id",  :null => false
+    t.string   "status",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "payment_notifications", :force => true do |t|

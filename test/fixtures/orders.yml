@@ -1,9 +1,7 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 paid:
-  artist_id: one
+  artist: one
   status: <%= Order::PAID %>
 
 unpaid:
-  artist_id: two
+  artist: two
   status: <%= Order::UNPAID %>

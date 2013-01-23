@@ -9,6 +9,8 @@ ArtistPortal::Application.routes.draw do
 
   resources :literary_submissions
 
+  resources :orders, :only => [:create, :new]
+
   #get "asset/images"
 
  match 'images/:id/images' => 'images#images'
@@ -61,9 +63,6 @@ ArtistPortal::Application.routes.draw do
        get :images
      end
   end
-
-
-
 
   root :to => "pages#home"
 

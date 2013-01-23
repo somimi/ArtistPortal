@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116040216) do
+ActiveRecord::Schema.define(:version => 20130123034257) do
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -89,9 +89,10 @@ ActiveRecord::Schema.define(:version => 20130116040216) do
   create_table "fees", :force => true do |t|
     t.string   "name"
     t.integer  "amount"
-    t.boolean  "active",     :default => true
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.boolean  "active",      :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "description"
   end
 
   create_table "film_submissions", :force => true do |t|

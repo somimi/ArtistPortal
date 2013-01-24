@@ -46,6 +46,18 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal [fees(:visual), fees(:literary)].sort, order.fees.sort
   end
 
+  def test_paid_true
+    order = Order.create!(:artist => artists(:one),
+                          :status => Order::PAID)
+    assert order.paid?
+  end
+
+  def test_paid_false
+    order = Order.create!(:artist => artists(:one),
+                          :status => Order::UNPAID)
+    refute order.paid?
+  end
+
   def test_update_artist_paid_fields
     # visual_paid
     # literary_paid

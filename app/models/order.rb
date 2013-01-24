@@ -14,4 +14,9 @@ class Order < ActiveRecord::Base
   def fees
     order_items.map { |item| item.fee }
   end
+
+  def paid?
+    self.status == PAID
+  end
+
 end

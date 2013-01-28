@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.11'
 
 gem 'mysql2'
 
@@ -25,6 +25,7 @@ gem 'rails-dev-tweaks', '~> 0.6.1'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-ui-rails'
 gem 'colorbox-on-rails'
+gem 'stripe'
 
 
 group :test do

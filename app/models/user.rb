@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_one :artist
-  validates_presence_of :email, :password, :role
+  validates_presence_of :email, :role
+  validates_presence_of :password, :on => :create
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable

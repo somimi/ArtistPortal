@@ -25,6 +25,7 @@ gem 'rails-dev-tweaks', '~> 0.6.1'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-ui-rails'
 gem 'colorbox-on-rails'
+gem 'stripe'
 
 
 group :test do

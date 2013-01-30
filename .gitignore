@@ -6,3 +6,4 @@ tmp/
 *.jpg
 app_config.yml
 secure/*
+stripe.rb

@@ -8,4 +8,22 @@ literary:
   name: LiteraryFee
   amount: 15
   active: true
-  description: Visual Fee
+  description: Literary Fee
+
+installation:
+  name: InstallationFee
+  amount: 15
+  active: true
+  description: Installation Fee
+
+film:
+  name: FilmFee
+  amount: 15
+  active: true
+  description: Film Fee
+
+store:
+  name: StoreFee
+  amount: 15
+  active: true
+  description: Store Fee

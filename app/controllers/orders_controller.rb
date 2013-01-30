@@ -26,6 +26,12 @@ class OrdersController < ApplicationController
       @order.order_items.build(:fee_id => fee_id.to_i)
     end
 
+    # Payment logic goes here
+    # if Payment.succeeds
+    #   @order.status = Order::PAID
+    #   @order.save!
+    # end
+
     respond_to do |format|
       if @order.save
         format.html { redirect_to pages_home_path, notice: 'Order was successfully created.' }

@@ -25,8 +25,8 @@ one:
   require_representation: false
 
 two:
-  first_name: ArtistTwo
-  last_name: MyString
+  first_name: ArtistTwoFirst
+  last_name: ArtistTwoLast
   user: two
   visual_paid: false
   literary_paid: false

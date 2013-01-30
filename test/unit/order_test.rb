@@ -58,11 +58,26 @@ class OrderTest < ActiveSupport::TestCase
     refute order.paid?
   end
 
-  def test_update_artist_paid_fields
-    # visual_paid
-    # literary_paid
-    # installation_paid
-    # film_paid
-    # store_paid
+  def test_update_paid_fields_user
+    artist = artists(:one)
+
+    order = Order.create!(:artist => artist,
+                          :status => Order::PAID)
+
+    fees_to_test = [[fees(:visual), 'visual_paid'],
+                    [fees(:literary), 'literary_paid'],
+                    [fees(:installation), 'installation_paid'],
+                    [fees(:film), 'film_paid'],
+                    [fees(:store), 'store_paid']]
+
+    fees_to_test.each do |fee, user_field|
+      OrderItem.create!( :fee => fee,
+                         :order => order)
+
+      artist.reload
+      assert artist.send(user_field), "failure setting #{user_field}"
+    end
+
+    assert_equal 5, order.fees.count
   end
 end

@@ -14,6 +14,8 @@ class OrdersControllerTest < ActionController::TestCase
     assert_equal 2, new_order.order_items.count
     assert_equal [fees(:visual), fees(:literary)].sort, new_order.fees.sort
     assert_equal users(:one).artist, new_order.artist
+
+    assert_equal 25, new_order.total
   end
 
   # Todo failure cases

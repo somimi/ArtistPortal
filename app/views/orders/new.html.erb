@@ -1,7 +1,7 @@
 <h1>New order</h1>
 
 <%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
+  <% if @order.errors.any? || flash[:errors] %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
@@ -10,6 +10,7 @@
         <li><%= msg %></li>
       <% end %>
       </ul>
+      <h2><%= flash[:errors] -%></h2>
     </div>
   <% end %>
 
@@ -26,6 +27,13 @@
         <td><%= check_box_tag "fee_ids[]", fee.id -%> </td>
       </tr>
     <% end -%>
+  </table>
+  <%= hidden_field_tag :stripe_card_token %>
+  <% end %>
+</form>
+
+<form id="payment_info">
+  <h3>Payment Information</h3>
   <div class="field">  
       <%= label_tag :card_number, "Credit Card Number " %>  
       <%= text_field_tag :card_number, nil, name: nil %>  
@@ -38,13 +46,9 @@
     <%= label_tag :card_month, "Card Expiration" %>  
     <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>  
     <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
-    <%= f.hidden_field :stripe_card_token %>  
   </div>
-  </table>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <%= submit_tag "Submit Fees" %>
+</form>
 
 <%= link_to 'Back', orders_path %>

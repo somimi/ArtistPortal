@@ -1,12 +1,12 @@
 class Order < ActiveRecord::Base
   belongs_to :artist
   has_many :order_items, :autosave => true
-  
-  attr_accessible :stripe_card_token
 
   validates_presence_of :artist, :status
 
   after_save :update_paid_fields_user
+
+  attr_accessible :artist, :status
 
   PAID = "paid"
   UNPAID = "unpaid"

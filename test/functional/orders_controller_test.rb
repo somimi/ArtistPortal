@@ -1,9 +1,15 @@
 require 'test_helper'
 
 class OrdersControllerTest < ActionController::TestCase
+  def paid_charge
+    Struct.new("Charge", :paid)
+    Struct::Charge.new(true)
+  end
+
   def test_create
     sign_in :user, users(:one)
 
+    Stripe::Charge.stubs(:create).returns(paid_charge)
     assert_difference 'Order.count', 1 do
       post :create, { "fee_ids" => [fees(:visual), fees(:literary)]}
     end

@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
+  title: Installation One 
   description: MyText
   height: 1
   h_unit: MyString
@@ -12,7 +12,7 @@ one:
   artist: one
 
 two:
-  title: MyString
+  title: Installation Two
   description: MyText
   height: 1
   h_unit: MyString

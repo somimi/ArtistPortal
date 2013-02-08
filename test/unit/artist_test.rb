@@ -72,4 +72,13 @@ class ArtistTest < ActiveSupport::TestCase
     artists = Artist.search("artist_one@example.com")
     assert_equal [artists(:one)], artists
   end
+
+  def test_unpaid_fees
+    artist = artists(:one)
+    artist.literary_paid = true
+    artist.save!
+
+    expected = Fee.all - [fees(:literary)]
+    assert_equal expected.sort, artist.unpaid_fees.sort
+  end
 end

@@ -41,6 +41,21 @@ class OrdersControllerTest < ActionController::TestCase
     end
   end
 
+  def test_new_does_not_show_fees_already_paid
+    user = users(:one)
+    user.artist.literary_paid = true
+    user.artist.save!
+
+    sign_in :user, user
+
+    get :new
+    assert_response :success
+
+    fees_except_literary = Fee.all - [fees(:literary)]
+
+    assert_equal fees_except_literary.sort, assigns(:fees).sort
+  end
+
   # setup do
   #   @order = orders(:one)
   # end

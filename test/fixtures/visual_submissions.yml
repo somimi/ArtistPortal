@@ -1,5 +1,5 @@
 one:
-  title: MyString
+  title: VisualSubmissionOne
   medium: MyString
   dimension: MyString
   height: MyString
@@ -27,7 +27,7 @@ one:
   artist: one
 
 two:
-  title: MyString
+  title: VisualSubmissionTwo
   medium: MyString
   dimension: MyString
   height: MyString

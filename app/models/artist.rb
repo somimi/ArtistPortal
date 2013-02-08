@@ -30,4 +30,24 @@ class Artist < ActiveRecord::Base
     end
   end
 
+  def unpaid_fees
+    unpaid_fees = []
+    Fee.all.each do |fee|
+      case fee.name
+      when /VISUAL/i
+        unpaid_fees << fee unless self.visual_paid
+      when /LITERARY/i
+        unpaid_fees << fee unless self.literary_paid
+      when /INSTALLATION/i
+        unpaid_fees << fee unless self.installation_paid
+      when /FILM/i
+        unpaid_fees << fee unless self.film_paid
+      when /STORE/i
+        unpaid_fees << fee unless self.store_paid
+      else
+        unpaid_fees << fee
+      end
+    end
+    unpaid_fees
+  end
 end

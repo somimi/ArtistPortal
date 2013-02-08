@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   # GET /orders/new.json
   def new
     @order = Order.new
-    @fees = Fee.all
+    @fees = current_user.artist.unpaid_fees
 
     respond_to do |format|
       format.html # new.html.erb

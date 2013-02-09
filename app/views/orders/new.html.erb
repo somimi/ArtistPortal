@@ -1,5 +1,3 @@
-<h1>New order</h1>
-
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? || flash[:errors] %>
     <div id="error_explanation">
@@ -31,11 +29,17 @@
   <%= hidden_field_tag :stripe_card_token %>
   <% end %>
 </form>
-
+<br />
 <form id="payment_info">
-  <h3>Payment Information</h3>
+	<fieldset>
+  <legend>Payment Information</legend>
+  <div>
   <div class="field">  
-      <%= label_tag :card_number, "Credit Card Number " %>  
+	   <%= label_tag :name, "Name" %>
+	   <%= text_field_tag :name, nil, name: nil %>  
+  </div>
+  <div class="field">  
+      <%= label_tag :card_number, "Credit Card Number " %>
       <%= text_field_tag :card_number, nil, name: nil %>  
   </div>  
   <div class="field">  
@@ -47,8 +51,13 @@
     <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>  
     <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
   </div>
-
+<div id="stripe_error">
+	<noscript>Javascript is not enabled and is required for this form.  First enable it in your web browser settings.</noscript>
+</div>
+</fieldset>
   <%= submit_tag "Submit Fees" %>
 </form>
 
 <%= link_to 'Back', orders_path %>
+
+

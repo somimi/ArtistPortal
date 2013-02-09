@@ -31,12 +31,16 @@ class Order < ActiveRecord::Base
       case fee.name
       when /VISUAL/i
         self.artist.visual_paid = true
+        self.artist.store_paid = true
       when /LITERARY/i
         self.artist.literary_paid = true
+        self.artist.store_paid = true
       when /INSTALLATION/i
         self.artist.installation_paid = true
+        self.artist.store_paid = true
       when /FILM/i
         self.artist.film_paid = true
+        self.artist.store_paid = true
       when /STORE/i
         self.artist.store_paid = true
       end

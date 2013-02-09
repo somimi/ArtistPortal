@@ -50,4 +50,12 @@ class Artist < ActiveRecord::Base
     end
     unpaid_fees
   end
+  
+  def unpaid_menu
+    if self.visual_paid and self.literary_paid and self.installation_paid and self.film_paid and self.store_paid
+      true
+    else
+      false
+    end
+  end
 end

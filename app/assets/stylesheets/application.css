@@ -299,16 +299,6 @@ form div label {
 
 }
 
-
-
-/*
-form div select, form div textarea {
-  width: 200px;
-  padding: 1px 3px;
-  margin: 0 0 0 0;
-}
-*/
-
 .index-table th .current {
   padding-right: 12px;
   background-repeat: no-repeat;
@@ -339,16 +329,6 @@ form div select, form div textarea {
 	
 	
 }
-
-/*
-#navHolder {
-        position: absolute;
-        top: 118px;
-        left: 222px;
-        height: 16px;
-}
-
-*/
 
 #three-dee {
 	display: none;
@@ -453,8 +433,7 @@ html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 }
 
 #jury_info {
-
-clear: both;
+	clear: both;
 }
 
 .best_in_place {
@@ -475,4 +454,8 @@ clear: both;
 }
 
 .notes-exist { font-weight:bold; }
+
+#stripe_error {
+  color: #D00;
+}
 

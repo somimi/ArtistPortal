@@ -11,6 +11,7 @@ order =
 
   processCard: ->
     card =
+      name: $('#name').val()
       number: $('#card_number').val()
       cvc: $('#card_code').val()
       expMonth: $('#card_month').val()
@@ -22,5 +23,5 @@ order =
       $('#stripe_card_token').val(response.id)
       $('#new_order').submit()
     else
-      $('#error_explanation').text(response.error.message)
+      $('#strip_error').text(response.error.message)
       $('input[type=submit]').attr('disabled', false)
